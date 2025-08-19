@@ -1,0 +1,49 @@
+<h5>System Users</h5>
+<table>
+    <tr>
+       <th>Id</th>
+       <th>Navn</th>
+       <th>Brugernavn</th>
+       <th>Type</th>
+    </tr>
+    {{#each systemusers}}
+        <tr>
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{username}}</td>
+            {{#if admin}}
+              <td>Administrator</td>
+            {{else}}
+              <td>Standard</td>
+            {{/if}}
+            <td></td>
+            <td><input type="button" onclick="deleteUser({{id}});" value="Slet"/>   </td>
+        </tr>
+    {{/each}}
+</table>
+
+<h5>Create new system User<h5>
+<div id="newUser">
+  <label>Name</label><input type="text" name="name"/><br>
+  <label>Username</label><input type="text" name="username" /><br>
+  <label>Password</label><input type="password" name="password"/><br>
+  <label>Administrator</label> <input type="checkbox" name="admin"/><br>
+  <input type="button" onclick="createUser();" value="Opret" name="Opret"/>
+</div>
+
+<script>
+
+function createUser() {
+  submitForm("newUser","systemUser/Create",reloadPage);
+}
+
+function deleteUser(id) {
+  submitForm("","systemUser/Delete",reloadPage);
+}
+
+function reloadPage() {
+  loadPage(null,"systemUser/readAll","kss_test",onPageLoaded);
+}
+</script>
+
+

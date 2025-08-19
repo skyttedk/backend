@@ -1,0 +1,11 @@
+
+        $faneId =  $_POST["tabId"];
+        $userId =  $_POST["user"];
+        if($userId == "alle"){
+            $options = array('fane' => $faneId);
+        } else {
+            $options = array('fane' => $faneId,'valgshopansvarlig' =>$userId,);
+        }
+        $shopboard = Shopboard::find('all', $options);
+        response::success(make_json("shop", $shopboard));
+        ----------------------------------------------------------------

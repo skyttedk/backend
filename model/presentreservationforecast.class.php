@@ -1,0 +1,69 @@
+<?php
+
+// Model ShopUserLog
+// Created by Bitworks
+//***************************************************************
+//   (PRI) id                            int(11)             NO
+//***************************************************************
+
+class PresentReservationForecast extends ActiveRecord\Model {
+
+    static $table_name = "present_reservation_forecast";
+    static $primary_key = "id";
+    static $before_save = array('onBeforeSave');
+    static $after_save = array('onAfterSave');
+    static $before_create = array('onBeforeCreate');
+    static $after_create = array('onAfterCreate');
+    static $before_update = array('onBeforeUpdate');
+    static $after_update = array('onAfterUpdate');
+    static $before_destroy = array('onBeforeDestroy'); // virker ikke
+    static $after_destroy = array('onAfterDestroy');
+
+    // Trigger functions
+    function onBeforeSave() {
+
+    }
+
+    function onAfterSave() {
+
+    }
+
+    function onBeforeCreate() {
+
+
+    }
+
+    function onAfterCreate() {
+
+    }
+
+    function onBeforeUpdate() {
+
+
+    }
+
+    function onAfterUpdate() {
+
+    }
+
+    function onBeforeDestroy() {
+
+    }
+
+    function onAfterDestroy() {
+
+    }
+
+    function validateFields() {
+
+    }
+    //---------------------------------------------------------------------------------------
+    // Static CRUD Methods
+    //---------------------------------------------------------------------------------------
+
+
+    //---------------------------------------------------------------------------------------
+    // Custom Methods
+    //---------------------------------------------------------------------------------------
+
+}

@@ -1,0 +1,73 @@
+.pt-shop{
+    text-align: left;
+    height: 600px;
+    width: 97%;
+  display:flex;
+}
+
+.pt-shop .left{
+  width: 50%;
+
+  display: inline-block;
+
+}
+.pt-shop .right{
+  width: 50%;
+  display: inline-block;
+
+}
+.pt-shop fieldset{
+    padding:5px;
+}
+.pt-shop .img-container {
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-top:1px solid black;
+    padding:10px;
+    margin-top:10px;
+
+}
+.pt-shop .salesman{
+  overflow-y: scroll;
+  height: 250px;
+}
+
+.pt-shop .salesman tr {
+    outline: thin solid;
+}
+.pt-shop .salesman .selected{
+    background-color: #CCC11C;
+}
+.pt-shop .layout tr {
+    outline: thin solid;
+}
+.pt-shop .layout .selected{
+    background-color: #CCC11C;
+}
+.pt-shop legend{
+  font-weight: bold;
+}
+.pt-shop #ptPdfLink{
+  width: 95%;
+  padding:5px;
+  font-size: 14px;
+
+}
+.pt-shop #ptLink{
+  width: 95%;
+  padding:5px;
+  font-size: 14px;
+
+}
+.pt-shop #salePersonLink{
+    width: 95%;
+    padding:5px;
+    font-size: 14px;
+
+}
+progress{
+  display: none
+}
+

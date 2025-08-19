@@ -1,0 +1,1295 @@
+
+Shop 0 [3502]: previewasdf
+
+Generating fordelingsrapport for shopid: 3502 - previewasdf
+Generating sumliste for shopid: 3502 - previewasdf
+
+
+Shop 1 [3503]: SCH Testvalgshop
+
+Generating fordelingsrapport for shopid: 3503 - SCH Testvalgshop
+Generating sumliste for shopid: 3503 - SCH Testvalgshop
+
+
+Shop 2 [3512]: testgo
+
+Generating fordelingsrapport for shopid: 3512 - testgo
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 3512 - testgo
+
+
+Shop 3 [4156]: SCT Transport A/S - 2022
+
+Generating fordelingsrapport for shopid: 4156 - SCT Transport A/S - 2022
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4156 - SCT Transport A/S - 2022
+
+
+Shop 4 [4093]: NO22GKNorge
+
+Generating fordelingsrapport for shopid: 4093 - NO22GKNorge
+Generating sumliste for shopid: 4093 - NO22GKNorge
+
+
+Shop 5 [4515]: METRO THERM - Deadline 1/11-23 att: Pia Kolind
+
+Generating fordelingsrapport for shopid: 4515 - METRO THERM - Deadline 1/11-23 att: Pia Kolind
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4515 - METRO THERM - Deadline 1/11-23 att: Pia Kolind
+
+
+Shop 6 [4241]: no22extraisachsen
+
+Generating fordelingsrapport for shopid: 4241 - no22extraisachsen
+Generating sumliste for shopid: 4241 - no22extraisachsen
+
+
+Shop 7 [4261]: no22ekstraprincess4
+
+Generating fordelingsrapport for shopid: 4261 - no22ekstraprincess4
+Generating sumliste for shopid: 4261 - no22ekstraprincess4
+
+
+Shop 8 [4248]: no23LTI
+
+Generating fordelingsrapport for shopid: 4248 - no23LTI
+Generating sumliste for shopid: 4248 - no23LTI
+
+
+Shop 9 [4262]: NO22Isachsen2
+
+Generating fordelingsrapport for shopid: 4262 - NO22Isachsen2
+Generating sumliste for shopid: 4262 - NO22Isachsen2
+
+
+Shop 10 [4274]: West Pharmaceutical Services Danmark A/S - 2023
+
+Generating fordelingsrapport for shopid: 4274 - West Pharmaceutical Services Danmark A/S - 2023
+Generating sumliste for shopid: 4274 - West Pharmaceutical Services Danmark A/S - 2023
+
+
+Shop 11 [4246]: NO22Princessekstra
+
+Generating fordelingsrapport for shopid: 4246 - NO22Princessekstra
+Generating sumliste for shopid: 4246 - NO22Princessekstra
+
+
+Shop 12 [4323]: Lagersalg Norge 2023
+
+Generating fordelingsrapport for shopid: 4323 - Lagersalg Norge 2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4323 - Lagersalg Norge 2023
+
+
+Shop 13 [3106]: Lagersalg NO 2023
+
+Generating fordelingsrapport for shopid: 3106 - Lagersalg NO 2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 3106 - Lagersalg NO 2023
+
+
+Shop 14 [4368]: Taksatorringen-2023
+
+Generating fordelingsrapport for shopid: 4368 - Taksatorringen-2023
+Generating sumliste for shopid: 4368 - Taksatorringen-2023
+
+
+Shop 15 [4402]: Test Delegate/Projectum-2023
+
+Generating fordelingsrapport for shopid: 4402 - Test Delegate/Projectum-2023
+Generating sumliste for shopid: 4402 - Test Delegate/Projectum-2023
+
+
+Shop 16 [4432]: Sommergaver 2023
+
+Generating fordelingsrapport for shopid: 4432 - Sommergaver 2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4432 - Sommergaver 2023
+
+
+Shop 17 [4783]: Adecco-2023
+
+Generating fordelingsrapport for shopid: 4783 - Adecco-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4783 - Adecco-2023
+
+
+Shop 18 [4873]: Eltel Networks A/S-2023
+
+Generating fordelingsrapport for shopid: 4873 - Eltel Networks A/S-2023
+Generating sumliste for shopid: 4873 - Eltel Networks A/S-2023
+
+
+Shop 19 [4527]: Redmark, Godkendt Revisionspartnerselskab-2023
+
+Generating fordelingsrapport for shopid: 4527 - Redmark, Godkendt Revisionspartnerselskab-2023
+Generating sumliste for shopid: 4527 - Redmark, Godkendt Revisionspartnerselskab-2023
+
+
+Shop 20 [4880]: HF & V-2023
+
+Generating fordelingsrapport for shopid: 4880 - HF & V-2023
+Generating sumliste for shopid: 4880 - HF & V-2023
+
+
+Shop 21 [5083]: Julegavekortet 720 - demoshop - 2023
+
+Generating fordelingsrapport for shopid: 5083 - Julegavekortet 720 - demoshop - 2023
+Generating sumliste for shopid: 5083 - Julegavekortet 720 - demoshop - 2023
+
+
+Shop 22 [4956]: Kirkelig Forening For Den Indre Mission i DK-2023
+
+Generating fordelingsrapport for shopid: 4956 - Kirkelig Forening For Den Indre Mission i DK-2023
+Generating sumliste for shopid: 4956 - Kirkelig Forening For Den Indre Mission i DK-2023
+
+
+Shop 23 [4715]: Dantra A/S-2023
+
+Generating fordelingsrapport for shopid: 4715 - Dantra A/S-2023
+Generating sumliste for shopid: 4715 - Dantra A/S-2023
+
+
+Shop 24 [4438]: Plantas A/S-2023
+
+Generating fordelingsrapport for shopid: 4438 - Plantas A/S-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4438 - Plantas A/S-2023
+
+
+Shop 25 [5066]: Svane Pleje / Frit Valg Svane Pleje / Dan Ren
+
+Generating fordelingsrapport for shopid: 5066 - Svane Pleje / Frit Valg Svane Pleje / Dan Ren
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5066 - Svane Pleje / Frit Valg Svane Pleje / Dan Ren
+
+
+Shop 26 [4810]: Kohberg-2023
+
+Generating fordelingsrapport for shopid: 4810 - Kohberg-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4810 - Kohberg-2023
+
+
+Shop 27 [4511]: Syddjurs Kommune-2023 SO430115
+
+Generating fordelingsrapport for shopid: 4511 - Syddjurs Kommune-2023 SO430115
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4511 - Syddjurs Kommune-2023 SO430115
+
+
+Shop 28 [4950]: Skjern Paper-2023
+
+Generating fordelingsrapport for shopid: 4950 - Skjern Paper-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4950 - Skjern Paper-2023
+
+
+Shop 29 [4580]: Ejendomsvirke A/S-2023
+
+Generating fordelingsrapport for shopid: 4580 - Ejendomsvirke A/S-2023
+Generating sumliste for shopid: 4580 - Ejendomsvirke A/S-2023
+
+
+Shop 30 [5274]: SENG -2023 SO431515
+
+Generating fordelingsrapport for shopid: 5274 - SENG -2023 SO431515
+Generating sumliste for shopid: 5274 - SENG -2023 SO431515
+
+
+Shop 31 [4625]: Verdo-2023
+
+Generating fordelingsrapport for shopid: 4625 - Verdo-2023
+Generating sumliste for shopid: 4625 - Verdo-2023
+
+
+Shop 32 [4876]: Danske Shoppingcentre P/S-2023
+
+Generating fordelingsrapport for shopid: 4876 - Danske Shoppingcentre P/S-2023
+Generating sumliste for shopid: 4876 - Danske Shoppingcentre P/S-2023
+
+
+Shop 33 [5493]: Brøndum - 2023 - Grønland-2023
+
+Generating fordelingsrapport for shopid: 5493 - Brøndum - 2023 - Grønland-2023
+Generating sumliste for shopid: 5493 - Brøndum - 2023 - Grønland-2023
+
+
+Shop 34 [4332]: Ambulance syd 2023-2023
+
+Generating fordelingsrapport for shopid: 4332 - Ambulance syd 2023-2023
+Generating sumliste for shopid: 4332 - Ambulance syd 2023-2023
+
+
+Shop 35 [4538]: New Power Partners ApS-2023
+
+Generating fordelingsrapport for shopid: 4538 - New Power Partners ApS-2023
+Generating sumliste for shopid: 4538 - New Power Partners ApS-2023
+
+
+Shop 36 [4507]: EPOKE A/S-2023
+
+Generating fordelingsrapport for shopid: 4507 - EPOKE A/S-2023
+Generating sumliste for shopid: 4507 - EPOKE A/S-2023
+
+
+Shop 37 [4921]: Ka. Interiør A/S-2023
+
+Generating fordelingsrapport for shopid: 4921 - Ka. Interiør A/S-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4921 - Ka. Interiør A/S-2023
+
+
+Shop 38 [5267]: Hjørring Private Realskole-2023
+
+Generating fordelingsrapport for shopid: 5267 - Hjørring Private Realskole-2023
+Generating sumliste for shopid: 5267 - Hjørring Private Realskole-2023
+
+
+Shop 39 [5412]: Flextek A/S-2023
+
+Generating fordelingsrapport for shopid: 5412 - Flextek A/S-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5412 - Flextek A/S-2023
+
+
+Shop 40 [5697]: Probeco A/S-2023
+
+Generating fordelingsrapport for shopid: 5697 - Probeco A/S-2023
+Generating sumliste for shopid: 5697 - Probeco A/S-2023
+
+
+Shop 41 [4304]: Kirsten test-2023
+
+Generating fordelingsrapport for shopid: 4304 - Kirsten test-2023
+Generating sumliste for shopid: 4304 - Kirsten test-2023
+
+
+Shop 42 [4493]: Havi Logistics ApS-2023
+
+Generating fordelingsrapport for shopid: 4493 - Havi Logistics ApS-2023
+Generating sumliste for shopid: 4493 - Havi Logistics ApS-2023
+
+
+Shop 43 [4570]: LEMAN 400-2023
+
+Generating fordelingsrapport for shopid: 4570 - LEMAN 400-2023
+Generating sumliste for shopid: 4570 - LEMAN 400-2023
+
+
+Shop 44 [4848]: Amgros I/S-2023
+
+Generating fordelingsrapport for shopid: 4848 - Amgros I/S-2023
+Generating sumliste for shopid: 4848 - Amgros I/S-2023
+
+
+Shop 45 [4457]: Pharmakon A/S-2023
+
+Generating fordelingsrapport for shopid: 4457 - Pharmakon A/S-2023
+Generating sumliste for shopid: 4457 - Pharmakon A/S-2023
+
+
+Shop 46 [4617]: Knauf A/S-2023
+
+Generating fordelingsrapport for shopid: 4617 - Knauf A/S-2023
+Generating sumliste for shopid: 4617 - Knauf A/S-2023
+
+
+Shop 47 [4637]: Mammoet Denmark Brande A/S-2023
+
+Generating fordelingsrapport for shopid: 4637 - Mammoet Denmark Brande A/S-2023
+Generating sumliste for shopid: 4637 - Mammoet Denmark Brande A/S-2023
+
+
+Shop 48 [4675]: Macartney DK-2023
+
+Generating fordelingsrapport for shopid: 4675 - Macartney DK-2023
+Generating sumliste for shopid: 4675 - Macartney DK-2023
+
+
+Shop 49 [4676]: Macartney UDLAND-2023
+
+Generating fordelingsrapport for shopid: 4676 - Macartney UDLAND-2023
+Generating sumliste for shopid: 4676 - Macartney UDLAND-2023
+
+
+Shop 50 [4696]: Nomeco -2023
+
+Generating fordelingsrapport for shopid: 4696 - Nomeco -2023
+Generating sumliste for shopid: 4696 - Nomeco -2023
+
+
+Shop 51 [4769]: Takeda Pharma A/S-2023
+
+Generating fordelingsrapport for shopid: 4769 - Takeda Pharma A/S-2023
+Generating sumliste for shopid: 4769 - Takeda Pharma A/S-2023
+
+
+Shop 52 [4803]: Dachser Denmark A/S-2023
+
+Generating fordelingsrapport for shopid: 4803 - Dachser Denmark A/S-2023
+Generating sumliste for shopid: 4803 - Dachser Denmark A/S-2023
+
+
+Shop 53 [4828]: Danbred P/S-2023
+
+Generating fordelingsrapport for shopid: 4828 - Danbred P/S-2023
+Generating sumliste for shopid: 4828 - Danbred P/S-2023
+
+
+Shop 54 [5177]: Sonova Audiological Care Denmark ApS-2023
+
+Generating fordelingsrapport for shopid: 5177 - Sonova Audiological Care Denmark ApS-2023
+Generating sumliste for shopid: 5177 - Sonova Audiological Care Denmark ApS-2023
+
+
+Shop 55 [5422]: Nissens Automotive A/S-2023
+
+Generating fordelingsrapport for shopid: 5422 - Nissens Automotive A/S-2023
+Generating sumliste for shopid: 5422 - Nissens Automotive A/S-2023
+
+
+Shop 56 [4396]: ed AS-2023 SO429487
+
+Generating fordelingsrapport for shopid: 4396 - ed AS-2023 SO429487
+Generating sumliste for shopid: 4396 - ed AS-2023 SO429487
+
+
+Shop 57 [4591]: Roust Element A/S-2023
+
+Generating fordelingsrapport for shopid: 4591 - Roust Element A/S-2023
+Generating sumliste for shopid: 4591 - Roust Element A/S-2023
+
+
+Shop 58 [4644]: Svane Pleje - 2023
+
+Generating fordelingsrapport for shopid: 4644 - Svane Pleje - 2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4644 - Svane Pleje - 2023
+
+
+Shop 59 [4801]: Dansk Bilglas A/S-2023
+
+Generating fordelingsrapport for shopid: 4801 - Dansk Bilglas A/S-2023
+Generating sumliste for shopid: 4801 - Dansk Bilglas A/S-2023
+
+
+Shop 60 [4838]: Aarhus Havn-2023
+
+Generating fordelingsrapport for shopid: 4838 - Aarhus Havn-2023
+Generating sumliste for shopid: 4838 - Aarhus Havn-2023
+
+
+Shop 61 [4839]: At Biler A/S-2023 SO428160
+
+Generating fordelingsrapport for shopid: 4839 - At Biler A/S-2023 SO428160
+Generating sumliste for shopid: 4839 - At Biler A/S-2023 SO428160
+
+
+Shop 62 [4854]: Beof - Bornholms Energi og Forsyning-2023
+
+Generating fordelingsrapport for shopid: 4854 - Beof - Bornholms Energi og Forsyning-2023
+Generating sumliste for shopid: 4854 - Beof - Bornholms Energi og Forsyning-2023
+
+
+Shop 63 [4895]: Migatronic A/S-2023
+
+Generating fordelingsrapport for shopid: 4895 - Migatronic A/S-2023
+Generating sumliste for shopid: 4895 - Migatronic A/S-2023
+
+
+Shop 64 [4929]: Lif, Lægemiddelindustriforeningen-2023
+
+Generating fordelingsrapport for shopid: 4929 - Lif, Lægemiddelindustriforeningen-2023
+Generating sumliste for shopid: 4929 - Lif, Lægemiddelindustriforeningen-2023
+
+
+Shop 65 [4981]: HK Danmark-2023
+
+Generating fordelingsrapport for shopid: 4981 - HK Danmark-2023
+Generating sumliste for shopid: 4981 - HK Danmark-2023
+
+
+Shop 66 [5000]: Droob ApS-2023
+
+Generating fordelingsrapport for shopid: 5000 - Droob ApS-2023
+Generating sumliste for shopid: 5000 - Droob ApS-2023
+
+
+Shop 67 [5037]: Blå Kors Danmark-2023
+
+Generating fordelingsrapport for shopid: 5037 - Blå Kors Danmark-2023
+Generating sumliste for shopid: 5037 - Blå Kors Danmark-2023
+
+
+Shop 68 [5042]: Bossard Denmark A/S-2023
+
+Generating fordelingsrapport for shopid: 5042 - Bossard Denmark A/S-2023
+Generating sumliste for shopid: 5042 - Bossard Denmark A/S-2023
+
+
+Shop 69 [5065]: FASTE
+
+Generating fordelingsrapport for shopid: 5065 - FASTE
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5065 - FASTE
+
+
+Shop 70 [5236]: Elm, Kragelund A/S-2023
+
+Generating fordelingsrapport for shopid: 5236 - Elm, Kragelund A/S-2023
+Generating sumliste for shopid: 5236 - Elm, Kragelund A/S-2023
+
+
+Shop 71 [5418]: 10-4 Tømmerhandel -2023 so431339
+
+Generating fordelingsrapport for shopid: 5418 - 10-4 Tømmerhandel -2023 so431339
+Generating sumliste for shopid: 5418 - 10-4 Tømmerhandel -2023 so431339
+
+
+Shop 72 [5420]: 10-4 Tømmerhandel
+
+Generating fordelingsrapport for shopid: 5420 - 10-4 Tømmerhandel
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5420 - 10-4 Tømmerhandel
+
+
+Shop 73 [5425]: Norriq-2023
+
+Generating fordelingsrapport for shopid: 5425 - Norriq-2023
+Generating sumliste for shopid: 5425 - Norriq-2023
+
+
+Shop 74 [4502]: Finn L. & Davidsen A/S-2023
+
+Generating fordelingsrapport for shopid: 4502 - Finn L. & Davidsen A/S-2023
+Generating sumliste for shopid: 4502 - Finn L. & Davidsen A/S-2023
+
+
+Shop 75 [4533]: AC Group-2023
+
+Generating fordelingsrapport for shopid: 4533 - AC Group-2023
+Generating sumliste for shopid: 4533 - AC Group-2023
+
+
+Shop 76 [4558]: AFRY - Herlev/Jylland -2023
+
+Generating fordelingsrapport for shopid: 4558 - AFRY - Herlev/Jylland -2023
+Generating sumliste for shopid: 4558 - AFRY - Herlev/Jylland -2023
+
+
+Shop 77 [4656]: Bofællesskaberne Inge og Sofie Marie-2023
+
+Generating fordelingsrapport for shopid: 4656 - Bofællesskaberne Inge og Sofie Marie-2023
+Generating sumliste for shopid: 4656 - Bofællesskaberne Inge og Sofie Marie-2023
+
+
+Shop 78 [4700]: Teledyne Reson-2023
+
+Generating fordelingsrapport for shopid: 4700 - Teledyne Reson-2023
+Generating sumliste for shopid: 4700 - Teledyne Reson-2023
+
+
+Shop 79 [4808]: Plejehjemmet Kristinehøj-2023
+
+Generating fordelingsrapport for shopid: 4808 - Plejehjemmet Kristinehøj-2023
+Generating sumliste for shopid: 4808 - Plejehjemmet Kristinehøj-2023
+
+
+Shop 80 [4836]: Secomea A/S-2023
+
+Generating fordelingsrapport for shopid: 4836 - Secomea A/S-2023
+Generating sumliste for shopid: 4836 - Secomea A/S-2023
+
+
+Shop 81 [4865]: Sealing Systems-2023 SO430504
+
+Generating fordelingsrapport for shopid: 4865 - Sealing Systems-2023 SO430504
+Generating sumliste for shopid: 4865 - Sealing Systems-2023 SO430504
+
+
+Shop 82 [4886]: Lowell Danmark-2023
+
+Generating fordelingsrapport for shopid: 4886 - Lowell Danmark-2023
+Generating sumliste for shopid: 4886 - Lowell Danmark-2023
+
+
+Shop 83 [4936]: selfmade-2023 SO428772
+
+Generating fordelingsrapport for shopid: 4936 - selfmade-2023 SO428772
+Generating sumliste for shopid: 4936 - selfmade-2023 SO428772
+
+
+Shop 84 [5048]: Brand & Redning Midt vest-2023
+
+Generating fordelingsrapport for shopid: 5048 - Brand & Redning Midt vest-2023
+Generating sumliste for shopid: 5048 - Brand & Redning Midt vest-2023
+
+
+Shop 85 [5089]: GE HEALTHCARE Danmark-2023
+
+Generating fordelingsrapport for shopid: 5089 - GE HEALTHCARE Danmark-2023
+Generating sumliste for shopid: 5089 - GE HEALTHCARE Danmark-2023
+
+
+Shop 86 [5165]: AppVestor Aps-2023
+
+Generating fordelingsrapport for shopid: 5165 - AppVestor Aps-2023
+Generating sumliste for shopid: 5165 - AppVestor Aps-2023
+
+
+Shop 87 [5215]: Ls Intertank ApS-2023
+
+Generating fordelingsrapport for shopid: 5215 - Ls Intertank ApS-2023
+Generating sumliste for shopid: 5215 - Ls Intertank ApS-2023
+
+
+Shop 88 [5241]: ETK EMS-2023
+
+Generating fordelingsrapport for shopid: 5241 - ETK EMS-2023
+Generating sumliste for shopid: 5241 - ETK EMS-2023
+
+
+Shop 89 [5285]: Cadeler A/S-2023
+
+Generating fordelingsrapport for shopid: 5285 - Cadeler A/S-2023
+Generating sumliste for shopid: 5285 - Cadeler A/S-2023
+
+
+Shop 90 [5342]: Aros Maler Entreprise A/S-2023
+
+Generating fordelingsrapport for shopid: 5342 - Aros Maler Entreprise A/S-2023
+Generating sumliste for shopid: 5342 - Aros Maler Entreprise A/S-2023
+
+
+Shop 91 [5380]: RanderBolig-2023 SO430759
+
+Generating fordelingsrapport for shopid: 5380 - RanderBolig-2023 SO430759
+Generating sumliste for shopid: 5380 - RanderBolig-2023 SO430759
+
+
+Shop 92 [5385]: Cadeler - Søfolk-2023 SO431817
+
+Generating fordelingsrapport for shopid: 5385 - Cadeler - Søfolk-2023 SO431817
+Generating sumliste for shopid: 5385 - Cadeler - Søfolk-2023 SO431817
+
+
+Shop 93 [4341]: Diabetesforeningen -2023
+
+Generating fordelingsrapport for shopid: 4341 - Diabetesforeningen -2023
+Generating sumliste for shopid: 4341 - Diabetesforeningen -2023
+
+
+Shop 94 [4424]: TDC Net Shop 1 - 2023
+
+Generating fordelingsrapport for shopid: 4424 - TDC Net Shop 1 - 2023
+Generating sumliste for shopid: 4424 - TDC Net Shop 1 - 2023
+
+
+Shop 95 [4427]: GEA Process Engineering A/S-2023
+
+Generating fordelingsrapport for shopid: 4427 - GEA Process Engineering A/S-2023
+Generating sumliste for shopid: 4427 - GEA Process Engineering A/S-2023
+
+
+Shop 96 [4430]: Martinsen-2023
+
+Generating fordelingsrapport for shopid: 4430 - Martinsen-2023
+Generating sumliste for shopid: 4430 - Martinsen-2023
+
+
+Shop 97 [4471]: Maxi Zoo - 2023
+
+Generating fordelingsrapport for shopid: 4471 - Maxi Zoo - 2023
+Generating sumliste for shopid: 4471 - Maxi Zoo - 2023
+
+
+Shop 98 [4508]: Toyota Material Handling Danmark-2023
+
+Generating fordelingsrapport for shopid: 4508 - Toyota Material Handling Danmark-2023
+Generating sumliste for shopid: 4508 - Toyota Material Handling Danmark-2023
+
+
+Shop 99 [4528]: Securitas A/S-2023
+
+Generating fordelingsrapport for shopid: 4528 - Securitas A/S-2023
+Generating sumliste for shopid: 4528 - Securitas A/S-2023
+
+
+Shop 100 [4530]: NLMK Dansteel A/S-2023
+
+Generating fordelingsrapport for shopid: 4530 - NLMK Dansteel A/S-2023
+Generating sumliste for shopid: 4530 - NLMK Dansteel A/S-2023
+
+
+Shop 101 [4543]: Casino Copenhagen K/S-2023
+
+Generating fordelingsrapport for shopid: 4543 - Casino Copenhagen K/S-2023
+Generating sumliste for shopid: 4543 - Casino Copenhagen K/S-2023
+
+
+Shop 102 [4550]: Dansac A/S-2023
+
+Generating fordelingsrapport for shopid: 4550 - Dansac A/S-2023
+Generating sumliste for shopid: 4550 - Dansac A/S-2023
+
+
+Shop 103 [4573]: Jakon A/S-2023
+
+Generating fordelingsrapport for shopid: 4573 - Jakon A/S-2023
+Generating sumliste for shopid: 4573 - Jakon A/S-2023
+
+
+Shop 104 [4592]: Bruun & Hjejle I/S-2023
+
+Generating fordelingsrapport for shopid: 4592 - Bruun & Hjejle I/S-2023
+Generating sumliste for shopid: 4592 - Bruun & Hjejle I/S-2023
+
+
+Shop 105 [4624]: Sahva A/S-2023
+
+Generating fordelingsrapport for shopid: 4624 - Sahva A/S-2023
+Generating sumliste for shopid: 4624 - Sahva A/S-2023
+
+
+Shop 106 [4628]: Boligselskabet Sjælland-2023
+
+Generating fordelingsrapport for shopid: 4628 - Boligselskabet Sjælland-2023
+Generating sumliste for shopid: 4628 - Boligselskabet Sjælland-2023
+
+
+Shop 107 [4630]: Temp-Team A/S-2023
+
+Generating fordelingsrapport for shopid: 4630 - Temp-Team A/S-2023
+Generating sumliste for shopid: 4630 - Temp-Team A/S-2023
+
+
+Shop 108 [4683]: Comwell A/S -2023
+
+Generating fordelingsrapport for shopid: 4683 - Comwell A/S -2023
+Generating sumliste for shopid: 4683 - Comwell A/S -2023
+
+
+Shop 109 [4704]: Molslinjen -2023
+
+Generating fordelingsrapport for shopid: 4704 - Molslinjen -2023
+Generating sumliste for shopid: 4704 - Molslinjen -2023
+
+
+Shop 110 [4726]: Pwt Group A/S-2023
+
+Generating fordelingsrapport for shopid: 4726 - Pwt Group A/S-2023
+Generating sumliste for shopid: 4726 - Pwt Group A/S-2023
+
+
+Shop 111 [4731]: Brunata A/S-2023
+
+Generating fordelingsrapport for shopid: 4731 - Brunata A/S-2023
+Generating sumliste for shopid: 4731 - Brunata A/S-2023
+
+
+Shop 112 [4771]: Metroselskabet-2023
+
+Generating fordelingsrapport for shopid: 4771 - Metroselskabet-2023
+Generating sumliste for shopid: 4771 - Metroselskabet-2023
+
+
+Shop 113 [4772]: OONA Health SO428517
+
+Generating fordelingsrapport for shopid: 4772 - OONA Health SO428517
+Generating sumliste for shopid: 4772 - OONA Health SO428517
+
+
+Shop 114 [4780]: Signify Denmark A/S-2023
+
+Generating fordelingsrapport for shopid: 4780 - Signify Denmark A/S-2023
+Generating sumliste for shopid: 4780 - Signify Denmark A/S-2023
+
+
+Shop 115 [4868]: Hotel Nyborg Strand - Budget 200,- ex moms-2023
+
+Generating fordelingsrapport for shopid: 4868 - Hotel Nyborg Strand - Budget 200,- ex moms-2023
+Generating sumliste for shopid: 4868 - Hotel Nyborg Strand - Budget 200,- ex moms-2023
+
+
+Shop 116 [4869]: Hotel Nyborg Strand - Budget 400,- ex moms-2023
+
+Generating fordelingsrapport for shopid: 4869 - Hotel Nyborg Strand - Budget 400,- ex moms-2023
+Generating sumliste for shopid: 4869 - Hotel Nyborg Strand - Budget 400,- ex moms-2023
+
+
+Shop 117 [4896]: Scandinavian Tobacco Group A/S-2023
+
+Generating fordelingsrapport for shopid: 4896 - Scandinavian Tobacco Group A/S-2023
+Generating sumliste for shopid: 4896 - Scandinavian Tobacco Group A/S-2023
+
+
+Shop 118 [4942]: MagVenture A/S - 2023
+
+Generating fordelingsrapport for shopid: 4942 - MagVenture A/S - 2023
+Generating sumliste for shopid: 4942 - MagVenture A/S - 2023
+
+
+Shop 119 [5053]: Scan Global Logistics -2023
+
+Generating fordelingsrapport for shopid: 5053 - Scan Global Logistics -2023
+Generating sumliste for shopid: 5053 - Scan Global Logistics -2023
+
+
+Shop 120 [5059]: Visitdenmark-2023
+
+Generating fordelingsrapport for shopid: 5059 - Visitdenmark-2023
+Generating sumliste for shopid: 5059 - Visitdenmark-2023
+
+
+Shop 121 [5156]: Nordsjællands Brandvæsen -2023
+
+Generating fordelingsrapport for shopid: 5156 - Nordsjællands Brandvæsen -2023
+Generating sumliste for shopid: 5156 - Nordsjællands Brandvæsen -2023
+
+
+Shop 122 [5214]: Delegate A/S-2023
+
+Generating fordelingsrapport for shopid: 5214 - Delegate A/S-2023
+Generating sumliste for shopid: 5214 - Delegate A/S-2023
+
+
+Shop 123 [5244]: Gebr. Heinemann Retail ApS-2023
+
+Generating fordelingsrapport for shopid: 5244 - Gebr. Heinemann Retail ApS-2023
+Generating sumliste for shopid: 5244 - Gebr. Heinemann Retail ApS-2023
+
+
+Shop 124 [5275]: Balder Administration ApS-2023
+
+Generating fordelingsrapport for shopid: 5275 - Balder Administration ApS-2023
+Generating sumliste for shopid: 5275 - Balder Administration ApS-2023
+
+
+Shop 125 [5310]: Dana Lim A/S-2023
+
+Generating fordelingsrapport for shopid: 5310 - Dana Lim A/S-2023
+Generating sumliste for shopid: 5310 - Dana Lim A/S-2023
+
+
+Shop 126 [5315]: Thy-Mors Energi Administration A/S-2023
+
+Generating fordelingsrapport for shopid: 5315 - Thy-Mors Energi Administration A/S-2023
+Generating sumliste for shopid: 5315 - Thy-Mors Energi Administration A/S-2023
+
+
+Shop 127 [5440]: Nuuday shop 1 - 2023
+
+Generating fordelingsrapport for shopid: 5440 - Nuuday shop 1 - 2023
+Generating sumliste for shopid: 5440 - Nuuday shop 1 - 2023
+
+
+Shop 128 [5461]: Enemærke & Petersen A/S-2023
+
+Generating fordelingsrapport for shopid: 5461 - Enemærke & Petersen A/S-2023
+Generating sumliste for shopid: 5461 - Enemærke & Petersen A/S-2023
+
+
+Shop 129 [4386]: Brødrene A. & O. Johansen A/S-2023
+
+Generating fordelingsrapport for shopid: 4386 - Brødrene A. & O. Johansen A/S-2023
+Generating sumliste for shopid: 4386 - Brødrene A. & O. Johansen A/S-2023
+
+
+Shop 130 [4568]: fsb-2023
+
+Generating fordelingsrapport for shopid: 4568 - fsb-2023
+Generating sumliste for shopid: 4568 - fsb-2023
+
+
+Shop 131 [4622]: Holger Christiansen A/S-2023
+
+Generating fordelingsrapport for shopid: 4622 - Holger Christiansen A/S-2023
+Generating sumliste for shopid: 4622 - Holger Christiansen A/S-2023
+
+
+Shop 132 [4764]: Rais A/S-2023
+
+Generating fordelingsrapport for shopid: 4764 - Rais A/S-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4764 - Rais A/S-2023
+
+
+Shop 133 [4777]: Ardagh Glass Holmegaard-2023
+
+Generating fordelingsrapport for shopid: 4777 - Ardagh Glass Holmegaard-2023
+Generating sumliste for shopid: 4777 - Ardagh Glass Holmegaard-2023
+
+
+Shop 134 [4829]: E-Boks A/S-2023
+
+Generating fordelingsrapport for shopid: 4829 - E-Boks A/S-2023
+Generating sumliste for shopid: 4829 - E-Boks A/S-2023
+
+
+Shop 135 [4928]: Serviceforbundet-2023
+
+Generating fordelingsrapport for shopid: 4928 - Serviceforbundet-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 4928 - Serviceforbundet-2023
+
+
+Shop 136 [5149]: Csis Security Group A/S-2023
+
+Generating fordelingsrapport for shopid: 5149 - Csis Security Group A/S-2023
+Generating sumliste for shopid: 5149 - Csis Security Group A/S-2023
+
+
+Shop 137 [5231]: Pfizer-2023
+
+Generating fordelingsrapport for shopid: 5231 - Pfizer-2023
+Generating sumliste for shopid: 5231 - Pfizer-2023
+
+
+Shop 138 [5307]: Trimit-2023
+
+Generating fordelingsrapport for shopid: 5307 - Trimit-2023
+Generating sumliste for shopid: 5307 - Trimit-2023
+
+
+Shop 139 [5411]: Ecolab ApS-2023
+
+Generating fordelingsrapport for shopid: 5411 - Ecolab ApS-2023
+Generating sumliste for shopid: 5411 - Ecolab ApS-2023
+
+
+Shop 140 [5523]: NO23Oluf-2023
+
+Generating fordelingsrapport for shopid: 5523 - NO23Oluf-2023
+Generating sumliste for shopid: 5523 - NO23Oluf-2023
+
+
+Shop 141 [5694]: Flex Wind DK/Polen-2023
+
+Generating fordelingsrapport for shopid: 5694 - Flex Wind DK/Polen-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5694 - Flex Wind DK/Polen-2023
+
+
+Shop 142 [4498]: BabySam -2023
+
+Generating fordelingsrapport for shopid: 4498 - BabySam -2023
+Generating sumliste for shopid: 4498 - BabySam -2023
+
+
+Shop 143 [4553]: BHJ A/S-2023
+
+Generating fordelingsrapport for shopid: 4553 - BHJ A/S-2023
+Generating sumliste for shopid: 4553 - BHJ A/S-2023
+
+
+Shop 144 [4686]: Carglass A/S-2023
+
+Generating fordelingsrapport for shopid: 4686 - Carglass A/S-2023
+Generating sumliste for shopid: 4686 - Carglass A/S-2023
+
+
+Shop 145 [4782]: Frederikssund Kommune-2023
+
+Generating fordelingsrapport for shopid: 4782 - Frederikssund Kommune-2023
+Generating sumliste for shopid: 4782 - Frederikssund Kommune-2023
+
+
+Shop 146 [4795]: Tricolore - Hansen & Søn-2023
+
+Generating fordelingsrapport for shopid: 4795 - Tricolore - Hansen & Søn-2023
+Generating sumliste for shopid: 4795 - Tricolore - Hansen & Søn-2023
+
+
+Shop 147 [4874]: Geze Danmark-2023
+
+Generating fordelingsrapport for shopid: 4874 - Geze Danmark-2023
+Generating sumliste for shopid: 4874 - Geze Danmark-2023
+
+
+Shop 148 [4986]: Thales-2023 SO428795
+
+Generating fordelingsrapport for shopid: 4986 - Thales-2023 SO428795
+Generating sumliste for shopid: 4986 - Thales-2023 SO428795
+
+
+Shop 149 [5160]: Lammhults Biblioteksdesig A/S-2023
+
+Generating fordelingsrapport for shopid: 5160 - Lammhults Biblioteksdesig A/S-2023
+Generating sumliste for shopid: 5160 - Lammhults Biblioteksdesig A/S-2023
+
+
+Shop 150 [5288]: HK Østjylland-2023 SO429103
+
+Generating fordelingsrapport for shopid: 5288 - HK Østjylland-2023 SO429103
+Generating sumliste for shopid: 5288 - HK Østjylland-2023 SO429103
+
+
+Shop 151 [5375]: NO23DACHSER-2023
+
+Generating fordelingsrapport for shopid: 5375 - NO23DACHSER-2023
+Generating sumliste for shopid: 5375 - NO23DACHSER-2023
+
+
+Shop 152 [5379]: Arctic Import -2023 SO433195
+
+Generating fordelingsrapport for shopid: 5379 - Arctic Import -2023 SO433195
+Generating sumliste for shopid: 5379 - Arctic Import -2023 SO433195
+
+
+Shop 153 [5430]: Business Danmark -2023
+
+Generating fordelingsrapport for shopid: 5430 - Business Danmark -2023
+Generating sumliste for shopid: 5430 - Business Danmark -2023
+
+
+Shop 154 [5562]: Ssi Schäfer-2023
+
+Generating fordelingsrapport for shopid: 5562 - Ssi Schäfer-2023
+Generating sumliste for shopid: 5562 - Ssi Schäfer-2023
+
+
+Shop 155 [5628]: HITSA-2023
+
+Generating fordelingsrapport for shopid: 5628 - HITSA-2023
+Generating sumliste for shopid: 5628 - HITSA-2023
+
+
+Shop 156 [4333]: Bavarian Nordic-2023 - med gavekurv
+
+Generating fordelingsrapport for shopid: 4333 - Bavarian Nordic-2023 - med gavekurv
+Generating sumliste for shopid: 4333 - Bavarian Nordic-2023 - med gavekurv
+
+
+Shop 157 [4345]: BDO-2023 SHOP 1 SO428664
+
+Generating fordelingsrapport for shopid: 4345 - BDO-2023 SHOP 1 SO428664
+Generating sumliste for shopid: 4345 - BDO-2023 SHOP 1 SO428664
+
+
+Shop 158 [4522]: Foreningen af Folketingets Betjente-2023
+
+Generating fordelingsrapport for shopid: 4522 - Foreningen af Folketingets Betjente-2023
+Generating sumliste for shopid: 4522 - Foreningen af Folketingets Betjente-2023
+
+
+Shop 159 [4590]: CAU-2023 SO427388
+
+Generating fordelingsrapport for shopid: 4590 - CAU-2023 SO427388
+Generating sumliste for shopid: 4590 - CAU-2023 SO427388
+
+
+Shop 160 [4701]: Stibo Complete-2023
+
+Generating fordelingsrapport for shopid: 4701 - Stibo Complete-2023
+Generating sumliste for shopid: 4701 - Stibo Complete-2023
+
+
+Shop 161 [4831]: Ri, Statsautoriseret Revisionsaktieselskab-2023
+
+Generating fordelingsrapport for shopid: 4831 - Ri, Statsautoriseret Revisionsaktieselskab-2023
+Generating sumliste for shopid: 4831 - Ri, Statsautoriseret Revisionsaktieselskab-2023
+
+
+Shop 162 [4915]: L&P Springs Denmark ApS-2023
+
+Generating fordelingsrapport for shopid: 4915 - L&P Springs Denmark ApS-2023
+Generating sumliste for shopid: 4915 - L&P Springs Denmark ApS-2023
+
+
+Shop 163 [4991]: Teknologiens Mediehus A/S-2023
+
+Generating fordelingsrapport for shopid: 4991 - Teknologiens Mediehus A/S-2023
+Generating sumliste for shopid: 4991 - Teknologiens Mediehus A/S-2023
+
+
+Shop 164 [5216]: Hospice Sjælland Den Selvejende Institution-2023
+
+Generating fordelingsrapport for shopid: 5216 - Hospice Sjælland Den Selvejende Institution-2023
+Generating sumliste for shopid: 5216 - Hospice Sjælland Den Selvejende Institution-2023
+
+
+Shop 165 [5240]: Mv Polering A/S-2023
+
+Generating fordelingsrapport for shopid: 5240 - Mv Polering A/S-2023
+Generating sumliste for shopid: 5240 - Mv Polering A/S-2023
+
+
+Shop 166 [5311]: Makenet A/S-2023
+
+Generating fordelingsrapport for shopid: 5311 - Makenet A/S-2023
+Generating sumliste for shopid: 5311 - Makenet A/S-2023
+
+
+Shop 167 [5460]: NCH South / Skt. Petri Hotel -2023
+
+Generating fordelingsrapport for shopid: 5460 - NCH South / Skt. Petri Hotel -2023
+Generating sumliste for shopid: 5460 - NCH South / Skt. Petri Hotel -2023
+
+
+Shop 168 [5469]: COWI Lietuva-2023
+
+Generating fordelingsrapport for shopid: 5469 - COWI Lietuva-2023
+Generating sumliste for shopid: 5469 - COWI Lietuva-2023
+
+
+Shop 169 [5692]: Bavarian Nordic-2023 - UDEN gavekurv
+
+Generating fordelingsrapport for shopid: 5692 - Bavarian Nordic-2023 - UDEN gavekurv
+Generating sumliste for shopid: 5692 - Bavarian Nordic-2023 - UDEN gavekurv
+
+
+Shop 170 [5722]: Holbøll A/S-2023
+
+Generating fordelingsrapport for shopid: 5722 - Holbøll A/S-2023
+Generating sumliste for shopid: 5722 - Holbøll A/S-2023
+
+
+Shop 171 [5750]: NO23Servicegrossisten -2023
+
+Generating fordelingsrapport for shopid: 5750 - NO23Servicegrossisten -2023
+Generating sumliste for shopid: 5750 - NO23Servicegrossisten -2023
+
+
+Shop 172 [5780]: Lund International School Ek. För.-2023
+
+Generating fordelingsrapport for shopid: 5780 - Lund International School Ek. För.-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5780 - Lund International School Ek. För.-2023
+
+
+Shop 173 [4303]: Plandent - 2023, SO427504
+
+Generating fordelingsrapport for shopid: 4303 - Plandent - 2023, SO427504
+Generating sumliste for shopid: 4303 - Plandent - 2023, SO427504
+
+
+Shop 174 [4595]: Fleggaard Holding A/S Tyskland-2023
+
+Generating fordelingsrapport for shopid: 4595 - Fleggaard Holding A/S Tyskland-2023
+Generating sumliste for shopid: 4595 - Fleggaard Holding A/S Tyskland-2023
+
+
+Shop 175 [4598]: Fleggaard Holding A/S Danmark-2023
+
+Generating fordelingsrapport for shopid: 4598 - Fleggaard Holding A/S Danmark-2023
+Generating sumliste for shopid: 4598 - Fleggaard Holding A/S Danmark-2023
+
+
+Shop 176 [4678]: HMF Group-2023
+
+Generating fordelingsrapport for shopid: 4678 - HMF Group-2023
+Generating sumliste for shopid: 4678 - HMF Group-2023
+
+
+Shop 177 [5479]: Pl Beton A/S-2023
+
+Generating fordelingsrapport for shopid: 5479 - Pl Beton A/S-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5479 - Pl Beton A/S-2023
+
+
+Shop 178 [5665]: Flex Wind-2023
+
+Generating fordelingsrapport for shopid: 5665 - Flex Wind-2023
+Generating sumliste for shopid: 5665 - Flex Wind-2023
+
+
+Shop 179 [4347]: Bonnier Publications A/S-2023
+
+Generating fordelingsrapport for shopid: 4347 - Bonnier Publications A/S-2023
+Generating sumliste for shopid: 4347 - Bonnier Publications A/S-2023
+
+
+Shop 180 [4977]: Ista Danmark A/S-2023 so428913
+
+Generating fordelingsrapport for shopid: 4977 - Ista Danmark A/S-2023 so428913
+Generating sumliste for shopid: 4977 - Ista Danmark A/S-2023 so428913
+
+
+Shop 181 [5283]: Altrad-2023
+
+Generating fordelingsrapport for shopid: 5283 - Altrad-2023
+Generating sumliste for shopid: 5283 - Altrad-2023
+
+
+Shop 182 [5483]: Broen -2023
+
+Generating fordelingsrapport for shopid: 5483 - Broen -2023
+Generating sumliste for shopid: 5483 - Broen -2023
+
+
+Shop 183 [4443]: Synoptik A/S-2023
+
+Generating fordelingsrapport for shopid: 4443 - Synoptik A/S-2023
+Generating sumliste for shopid: 4443 - Synoptik A/S-2023
+
+
+Shop 184 [4473]: Kuehne + Nagel -2023
+
+Generating fordelingsrapport for shopid: 4473 - Kuehne + Nagel -2023
+Generating sumliste for shopid: 4473 - Kuehne + Nagel -2023
+
+
+Shop 185 [4519]: Biltema 2023-2023
+
+Generating fordelingsrapport for shopid: 4519 - Biltema 2023-2023
+Generating sumliste for shopid: 4519 - Biltema 2023-2023
+
+
+Shop 186 [4547]: Christiansen & Essenbæk A/S-2023
+
+Generating fordelingsrapport for shopid: 4547 - Christiansen & Essenbæk A/S-2023
+Generating sumliste for shopid: 4547 - Christiansen & Essenbæk A/S-2023
+
+
+Shop 187 [4579]: Sygeforsikringen "Danmark"-2023
+
+Generating fordelingsrapport for shopid: 4579 - Sygeforsikringen "Danmark"-2023
+Generating sumliste for shopid: 4579 - Sygeforsikringen "Danmark"-2023
+
+
+Shop 188 [4849]: Badminton Danmark-2023
+
+Generating fordelingsrapport for shopid: 4849 - Badminton Danmark-2023
+Generating sumliste for shopid: 4849 - Badminton Danmark-2023
+
+
+Shop 189 [4913]: Fonden Novavi-2023
+
+Generating fordelingsrapport for shopid: 4913 - Fonden Novavi-2023
+Generating sumliste for shopid: 4913 - Fonden Novavi-2023
+
+
+Shop 190 [4948]: Conscia Danmark A/S-2023
+
+Generating fordelingsrapport for shopid: 4948 - Conscia Danmark A/S-2023
+Generating sumliste for shopid: 4948 - Conscia Danmark A/S-2023
+
+
+Shop 191 [5109]: SC Testvalgshop 2023-2023
+
+Generating fordelingsrapport for shopid: 5109 - SC Testvalgshop 2023-2023
+Generating sumliste for shopid: 5109 - SC Testvalgshop 2023-2023
+
+
+Shop 192 [5114]: Sec Datacom A/S-2023
+
+Generating fordelingsrapport for shopid: 5114 - Sec Datacom A/S-2023
+Generating sumliste for shopid: 5114 - Sec Datacom A/S-2023
+
+
+Shop 193 [5415]: Ommersyssel Godstransport A/S-2023
+
+Generating fordelingsrapport for shopid: 5415 - Ommersyssel Godstransport A/S-2023
+Generating sumliste for shopid: 5415 - Ommersyssel Godstransport A/S-2023
+
+
+Shop 194 [5654]: Duos A/S-2023 SO432162
+
+Generating fordelingsrapport for shopid: 5654 - Duos A/S-2023 SO432162
+Generating sumliste for shopid: 5654 - Duos A/S-2023 SO432162
+
+
+Shop 195 [4365]: Eurofins NSC Denmark A/S-2023
+
+Generating fordelingsrapport for shopid: 4365 - Eurofins NSC Denmark A/S-2023
+Generating sumliste for shopid: 4365 - Eurofins NSC Denmark A/S-2023
+
+
+Shop 196 [4413]: Danske Fragtmænd Transport A/S-2023
+
+Generating fordelingsrapport for shopid: 4413 - Danske Fragtmænd Transport A/S-2023
+Generating sumliste for shopid: 4413 - Danske Fragtmænd Transport A/S-2023
+
+
+Shop 197 [4446]: Alfa Laval -2023 SO428147
+
+Generating fordelingsrapport for shopid: 4446 - Alfa Laval -2023 SO428147
+Generating sumliste for shopid: 4446 - Alfa Laval -2023 SO428147
+
+
+Shop 198 [4474]: Alex Andersen-2023
+
+Generating fordelingsrapport for shopid: 4474 - Alex Andersen-2023
+Generating sumliste for shopid: 4474 - Alex Andersen-2023
+
+
+Shop 199 [4552]: Genmab A/S-2023
+
+Generating fordelingsrapport for shopid: 4552 - Genmab A/S-2023
+Generating sumliste for shopid: 4552 - Genmab A/S-2023
+
+
+Shop 200 [4578]: Marel-2023
+
+Generating fordelingsrapport for shopid: 4578 - Marel-2023
+Generating sumliste for shopid: 4578 - Marel-2023
+
+
+Shop 201 [4722]: CNH Industrial Denmark AS-2023
+
+Generating fordelingsrapport for shopid: 4722 - CNH Industrial Denmark AS-2023
+Generating sumliste for shopid: 4722 - CNH Industrial Denmark AS-2023
+
+
+Shop 202 [4749]: Ricoh Danmark A/S-2023
+
+Generating fordelingsrapport for shopid: 4749 - Ricoh Danmark A/S-2023
+Generating sumliste for shopid: 4749 - Ricoh Danmark A/S-2023
+
+
+Shop 203 [4757]: Stibo Software Group A/S-2023
+
+Generating fordelingsrapport for shopid: 4757 - Stibo Software Group A/S-2023
+Generating sumliste for shopid: 4757 - Stibo Software Group A/S-2023
+
+
+Shop 204 [4818]: Trifork Public A/S-2023
+
+Generating fordelingsrapport for shopid: 4818 - Trifork Public A/S-2023
+Generating sumliste for shopid: 4818 - Trifork Public A/S-2023
+
+
+Shop 205 [4974]: DLG Rep- Privatlev. 2023
+
+Generating fordelingsrapport for shopid: 4974 - DLG Rep- Privatlev. 2023
+Generating sumliste for shopid: 4974 - DLG Rep- Privatlev. 2023
+
+
+Shop 206 [4975]: Scan-Hide A/S-2023
+
+Generating fordelingsrapport for shopid: 4975 - Scan-Hide A/S-2023
+Generating sumliste for shopid: 4975 - Scan-Hide A/S-2023
+
+
+Shop 207 [4999]: Team Blue -2023
+
+Generating fordelingsrapport for shopid: 4999 - Team Blue -2023
+Generating sumliste for shopid: 4999 - Team Blue -2023
+
+
+Shop 208 [5035]: Alfa Laval Nordic-2023 SO428166
+
+Generating fordelingsrapport for shopid: 5035 - Alfa Laval Nordic-2023 SO428166
+Generating sumliste for shopid: 5035 - Alfa Laval Nordic-2023 SO428166
+
+
+Shop 209 [5183]: Ringe Kost & Real -2023 SO428814
+
+Generating fordelingsrapport for shopid: 5183 - Ringe Kost & Real -2023 SO428814
+Generating sumliste for shopid: 5183 - Ringe Kost & Real -2023 SO428814
+
+
+Shop 210 [5554]: Geberit A/S-2023
+
+Generating fordelingsrapport for shopid: 5554 - Geberit A/S-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5554 - Geberit A/S-2023
+
+
+Shop 211 [5565]: Marie Mørks Skole S/I-2023
+
+Generating fordelingsrapport for shopid: 5565 - Marie Mørks Skole S/I-2023
+Looks like file has exception, cancel fordelingsreport
+Generating sumliste for shopid: 5565 - Marie Mørks Skole S/I-2023

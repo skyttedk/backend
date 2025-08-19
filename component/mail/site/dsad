@@ -1,0 +1,12 @@
+           var jqxhr = $.post( "callHandler.php",{
+           "action":"mailController",
+           "function":"send",
+           "email": mail,
+           "subject": $("#title").val(),
+            "body": Base64.encode(txt)
+           }, function(result) {
+           alert( result );
+       })
+           .fail(function() {
+               alert( "error" );
+           })

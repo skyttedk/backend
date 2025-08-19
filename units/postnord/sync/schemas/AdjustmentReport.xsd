@@ -1,0 +1,35 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="MessType" fixed="ADJUSTMENTREPORT"/>
+				<xs:element type="xs:string" name="PartnerID"/>
+				<xs:element type="xs:date" name="CreationDate"/>
+				<xs:element type="xs:time" name="CreationTime"/>
+				<xs:element name="Transactions">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Transaction" maxOccurs="unbounded" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="TransType"/>
+										<xs:element type="xs:string" name="ReasonCode" minOccurs="0"/>
+										<xs:element type="xs:string" name="ItemNo"/>
+										<xs:element type="xs:string" name="BatchNo" minOccurs="0"/>
+										<xs:element name="ExpDate" nillable="true" minOccurs="0">
+											<xs:simpleType>
+												<xs:list itemType="xs:date"/>
+											</xs:simpleType>
+										</xs:element>
+										<xs:element type="xs:decimal" name="Qty"/>
+										<xs:element type="xs:string" name="Warehouse" minOccurs="0"/>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

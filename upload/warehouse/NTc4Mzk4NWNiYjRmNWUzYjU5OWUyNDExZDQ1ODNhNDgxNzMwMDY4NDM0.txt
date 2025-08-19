@@ -1,0 +1,71 @@
+SELECT `fk_shop` FROM `shop_board` WHERE `fk_shop` IS NOT NULL AND `indpakning` = 1;
+
+SELECT * FROM `shop_user`
+
+WHERE `shop_id` in ( SELECT `fk_shop` FROM `shop_board` WHERE `fk_shop` IS NOT NULL AND `indpakning` = 1 ) 
+and is_giftcertificate = 0 
+and shop_user.is_demo = 0
+and shop_user.blocked = 0
+and shop_user.shutdown = 0
+and  shop_user.`created_date` > '2023-02-01 08:15:11.000000' 
+AND shop_user.`created_date`  < '2023-12-20 08:15:11.000000'
+and `shop_id` in (SELECT id FROM `shop` WHERE `localisation` = 1)
+
+
+153724 
+
+
+SELECT * FROM `shop_user`
+
+WHERE `shop_id` in ( SELECT `fk_shop` FROM `shop_board` WHERE `fk_shop` IS NOT NULL AND `indpakning` = 0 ) 
+and is_giftcertificate = 0 
+and shop_user.is_demo = 0
+and shop_user.blocked = 0
+and shop_user.shutdown = 0
+and  shop_user.`created_date` > '2023-02-01 08:15:11.000000' 
+AND shop_user.`created_date`  < '2023-12-20 08:15:11.000000'
+and `shop_id` in (SELECT id FROM `shop` WHERE `localisation` = 1)
+
+
+88284 
+
+
+navn_paa_gaver
+
+52930
+SELECT * FROM `shop_user`
+
+WHERE `shop_id` in ( SELECT `fk_shop` FROM `shop_board` WHERE `fk_shop` IS NOT NULL AND `navn_paa_gaver` = 1 ) 
+and is_giftcertificate = 0 
+and shop_user.is_demo = 0
+and shop_user.blocked = 0
+and shop_user.shutdown = 0
+and  shop_user.`created_date` > '2023-02-01 08:15:11.000000' 
+AND shop_user.`created_date`  < '2023-12-20 08:15:11.000000'
+and `shop_id` in (SELECT id FROM `shop` WHERE `localisation` = 1)
+
+189611 
+
+SELECT * FROM `shop_user`
+
+WHERE `shop_id` in ( SELECT `fk_shop` FROM `shop_board` WHERE `fk_shop` IS NOT NULL AND `navn_paa_gaver` = 0 ) 
+and is_giftcertificate = 0 
+and shop_user.is_demo = 0
+and shop_user.blocked = 0
+and shop_user.shutdown = 0
+and  shop_user.`created_date` > '2023-02-01 08:15:11.000000' 
+AND shop_user.`created_date`  < '2023-12-20 08:15:11.000000'
+and `shop_id` in (SELECT id FROM `shop` WHERE `localisation` = 1)
+
+242.008
+
+
+
+
+SELECT p.* , present_model.model_present_no, present_model.model_name, present_model.model_no FROM `present_model` inner JOIN (SELECT * FROM `present` WHERE `copy_of` = 0 AND `show_to_saleperson` = 1 and active = 1 and deleted =0) p on p.id = present_model.present_id and `present_model`.language_id =1 ORDER BY `p`.`pim_id` DESC
+
+
+
+240333
+
+{"pris":"0","vis_pris":"false","budget":"","vis_budget":"false","special":"","vis_special":"false"}

@@ -1,0 +1,1518 @@
+Sync shopboard for: 4495: Babysam 200,00-2023 SLET [812]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4495
+
+Sync shopboard for: 4530: NLMK Dansteel A/S-2023 [782]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4530
+
+Sync shopboard for: 5674: Skylight -2023 SO432155 [1187]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5674
+
+Sync shopboard for: 4450: Chr. Hansen-2023 [607]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4450
+
+Sync shopboard for: 4879: Etac / R82-2023 [737]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4879
+
+Sync shopboard for: 5753: Twoday IT Minds ApS-2023 SO433050 [1270]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5753
+
+Sync shopboard for: 5218: Sofieskolen-2023 [1197]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5218
+
+Sync shopboard for: 5565: Marie Mørks Skole S/I-2023 [1037]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5565
+
+Sync shopboard for: 5677: Signode-2023 [1261]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5677
+
+Sync shopboard for: 5594: aramark-2023 [1143]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5594
+
+Sync shopboard for: 4731: Brunata A/S-2023 [637]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4731
+
+Sync shopboard for: 5260: Pro-Automatic A/S-2023 [936]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5260
+
+Sync shopboard for: 5596: Brand Institute Aps-2023 [1149]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5596
+
+Sync shopboard for: 4985: Colliers International Danmark A/S-2023 [1274]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4985
+
+Sync shopboard for: 4843: Geo-2023 [816]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4843
+
+Sync shopboard for: 5539: Områdekontoret Kildevænget-2023 [1102]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5539
+
+Sync shopboard for: 4765: Brd. Klee A/S-2023 [1132]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4765
+
+Sync shopboard for: 5533: Mercuri Urval Denmark-2023 [1090]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5533
+
+Sync shopboard for: 5038: Alsik-2023 [720]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5038
+
+Sync shopboard for: 5567: Mazanti-Andersen Advokatpartnerselskab-2023 [1286]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5567
+
+Sync shopboard for: 5043: Geveko Markings Gaver til personale og kunder-2023 [1095]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5043
+
+Sync shopboard for: 5628: HITSA-2023 [1114]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5628
+
+Sync shopboard for: 4396: ed AS-2023 SO429487 [898]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4396
+
+Sync shopboard for: 4512: Cf Petersen & Søn A/S-2023 [617]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4512
+
+Sync shopboard for: 4991: Teknologiens Mediehus A/S-2023 [748]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4991
+
+Sync shopboard for: 5425: Norriq-2023 [965]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5425
+
+Sync shopboard for: 5453: Axcel Management A/S-2023 [1020]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5453
+
+Sync shopboard for: 5275: Balder Administration ApS-2023 [999]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5275
+
+Sync shopboard for: 4874: Geze Danmark-2023 [735]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4874
+
+Sync shopboard for: 5216: Hospice Sjælland Den Selvejende Institution-2023 [930]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5216
+
+Sync shopboard for: 5042: Bossard Denmark A/S-2023 [970]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5042
+
+Sync shopboard for: 5443: WRIST SHIP SUPPLY A/S-2023 [1085]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5443
+
+Sync shopboard for: 5067: GK Danmark -2023 [1296]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5067
+
+Sync shopboard for: 5331: Kyocera Unimerco-2023 [946]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5331
+
+Sync shopboard for: 4962: Cimbria Manufacturing A/S-2023 [1063]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4962
+
+Sync shopboard for: 5386: Epico-IT-2023 [1282]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5386
+
+Sync shopboard for: 4975: Scan-Hide A/S-2023 [1000]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4975
+
+Sync shopboard for: 5276: Ljunghäll AB-2023 [934]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5276
+
+Sync shopboard for: 5481: Ortofon-2023 [1104]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5481
+
+Sync shopboard for: 4915: L&P Springs Denmark ApS-2023 [761]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4915
+
+Sync shopboard for: 5718: Magistrenes A-kasse 2023 [1231]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5718
+
+Sync shopboard for: 5163: NemByg-2023 [902]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5163
+
+Sync shopboard for: 4675: Macartney DK-2023 [713]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4675
+
+Sync shopboard for: 5638: Hjemmeplejegruppe Roskildevang og Vipperød-2023 [1120]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5638
+
+Sync shopboard for: 4999: Team Blue -2023 [760]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4999
+
+Sync shopboard for: 5542: Radisson Hotels -2023 so433199 [1264]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5542
+
+Sync shopboard for: 4716: Hjemmeplejegruppe Elisabethcentret Team 2 - 2023 [1124]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4716
+
+Sync shopboard for: 4558: AFRY - Herlev/Jylland -2023 [680]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4558
+
+Sync shopboard for: 5100: Dovista-2023 [1250]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5100
+
+Sync shopboard for: 5562: Ssi Schäfer-2023 [1214]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5562
+
+Sync shopboard for: 5053: Scan Global Logistics -2023 [1076]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5053
+
+Sync shopboard for: 4657: Iveco Sverige-2023 [1031]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4657
+
+Sync shopboard for: 5395: Twoday A/S-2023 SO431754 [1118]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5395
+
+Sync shopboard for: 5131: KVM Genvex-2023 [879]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5131
+
+Sync shopboard for: 5411: Ecolab ApS-2023 [1193]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5411
+
+Sync shopboard for: 4912: Actief Hartmanns A/S-2023 [689]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4912
+
+Sync shopboard for: 4622: Holger Christiansen A/S-2023 [770]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4622
+
+Sync shopboard for: 4513: Meneta Holding A/S-2023 [842]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4513
+
+Sync shopboard for: 5614: Vestjyllands Andel -2023 [1112]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5614
+
+Sync shopboard for: 4438: Plantas A/S-2023 [752]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4438
+
+Sync shopboard for: 4467: Damcos A/S-2023 [1108]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4467
+
+Sync shopboard for: 5640: Hjemmeplejegruppe Orø-2023 [1122]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5640
+
+Sync shopboard for: 5600: Sintex A/S-2023 [1287]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5600
+
+Sync shopboard for: 4320: CP Kelco-2023 [636]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4320
+
+Sync shopboard for: 4541: FDM -2023 [654]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4541
+
+Sync shopboard for: 4452: Bravida Danmark A/S-2023 [616]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4452
+
+Sync shopboard for: 4944: ICM A/S-2023 [751]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4944
+
+Sync shopboard for: 4614: Mercantec-2023 [1209]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4614
+
+Sync shopboard for: 5169: Jydsk Miljø Rengøring Papirvalg-2023 [1284]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5169
+
+Sync shopboard for: 5315: Thy-Mors Energi Administration A/S-2023 [958]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5315
+
+Sync shopboard for: 4428: Johnson Controls Denmark ApS-2023 [805]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4428
+
+Sync shopboard for: 4457: Pharmakon A/S-2023 [717]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4457
+
+Sync shopboard for: 5720: Danoffice IT ApS-2023 [1205]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5720
+
+Sync shopboard for: 4722: CNH Industrial Denmark AS-2023 [673]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4722
+
+Sync shopboard for: 4785: Vital Petfood Group A/S-2023 [794]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4785
+
+Sync shopboard for: 4953: Lineage Logistics - Esbjerg- LL Cold2023 [710]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4953
+
+Sync shopboard for: 5147: Færch & Co A/S-2023 [967]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5147
+
+Sync shopboard for: 4923: Dynaudio-2023 [846]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4923
+
+Sync shopboard for: 4715: Dantra A/S-2023 [963]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4715
+
+Sync shopboard for: 4861: Plejecenter Lundtoft-2023 [864]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4861
+
+Sync shopboard for: 4818: Trifork Public A/S-2023 [795]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4818
+
+Sync shopboard for: 4538: New Power Partners ApS-2023 [875]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4538
+
+Sync shopboard for: 5641: Dansk Sprinkler Teknik A/S-2023 [1172]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5641
+
+Sync shopboard for: 4841: Søren Jensen Rådgivende Ingeniørfirma A/S-2023 [712]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4841
+
+Sync shopboard for: 4981: HK Danmark-2023 [867]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4981
+
+Sync shopboard for: 4761: Godt smil-2023 [829]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4761
+
+Sync shopboard for: 4596: AS3 A/S-2023 [878]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4596
+
+Sync shopboard for: 5393: Himmelev Gymnasium-2023 [1008]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5393
+
+Sync shopboard for: 5570: Ny-Form 640-2023 SO431759 [1137]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5570
+
+Sync shopboard for: 5506: Era Biler A/S-2023 [1013]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5506
+
+Sync shopboard for: 5183: Ringe Kost & Real -2023 SO428814 [874]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5183
+
+Sync shopboard for: 4387: Cg Jensen A/S-2023 [608]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4387
+
+Sync shopboard for: 5691: Flsmidth A/S-2023 [1364]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5691
+
+Sync shopboard for: 4844: Akademikerpension -2023 [890]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4844
+
+Sync shopboard for: 4551: Julemærkefonden-2023 [886]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4551
+
+Sync shopboard for: 4451: Aleris-2023 [612]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4451
+
+Sync shopboard for: 4928: Serviceforbundet-2023 [876]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4928
+
+Sync shopboard for: 5262: Coromatic-2023 [1157]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5262
+
+Sync shopboard for: 4890: Skamol A/S-2023 [847]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4890
+
+Sync shopboard for: 4749: Ricoh Danmark A/S-2023 [854]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4749
+
+Sync shopboard for: 5633: Hjemmeplejegruppe Stenhusvej-2023 [1121]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5633
+
+Sync shopboard for: 5782: Phønix Tag København A/S-2023 [1312]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5782
+
+Sync shopboard for: 5868: HK Luftfart SAS-2023 [1367]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5868
+
+Sync shopboard for: 4845: Bilhuset Elmer A/S-2023 [832]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4845
+
+Sync shopboard for: 4605: DAHL  Advokatpartnerskab -2023 [668]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4605
+
+Sync shopboard for: 4381: Billig Blomst UNGE-2023 [707]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4381
+
+Sync shopboard for: 4627: Lyreco Danmark A/S-2023 [638]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4627
+
+Sync shopboard for: 5159: Polar Salmon Hjerting-2023 [983]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5159
+
+Sync shopboard for: 4385: Columbus A/S-2023 [768]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4385
+
+Sync shopboard for: 5418: 10-4 Tømmerhandel -2023 so431339 [1041]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5418
+
+Sync shopboard for: 5152: Miele A/S-2023 [840]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5152
+
+Sync shopboard for: 4624: Sahva A/S-2023 [734]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4624
+
+Sync shopboard for: 4814: Johannes Fog A/S-2023 [753]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4814
+
+Sync shopboard for: 4471: Maxi Zoo - 2023 [625]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4471
+
+Sync shopboard for: 5272: SANOVO TECHNOLOGY A/S -2023 [1056]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5272
+
+Sync shopboard for: 4791: Damstahl A/S-2023 [739]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4791
+
+Sync shopboard for: 4922: Toms Gruppen A/S-2023 [1086]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4922
+
+Sync shopboard for: 4869: Hotel Nyborg Strand - Budget 400,- ex moms-2023 [725]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4869
+
+Sync shopboard for: 5748: Mermaid Medical A/S-2023 [1245]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5748
+
+Sync shopboard for: 5490: Jørgen Jensen Distrubution-2023 [1186]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5490
+
+Sync shopboard for: 4775: BK Medical-2023 [733]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4775
+
+Sync shopboard for: 5554: Geberit A/S-2023 [1038]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5554
+
+Sync shopboard for: 5341: Mjølner - 2022-2023 [1077]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5341
+
+Sync shopboard for: 4303: Plandent - 2023, SO427504 [631]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4303
+
+Sync shopboard for: 4950: Skjern Paper-2023 [772]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4950
+
+Sync shopboard for: 4693: Förenade Care AB-2023 [1012]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4693
+
+Sync shopboard for: 4696: Nomeco -2023 [771]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4696
+
+Sync shopboard for: 5251: Croda Denmark A/S-2023 [1110]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5251
+
+Sync shopboard for: 4888: Monjasa-2023 [1015]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4888
+
+Sync shopboard for: 4854: Beof - Bornholms Energi og Forsyning-2023 [675]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4854
+
+Sync shopboard for: 5465: Chaplin Organisationen-2023 [1010]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5465
+
+Sync shopboard for: 5394: Roesgaard-2023 [966]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5394
+
+Sync shopboard for: 4595: Fleggaard Holding A/S Tyskland-2023 [1232]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4595
+
+Sync shopboard for: 5537: Galaksen-2023 [1091]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5537
+
+Sync shopboard for: 5469: COWI Lietuva-2023 [1087]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5469
+
+Sync shopboard for: 5354: Cobblestone-2023 [1140]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5354
+
+Sync shopboard for: 4795: Tricolore - Hansen & Søn-2023 [880]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4795
+
+Sync shopboard for: 5814: SKOV PAPIRVALG                            SO433749 [1313]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5814
+
+Sync shopboard for: 5326: Den Blå Planet, Danmarks Akvarium-2023 [1239]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5326
+
+Sync shopboard for: 5415: Ommersyssel Godstransport A/S-2023 [1228]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5415
+
+Sync shopboard for: 4349: Schibsted Denmark ApS-2023 [935]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4349
+
+Sync shopboard for: 5429: Dahl papirvalg-2023 [910]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5429
+
+Sync shopboard for: 4643: Ole Larsen Transport-2023 [698]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4643
+
+Sync shopboard for: 4431: H. Lundbeck-2023 [655]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4431
+
+Sync shopboard for: 4673: JN Data-2023 [817]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4673
+
+Sync shopboard for: 5219: Hounø AS-2023 [938]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5219
+
+Sync shopboard for: 4839: At Biler A/S-2023 SO428160 [687]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4839
+
+Sync shopboard for: 4621: Tandlægen.dk - Holding-2023 [995]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4621
+
+Sync shopboard for: 5348: Mpeople A/S-2023 [979]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5348
+
+Sync shopboard for: 4407: Velas-2023 [788]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4407
+
+Sync shopboard for: 4515: METRO THERM - Deadline 1/11-23  att: Pia Kolind [819]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4515
+
+Sync shopboard for: 5634: Hjemmeplejegruppe Mørkøv / Jyderup-2023 [1123]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5634
+
+Sync shopboard for: 5510: VALSEMØLLEN-2023 [1083]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5510
+
+Sync shopboard for: 5522: Vkr Holding A/S-2023 [1226]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5522
+
+Sync shopboard for: 4345: BDO-2023 SHOP 1 SO428664 [773]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4345
+
+Sync shopboard for: 4625: Verdo-2023 [801]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4625
+
+Sync shopboard for: 5722: Holbøll A/S-2023 [1254]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5722
+
+Sync shopboard for: 5086: Antalis A/S-2023 [830]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5086
+
+Sync shopboard for: 4694: Børnehusene Humlebæk-2023 [933]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4694
+
+Sync shopboard for: 4703: Frederikshavn Forsyning A/S-2023 [745]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4703
+
+Sync shopboard for: 4528: Securitas A/S-2023 [682]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4528
+
+Sync shopboard for: 4808: Plejehjemmet Kristinehøj-2023 [947]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4808
+
+Sync shopboard for: 5689: HK Privat medlemmer -2023 [1210]
+Privatlevering aktiveret: privatlevering = 1 where fk_shop = 5689
+
+Sync shopboard for: 4974: DLG Rep- Privatlev. 2023 [652]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4974
+
+Sync shopboard for: 5278: Ringsted Kommune SSC - Plejecentrene-2023 [1096]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5278
+
+Sync shopboard for: 5684: twoday kapacity -2023 [1153]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5684
+
+Sync shopboard for: 5615: Esbjerg Gods -2023 [1222]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5615
+
+Sync shopboard for: 5672: Viften - Ansatte I Folketinget Under Co10-2023 [1199]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5672
+
+Sync shopboard for: 5026: SCANPIPE A/S-2023 [1034]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5026
+
+Sync shopboard for: 4873: Eltel Networks A/S-2023 [724]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4873
+
+Sync shopboard for: 5095: CGI [1220]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5095
+
+Sync shopboard for: 5323: Hesehus A/S-2023 [1014]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5323
+
+Sync shopboard for: 4686: Carglass A/S-2023 [723]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4686
+
+Sync shopboard for: 5625: Ommen -2023 [1258]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5625
+
+Sync shopboard for: 4744: Bankinvest - 2023 [808]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4744
+
+Sync shopboard for: 4333: Bavarian Nordic-2023 - med gavekurv [743]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4333
+
+Sync shopboard for: 5204: Dansk Sygeplejeråd-2023 [800]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5204
+
+Sync shopboard for: 4639: SK Service-2023 [1139]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4639
+
+Sync shopboard for: 4907: DOMINO MØBLER ApS-2023 SO430782 [982]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4907
+
+Sync shopboard for: 4977: Ista Danmark A/S-2023 so428913 [833]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4977
+
+Sync shopboard for: 4926: Inter Terminals Denmark A/S-2023 [727]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4926
+
+Sync shopboard for: 4918: Zibra A/S-2023 [821]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4918
+
+Sync shopboard for: 5318: Europcar Mobility Group [1175]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5318
+
+Sync shopboard for: 4497: Invita-2023 [844]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4497
+
+Sync shopboard for: 5798: Tabellae A/S -2023 [1278]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5798
+
+Sync shopboard for: 5412: Flextek A/S-2023 [955]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5412
+
+Sync shopboard for: 4831: Ri, Statsautoriseret Revisionsaktieselskab-2023 [1026]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4831
+
+Sync shopboard for: 5665: Flex Wind-2023 [1249]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5665
+
+Sync shopboard for: 4683: Comwell A/S -2023 [623]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4683
+
+Sync shopboard for: 5396: Logpoint A/S-2023 [974]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5396
+
+Sync shopboard for: 5258: Geodis-2023 [1131]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5258
+
+Sync shopboard for: 4921: Ka. Interiør A/S-2023 [781]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4921
+
+Sync shopboard for: 5334: Semler Gruppen A/S-2023 NR2 - RTT [853]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5334
+
+Sync shopboard for: 5460: NCH South / Skt. Petri Hotel -2023 [1078]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5460
+
+Sync shopboard for: 4684: Origio Coopersurgical-2023 [949]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4684
+
+Sync shopboard for: 5295: Ultrabulk-2023 [906]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5295
+
+Sync shopboard for: 4343: PFA-2023 [660]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4343
+
+Sync shopboard for: 4350: Elgiganten A/S-2023 [777]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4350
+
+Sync shopboard for: 5296: Dyrenes Beskyttelse I Danmark-2023 SO432283 [1207]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5296
+
+Sync shopboard for: 4901: Scandi Byg A/S-2023 [981]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4901
+
+Sync shopboard for: 5310: Dana Lim A/S-2023 [1079]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5310
+
+Sync shopboard for: 5356: Cibicom -2023 [1064]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5356
+
+Sync shopboard for: 5479: Pl Beton A/S-2023 [1217]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5479
+
+Sync shopboard for: 4688: EKJ Rådgivende Ingeniører-2023 [757]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4688
+
+Sync shopboard for: 5414: ac birk-2023 [1057]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5414
+
+Sync shopboard for: 4519: Biltema 2023-2023 [825]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4519
+
+Sync shopboard for: 4951: Vikan A/S-2023 - Papirvalg [889]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4951
+
+Sync shopboard for: 4448: Bella Group-2023 [614]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4448
+
+Sync shopboard for: 5616: Belman A/S-2023 [1111]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5616
+
+Sync shopboard for: 5441: HEJ GRUPPEN SO432050 [1189]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5441
+
+Sync shopboard for: 4500: Hardi International A/S-2023 [611]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4500
+
+Sync shopboard for: 4772: OONA Health SO428517 [810]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4772
+
+Sync shopboard for: 4876: Danske Shoppingcentre P/S-2023 [931]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4876
+
+Sync shopboard for: 5097: PwC-2023 [1065]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5097
+
+Sync shopboard for: 5241: ETK EMS-2023 [987]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5241
+
+Sync shopboard for: 4268: Royal Unibrew - 2023 [615]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4268
+
+Sync shopboard for: 4936: selfmade-2023 SO428772 [786]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4936
+
+Sync shopboard for: 4856: Koda-2023 [1126]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4856
+
+Sync shopboard for: 4568: fsb-2023 [647]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4568
+
+Sync shopboard for: 4902: Satair A/S-2023 [1021]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4902
+
+Sync shopboard for: 5096: Dentist.dk-2023 [828]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5096
+
+Sync shopboard for: 4461: Hofor A/S-2023 [627]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4461
+
+Sync shopboard for: 5410: Byens Tag og Facade A/S-2023 [1135]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5410
+
+Sync shopboard for: 4881: Dansk Ingeniørservice -2023 [1115]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4881
+
+Sync shopboard for: 5340: Bogballe-2023 [1357]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5340
+
+Sync shopboard for: 4813: Aabenraa 2023- SO430758 [1003]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4813
+
+Sync shopboard for: 4948: Conscia Danmark A/S-2023 [1044]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4948
+
+Sync shopboard for: 5153: Otis A/S-2023 [888]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5153
+
+Sync shopboard for: 5268: IDA Ingeniørforeningen I Danmark-2023 [989]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5268
+
+Sync shopboard for: 4940: Green Power Denmark-2023 [1159]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4940
+
+Sync shopboard for: 4367: TSCHERNING-2023 [650]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4367
+
+Sync shopboard for: 5237: Frontmatec Kolding A/S-2023 [1039]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5237
+
+Sync shopboard for: 4735: Plesner-2023 [699]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4735
+
+Sync shopboard for: 5320: Amphenol Procom-2023 [1088]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5320
+
+Sync shopboard for: 4433: Schenker DK [1092]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4433
+
+Sync shopboard for: 5663: Juliana Drivhuse A/S-2023 [1242]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5663
+
+Sync shopboard for: 4533: AC Group-2023 [845]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4533
+
+Sync shopboard for: 5649: Strukton Rail A/S-2023 [1276]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5649
+
+Sync shopboard for: 4486: Fors A/S-2023 [716]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4486
+
+Sync shopboard for: 4584: Synoptik budget 500,00 - SO428603 - Elevgaver [762]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4584
+
+Sync shopboard for: 4871: COWI-2023 [980]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4871
+
+Sync shopboard for: 5040: Coop Trading A/S-2023 [1052]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5040
+
+Sync shopboard for: 4762: Louis Petersens Børnegård-2023 [820]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4762
+
+Sync shopboard for: 5514: Compugroup Medical Denmark -2023 [1229]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5514
+
+Sync shopboard for: 5329: Flying Tiger-2023 [1257]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5329
+
+Sync shopboard for: 4838: Aarhus Havn-2023 [866]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4838
+
+Sync shopboard for: 4427: GEA Process Engineering A/S-2023 [605]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4427
+
+Sync shopboard for: 5419: 3f København-2023 [1007]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5419
+
+Sync shopboard for: 5694: Flex Wind DK/Polen-2023 [1219]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5694
+
+Sync shopboard for: 4911: Nellemann Koncernen-2023 [824]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4911
+
+Sync shopboard for: 4832: Harald Nyborg A/S-2023 [909]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4832
+
+Sync shopboard for: 5635: Hjemmeplejegruppe Mårsø-2023 [1125]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5635
+
+Sync shopboard for: 5468: Frijsenborg & Wedellsborg-2023 [997]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5468
+
+Sync shopboard for: 5667: Udby & Tuse Skole-2023 [1279]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5667
+
+Sync shopboard for: 4741: Beumer Group A/S-2023 [674]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4741
+
+Sync shopboard for: 4672: CAC Au2parts ApS-2023 SO428534 [789]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4672
+
+Sync shopboard for: 4481: 9altitudes Denmark A/S-2023 [1164]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4481
+
+Sync shopboard for: 4578: Marel-2023 [803]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4578
+
+Sync shopboard for: 5015: Persano Group A/S-2023 [742]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5015
+
+Sync shopboard for: 4341: Diabetesforeningen -2023 [852]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4341
+
+Sync shopboard for: 5424: Evida-2023 [1040]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5424
+
+Sync shopboard for: 5399: Contrast company-2023 [978]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5399
+
+Sync shopboard for: 4365: Eurofins NSC Denmark A/S-2023 [791]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4365
+
+Sync shopboard for: 5692: Bavarian Nordic-2023 - UDEN gavekurv [1144]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5692
+
+Sync shopboard for: 5547: Steen & Strøm Danmark A/S -2023 [1138]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5547
+
+Sync shopboard for: 5068: Forsikringens Datacenter -2023 [953]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5068
+
+Sync shopboard for: 4505: Krifa-2023 [641]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4505
+
+Sync shopboard for: 4736: Avk International A/S-2023 [747]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4736
+
+Sync shopboard for: 5517: Min A-Kasse- Gældende 2023 [1142]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5517
+
+Sync shopboard for: 4574: Scanvægt Nordic A/S-2023 [1133]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4574
+
+Sync shopboard for: 4863: Devoteam-2023 [1045]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4863
+
+Sync shopboard for: 5259: ChemoMetec A/S-2023 [959]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5259
+
+Sync shopboard for: 4552: Genmab A/S-2023 [653]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4552
+
+Sync shopboard for: 4493: Havi Logistics ApS-2023 [618]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4493
+
+Sync shopboard for: 5012: Psykiatrifonden-2023 [1181]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5012
+
+Sync shopboard for: 5279: Ngi A/S-2023 [905]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5279
+
+Sync shopboard for: 4371: KPMG P/S-2023 [613]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4371
+
+Sync shopboard for: 4726: Pwt Group A/S-2023 [755]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4726
+
+Sync shopboard for: 5231: Pfizer-2023 [1072]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5231
+
+Sync shopboard for: 5244: Gebr. Heinemann Retail ApS-2023 [863]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5244
+
+Sync shopboard for: 5054: Rgs Nordic A/S-2023 [1032]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5054
+
+Sync shopboard for: 4582: Lægeforeningen Domus Medica-2023 [670]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4582
+
+Sync shopboard for: 4507: EPOKE A/S-2023 [630]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4507
+
+Sync shopboard for: 5073: Alm. Brand Group-2023 [991]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5073
+
+Sync shopboard for: 4987: HK Nordjylland-2023 [718]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4987
+
+Sync shopboard for: 4939: I/S Vestforbrænding-2023 [994]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4939
+
+Sync shopboard for: 5433: L.M. Transport UNGE-2023 [1179]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5433
+
+Sync shopboard for: 4678: HMF Group-2023 [738]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4678
+
+Sync shopboard for: 5288: HK Østjylland-2023 SO429103 [887]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5288
+
+Sync shopboard for: 5420: 10-4 Tømmerhandel [1059]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5420
+
+Sync shopboard for: 4540: Artelia A/S-2023 [835]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4540
+
+Sync shopboard for: 5256: Missionpharma A/S-2023 [962]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5256
+
+Sync shopboard for: 4895: Migatronic A/S-2023 [937]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4895
+
+Sync shopboard for: 5267: Hjørring Private Realskole-2023 [960]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5267
+
+Sync shopboard for: 5247: Roblon Aktieselskab-2023 [881]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5247
+
+Sync shopboard for: 5342: Aros Maler Entreprise A/S-2023 [1024]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5342
+
+Sync shopboard for: 5480: Slagelse Boligselskab-2023 [1067]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5480
+
+Sync shopboard for: 5604: Smil Med Østergaard Frederiks-2023 [1155]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5604
+
+Sync shopboard for: 4644: Svane Pleje - 2023 [766]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4644
+
+Sync shopboard for: 4592: Bruun & Hjejle I/S-2023 [676]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4592
+
+Sync shopboard for: 5843: RC Beton 2023 [1348]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5843
+
+Sync shopboard for: 4789: Det Danske Madhus-2023 [796]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4789
+
+Sync shopboard for: 5358: Symphogen-2023 [952]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5358
+
+Sync shopboard for: 4579: Sygeforsikringen "Danmark"-2023 [957]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4579
+
+Sync shopboard for: 4359: Danske Commodities A/S-2023 [775]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4359
+
+Sync shopboard for: 4767: WWF Verdensnaturfonden-2023 [741]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4767
+
+Sync shopboard for: 4853: Ambercon -2023 [721]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4853
+
+Sync shopboard for: 5700: Ica Kvantum/City Sparköp Knalleland AB-2023 [1253]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5700
+
+Sync shopboard for: 4585: Carl Zeiss A/S-2023 [885]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4585
+
+Sync shopboard for: 5736: Nicon Industries-2023 [1268]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5736
+
+Sync shopboard for: 4821: HK Privat-2023 Bestyrelse SO429687 [924]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4821
+
+Sync shopboard for: 4721: BBC Studios Nordic Productions A/S-2023 [891]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4721
+
+Sync shopboard for: 4443: Synoptik A/S-2023 [642]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4443
+
+Sync shopboard for: 4964: Polytech -2023 [1163]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4964
+
+Sync shopboard for: 4477: DLG-2023 SO427869 - Firmalev [651]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4477
+
+Sync shopboard for: 4509: Nobia JUL -2023 SO428140 [692]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4509
+
+Sync shopboard for: 5006: Egernsund Wienerberger A/S-2023 [843]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5006
+
+Sync shopboard for: 4903: Brenntag-2023 [858]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4903
+
+Sync shopboard for: 4483: Bila A/S-2023 [756]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4483
+
+Sync shopboard for: 5546: Arbejdernes Andels Boligforening-2023 [1303]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5546
+
+Sync shopboard for: 5646: Børne og Unge Center Vejle Fjord-2023 [1201]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5646
+
+Sync shopboard for: 4886: Lowell Danmark-2023 [702]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4886
+
+Sync shopboard for: 4347: Bonnier Publications A/S-2023 [693]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4347
+
+Sync shopboard for: 5531: Kafe K - 2023 SO431929 [1141]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5531
+
+Sync shopboard for: 5754: Energi Danmark-2023 [1289]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5754
+
+Sync shopboard for: 5525: Avista Green ApS-2023 [1146]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5525
+
+Sync shopboard for: 4632: Pensam-2023 [639]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4632
+
+Sync shopboard for: 5617: AOF Sydjylland budget 400,- ex moms-2023 [1252]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5617
+
+Sync shopboard for: 4900: Nti A/S-2023 [954]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4900
+
+Sync shopboard for: 4473: Kuehne + Nagel -2023 [836]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4473
+
+Sync shopboard for: 5349: DOT-2023 [1230]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5349
+
+Sync shopboard for: 4810: Kohberg-2023 [977]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4810
+
+Sync shopboard for: 5213: Danmarks Idrætsforbund-2023 [971]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5213
+
+Sync shopboard for: 5683: Dyrenes Beskyttelse - TIME -2023 SO432284 [1208]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5683
+
+Sync shopboard for: 5459: Christensen Kjærulff-2023 [1130]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5459
+
+Sync shopboard for: 4598: Fleggaard Holding A/S Danmark-2023 [850]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4598
+
+Sync shopboard for: 5059: Visitdenmark-2023 [1082]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5059
+
+Sync shopboard for: 4489: Aller Media A/S-2023 - SO426879 [609]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4489
+
+Sync shopboard for: 4326: Plandent A/S - 2023 - SO433680 [1299]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4326
+
+Sync shopboard for: 5560: Carlsberg Group-2023 [1167]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5560
+
+Sync shopboard for: 5422: Nissens Automotive A/S-2023 [975]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5422
+
+Sync shopboard for: 5297: Vejle Ungdomskole-2023 [1119]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5297
+
+Sync shopboard for: 4527: Redmark, Godkendt Revisionspartnerselskab-2023 [729]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4527
+
+Sync shopboard for: 5856: Alm. Brand Group - shop2-2023 [1352]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5856
+
+Sync shopboard for: 5274: SENG -2023 SO431515 [1066]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5274
+
+Sync shopboard for: 5397: Staten og Kommunernes Indkøbsservice -2023 [925]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5397
+
+Sync shopboard for: 4628: Boligselskabet Sjælland-2023 [785]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4628
+
+Sync shopboard for: 4986: Thales-2023 SO428795 [849]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4986
+
+Sync shopboard for: 5434: Stromma Denmark A/S-2023 [1129]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5434
+
+Sync shopboard for: 5284: Knudsen Plast A/S-2023 [993]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5284
+
+Sync shopboard for: 4803: Dachser Denmark A/S-2023 [722]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4803
+
+Sync shopboard for: 4979: Købstædernes Forsikring-2023 [671]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4979
+
+Sync shopboard for: 4771: Metroselskabet-2023 [691]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4771
+
+Sync shopboard for: 5769: Ejvinds-2023 [1305]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5769
+
+Sync shopboard for: 5303: Moldow-2023 [1260]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5303
+
+Sync shopboard for: 5584: Lundgrens Advokatpartnerselskab-2023 [1237]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5584
+
+Sync shopboard for: 5248: Vitrolife-2023 [1160]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5248
+
+Sync shopboard for: 4732: Plus Sundhed A/S-2023 [661]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4732
+
+Sync shopboard for: 5773: Områdekontoret Kildebakken-2023 [1265]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5773
+
+Sync shopboard for: 5210: Formpipe-2023 [1075]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5210
+
+Sync shopboard for: 5328: Købmand Hansens Feriehusudlejning Julegaver 2023 [976]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5328
+
+Sync shopboard for: 4531: Baker Tilly Denmark -2023 [1053]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4531
+
+Sync shopboard for: 5316: Tjellesen - medarbejder-2023 SO429722 [899]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5316
+
+Sync shopboard for: 4289: EagleBurgmann 2023 [610]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4289
+
+Sync shopboard for: 4535: Eltwin-2023 [1042]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4535
+
+Sync shopboard for: 5149: Csis Security Group A/S-2023 [1051]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5149
+
+Sync shopboard for: 4414: EG A/S -2023 [709]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4414
+
+Sync shopboard for: 4947: Vikan A/S-2023 [893]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4947
+
+Sync shopboard for: 4563: Solar Danmark A/S-2023 [648]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4563
+
+Sync shopboard for: 5601: Silkeborg Forsyning 2023-2023 [1166]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5601
+
+Sync shopboard for: 4867: Hewlett-Packard ApS-2023 [646]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4867
+
+Sync shopboard for: 5605: I/S Refa-2023 [1243]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5605
+
+Sync shopboard for: 5421: Lessor Group-2023 [1029]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5421
+
+Sync shopboard for: 4799: General Logistics Systems Denmark A/S - GLS -2023 [685]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4799
+
+Sync shopboard for: 5731: Ribehøj-2023 [1267]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5731
+
+Sync shopboard for: 4553: BHJ A/S-2023 [626]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4553
+
+Sync shopboard for: 5555: Eurowind Energy A/S-2023 [1206]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5555
+
+Sync shopboard for: 4543: Casino Copenhagen K/S-2023 [606]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4543
+
+Sync shopboard for: 4636: DKI Logistics A/S-2023 [740]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4636
+
+Sync shopboard for: 5300: POMPdeLUX-2023 [1216]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5300
+
+Sync shopboard for: 4774: Globalconnect-2023 [988]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4774
+
+Sync shopboard for: 5206: Læsø Fiskeindustri-2023 [1203]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5206
+
+Sync shopboard for: 5370: Autismecenter Syd-2023 [901]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5370
+
+Sync shopboard for: 4866: Hilding Anders-2023 [1148]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4866
+
+Sync shopboard for: 4415: Coloplast A/S-2023 [683]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4415
+
+Sync shopboard for: 4616: DGI-2023 [754]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4616
+
+Sync shopboard for: 4458: Dav Nordic-2023 [622]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4458
+
+Sync shopboard for: 4868: Hotel Nyborg Strand - Budget 200,- ex moms-2023 [726]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4868
+
+Sync shopboard for: 5263: Hans Frisesdahl - 2022-2023 [1244]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5263
+
+Sync shopboard for: 4988: Nilan A/S-2023 [1068]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4988
+
+Sync shopboard for: 4960: Boconcept -2023 [951]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4960
+
+Sync shopboard for: 5385: Cadeler - Søfolk-2023 SO431817 [1128]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5385
+
+Sync shopboard for: 5317: Tjellesen - ungarbejder-2023 SO429724 [900]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5317
+
+Sync shopboard for: 5137: Aco Funki-2023 [834]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5137
+
+Sync shopboard for: 4446: Alfa Laval -2023 SO428147 [679]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4446
+
+Sync shopboard for: 4590: CAU-2023 SO427388 [629]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4590
+
+Sync shopboard for: 5021: DCC Energi A/S  -2023 [779]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5021
+
+Sync shopboard for: 5405: Apcoa Parking Danmark-2023 [1158]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5405
+
+Sync shopboard for: 5249: Bytømreren A/S-2023 [1177]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5249
+
+Sync shopboard for: 4908: Q8 Valgshop-2023 [780]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4908
+
+Sync shopboard for: 5048: Brand & Redning Midt vest-2023 [861]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5048
+
+Sync shopboard for: 4591: Roust Element A/S-2023 [700]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4591
+
+Sync shopboard for: 4645: Iveco Danmark og Norge-2023 [1062]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4645
+
+Sync shopboard for: 4917: DNV-2023 [894]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4917
+
+Sync shopboard for: 5713: Betech A/S-2023 [1240]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5713
+
+Sync shopboard for: 5383: X-Yachts-2023 [1080]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5383
+
+Sync shopboard for: 4757: Stibo Software Group A/S-2023 [750]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4757
+
+Sync shopboard for: 4362: Better Energy A/S-2023 [620]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4362
+
+Sync shopboard for: 5335: Semler Gruppen A/S-2023 NR3 - Carholding [855]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5335
+
+Sync shopboard for: 5033: Worldwide Asset Management -2023 [823]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5033
+
+Sync shopboard for: 4332: Ambulance syd 2023-2023 [663]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4332
+
+Sync shopboard for: 5733: ComplyCloud Aps-2023 [1272]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5733
+
+Sync shopboard for: 4547: Christiansen & Essenbæk A/S-2023 [628]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4547
+
+Sync shopboard for: 5541: Focus Advokaterne-2023 [1173]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5541
+
+Sync shopboard for: 5034: JP/Politikens Hus-2023 [1116]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5034
+
+Sync shopboard for: 4580: Ejendomsvirke A/S-2023 [749]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4580
+
+Sync shopboard for: 5587: P-Lindberg-2023 [1113]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5587
+
+Sync shopboard for: 4366: Billig Blomst-2023 [705]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4366
+
+Sync shopboard for: 5221: Ergonomic Solutions Manufacturing 2023 [872]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5221
+
+Sync shopboard for: 4955: Skov Glyngøre-2023 [807]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4955
+
+Sync shopboard for: 5636: Nordværk-2023 [1204]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5636
+
+Sync shopboard for: 5014: Ringsted Kommunes Social og Sundhedscenter-2023 [1054]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5014
+
+Sync shopboard for: 4523: DIS · Study Abroad in Scandinavia-2023 [633]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4523
+
+Sync shopboard for: 4529: Dansk Retursystem 2023-2023 [665]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4529
+
+Sync shopboard for: 5651: Nordisk Svejse -2023 [1256]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5651
+
+Sync shopboard for: 4393: Kongsvang Cleaning & Facility A/S-2023 - JULEGAVER [658]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4393
+
+Sync shopboard for: 5089: GE HEALTHCARE Danmark-2023 [798]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5089
+
+Sync shopboard for: 5195: Timevision-2023 [986]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5195
+
+Sync shopboard for: 5576: H. Jessen Jürgensen A/S-2023 [1196]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5576
+
+Sync shopboard for: 4909: Semler Gruppen A/S-2023 NR1 [765]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4909
+
+Sync shopboard for: 5236: Elm, Kragelund A/S-2023 [1097]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5236
+
+Sync shopboard for: 5304: Immeo-2023 [1001]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5304
+
+Sync shopboard for: 5128: Halsnæs Kommune -2023 [1176]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5128
+
+Sync shopboard for: 4984: TK Elevator Denmark -2023 [939]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4984
+
+Sync shopboard for: 4284: NIRAS - 2023 [701]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4284
+
+Sync shopboard for: 4549: Brugsforeningen TRYG-2023 SO428083 [862]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4549
+
+Sync shopboard for: 5373: Assa Abloy Entrance Systems Denmark-2023 [972]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5373
+
+Sync shopboard for: 5473: Volvo Danmark A/S-2023 [1019]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5473
+
+Sync shopboard for: 5025: Netnordic -2023 [1002]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5025
+
+Sync shopboard for: 5841: Magnus Holm-2023 [1346]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5841
+
+Sync shopboard for: 4570: LEMAN 400-2023 [769]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4570
+
+Sync shopboard for: 5631: Frelloskolen-2023 [1198]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5631
+
+Sync shopboard for: 5227: Turbinehallen ApS-2023 SO432006 [1178]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5227
+
+Sync shopboard for: 5201: DEKRA-2023 [1006]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5201
+
+Sync shopboard for: 5158: Syntese -2023 ikke i brug [1103]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5158
+
+Sync shopboard for: 5282: The Whole Company Food A/S-2023 [1161]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5282
+
+Sync shopboard for: 4331: Welcon A/S-2023 [998]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4331
+
+Sync shopboard for: 5339: Tresu -2023 [1145]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5339
+
+Sync shopboard for: 4637: Mammoet Denmark Brande A/S-2023 [787]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4637
+
+Sync shopboard for: 4518: Inforevision 2023-2023 [677]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4518
+
+Sync shopboard for: 4764: Rais A/S-2023 [649]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4764
+
+Sync shopboard for: 5586: SONFOR-2023 (tidl. Sønderborg Forsyning) [1293]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5586
+
+Sync shopboard for: 5311: Makenet A/S-2023 [1101]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5311
+
+Sync shopboard for: 5194: Beierholm Aalborg-2023 [838]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5194
+
+Sync shopboard for: 4691: Abb A/S-2023 [1162]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4691
+
+Sync shopboard for: 5408: Howden Axial Fans-2023 [1023]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5408
+
+Sync shopboard for: 5035: Alfa Laval Nordic-2023 SO428166 [688]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5035
+
+Sync shopboard for: 4554: Sparekassen Kronjylland [744]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4554
+
+Sync shopboard for: 4576: VM Tarm [1028]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4576
+
+Sync shopboard for: 5426: Vestfrost solutions-2023 [1291]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5426
+
+Sync shopboard for: 4589: JORTON-2023 [686]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4589
+
+Sync shopboard for: 4855: Subc Partner A/S-2023 [1025]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4855
+
+Sync shopboard for: 5478: Vingmed A/S-2023 [1058]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5478
+
+Sync shopboard for: 4806: Andersen Partners Advokatpartnerselskab-2023 [1285]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4806
+
+Sync shopboard for: 4820: Hans Jensen Group [669]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4820
+
+Sync shopboard for: 4550: Dansac A/S-2023 [621]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4550
+
+Sync shopboard for: 4416: Rockwool-2023 [664]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4416
+
+Sync shopboard for: 5160: Lammhults Biblioteksdesig A/S-2023 [1005]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5160
+
+Sync shopboard for: 5039: Specialcenter Syddanmark-2023 [804]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5039
+
+Sync shopboard for: 4924: Oluf Brønnum & Co. A/S-2023 [1188]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4924
+
+Sync shopboard for: 5193: Stokholm Transport A/S-2023 [871]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5193
+
+Sync shopboard for: 4685: Remondis A/S-2023 [831]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4685
+
+Sync shopboard for: 4474: Alex Andersen-2023 [697]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4474
+
+Sync shopboard for: 4386: Brødrene A. & O. Johansen A/S-2023 [604]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4386
+
+Sync shopboard for: 5189: Spæncom A/S-2023 [1050]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5189
+
+Sync shopboard for: 4829: E-Boks A/S-2023 [719]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4829
+
+Sync shopboard for: 5574: Ny-form 1040-2023 [1154]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5574
+
+Sync shopboard for: 5156: Nordsjællands Brandvæsen -2023 [973]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5156
+
+Sync shopboard for: 5391: L.M. Transport-2023 SO432054 [1180]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5391
+
+Sync shopboard for: 5240: Mv Polering A/S-2023 [926]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5240
+
+Sync shopboard for: 5780: Lund International School Ek. För.-2023 [1283]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5780
+
+Sync shopboard for: 5710: Avk Gummi A/S-2023 [1241]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5710
+
+Sync shopboard for: 4532: Jobindex A/S-2023 [731]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4532
+
+Sync shopboard for: 4619: Expedit-2023 [634]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4619
+
+Sync shopboard for: 5001: sybo-2023 [706]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5001
+
+Sync shopboard for: 4617: Knauf A/S-2023 [711]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4617
+
+Sync shopboard for: 5611: Vela-2023 [1288]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5611
+
+Sync shopboard for: 4896: Scandinavian Tobacco Group A/S-2023 [763]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4896
+
+Sync shopboard for: 5215: Ls Intertank ApS-2023 [1016]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5215
+
+Sync shopboard for: 5697: Probeco A/S-2023 [1192]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5697
+
+Sync shopboard for: 4828: Danbred P/S-2023 [856]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4828
+
+Sync shopboard for: 5125: Marineshaft A/S-2023 [822]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5125
+
+Sync shopboard for: 4717: Provstegaardshjemmet-2023 SO427861 [657]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4717
+
+Sync shopboard for: 4344: Scandlines Danmark ApS-2023 [1117]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4344
+
+Sync shopboard for: 5608: Spiras-2023 [1134]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5608
+
+Sync shopboard for: 4335: Topsoe A/S-2023 [896]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4335
+
+Sync shopboard for: 5487: Mars Danmark-2023 [1106]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5487
+
+Sync shopboard for: 5362: KSM Kragelund-2023 [1081]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5362
+
+Sync shopboard for: 5906: Anlægsgartner Gottlieb -2023 [1397]
+Privatlevering aktiveret: privatlevering = 1 where fk_shop = 5906
+
+Sync shopboard for: 4376: Tryghedsgruppen S.m.b.a-2023 [678]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4376
+
+Sync shopboard for: 4511: Syddjurs Kommune-2023 SO430115 [932]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4511
+
+Sync shopboard for: 4676: Macartney UDLAND-2023 [714]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4676
+
+Sync shopboard for: 4709: Nexus Ambition -2023 [883]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4709
+
+Sync shopboard for: 5355: Købmand Hansens Feriehusudlejning SO430778 [1170]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5355
+
+Sync shopboard for: 5734: Royal Canin-2023 [1218]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 5734
+
+Sync shopboard for: 4413: Danske Fragtmænd Transport A/S-2023 [635]
+Privatlevering deaktiveret: privatlevering = 0 where fk_shop = 4413
+
