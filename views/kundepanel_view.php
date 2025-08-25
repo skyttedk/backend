@@ -31,12 +31,14 @@ if(isset($_GET["token"])){
 <script src="views/lib/jquery-ui/jquery-ui.js"></script>
 <link href="views/lib/jquery-ui/jquery-ui.css" rel="stylesheet">
 <script src="views/js/main.js"></script>
+<script src="views/js/gavevalgExt.js"></script>
 
 <script language="javascript" type="text/javascript" src="views/lib/jqplot/jquery.jqplot.min.js"></script>
 <script language="javascript" type="text/javascript" src="views/lib/jqplot/plugins/jqplot.pieRenderer.js "></script>
 <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <link href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="views/lib/jqplot/jquery.jqplot.css" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
  <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shCoreDefault.min.css" />
     <link type="text/css" rel="stylesheet" href="syntaxhighlighter/styles/shThemejqPlot.min.css" />
 

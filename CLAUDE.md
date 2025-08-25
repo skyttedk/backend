@@ -33,22 +33,37 @@ This is a custom PHP MVC framework for a gift/present e-commerce system called "
 - `lib/ActiveRecord.php` - ORM layer for database operations
 - `includes/init.php` - Bootstrap file with autoloader and DB setup
 
+**Framework Bootstrap Process:**
+1. `index.php` defines site path and includes `init.php`
+2. `init.php` loads configuration, sets up autoloading, and initializes ActiveRecord
+3. Router is instantiated and controller path is set
+4. Template system is loaded
+5. Router loads and executes the appropriate controller
+
 ### Application Architecture
 
 **Multi-Country Support:**
 - Configured for Denmark (dk), Norway (no), and Sweden (se)
 - Country-specific URLs and Navision ERP integrations
-- Language constants in `GFConfig` class
+- Language constants in `GFConfig` class (`LANG_DENMARK=1`, `LANG_NORWAY=4`, `LANG_SWEDEN=5`)
 
 **Authentication System:**
 - Two-tier auth: "shop" (customer-facing) and "backend" (admin)
-- JWT token-based authentication with session management
+- JWT token-based authentication with session management (20-hour timeout)
 - Public controllers defined in router for unauthenticated access
+- Session configuration in router with custom cookie parameters
 
 **Business Logic Organization:**
 - `bizlogic/` - Domain-specific business logic classes
 - `units/` - Modular application units with namespace `GFUnit`
 - `app/` - App-specific controllers with namespace `GFApp`
+
+**Autoloading System:**
+- Custom autoloader (`gfAutoloader`) handles namespaced classes
+- `GFUnit\*` classes loaded from `units/` directory
+- `GFApp\*` classes loaded from `app/` directory
+- `GFBiz\*` classes loaded from `bizlogic/` directory
+- Model classes loaded from `model/` and `reports/` directories
 
 ### Database & External Systems
 
@@ -56,6 +71,7 @@ This is a custom PHP MVC framework for a gift/present e-commerce system called "
 - MySQL using PHP-ActiveRecord ORM
 - Models in `model/` directory follow `{entity}.class.php` naming
 - Database configuration in `includes/config.php`
+- Connection string: `mysql://user:pass@host/database?charset=utf8`
 
 **External Integrations:**
 - Navision ERP system (separate configs for DA/NO/SE)
@@ -73,36 +89,48 @@ This is a custom PHP MVC framework for a gift/present e-commerce system called "
 - `upload/` - File upload storage
 - `reports/` - Report generation classes
 - `service/` - Service layer components
+- `component/` - Utility components and tools
+- `module/` - Standalone modules (presentsCms, saleportal)
 
 ### Development Patterns
 
 **Controller Structure:**
-- All controllers extend `baseController`
-- Must implement `index()` method
+- All controllers extend `baseController` (abstract class)
+- Must implement abstract `index()` method
 - URL pattern: `index.php?rt=controller/action`
 - Authentication handled in router before controller execution
+- Controllers receive `$registry` object in constructor
 
 **Model Patterns:**
 - Extend `BaseModel` which extends `ActiveRecord\Model`
-- Support calculated attributes via `$calculated_attributes`
+- Support calculated attributes via `$calculated_attributes` static property
 - Database connections configured in `init.php`
+- Models follow naming convention: `{entity}.class.php`
 
 **Error Handling:**
 - Comprehensive logging via `SystemLog` model
 - Transaction-based error handling in router
 - Custom exception handling with rollback support
+- Error reporting enabled in development
 
 ### Configuration
 
 **Environment Configuration:**
 - All config in `includes/config.php` via `GFConfig` class constants
 - Database, URLs, and API credentials centralized
-- Season-based configuration (currently 2025)
+- Season-based configuration (currently 2025: `SALES_SEASON = 2025`)
+
+**Multi-Country URLs:**
+- Denmark: `https://findgaven.dk/`
+- Norway: `https://gavevalg.no/`
+- Sweden: `https://dinjulklapp.se/`
+- Backend: `https://system.gavefabrikken.dk/gavefabrikken_backend/`
 
 **Security Notes:**
 - Database credentials and API keys are hardcoded in config
 - JWT secret is hardcoded in `init.php`
 - Session management with 20-hour timeout
+- Navision integrations have production and development endpoints
 
 ## Working with this Codebase
 

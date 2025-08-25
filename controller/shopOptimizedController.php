@@ -3,7 +3,7 @@
 // Controller shop
 // Date created  Sun, 03 Apr 2016 21:00:47 +0200
 // Created by Bitworks
-class ShopController Extends baseController {
+class shopOptimizedController Extends baseController {
 
   public function Index() {
   }
@@ -1979,6 +1979,60 @@ public function copy(){
         
    
    }
+
+   public function saveValgshopComplaint(){
+        $userid = intval($_POST["shopuserID"]);
+        $shopid = intval($_POST["shopID"]);
+        $msg = $_POST["msg"];
+        
+        error_log("Saving valgshop complaint - UserID: $userid, ShopID: $shopid, Msg: $msg");
+        
+        $sql = "INSERT INTO order_present_complaint (shopuser_id, company_id, complaint_txt) VALUES ($userid, $shopid, '".Dbsqli::protect($msg)."')";
+        $result = Dbsqli::SetSql2($sql);
+        
+        error_log("SQL result: " . ($result ? "success" : "failed"));
+        
+        $response = array("status" => $result ? 1 : 0, "data" => $result, "sql" => $sql);
+        echo json_encode($response);
+    }
+
+   public function getValgshopComplaint(){
+        try {
+            // Get userid from URL path
+            $uri = $_SERVER['REQUEST_URI'];
+            $parts = explode('/', $uri);
+            $userid = intval(end($parts));
+            
+            error_log("Getting complaint for user: " . $userid);
+            $sql = "SELECT * FROM order_present_complaint WHERE shopuser_id = " . $userid . " ORDER BY id DESC LIMIT 1";
+            $result = Dbsqli::getSql2($sql);
+            $response = array("status" => 1, "data" => $result ? $result : []);
+            echo json_encode($response);
+        } catch (Exception $e) {
+            error_log("Error in getValgshopComplaint: " . $e->getMessage());
+            $response = array("status" => 0, "error" => $e->getMessage());
+            echo json_encode($response);
+        }
+    }
+
+   public function getValgshopComplaintList(){
+        try {
+            // Get shopid from URL path
+            $uri = $_SERVER['REQUEST_URI'];
+            $parts = explode('/', $uri);
+            $shopid = intval(end($parts));
+            
+            error_log("Getting complaint list for shop: " . $shopid);
+            $sql = "SELECT shopuser_id, COUNT(*) as antal FROM order_present_complaint WHERE company_id = " . $shopid . " AND complaint_txt != '' GROUP BY shopuser_id";
+            $result = Dbsqli::getSql2($sql);
+            $response = array("status" => 1, "data" => $result ? $result : []);
+            echo json_encode($response);
+        } catch (Exception $e) {
+            error_log("Error in getValgshopComplaintList: " . $e->getMessage());
+            $response = array("status" => 0, "error" => $e->getMessage());
+            echo json_encode($response);
+        }
+    }
 
 }
 ?>

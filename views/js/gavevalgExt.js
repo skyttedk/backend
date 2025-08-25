@@ -691,7 +691,8 @@
             }
 
             html+="<img width=\"20\" class=\"notShowKundepanel\" height=\"20\" src=\"views/media/icon/1373253296_delete_64.png\" title=\"Slet\" onclick=\"gavevalg.deleteUser('"+this.userDataDB[i].id+"') \">" ;
-            html+="<td class=\"qr_admin\" >"+delived+"</td></tr>";
+            html+="<button data-id=\""+this.userDataDB[i].id+"\" class=\"complaintBtn\" title=\"Reklamation\" style=\"border:none;background:none;cursor:pointer;margin-left:5px;width:23px;height:23px;\"><i class=\"bi bi-exclamation-lg\" style=\"font-size:18px;opacity:0;\"></i></button>";
+            html+="</td><td class=\"qr_admin\" >"+delived+"</td></tr>";
 
 
 
@@ -703,6 +704,18 @@
         }
         html+="</tr></table>";
         $("#gavevalgContainer").html(html);
+        
+        // Add complaint button event handlers - only for buttons with data-id
+        $("button.complaintBtn[data-id]").unbind("click").click(function(){
+            // Only allow click if icon is visible (has complaint)
+            if($(this).find('i').css('opacity') == '1') {
+                gavevalg.openComplaint($(this).attr("data-id"));
+            }
+        });
+        
+        // Load existing complaint indicators
+        gavevalg.loadComplaintIndicators();
+        
         if(_is_closed == "1"){
             if(_is_gf_user == "0"){
                             $(".notShowKundepanel").hide()
@@ -916,10 +929,20 @@
         tempHtml+= '    <img width="23" height="23" title="Skift gave" class="notShowKundepanel" src="views/media/icon/gave.png" onclick="gavevalg.changeGiftShowMenu(\''+masterId+'\')">'
         tempHtml+= '    <img width="20" height="20" src="views/media/icon/PurchaseNoOrder-50.png" title="Ingen kvittering, ej valgt gave">'
          tempHtml+= '   <img width="20" class="notShowKundepanel" height="20" src="views/media/icon/1373253296_delete_64.png" title="Slet" onclick="gavevalg.deleteUser(\''+masterId+'\')"> '
+         tempHtml+= '   <button data-id="'+masterId+'" class="complaintBtn" title="Reklamation" style="border:none;background:none;cursor:pointer;margin-left:5px;width:23px;height:23px;"><i class="bi bi-exclamation-lg" style="font-size:18px;opacity:0;"></i></button>'
         tempHtml+= ' </td> '
         tempHtml+= ' <td class="qr_admin" style="display: none;"></td></tr>'
 
         $(".gavevalg tr:first-child").after(tempHtml);
+        
+        // Add complaint button event handler for new user
+        $('button.complaintBtn[data-id="'+masterId+'"]').unbind("click").click(function(){
+            // Only allow click if icon is visible (has complaint)
+            if($(this).find('i').css('opacity') == '1') {
+                gavevalg.openComplaint($(this).attr("data-id"));
+            }
+        });
+        
         jQuery.each(response.data.shopuser[0].user_attributes, function(index, item) {
             var  attribute_id = item.attributes.attribute_id;
             var attribute_value = item.attributes.attribute_value;
@@ -1055,6 +1078,112 @@
     },
     qrDownloadLog:function(){
        window.location = "../gavefabrikken_backend/index.php?rt=report/qrlog&shop_id="+_editShopID
+    },
+    openComplaint:function(shopuserID){
+        // Create complaint modal manually instead of using import
+        var complaintText = '';
+        
+        // First get existing complaint
+        $.post({
+            url: "index.php?rt=shopOptimized/getValgshopComplaint/"+shopuserID,
+            data: {},
+            dataType: 'json'
+        }).done(function(response) {
+            console.log("Get complaint result:", response);
+            if(response.status === 1 && response.data.length > 0) {
+                complaintText = decodeURIComponent(response.data[0].complaint_txt);
+            }
+            
+            // Show complaint dialog
+            var dialogHtml = '<br><textarea id="complaintTxt" rows="10" cols="80">' + complaintText + '</textarea><br>';
+            $("#gavevalgComplaintDialog").html(dialogHtml);
+            $("#gavevalgComplaintDialog").dialog({
+                title: "Gave reklamation",
+                width: 600,
+                height: 400,
+                modal: true,
+                buttons: {
+                    "Gem": function() {
+                        var complaint = $("#complaintTxt").val();
+                        if(complaint == "") return;
+                        
+                        console.log("Saving complaint for user:", shopuserID, "shop:", _editShopID, "complaint:", complaint);
+                        
+                        $.post({
+                            url: "index.php?rt=shopOptimized/saveValgshopComplaint",
+                            data: {
+                                shopuserID: shopuserID,
+                                shopID: _editShopID,
+                                msg: encodeURIComponent(complaint)
+                            },
+                            dataType: 'json'
+                        }).done(function(result) {
+                            console.log("Save result:", result);
+                            
+                            if(result.status === 1) {
+                                $('.complaintBtn[data-id="'+shopuserID+'"] i').css({
+                                    'opacity': '1',
+                                    'color': 'red'
+                                });
+                                showSysMsg("Reklamation er gemt");
+                                $("#gavevalgComplaintDialog").dialog("close");
+                            } else {
+                                alert("Fejl ved gemning af reklamation");
+                            }
+                        }).fail(function(xhr, status, error) {
+                            console.error("AJAX Error:", status, error, xhr.responseText);
+                            alert("Netværksfejl ved gemning: " + error);
+                        });
+                    },
+                    "Annuller": function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }).fail(function(xhr, status, error) {
+            console.error("Failed to get complaint:", error);
+            // Show dialog anyway, just empty
+            var dialogHtml = '<br><textarea id="complaintTxt" rows="10" cols="80"></textarea><br>';
+            $("#gavevalgComplaintDialog").html(dialogHtml);
+            $("#gavevalgComplaintDialog").dialog({
+                title: "Gave reklamation",
+                width: 600,
+                height: 400,
+                modal: true,
+                buttons: {
+                    "Gem": function() {
+                        alert("Kunne ikke indlæse eksisterende reklamation. Prøv igen.");
+                        $(this).dialog("close");
+                    },
+                    "Annuller": function() {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        });
+    },
+    loadComplaintIndicators:function(){
+        // Load existing complaints and mark buttons red
+        $.post({
+            url: "index.php?rt=shopOptimized/getValgshopComplaintList/"+_editShopID,
+            data: {},
+            dataType: 'json'
+        }).done(function(response) {
+            console.log("Complaint indicators:", response);
+            gavevalg.markComplaintButtons(response);
+        }).fail(function(xhr, status, error) {
+            console.error("Failed to load complaint indicators:", error);
+        });
+    },
+    markComplaintButtons:function(response){
+        if(response.status === 1 && response.data && response.data.length > 0){
+            response.data.forEach(function(item) {
+                $('.complaintBtn[data-id="' + item.shopuser_id + '"] i').css({
+                    'opacity': '1',
+                    'color': 'red'
+                });
+            });
+        }
     }
 
 

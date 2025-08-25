@@ -60,3 +60,4 @@
 </div>
 <div id="gavevalgDialog"  title="Opret ny bruger" style="display:none;"></div>
 <div id="gavevalgSkiftGave"  title="Skift gave" style="display:none;"></div>
+<div id="gavevalgComplaintDialog"  title="Gave reklamation" style="display:none;"></div>

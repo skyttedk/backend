@@ -177,6 +177,7 @@
             }
 
             html+="<img width=\"20\" height=\"20\" src=\"views/media/icon/1373253296_delete_64.png\" title=\"Slet\" onclick=\"gavevalg.deleteUser('"+this.userDataDB[i].id+"') \">" ;
+            html+="<span data-id=\""+this.userDataDB[i].id+"\" class=\"complaintBtn\" title=\"Reklamation\" style=\"cursor:pointer;margin-left:5px;font-size:16px;color:#dc3545;font-weight:bold;\">⚠</span>";
             html+="</td></tr>";
 
 
@@ -189,6 +190,14 @@
 
         html+="</tr></table>";
         $("#gavevalgContainer").html(html);
+        
+        // Add complaint button event handlers
+        $(".complaintBtn").unbind("click").click(function(){
+            gavevalg.openComplaint($(this).attr("data-id"));
+        });
+        
+        // Load existing complaint indicators
+        gavevalg.loadComplaintIndicators();
 
     },
     updateUserData:function(id)
@@ -278,6 +287,29 @@
     },
     printReceiptResponse:function(response){
         showSysMsg("Kvittering sendt")
+    },
+    openComplaint:function(shopuserID){
+        // Import complaint class dynamically and open dialog
+        import('../gavefabrikken_backend/units/valgshop/main/js/complaint.class.js').then(module => {
+            const Complaint = module.default;
+            new Complaint(_editShopID, shopuserID);
+        }).catch(error => {
+            console.error('Error loading complaint module:', error);
+            alert('Kunne ikke indlæse reklamationssystem');
+        });
+    },
+    loadComplaintIndicators:function(){
+        // Load existing complaints and mark buttons red
+        $.post("index.php?rt=cardshop/cards/getComplaintList/"+_editShopID, {}, function(response) {
+            gavevalg.markComplaintButtons(response);
+        });
+    },
+    markComplaintButtons:function(response){
+        if(response.status === 1 && response.data){
+            response.data.forEach(function(item) {
+                $('.complaintBtn[data-id="' + item.shopuser_id + '"]').css('color', 'red');
+            });
+        }
     }
 
 
