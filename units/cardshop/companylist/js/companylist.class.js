@@ -19,6 +19,9 @@ export default class Companylist extends Base {
     Layout(targetClass,data){
         $(targetClass).html( tpCompanylist.searchform() );
         $(targetClass).append( tpCompanylist.companylist() );
+        
+        // Set language flag events after layout is created, pass this class instance
+        tpCompanylist.setLanguageFlagEvents(this);
     }
     SetEvents(){
 
@@ -137,5 +140,37 @@ export default class Companylist extends Base {
             $("#companylist").find("[data-id='" + doSelect + "']").click();
         }
 
+    }
+
+    // Language switching method using existing ajax pattern
+    async switchLanguage(newLanguage) {
+        console.log("switchLanguage called with:", newLanguage);
+        
+        // Get systemuser_id from current URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const systemUserId = urlParams.get('systemuser_id');
+        
+        // Use the existing ajax pattern like other methods
+        const formData = {
+            user_id: systemUserId || 1,
+            language: newLanguage
+        };
+        
+        try {
+            const result = await super.post("cardshop/companylist/switchLang", formData);
+            console.log("API response:", result);
+            
+            if(result && result.status === 1) {
+                console.log("Language switch successful, reloading page...");
+                window.location.reload();
+            } else {
+                console.error("Failed to switch language:", result);
+                alert("Failed to switch language: " + (result && result.message ? result.message : "Unknown error"));
+            }
+            
+        } catch (error) {
+            console.error("Error switching language:", error);
+            alert("Error switching language. Please try again.");
+        }
     }
 }

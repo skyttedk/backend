@@ -90,4 +90,49 @@ class Controller extends UnitController
         echo json_encode(array("status" => 1, "result" => $companies ),JSON_PRETTY_PRINT);
     }
 
+    public function switchLang()
+    {
+        // Get user ID and language from POST data
+        $userId = $_POST['user_id'];
+        $newLanguage = $_POST['language'];
+        
+        // Security check: Only allow user ID 340 to change languages in production
+        if($userId != 340) {
+            echo json_encode(array("status" => 0, "message" => "Access denied - Language change not allowed for this user"));
+            return;
+        }
+        
+        // First, check if we need to backup the original language
+        $sqlCheck = "SELECT language, language_original FROM system_user WHERE id = ".$userId;
+        $checkResult = \Dbsqli::getSql2($sqlCheck);
+        
+        $backupOriginal = false;
+        if($checkResult && count($checkResult) > 0) {
+            $currentData = $checkResult[0];
+            $currentLanguage = $currentData['language'];
+            $languageOriginal = $currentData['language_original'];
+            
+            // If language_original is 0 or null, backup current language
+            if($languageOriginal == 0 || $languageOriginal == null || $languageOriginal == '') {
+                $sqlBackup = "UPDATE system_user SET language_original = ".$currentLanguage." WHERE id = ".$userId;
+                $backupResult = \Dbsqli::setSql2($sqlBackup);
+                $backupOriginal = true;
+            }
+        }
+        
+        // Update current language using direct SQL
+        $sql2 = "UPDATE system_user SET language = ".$newLanguage." WHERE id = ".$userId;
+        $u2 = \Dbsqli::setSql2($sql2);
+        
+        // Return response in the format expected by the ajax utility
+        $result = array(
+            "user_id" => $userId,
+            "language" => $newLanguage,
+            "original_backed_up" => $backupOriginal,
+            "message" => "Language updated successfully" . ($backupOriginal ? " (original language backed up)" : "")
+        );
+        
+        echo json_encode(array("status" => 1, "result" => $result));
+    }
+
 }

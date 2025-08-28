@@ -73,17 +73,55 @@ class SystemUserController Extends baseController
 
     public function changeLanguage()
     {
-        // Get user ID from POST data
+        // Get user ID and language from POST data
         $userId = $_POST['user_id'];
+        $newLanguage = $_POST['language'];
         
-        // Hardcode language to 1 (currently changing from 4 to 1)
-        $newLanguage = 1;
+        // Security check: Only allow user ID 340 to change languages in production
+        if($userId != 340) {
+            $result = array(
+                "success" => false,
+                "error" => "Access denied",
+                "message" => "Language change not allowed for this user"
+            );
+            header('Content-Type: application/json');
+            echo json_encode($result);
+            return;
+        }
+        
+        // First, check if we need to backup the original language
+        $sqlCheck = "SELECT language, language_original FROM system_user WHERE id = ".$userId;
+        $checkResult = \Dbsqli::getSql2($sqlCheck);
+        
+        $backupOriginal = false;
+        if($checkResult && count($checkResult) > 0) {
+            $currentData = $checkResult[0];
+            $currentLanguage = $currentData['language'];
+            $languageOriginal = $currentData['language_original'];
+            
+            // If language_original is 0 or null, backup current language
+            if($languageOriginal == 0 || $languageOriginal == null || $languageOriginal == '') {
+                $sqlBackup = "UPDATE system_user SET language_original = ".$currentLanguage." WHERE id = ".$userId;
+                $backupResult = \Dbsqli::setSql2($sqlBackup);
+                $backupOriginal = true;
+            }
+        }
         
         // Update current language using direct SQL
         $sql2 = "UPDATE system_user SET language = ".$newLanguage." WHERE id = ".$userId;
         $u2 = \Dbsqli::setSql2($sql2);
         
-        response::success(make_json("language_updated", array("user_id" => $userId, "language" => $newLanguage)));
+        // Return simple JSON response
+        $result = array(
+            "success" => true,
+            "user_id" => $userId,
+            "language" => $newLanguage,
+            "original_backed_up" => $backupOriginal,
+            "message" => "Language updated successfully" . ($backupOriginal ? " (original language backed up)" : "")
+        );
+        
+        header('Content-Type: application/json');
+        echo json_encode($result);
     }
 }
 
