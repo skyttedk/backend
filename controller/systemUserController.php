@@ -70,6 +70,21 @@ class SystemUserController Extends baseController
 //---------------------------------------------------------------------------------------
 // Custom Controller Actions
 //---------------------------------------------------------------------------------------
+
+    public function changeLanguage()
+    {
+        // Get user ID from POST data
+        $userId = $_POST['user_id'];
+        
+        // Hardcode language to 1 (currently changing from 4 to 1)
+        $newLanguage = 1;
+        
+        // Update current language using direct SQL
+        $sql2 = "UPDATE system_user SET language = ".$newLanguage." WHERE id = ".$userId;
+        $u2 = \Dbsqli::setSql2($sql2);
+        
+        response::success(make_json("language_updated", array("user_id" => $userId, "language" => $newLanguage)));
+    }
 }
 
 ?>
