@@ -100,6 +100,7 @@ class tabController Extends baseController {
 
 
           $returnHtml.='<input type="radio" id="radio69" name="radio" ><label for="radio69" onclick="bizType.trail(\'showMyPage\')">Min side</label>';
+          $returnHtml.='<input type="radio" id="radio11" name="radio" ><label for="radio11" onclick="bizType.trail(\'presentComplaint\')">Reklamationer</label>';
           if($searchbarVisible){
             echo $returnHtml.='<script>mainTabControlResponse("show")</script>';
           } else {

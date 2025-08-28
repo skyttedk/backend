@@ -64,6 +64,15 @@ var bizType = {
             var htmlContent='<iframe style=" overflow: hidden; height: calc(100vh - 80px); width: 95vw;"  src="/gavefabrikken_backend/index.php?rt=myPage&login=dsfkjsadhferuifghriuejf3434fhsudif"></iframe>';
             $("#content").html(htmlContent);
         }
+        if(action == "presentComplaint"){
+            $("#frontMenu").hide();
+            var htmlContent='<iframe id="PresentComplaintApp" width="100%" height="700" src="/gavefabrikken_backend/index.php?rt=unit/cardshop/presentcomplaint&token=asdf43sdha4f34o&systemuser_id='+_sysId+'&ram='+Math.floor(Math.random() * 10000)+'"></iframe>';
+            $("#content").html(htmlContent);
+            window.onresize = function(event) {
+                $("#PresentComplaintApp").height($(window).height()-80)
+            };
+            $("#PresentComplaintApp").height($(window).height()-80)
+        }
 
 
         $("#trailContainer").html(html)

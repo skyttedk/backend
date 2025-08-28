@@ -39,6 +39,7 @@
         <link href="<?php echo $GLOBALS_PATH ?>companylist/css/companylist.css?<?php echo rand(1,9999); ?>" rel="stylesheet">
         <link href="<?php echo $GLOBALS_PATH ?>companyform/css/company.base.css?<?php echo rand(5, 9999); ?>" rel="stylesheet">
         <link href="<?php echo $GLOBALS_PATH ?>companyform/css/company.form.css?<?php echo rand(5, 9999); ?>" rel="stylesheet">
+        <link href="<?php echo $GLOBALS_PATH ?>presentcomplaint/css/present-complaint.css?<?php echo rand(5, 9999); ?>" rel="stylesheet">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <style>
         #ModalFullscreen{
