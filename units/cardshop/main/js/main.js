@@ -12,7 +12,7 @@ import Approve from '../../approvelist/js/approvelist.class.js?v=123';
 import Search from '../../search/js/search.class.js';
 import Valgshop from '../../valgshop/js/valgshop.class.js';
 import Demoshop from '../../demoshop/js/demoshop.class.js';
-import ReminderModal from './reminderModal.js';
+import ReminderModal from './reminderModal.js'; 
 
 import Base from '../../main/js/base.js';
 export default class Main extends Base  {
