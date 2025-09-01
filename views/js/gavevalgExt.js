@@ -691,7 +691,7 @@
             }
 
             html+="<img width=\"20\" class=\"notShowKundepanel\" height=\"20\" src=\"views/media/icon/1373253296_delete_64.png\" title=\"Slet\" onclick=\"gavevalg.deleteUser('"+this.userDataDB[i].id+"') \">" ;
-            html+="<button data-id=\""+this.userDataDB[i].id+"\" class=\"complaintBtn\" title=\"Reklamation\" style=\"border:none;background:none;cursor:pointer;margin-left:5px;width:23px;height:23px;\"><i class=\"bi bi-exclamation-lg\" style=\"font-size:18px;opacity:0;\"></i></button>";
+            html+="<button data-id=\""+this.userDataDB[i].id+"\" class=\"complaintBtn\" title=\"Reklamation\"><i class=\"bi bi-exclamation-lg\"></i></button>";
             html+="</td><td class=\"qr_admin\" >"+delived+"</td></tr>";
 
 
@@ -705,10 +705,26 @@
         html+="</tr></table>";
         $("#gavevalgContainer").html(html);
         
+        // Inject styles for complaint button/alignment once
+        if (!document.getElementById('gavevalg-complaint-styles')) {
+            var css = ''
+                + '.gavevalg td.ba_admin{white-space:nowrap;vertical-align:middle;}\\n'
+                + '.gavevalg td.ba_admin img{display:inline-block;vertical-align:middle;}\\n'
+                + '.gavevalg td.ba_admin .complaintBtn{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;min-width:20px;min-height:20px;vertical-align:middle;margin-left:3px;border:1px solid transparent !important;border-radius:3px;padding:0;background:transparent;cursor:pointer;box-sizing:border-box;appearance:none;-webkit-appearance:none;outline:none;box-shadow:none;line-height:0;}\\n'
+                + '.gavevalg td.ba_admin .complaintBtn i{font-size:13px;line-height:1;opacity:0 !important;display:block;-webkit-font-smoothing:antialiased;}\\n'
+                + '.gavevalg td.ba_admin .complaintBtn.has-complaint{border-color:#d00 !important;background:#fff;}\\n'
+                + '.gavevalg td.ba_admin .complaintBtn.has-complaint i{opacity:1 !important;color:#d00;}\\n';
+            var s = document.createElement('style');
+            s.id = 'gavevalg-complaint-styles';
+            s.type = 'text/css';
+            if (s.styleSheet) { s.styleSheet.cssText = css; } else { s.appendChild(document.createTextNode(css)); }
+            document.getElementsByTagName('head')[0].appendChild(s);
+        }
+        
         // Add complaint button event handlers - only for buttons with data-id
         $("button.complaintBtn[data-id]").unbind("click").click(function(){
-            // Only allow click if icon is visible (has complaint)
-            if($(this).find('i').css('opacity') == '1') {
+            // Only allow click if a complaint exists
+            if($(this).hasClass('has-complaint')) {
                 gavevalg.openComplaint($(this).attr("data-id"));
             }
         });
@@ -929,7 +945,7 @@
         tempHtml+= '    <img width="23" height="23" title="Skift gave" class="notShowKundepanel" src="views/media/icon/gave.png" onclick="gavevalg.changeGiftShowMenu(\''+masterId+'\')">'
         tempHtml+= '    <img width="20" height="20" src="views/media/icon/PurchaseNoOrder-50.png" title="Ingen kvittering, ej valgt gave">'
          tempHtml+= '   <img width="20" class="notShowKundepanel" height="20" src="views/media/icon/1373253296_delete_64.png" title="Slet" onclick="gavevalg.deleteUser(\''+masterId+'\')"> '
-         tempHtml+= '   <button data-id="'+masterId+'" class="complaintBtn" title="Reklamation" style="border:none;background:none;cursor:pointer;margin-left:5px;width:23px;height:23px;"><i class="bi bi-exclamation-lg" style="font-size:18px;opacity:0;"></i></button>'
+         tempHtml+= '   <button data-id="'+masterId+'" class="complaintBtn" title="Reklamation" style="border:none;background:none;cursor:pointer;margin-left:5px;width:23px;height:23px;display:inline-flex;align-items:center;justify-content:center;"><i class="bi bi-exclamation-lg" style="font-size:18px;opacity:0;line-height:1;"></i></button>'
         tempHtml+= ' </td> '
         tempHtml+= ' <td class="qr_admin" style="display: none;"></td></tr>'
 
@@ -1121,10 +1137,10 @@
                             console.log("Save result:", result);
                             
                             if(result.status === 1) {
-                                $('.complaintBtn[data-id="'+shopuserID+'"] i').css({
-                                    'opacity': '1',
-                                    'color': 'red'
-                                });
+                                var $btn = $('.complaintBtn[data-id="'+shopuserID+'"]');
+                                $btn.addClass('has-complaint');
+                                // Fallback immediate visual feedback
+                                $btn.find('i').css({'opacity':'1','color':'red'});
                                 showSysMsg("Reklamation er gemt");
                                 $("#gavevalgComplaintDialog").dialog("close");
                             } else {
@@ -1178,10 +1194,10 @@
     markComplaintButtons:function(response){
         if(response.status === 1 && response.data && response.data.length > 0){
             response.data.forEach(function(item) {
-                $('.complaintBtn[data-id="' + item.shopuser_id + '"] i').css({
-                    'opacity': '1',
-                    'color': 'red'
-                });
+                var $btn = $('.complaintBtn[data-id="' + item.shopuser_id + '"]');
+                $btn.addClass('has-complaint');
+                // Fallback immediate visual feedback
+                $btn.find('i').css({'opacity':'1','color':'red'});
             });
         }
     }
