@@ -41,7 +41,8 @@
 
 
 
-class Order extends BaseModel {
+class Order extends BaseModel
+{
     static $table_name  = "order";
     static $primary_key = "id";
 
@@ -58,64 +59,66 @@ class Order extends BaseModel {
 
 
     // Trigger functions
-    function onBeforeCreate() {
+    function onBeforeCreate()
+    {
         $this->validateFields();
     }
 
-    function onAfterCreate()  {
+    function onAfterCreate()
+    {
 
         //  Load order by id
-        if($this->id > 0)
-        {
+        if ($this->id > 0) {
             $order = Order::find($this->id);
             $this->order_no = $order->order_no;
+        } else {
+            echo "Could not find new orders order_no (" . $this->id . ")";
+            exit();
         }
-        else
-        {
-            echo "Could not find new orders order_no (".$this->id.")"; exit();
-        }
-
     }
 
-    function onBeforeUpdate() {
+    function onBeforeUpdate()
+    {
         $this->validateFields();
     }
 
-    function onAfterUpdate()  {}
+    function onAfterUpdate() {}
     function onBeforeDestroy() {}
-    function onAfterDestroy()  {
+    function onAfterDestroy()
+    {
         OrderAttribute::table()->delete(array('order_id' => $this->id));
         OrderPresentEntry::table()->delete(array('order_id' => $this->id));
     }
 
-    function validateFields() {
+    function validateFields()
+    {
         //testRequired($this,'order_no');
-        testRequired($this,'order_timestamp');
-        testRequired($this,'shop_id');
-        testRequired($this,'company_id');
-        testRequired($this,'company_name');
+        testRequired($this, 'order_timestamp');
+        testRequired($this, 'shop_id');
+        testRequired($this, 'company_id');
+        testRequired($this, 'company_name');
         //testRequired($this,'company_cvr');
-        testRequired($this,'shopuser_id');
-        testRequired($this,'user_username');
-        testRequired($this,'user_email');
-        testRequired($this,'present_id');
-        testRequired($this,'present_no');
-        testRequired($this,'present_name');
-        testRequired($this,'present_internal_name');
+        testRequired($this, 'shopuser_id');
+        testRequired($this, 'user_username');
+        testRequired($this, 'user_email');
+        testRequired($this, 'present_id');
+        testRequired($this, 'present_no');
+        testRequired($this, 'present_name');
+        testRequired($this, 'present_internal_name');
 
         //testMaxLength($this,'order_no',20);
-        testMaxLength($this,'company_name',100);
-        testMaxLength($this,'company_cvr',15);
-        testMaxLength($this,'company_pick_group',15);
-        testMaxLength($this,'user_username',250);
-        testMaxLength($this,'user_email',250);
-        testMaxLength($this,'user_name',250);
-        testMaxLength($this,'present_no',250);
-        testMaxLength($this,'present_name',100);
-        testMaxLength($this,'present_internal_name',100);
-        testMaxLength($this,'present_vendor',100);
-        testMaxLength($this,'present_model_name',250);
-        testMaxLength($this,'gift_certificate_no',20);
+        testMaxLength($this, 'company_name', 100);
+        testMaxLength($this, 'company_cvr', 15);
+        testMaxLength($this, 'company_pick_group', 15);
+        testMaxLength($this, 'user_username', 250);
+        testMaxLength($this, 'user_email', 250);
+        testMaxLength($this, 'user_name', 250);
+        testMaxLength($this, 'present_no', 250);
+        testMaxLength($this, 'present_name', 100);
+        testMaxLength($this, 'present_internal_name', 100);
+        testMaxLength($this, 'present_vendor', 100);
+        testMaxLength($this, 'present_model_name', 250);
+        testMaxLength($this, 'gift_certificate_no', 20);
 
         $this->order_no = intval($this->order_no);
         $this->company_name = trimgf($this->company_name);
@@ -132,12 +135,13 @@ class Order extends BaseModel {
         $this->gift_certificate_no = trimgf($this->gift_certificate_no);
     }
 
-//---------------------------------------------------------------------------------------
-// Static CRUD Methods
-//---------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------
+    // Static CRUD Methods
+    //---------------------------------------------------------------------------------------
 
 
-    static public function createOrder($data) {
+    static public function createOrder($data)
+    {
 
 
         // Load shop and shop user
@@ -155,14 +159,14 @@ class Order extends BaseModel {
         }
 
         //Check om bruger er spærret eller MI's testshop der bruges som demo
-        if($ShopUser->blocked==1 || $ShopUser->shutdown==1 || $ShopUser->company_id == 61469) {
+        if ($ShopUser->blocked == 1 || $ShopUser->shutdown == 1 || $ShopUser->company_id == 61469) {
             throw new Exception('Denne bruger er spærret');
         }
 
         //Check om gavekort er udløbet
         if ($ShopUser->is_giftcertificate == 1) {
-            $shopOpen = GFBiz\Gavevalg\ShopCloseCheck::isShopOpen($ShopUser->shop_id,$ShopUser->expire_date);
-            if(!$shopOpen) {
+            $shopOpen = GFBiz\Gavevalg\ShopCloseCheck::isShopOpen($ShopUser->shop_id, $ShopUser->expire_date);
+            if (!$shopOpen) {
                 throw new Exception('closed');
             }
         }
@@ -171,11 +175,11 @@ class Order extends BaseModel {
         if ($ShopUser->is_giftcertificate == 1 && intvalgf($ShopUser->username) > 0) {
 
             // Tjek om forsendelse er oprettet
-            $shipmentList = Shipment::find_by_sql("SELECT * FROM shipment WHERE from_certificate_no = ".intvalgf($ShopUser->username)." && shipment_type in ('privatedelivery','directdelivery')");
+            $shipmentList = Shipment::find_by_sql("SELECT * FROM shipment WHERE from_certificate_no = " . intvalgf($ShopUser->username) . " && shipment_type in ('privatedelivery','directdelivery')");
             if (count($shipmentList) > 0) {
 
                 // If waiting, remove and reset shop_user
-                if($shipmentList[0]->shipment_state <= 1) {
+                if ($shipmentList[0]->shipment_state <= 1) {
 
                     // Remove shipment
                     $shipment = Shipment::find($shipmentList[0]->id);
@@ -185,16 +189,13 @@ class Order extends BaseModel {
                     $ShopUser->delivery_state = 0;
                     $ShopUser->delivery_print_date = null;
                     $ShopUser->save();
-
                 }
 
                 // Is sent, reject order
                 else {
                     throw new Exception('closed');
                 }
-
             }
-
         }
 
         // Lock order tables to insert and make other requests wait
@@ -225,13 +226,12 @@ class Order extends BaseModel {
         // User information
         $order->shopuser_id  = $ShopUser->id;
         $order->is_delivery =  $ShopUser->is_delivery;
-        $order->user_email ='';
-        $order->user_username ='';
-        $order->user_name ='';
+        $order->user_email = '';
+        $order->user_username = '';
+        $order->user_name = '';
 
         // If gift certificate, update information
-        if($ShopUser->is_giftcertificate==1)
-        {
+        if ($ShopUser->is_giftcertificate == 1) {
             $order->gift_certificate_no         = $ShopUser->username;
             $order->gift_certificate_end_date   = $ShopUser->expire_date;
         }
@@ -247,6 +247,9 @@ class Order extends BaseModel {
                 $order->language_id = 1;
             }
         }
+
+
+
 
         // Set company information
         $company = Company::find($ShopUser->company_id);
@@ -265,12 +268,24 @@ class Order extends BaseModel {
         $order->present_copy_of  = $present->copy_of;
         $order->present_shop_id  = $present->shop_id;
 
+
+
+
+
         // Set model details
         $order->present_model_name = $data['model'] == "###" ? "" : $data['model'];
         $order->present_model_present_no =  $data['modelData'];
         $order->present_model_id = isset($data['model_id']) ? $data['model_id'] : 0;
 
-        if($present->shop_id != $shop->id) {
+        // Use decription from db not from postdata.   
+        $varenrModel = PresentModel::find_by_sql("SELECT * FROM present_model WHERE present_id = " . intval($order->present_id) . " && model_id = " . intval($order->present_model_id) . " && language_id = 1 && model_present_no != ''");
+        if (count($varenrModel) > 0) {
+            $data['model'] = $varenrModel[0]->model_name;
+            $order->present_model_name = $varenrModel[0]->model_name;
+        }
+
+
+        if ($present->shop_id != $shop->id) {
             throw new exception('shop mismatch');
         }
 
@@ -285,16 +300,20 @@ class Order extends BaseModel {
                     $order->present_model_present_no = $varenrModel[0]->model_present_no;
                 }
 
+
                 // Check varenr again
                 if ($order->present_model_present_no == "") {
                     throw new exception('model data missing');
                 }
-
             } else if ($order->present_model_present_no == "undefined") {
                 throw new exception('model data undefined');
             }
-
         }
+
+
+
+
+
 
         // Process user attributes
         $attributes = (array)json_decode($data['_attributes']);
@@ -312,7 +331,7 @@ class Order extends BaseModel {
         $shopAttributeMap = array();
         foreach ($shopAttributeList as $sAttr) {
             $shopAttributeMap[$sAttr->id] = $sAttr;
-            if($sAttr->is_delivery == 1) {
+            if ($sAttr->is_delivery == 1) {
                 $deliveryAttributeCount++;
             }
         }
@@ -339,10 +358,9 @@ class Order extends BaseModel {
                     $orderattribute->is_email = $shopattribute->is_email;
                     $orderAttributeList[] = $orderattribute;
 
-                    if($shopattribute->is_delivery == 1 && trimgf($attribute->attribute_value) != "") {
+                    if ($shopattribute->is_delivery == 1 && trimgf($attribute->attribute_value) != "") {
                         $deliveryAttributeSet++;
                     }
-
                 } else {
                     throw new exception('Could not find shop attribute1.');
                 }
@@ -362,11 +380,10 @@ class Order extends BaseModel {
             if ($attribute->is_name) {
                 $order->user_name = $attribute->attribute_value;
             }
-
         }
 
         // Check for missing delivery fields
-        if($shop->is_gift_certificate == 1 && $ShopUser->is_delivery == 1 && $deliveryAttributeCount > 0 && $deliveryAttributeCount-$deliveryAttributeSet >= 2) {
+        if ($shop->is_gift_certificate == 1 && $ShopUser->is_delivery == 1 && $deliveryAttributeCount > 0 && $deliveryAttributeCount - $deliveryAttributeSet >= 2) {
             throw new exception('Missing delivery fields');
         }
 
@@ -407,7 +424,7 @@ class Order extends BaseModel {
             $orderpresententry->present_no = $p;
             $orderpresententry->save();
         }
-        
+
 
         // Specielle regler for valgshops
         $replaceShopRules = array(
@@ -421,48 +438,46 @@ class Order extends BaseModel {
         );
 
         // If has previous order, check if new e-mail
-        if($previousOrder !== null && ($order->shop_is_gift_certificate == 1 || in_array($order->shop_id,array_keys($replaceShopRules)))) {
+        if ($previousOrder !== null && ($order->shop_is_gift_certificate == 1 || in_array($order->shop_id, array_keys($replaceShopRules)))) {
 
             $overwriteTemplateID = 0;
 
-            if(trim(mb_strtolower($order->user_email)) != "" && trim(mb_strtolower($previousOrder->user_email)) != "" && trim(mb_strtolower($order->user_email)) != trim(mb_strtolower($previousOrder->user_email))) {
+            if (trim(mb_strtolower($order->user_email)) != "" && trim(mb_strtolower($previousOrder->user_email)) != "" && trim(mb_strtolower($order->user_email)) != trim(mb_strtolower($previousOrder->user_email))) {
 
                 // Giftcertificate
-                if($order->shop_is_gift_certificate == 1) {
+                if ($order->shop_is_gift_certificate == 1) {
 
                     // Load cardshop settings
-                    $cardshopSettings = \CardshopSettings::find('first',array("conditions" => array("shop_id" => intval($order->shop_id))));
-                    if($cardshopSettings != null) {
+                    $cardshopSettings = \CardshopSettings::find('first', array("conditions" => array("shop_id" => intval($order->shop_id))));
+                    if ($cardshopSettings != null) {
 
                         // Language
 
                         $mailserver = 4;
-                        if($cardshopSettings->language_code == 1) $overwriteTemplateID = 23;
-                        if($cardshopSettings->language_code == 4) $overwriteTemplateID = 26;
-                        if($cardshopSettings->language_code == 5) {
+                        if ($cardshopSettings->language_code == 1) $overwriteTemplateID = 23;
+                        if ($cardshopSettings->language_code == 4) $overwriteTemplateID = 26;
+                        if ($cardshopSettings->language_code == 5) {
                             $overwriteTemplateID = 24;
                             $mailserver = 5;
                         }
 
                         // Find template
-                        if($overwriteTemplateID > 0) {
+                        if ($overwriteTemplateID > 0) {
 
                             $mailTemplate = mailtemplate::find($overwriteTemplateID);
-                            $template = str_replace('{navn}',$previousOrder->user_name,$mailTemplate->template_overwritewarn);
-                            $template = str_replace('{date}',$previousOrder->order_timestamp->format("d-m-Y"),$template);
-                            $template = str_replace('{username}',$previousOrder->user_username,$template);
+                            $template = str_replace('{navn}', $previousOrder->user_name, $mailTemplate->template_overwritewarn);
+                            $template = str_replace('{date}', $previousOrder->order_timestamp->format("d-m-Y"), $template);
+                            $template = str_replace('{username}', $previousOrder->user_username, $template);
 
                             $maildata = [];
                             $maildata['sender_email'] =  "no-reply@gavefabrikken.dk";
                             $maildata['recipent_email'] = $previousOrder->user_email;
-                            $maildata['subject']= ($mailTemplate->subject_overwritewarn);
+                            $maildata['subject'] = ($mailTemplate->subject_overwritewarn);
                             $maildata['body'] = ($template);
                             $maildata['mailserver_id'] = $mailserver;
-                            $maildata['send_group'] = "overwritewarn_".$previousOrder->id."_".$order->id;
+                            $maildata['send_group'] = "overwritewarn_" . $previousOrder->id . "_" . $order->id;
                             MailQueue::createMailQueue($maildata);
-
                         }
-
                     }
                 }
 
@@ -495,7 +510,6 @@ GaveFabrikken A/S<br>
 OBS: Denne mail kan ikke besvares<br></p><p></p>			
 </td></tr></table>
 </body></html>";
-
                     } else if ($replace_templatelanguage == 4) {
 
                         $subject = "Ditt gavevalg har blitt endret";
@@ -510,7 +524,6 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
 <br>Med vennlig hilsen<br>GaveFabrikken AS<br>
 <br> <br>OBS: Denne mail kan ikke besvares.<br></p><p></p></td></tr>
 </table></body></html>";
-
                     } else if ($replace_templatelanguage == 5) {
 
                         $subject = "Ditt gåvoval har ändrats";
@@ -524,7 +537,6 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
 <br>Med vänliga hälsningar<br>PresentBolaget AB<br>
 <br> <br>OBS :Detta mejl kan inte besvaras.<br></p>
 <p></p></td></tr></table></body></html>";
-
                     }
 
                     // Send e-mail
@@ -546,7 +558,6 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
 
                         $overwriteTemplateID = 1;
                     }
-
                 }
 
 
@@ -555,17 +566,16 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
                 $shopUserLog = new ShopUserLog();
                 $shopUserLog->shop_user_id = $order->shopuser_id;
                 $shopUserLog->type = "Overwrite";
-                $shopUserLog->description = "Gavevalg overskrevet på kortnr ".$previousOrder->user_username.". Oprindelig ordre ".$previousOrder->order_no." (".$previousOrder->user_email."), ny ordre ".$order->order_no." (".$order->user_email.").".($overwriteTemplateID > 0 ? " Der er sendt en e-mail med advarsel til ".$previousOrder->user_email."." : "");
+                $shopUserLog->description = "Gavevalg overskrevet på kortnr " . $previousOrder->user_username . ". Oprindelig ordre " . $previousOrder->order_no . " (" . $previousOrder->user_email . "), ny ordre " . $order->order_no . " (" . $order->user_email . ")." . ($overwriteTemplateID > 0 ? " Der er sendt en e-mail med advarsel til " . $previousOrder->user_email . "." : "");
                 $shopUserLog->save();
-
             }
         }
 
         return ($order);
-
     }
 
-    public static function getAttributeName($attribute,$languageId) {
+    public static function getAttributeName($attribute, $languageId)
+    {
 
         $name = $attribute->name;
 
@@ -575,52 +585,47 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
             return $name;
         }
 
-        if($languageId==2) {
-            try{
-                $name =$languages->En->name;
-                if($name=="")
+        if ($languageId == 2) {
+            try {
+                $name = $languages->En->name;
+                if ($name == "")
                     return $attribute->name;
                 else
                     return $name;
             } catch (Exception $e) {
                 return $attribute->name;
             }
-        } else if($languageId==3) {
-            try{
-                $name =$languages->De->name;
-                if($name=="")
+        } else if ($languageId == 3) {
+            try {
+                $name = $languages->De->name;
+                if ($name == "")
                     return $attribute->name;
                 else
                     return $name;
-
             } catch (Exception $e) {
                 return $attribute->name;
             }
-        } else if($languageId==4) {
-            try{
-                $name =$languages->No->name;
-                if($name=="")
+        } else if ($languageId == 4) {
+            try {
+                $name = $languages->No->name;
+                if ($name == "")
                     return $attribute->name;
                 else
                     return $name;
-
             } catch (Exception $e) {
                 return $attribute->name;
             }
-
-        } else if($languageId==5) {
-            try{
-                $name =$languages->Se->name;
-                if($name=="")
+        } else if ($languageId == 5) {
+            try {
+                $name = $languages->Se->name;
+                if ($name == "")
                     return $attribute->name;
                 else
                     return $name;
-
             } catch (Exception $e) {
                 return $attribute->name;
             }
-
-        }   else {
+        } else {
             return $name;
         }
 
@@ -633,7 +638,8 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
 
 
     // Hjælpe funktion som henter billerder beskrivelse mm. på en ordre
-    public static function getOrderDetails($orderId,$languageId) {
+    public static function getOrderDetails($orderId, $languageId)
+    {
 
         $order = Order::find($orderId);
         $present = Present::find($order->present_id);
@@ -641,19 +647,18 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
         $result = [];
 
         // find email, + de attributes som skal vises p� kvittering
-        foreach($order->attributes_ as $attribute)  {
+        foreach ($order->attributes_ as $attribute) {
 
-            try  {
+            try {
                 $shopattribute =  ShopAttribute::find($attribute->attribute_id);
-                if($shopattribute->is_email)
+                if ($shopattribute->is_email)
                     $result['email'] = $attribute->attribute_value;
 
-                if($shopattribute->is_visible)  {
-                    $simpleAttributes[Order::getAttributeName($shopattribute,$languageId)]  = $attribute->attribute_value;    // ny
+                if ($shopattribute->is_visible) {
+                    $simpleAttributes[Order::getAttributeName($shopattribute, $languageId)]  = $attribute->attribute_value;    // ny
                     //$simpleAttributes[$attribute->attribute_name]  = $attribute->attribute_value;     //Orginal
                 }
             } catch (Exception $e) {
-
             }
         }
 
@@ -663,9 +668,8 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
         $result['user_username'] = $order->user_username;
         //Find gavebeskrivelse
         $result['present_id'] = $order->present_id;
-        foreach($present->descriptions as $description)
-        {
-            if($description->language_id == $languageId) {
+        foreach ($present->descriptions as $description) {
+            if ($description->language_id == $languageId) {
                 $result['present_description'] = $description->short_description;
                 $result['present_caption']    = utf8_decode($description->caption);
             }
@@ -702,12 +706,13 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
 
 
 
-        return($result);
+        return ($result);
     }
 
-    static public function deleteOrder($id,$realDelete=true) {
+    static public function deleteOrder($id, $realDelete = true)
+    {
 
-        if($realDelete) {
+        if ($realDelete) {
             $order = Order::find($id);
             $order->delete();
         } else {  //Soft delete
@@ -716,19 +721,15 @@ OBS: Denne mail kan ikke besvares<br></p><p></p>
         }
     }
 
-    static public function countPresentOnOrders($shop_id,$present_id,$present_model_no) {
+    static public function countPresentOnOrders($shop_id, $present_id, $present_model_no)
+    {
 
-        if($present_model_no==''){
+        if ($present_model_no == '') {
             //echo "select count(*) as amount from `order` WHERE shop_id= ".$shop_id."  AND present_id in(".$present_id.")" ;
-            $orders = order::find_by_sql("select count(*) as amount from `order` WHERE shop_id= ".$shop_id."  AND present_id in(".$present_id.")")  ;
+            $orders = order::find_by_sql("select count(*) as amount from `order` WHERE shop_id= " . $shop_id . "  AND present_id in(" . $present_id . ")");
+        } else {
+            $orders = order::find_by_sql("select count(*) as amount from `order` WHERE shop_id= " . $shop_id . "  AND present_id in(" . $present_id . ") AND present_model_id= '" . $present_model_no . "'");
         }
-        else{
-            $orders = order::find_by_sql("select count(*) as amount from `order` WHERE shop_id= ".$shop_id."  AND present_id in(".$present_id.") AND present_model_id= '".$present_model_no."'");
-        }
-        return($orders[0]->amount);
+        return ($orders[0]->amount);
     }
-
-
-
 }
-?>
