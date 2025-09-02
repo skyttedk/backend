@@ -277,8 +277,8 @@ class Order extends BaseModel
         $order->present_model_present_no =  $data['modelData'];
         $order->present_model_id = isset($data['model_id']) ? $data['model_id'] : 0;
 
-        // Use decription from db not from postdata.   
-        $varenrModel = PresentModel::find_by_sql("SELECT * FROM present_model WHERE present_id = " . intval($order->present_id) . " && model_id = " . intval($order->present_model_id) . " && language_id = 1 && model_present_no != ''");
+        // Use decription from db not from post data.   
+        $varenrModel = PresentModel::find_by_sql("SELECT * FROM present_model WHERE present_id = " . intval($order->present_id) . " && model_id = " . intval($order->present_model_id) . " && language_id IN (" . intval($order->language_id) . ") && model_present_no != ''");
         if (count($varenrModel) > 0) {
             $data['model'] = $varenrModel[0]->model_name;
             $order->present_model_name = $varenrModel[0]->model_name;
