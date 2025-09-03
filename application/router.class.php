@@ -71,7 +71,7 @@ class router
             "present",
             "rapport",
             "receipt",
-            "gogo",
+            "afterSalesEmail",
             "mail",
             "registrer",
             "report",

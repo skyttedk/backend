@@ -360,7 +360,7 @@ export default class Orderlist extends Base {
     // logic
     sendNewCodeMail(orderID){
         let self = this;
-        $.post( "https://system.gavefabrikken.dk//gavefabrikken_backend/index.php?rt=gogo/csMailAfterSaleWeb",{id:orderID,lang:window.LANGUAGE}, function( res ) {
+        $.post( "https://system.gavefabrikken.dk//gavefabrikken_backend/index.php?rt=afterSalesEmail/csMailAfterSaleWeb",{id:orderID,lang:window.LANGUAGE}, function( res ) {
             const obj = JSON.parse(res);
             self.isSendtMsg();
         });
