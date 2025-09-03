@@ -96,12 +96,6 @@ class Controller extends UnitController
         $userId = $_POST['user_id'];
         $newLanguage = $_POST['language'];
         
-        // Security check: Only allow user ID 340 to change languages in production
-        if($userId != 340) {
-            echo json_encode(array("status" => 0, "message" => "Access denied - Language change not allowed for this user"));
-            return;
-        }
-        
         // First, check if we need to backup the original language
         $sqlCheck = "SELECT language, language_original FROM system_user WHERE id = ".$userId;
         $checkResult = \Dbsqli::getSql2($sqlCheck);
