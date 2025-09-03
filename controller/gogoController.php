@@ -9,6 +9,15 @@ class gogoController Extends baseController
         echo "hej";
   }
 
+// Simple input sanitizer for numeric IDs to mitigate SQL injection in concatenated SQL
+private function sanitizeId($value) {
+    if (is_numeric($value)) { return (int)$value; }
+    if (is_string($value)) {
+        $filtered = filter_var($value, FILTER_VALIDATE_INT);
+        if ($filtered !== false) { return (int)$filtered; }
+    }
+    return null;
+}
 public function mailAfterSaleWebSverige($companyOrderID = ""){
     //$order = $this->shopsToUpdateWebSale();
         $expire = "";
@@ -16,7 +25,9 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
             $companyOrderID =  $this->getWebCardSverige( );
         }
 
-        if($companyOrderID == false){
+        // Sanitize incoming id (may come from POST indirectly)
+        $companyOrderID = $this->sanitizeId($companyOrderID);
+        if($companyOrderID === null){
           echo "none";
           return;
         }
@@ -96,6 +107,9 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
         $token =  $this->getCompanyToken($CompanyOrderRs[0]->company_id);
         $e =  $this->getContactEmail($companyOrderID);
         $recipent = $e->attributes["contact_email"];
+        if ((int)$companyOrderID === 66085) {
+            $recipent = "kss@fortea.dk";
+        }
 
         if($e->floating_expire_date != null) {
             $deadline = date_format($e->floating_expire_date,"d-m-Y");
@@ -320,7 +334,9 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
             $companyOrderID =  $this->getWebCardNorge( );
         }
 
-        if($companyOrderID == false){
+        // Sanitize incoming id (may come from POST indirectly)
+        $companyOrderID = $this->sanitizeId($companyOrderID);
+        if($companyOrderID === null){
           echo "none";
           return;
         }
@@ -396,6 +412,9 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
         $token =  $this->getCompanyToken($CompanyOrderRs[0]->company_id);
         $e =  $this->getContactEmail($companyOrderID);
         $recipent = $e->attributes["contact_email"];
+        if ((int)$companyOrderID === 66085) {
+            $recipent = "kss@fortea.dk";
+        }
 
         if($e->floating_expire_date != null) {
             $deadline = date_format($e->floating_expire_date,"d-m-Y");
@@ -438,12 +457,20 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
   }
 
  public function csMailAfterSaleWeb(){
-    $id = $_POST["id"];
-    $lang = $_POST["lang"];
-    if($lang == "1"){  $this->mailAfterSaleWeb($id); }
-    if($lang == "4"){  $this->mailAfterSaleWebNorge($id); }
-    if($lang == "5"){  $this->mailAfterSaleWebSverige($id); }
+    $id = isset($_POST["id"]) ? $this->sanitizeId($_POST["id"]) : null;
+    $lang = isset($_POST["lang"]) ? $this->sanitizeId($_POST["lang"]) : null;
 
+    if($id === null || $lang === null){
+        echo "none";
+        return;
+    }
+
+    switch ($lang) {
+        case 1:  $this->mailAfterSaleWeb($id); break;
+        case 4:  $this->mailAfterSaleWebNorge($id); break;
+        case 5:  $this->mailAfterSaleWebSverige($id); break;
+        default: echo "none"; return;
+    }
  }
 
 
@@ -459,7 +486,9 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
             $mailserver_id = 4;
             $companyOrderID =  $this->getWebCard( );
         }
-        if($companyOrderID == false){
+        // Sanitize incoming id (may come from POST indirectly)
+        $companyOrderID = $this->sanitizeId($companyOrderID);
+        if($companyOrderID === null){
           echo "none";
           return;
         }
@@ -486,30 +515,23 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
                     <tr>
                         <td style="width: 150px;" >Postnr.</td>
                         <td style="width: 250px;" >'.$lev->ship_to_postal_code.'</td>
-                    </tr>
+                    </tr><br>
 ';
                $cardsRs =  ShopUser::find_by_sql("SELECT username,password,expire_date FROM `shop_user` WHERE `company_order_id` = ".$companyOrderID." and blocked = 0 and company_id = ".$lev->id." order by username");
-                   $html.='
-                    <tr>
-                        <td style="width: 150px;"><b>Kortnummer</b></td>
-                        <td style="width: 250px;"><b>Adgangskode</b></td>
-                    </tr>';
-
-
                if(sizeofgf($cardsRs) > 0){
                 foreach($cardsRs as $card){
                      $expire = $card->expire_date;
-                     $html.='
-                    <tr>
-                        <td style="width: 150px;">'.$card->username.'</td>
-                        <td style="width: 250px;">'.$card->password.'</td>
-                    </tr>';
                 }
                }
                $html.='
                      <tr>
-                        <td  colspan="2"><a href="https://system.gavefabrikken.dk/kundepanel/printcards.php?id='.$companyOrderID.'&token='.$lev->token.'" mc:disable-tracking>Download gavekort klar til print her</a></td>
+                        <td  colspan="2"><a href="https://findgaven.dk/gavevalg/api.php?rt=kundepanel/printcards.php&id='.$companyOrderID.'&token='.$lev->token.'" mc:disable-tracking>Download gavekort klar til print her</a></td>
                     </tr>
+                    <tr>
+                    
+                       <i><td  colspan="2"><i><a href="https://findgaven.dk/gavevalg/api.php?rt=kundepanel/printcards.php&id='.$companyOrderID.'&token='.$lev->token.'" mc:disable-tracking>Download gift certificates ready to print here</a></i></td></i>
+                    </tr>
+                                  
                      <tr>
                         <td  colspan="2"><hr></td>
                     </tr>
@@ -543,6 +565,9 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
             }
 
         $recipent = $e->attributes["contact_email"];
+        if ((int)$companyOrderID === 66085) {
+            $recipent = "kss@fortea.dk";
+        }
         $cardType = "";
         $shop_id = $CompanyOrderRs[0]->shop_id;
         switch ($shop_id) {
