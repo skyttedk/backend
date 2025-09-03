@@ -4,8 +4,6 @@ export default class companylist {
         let land = "Dansk bruger";
         let flagButtons = "";
         
-        // Only show language flags for user ID 340
-        if(window.USERID == 340) {
             // Show flags for available language switches
             if(window.LANGUAGE == 1) {
                 // Currently Danish, show Norwegian and Swedish flags
@@ -22,7 +20,7 @@ export default class companylist {
                 flagButtons = `<span class="language-flag" data-lang="1" title="Switch to Danish" style="cursor:pointer;margin-left:10px;">🇩🇰</span>
                               <span class="language-flag" data-lang="4" title="Switch to Norwegian" style="cursor:pointer;margin-left:5px;">🇳🇴</span>`;
             }
-        }
+
         
         // Set language text for all users based on their language
         if(window.LANGUAGE == 4) {
