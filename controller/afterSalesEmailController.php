@@ -523,12 +523,27 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
                         <td style="width: 250px;" >'.$lev->ship_to_postal_code.'</td>
                     </tr><br>
 ';
+         
+
                $cardsRs =  ShopUser::find_by_sql("SELECT username,password,expire_date FROM `shop_user` WHERE `company_order_id` = ".$companyOrderID." and blocked = 0 and company_id = ".$lev->id." order by username");
+                   $html.='
+                    <tr>
+                        <td style="width: 150px;"><b>Kortnummer</b></td>
+                        <td style="width: 250px;"><b>Adgangskode</b></td>
+                    </tr>';
+
+
                if(sizeofgf($cardsRs) > 0){
                 foreach($cardsRs as $card){
                      $expire = $card->expire_date;
+                     $html.='
+                    <tr>
+                        <td style="width: 150px;">'.$card->username.'</td>
+                        <td style="width: 250px;">'.$card->password.'</td>
+                    </tr>';
                 }
                }
+
                $html.='
                      <tr>
                         <td  colspan="2"><br></td>
