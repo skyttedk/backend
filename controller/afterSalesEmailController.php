@@ -19,7 +19,7 @@ private function sanitizeId($value) {
     return null;
 }
 public function mailAfterSaleWebSverige($companyOrderID = ""){
-    //$order = $this->shopsToUpdateWebSale();
+    //$order = $this->shopsToUpdateWebSale(); 
         $expire = "";
         if($companyOrderID == ""){
             $companyOrderID =  $this->getWebCardSverige( );
@@ -470,6 +470,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
         return;
     }
 
+    
     switch ($lang) {
         case 1:  $this->mailAfterSaleWeb($id); break;
         case 4:  $this->mailAfterSaleWebNorge($id); break;
@@ -530,13 +531,23 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
                }
                $html.='
                      <tr>
+                        <td  colspan="2"><br></td>
+                    </tr>
+                     <tr>
                         <td  colspan="2"><a href="https://findgaven.dk/gavevalg/api.php?rt=kundepanel/printcards.php&id='.$companyOrderID.'&token='.$lev->token.'" mc:disable-tracking>Download gavekort klar til print her</a></td>
                     </tr>
                     <tr>
-                    
-                       <i><td  colspan="2"><i><a href="https://findgaven.dk/gavevalg/api.php?rt=kundepanel/printcards.php&id='.$companyOrderID.'&token='.$lev->token.'" mc:disable-tracking>Download gift certificates ready to print here</a></i></td></i>
+                        <td  colspan="2"><i>Download gift certificates ready to print here</i></td>
                     </tr>
-                                  
+                    <tr>
+                        <td  colspan="2"><br></td>
+                    </tr>
+                    <tr>
+                        <td  colspan="2"><a href="https://findgaven.dk/gavevalg/api.php?rt=kundepanel/printcardszip.php&id='.$companyOrderID.'&token='.$lev->token.'" mc:disable-tracking>Download gavekort enkeltvis i en zip fil</a></td>
+                    </tr>
+                    <tr>
+                        <td  colspan="2"><i>Download individual gift certificates in a zip file</i></td>
+                    </tr>
                      <tr>
                         <td  colspan="2"><hr></td>
                     </tr>
@@ -570,9 +581,10 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
             }
 
         $recipent = $e->attributes["contact_email"];
-        //if ((int)$companyOrderID === 67544 ) { // 66085 (Bitworks)
-        //    $recipent = "kss@fortea.dk";
-        //}
+        if ((int)$companyOrderID === 66085 ) { // 66085 (Bitworks) // test kt (67544)
+            $recipent = "kss@fortea.dk";
+        }
+
         $cardType = "";
         $shop_id = $CompanyOrderRs[0]->shop_id;
         switch ($shop_id) {

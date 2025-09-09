@@ -71,7 +71,7 @@ class router
             "present",
             "rapport",
             "receipt",
-            "afterSalesEmail",
+            "afterSalesEmail", 
             "mail",
             "registrer",
             "report",
