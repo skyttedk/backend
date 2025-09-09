@@ -19,6 +19,9 @@ private function sanitizeId($value) {
     return null;
 }
 public function mailAfterSaleWebSverige($companyOrderID = ""){
+
+    return;
+
     //$order = $this->shopsToUpdateWebSale();
         $expire = "";
         if($companyOrderID == ""){
@@ -153,6 +156,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 
    // ----------------- OLD ---------------
    public function mailAfterSaleWebSverigeOld(){
+        return;
          //$order = $this->shopsToUpdateWebSale();
 
          $cards =  $this->getWebCardSverige( );
@@ -238,6 +242,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 
 
    public function mailAfterSaleWebNorgeOLD(){
+        return;
          //$order = $this->shopsToUpdateWebSale();
 
          $cards =  $this->getWebCardNorge( );
@@ -325,6 +330,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
   }
                  // den nye
  public function mailAfterSaleWebNorge($companyOrderID = ""){
+        return;
 
         //$order = $this->shopsToUpdateWebSale();
         $expire = "";
@@ -457,6 +463,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
   }
 
  public function csMailAfterSaleWeb(){
+    return;
     $id = isset($_POST["id"]) ? $this->sanitizeId($_POST["id"]) : null;
     $lang = isset($_POST["lang"]) ? $this->sanitizeId($_POST["lang"]) : null;
 
@@ -475,6 +482,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 
 
  public function mailAfterSaleWeb($companyOrderID = ""){
+    return;
 
     //    echo "MIDLERTIDIGT STOPPET!";
     //    return;
@@ -676,10 +684,12 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 
 
   public function mailAfterSale(){
+    return;
     $this->sendWelcomeMailPhysicsCard();
   }
 
   private function getContactEmail($orderId){
+    return;
     return Companyorder::find($orderId)  ;
   }
 
@@ -695,6 +705,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
       shop_id = 52 limit 1" ))); */
   }                                            // || shop_id != 574
   private function getWebCardNorge(){
+     return;
      $rs = Companyorder::find_by_sql("
      select id from company_order WHERE
         welcome_mail_is_send = 0 and
@@ -720,6 +731,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
   }
         //    order_state not in (7,8) and
   private function getWebCardSverige(){
+     return;
      $rs = Companyorder::find_by_sql("
      select id from company_order WHERE
         welcome_mail_is_send = 0 and
@@ -748,7 +760,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 
   private function getWebCard(){
 
-
+    return;
      $rs = Companyorder::find_by_sql("
      select id from company_order WHERE
         welcome_mail_is_send = 0 and
@@ -776,6 +788,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
   }
 
   private function getCardInfo($company_id){
+    return;
       $listOfNewWebOrders = Companyorder::all(array('conditions' => array(
     "welcome_mail_is_send = 0 and
      send_welcome_mail = 1  and navsync_error == '' and
@@ -793,6 +806,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 
    /* Send velkomst mail til kort k�b, kun fysiske */
   private function sendWelcomeMailPhysicsCard(){
+    return;
   $listOfNewOrders = Companyorder::all(array('conditions' => array(
     "welcome_mail_is_send = 0 and
      send_welcome_mail = 1  and
@@ -871,6 +885,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
      */
     public function benchpress() {
 
+        return;
         // Readsimple
         echo "Readsimple:\r\n";
 
