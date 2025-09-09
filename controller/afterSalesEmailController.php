@@ -138,6 +138,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 	     $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
 	     $maildata['body'] = ($template);
 	     $maildata['mailserver_id'] = 5;
+         $maildata['used_template']  = $mailTemplate->id;         
 
          if($expire != "" and $mailTemplate != ""){
 
@@ -217,6 +218,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
     	    $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
     	    $maildata['body'] = utf8_decode($template);
     	    $maildata['mailserver_id'] = 5;
+            $maildata['used_template']  = $mailTemplate->id;
             MailQueue::createMailQueue($maildata);
             system::connection()->commit();
             Dbsqli::setSql2("update company_order set welcome_mail_is_send = 1 where id = ".$cards[0]->company_order_id );
@@ -295,6 +297,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 	     $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
 	     $maildata['body'] = utf8_decode($template);
 	     $maildata['mailserver_id'] = 4;
+         $maildata['used_template']  = $mailTemplate->id;
 
          if($expire != "" and $mailTemplate != ""){
             MailQueue::createMailQueue($maildata);
@@ -308,6 +311,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
     	    $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
     	    $maildata['body'] = utf8_decode($template);
     	    $maildata['mailserver_id'] = 4;
+            $maildata['used_template']  = $mailTemplate->id;
             MailQueue::createMailQueue($maildata);
             system::connection()->commit();
 
@@ -441,6 +445,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 	     $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
 	     $maildata['body'] = ($template);
 	     $maildata['mailserver_id'] = $mailserver_id;
+         $maildata['used_template']  = $mailTemplate->id;
 
          if($expire != "" and $mailTemplate != ""){
 
@@ -565,9 +570,9 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
             }
 
         $recipent = $e->attributes["contact_email"];
-        if ((int)$companyOrderID === 66085) {
-            $recipent = "kss@fortea.dk";
-        }
+        //if ((int)$companyOrderID === 67544 ) { // 66085 (Bitworks)
+        //    $recipent = "kss@fortea.dk";
+        //}
         $cardType = "";
         $shop_id = $CompanyOrderRs[0]->shop_id;
         switch ($shop_id) {
@@ -661,6 +666,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 	     $maildata['subject']= ($mailTemplate->subject_receipt)." - ".utf8_encode($cardType);
 	     $maildata['body'] = ($template);
 	     $maildata['mailserver_id'] = $mailserver_id;
+         $maildata['used_template']  = $mailTemplate->id;
 
          if($expire != "" and $mailTemplate != ""){
 
@@ -819,6 +825,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
 	    $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
 	    $maildata['body'] = utf8_decode($template);
 	    $maildata['mailserver_id'] = 4;
+        $maildata['used_template']  = $mailTemplate->id;
         Dbsqli::setSql2("update company_order set welcome_mail_is_send = 1 where company_id = ".$order->company_id );
 
         MailQueue::createMailQueue($maildata);
