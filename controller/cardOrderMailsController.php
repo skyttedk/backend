@@ -1,11 +1,7 @@
 <?php
 
-
-
 class cardOrderMailsController Extends baseController
 {
-
-
 
   public function Index() {
         echo "hej";
@@ -56,6 +52,8 @@ class cardOrderMailsController Extends baseController
 	    $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
 	    $maildata['body'] = utf8_decode($order->contact_email."<br>".$template);
 	    $maildata['mailserver_id'] = 5;
+      $maildata['used_template']  = $mailTemplate->id;
+      
         echo "update company_order set welcome_mail_is_send = 1 where company_id = ".$order->company_id;
         Dbsqli::setSql2("update company_order set welcome_mail_is_send = 1 where company_id = ".$order->company_id );
 
@@ -104,6 +102,8 @@ class cardOrderMailsController Extends baseController
 	    $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
 	    $maildata['body'] = utf8_decode($template);
 	    $maildata['mailserver_id'] = 2;
+      $maildata['used_template']  = $mailTemplate->id;
+
         Dbsqli::setSql2("update company_order set welcome_mail_is_send = 1 where company_id = ".$order->company_id );
 
         MailQueue::createMailQueue($maildata);
@@ -147,7 +147,7 @@ class cardOrderMailsController Extends baseController
 
          $token = $this->getCompanyToken($order->company_id);
          $mailTemplate = "";
-         if($expireDate == "2025-04-01"){
+         if($expireDate == "2026-04-01"){
             $mailTemplate = mailtemplate::find(27);
          } else {
              $mailTemplate = mailtemplate::find(6);
@@ -160,6 +160,8 @@ class cardOrderMailsController Extends baseController
 	    $maildata['subject']= utf8_encode($mailTemplate->subject_receipt);
 	    $maildata['body'] = utf8_decode($template);
 	    $maildata['mailserver_id'] = 4;
+      $maildata['used_template']  = $mailTemplate->id;
+
         Dbsqli::setSql2("update company_order set welcome_mail_is_send = 1 where company_id = ".$order->company_id );
 
         MailQueue::createMailQueue($maildata);
