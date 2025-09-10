@@ -424,7 +424,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
             $deadline = date_format($e->floating_expire_date,"d-m-Y");
         }
 
-        if($deadline == "03-01-2025" || $deadline == "11-11-2024"){
+        if($deadline == "04-01-2026" || $deadline == "10-11-2025"){
           $mailTemplate = mailtemplate::find(10);
         } else {
           $mailTemplate = mailtemplate::find(8);
@@ -670,7 +670,7 @@ public function mailAfterSaleWebSverige($companyOrderID = ""){
         if($shop_id == "2960" || $shop_id == "2961" || $shop_id == "2962" || $shop_id == "2963" || $shop_id == "2999"){
             $mailTemplate = mailtemplate::find(18);
         } else {
-            if($deadline == "01-04-2025" ){
+            if($deadline == "01-04-2026" ){
                 $mailTemplate = mailtemplate::find(5);
             } else {
               $mailTemplate = mailtemplate::find(4);
