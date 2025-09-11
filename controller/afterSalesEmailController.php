@@ -407,12 +407,13 @@ class afterSalesEmailController extends baseController
 
             $mailTemplate = "";
             $week  = "";
+            $debug = "";
 
             $deadline = date_format($expire, "d-m-Y");
             $token =  $this->getCompanyToken($CompanyOrderRs[0]->company_id);
             $e =  $this->getContactEmail($companyOrderID);
             $recipent = $e->attributes["contact_email"];
-            if ((int)$companyOrderID === 66085) {
+            if ((int)$companyOrderID === 111167871) {
                 $recipent = "kss@fortea.dk";
             }
 
@@ -420,9 +421,11 @@ class afterSalesEmailController extends baseController
                 $deadline = date_format($e->floating_expire_date, "d-m-Y");
             }
 
-            if ($deadline == "04-01-2026" || $deadline == "10-11-2025") {
+            if ($deadline == "04-01-2026" || $deadline == "10-11-2025" || $deadline == "03-01-2026") {
+                $debug  = $deadline  . " -  10" ;
                 $mailTemplate = mailtemplate::find(10);
             } else {
+                $debug  = $deadline  . " -  8" ;
                 $mailTemplate = mailtemplate::find(8);
             }
 
@@ -431,6 +434,8 @@ class afterSalesEmailController extends baseController
                 $week = "49";
             } elseif ($deadline == "04-01-2026") {
                 $week = "4";
+            } elseif ($deadline == "03-01-2026") {
+                $week = "5";
             }
 
 
@@ -442,6 +447,8 @@ class afterSalesEmailController extends baseController
             $template = str_replace('{token}', $token, $template);
             $template = str_replace('{pdf}', $pdfLink, $template);
             $template = str_replace('{week}', $week, $template);
+
+            $template = str_replace('{debug}', $debug, $template);
 
 
             $maildata = [];
