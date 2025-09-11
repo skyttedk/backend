@@ -185,6 +185,9 @@ export default class Orderlist extends Base {
         if(orderData.data.result[0].is_email == 1){
             isEmail = true;
             html+= tpOrderlist.mailOptions(orderID,"Send ny mail med koder");
+        } else {
+            // Physical cards - show "Send ny mail" button
+            html+= tpOrderlist.mailOptions(orderID,"Send ny mail");
         }
 
         html+= `<label><b>Produkter:</b></label> <hr><table width=400> ` +
@@ -360,9 +363,22 @@ export default class Orderlist extends Base {
     // logic
     sendNewCodeMail(orderID){
         let self = this;
-        $.post( "https://system.gavefabrikken.dk//gavefabrikken_backend/index.php?rt=afterSalesEmail/csMailAfterSaleWeb",{id:orderID,lang:window.LANGUAGE}, function( res ) {
-            const obj = JSON.parse(res);
-            self.isSendtMsg();
+        
+        // Get order data to check if it's email or physical
+        this.post("cardshop/orderform/get/"+orderID).then(orderData => {
+            let endpoint = "";
+            if(orderData.data.result[0].is_email == 1) {
+                // Email cards - use existing controller
+                endpoint = "https://system.gavefabrikken.dk//gavefabrikken_backend/index.php?rt=afterSalesEmail/csMailAfterSaleWeb";
+            } else {
+                // Physical cards - use new controller
+                endpoint = "https://system.gavefabrikken.dk//gavefabrikken_backend/index.php?rt=cardOrderMails/csMailAfterSalePhysical";
+            }
+            
+            $.post(endpoint, {id:orderID, lang:window.LANGUAGE}, function( res ) {
+                const obj = JSON.parse(res);
+                self.isSendtMsg();
+            });
         });
     }
     isSendtMsg()
