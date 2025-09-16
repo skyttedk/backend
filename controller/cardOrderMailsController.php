@@ -302,7 +302,7 @@ class cardOrderMailsController extends baseController
     private function sendWelcomeMailPhysicsCardNorgeForOrder($companyOrderID)
     {
         $order = Companyorder::find($companyOrderID);
-        if (!$order || $order->is_email == 1 ) {
+        if (!$order || $order->is_email == 1) {
             echo json_encode(array("status" => 0, "message" => "Invalid order or not physical card", "is_email" => $order ? $order->is_email : null, "is_cancelled" => $order ? $order->is_cancelled : null));
             return;
         }
