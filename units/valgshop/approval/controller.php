@@ -128,6 +128,22 @@ class Controller extends UnitController
         }
         echo json_encode(array("status" => 1, "data" => "1"));
     }
+
+    public function getStockApprovalStatus(){
+        $shopID = $_POST["shopid"];
+
+        // Check if there are any approval records for this shop
+        $approval_records = \PresentReservationQtyApproval::find_by_sql("
+            SELECT COUNT(*) as count FROM present_reservation_qty_approval
+            WHERE shop_id = " . intval($shopID)
+        );
+
+        $has_approval_records = !empty($approval_records) && $approval_records[0]->count > 0;
+
+        // Two states: if approval entries exist = "ikke_godkendt", if no entries = "godkendt"
+        $result = $has_approval_records ? "ikke_godkendt" : "godkendt";
+        echo json_encode(array("status" => 1, "data" => $result));
+    }
     public function getStockStatus_odl(){
         $itemno = trim($_POST["itemnr"]);
         $shopid = trim($_POST["shopid"]);
