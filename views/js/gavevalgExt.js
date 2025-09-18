@@ -723,10 +723,7 @@
         
         // Add complaint button event handlers - only for buttons with data-id
         $("button.complaintBtn[data-id]").unbind("click").click(function(){
-            // Only allow click if a complaint exists
-            if($(this).hasClass('has-complaint')) {
-                gavevalg.openComplaint($(this).attr("data-id"));
-            }
+            gavevalg.openComplaint($(this).attr("data-id"));
         });
         
         // Load existing complaint indicators
@@ -953,10 +950,7 @@
         
         // Add complaint button event handler for new user
         $('button.complaintBtn[data-id="'+masterId+'"]').unbind("click").click(function(){
-            // Only allow click if icon is visible (has complaint)
-            if($(this).find('i').css('opacity') == '1') {
-                gavevalg.openComplaint($(this).attr("data-id"));
-            }
+            gavevalg.openComplaint($(this).attr("data-id"));
         });
         
         jQuery.each(response.data.shopuser[0].user_attributes, function(index, item) {
