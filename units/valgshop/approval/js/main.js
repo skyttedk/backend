@@ -33,10 +33,20 @@ export default class MainApproval extends Base  {
         let hasValidItemNr = await this.hasValidItemNr();
         let hasDeativatedItems = await this.hasDeativatedItems();
         let currentWarehouse = await this.getCurrentWarehouse()
+        let stockApprovalStatus = await this.getStockApprovalStatus();
 
         this.data.hasStrengthsSet =  hasStrengthsSet.data;
         this.data.hasValidItemNr =  hasValidItemNr.data;
         this.data.hasDeativatedItems =  hasDeativatedItems.data;
+
+        // Three-state logic for stock approval status (same for all shops)
+        if (stockApprovalStatus.data === "ikke_relevant") {
+            this.data.stockApprovalStatus = 'Ikke relevant';
+        } else if (stockApprovalStatus.data === "godkendt") {
+            this.data.stockApprovalStatus = 'Godkendt';
+        } else {
+            this.data.stockApprovalStatus = 'Ikke godkendt';
+        }
 
 
         this.data.presents = present.data.data;
@@ -188,12 +198,9 @@ export default class MainApproval extends Base  {
     {
         let saveData = [];
         $('.newsuggestion').each(function(){
-            console.log($(this))
+
             let quantity = $(this).val() == "" ? 0 : $(this).val();
             let shopID = $(this).attr("present_id");
-            let skipNavision = $("#skipNavision_"+shopID).prop("checked") ? 0:1;
-            let shipMonitoring = $("#shipMonitoring_"+shopID).prop("checked") ? 0:1;
-            let autotopilot = $("#autotopilot_"+shopID).prop("checked") ? 1:0;
 
             let data = {
                 shop_id:shop,
@@ -201,10 +208,7 @@ export default class MainApproval extends Base  {
                 model_id:$(this).attr("model_id"),
                 warning_level:0,
                 quantity:quantity,
-                do_close:0,
-                skip_navision:skipNavision,
-                ship_monitoring:shipMonitoring,
-                autotopilot:autotopilot
+                do_close:0
 
             }
             if($(this).attr("resid") != 0 ){
@@ -214,17 +218,48 @@ export default class MainApproval extends Base  {
         });
 
         for (const data of saveData) {
-            const response =  await this.doSave(data);
+            try {
+                const response = await this.doSave(data);
+
+                // Check if response indicates approval is required
+                if (response) {
+                    // Handle both object and string responses
+                    let parsedResponse = response;
+                    if (typeof response === 'string') {
+                        try {
+                            parsedResponse = JSON.parse(response);
+                        } catch (e) {
+                            continue;
+                        }
+                    }
+
+                    if (parsedResponse.status === 'requires_approval') {
+                        alert(parsedResponse.message || 'Ændringerne er sendt til godkendelse. Der foretages ingen ændringer før godkendelse.');
+                    }
+                }
+            } catch (error) {
+                console.error("Error in doSave:", error);
+            }
         }
+
+        
         this.init(shop);
+
     }
 
     doSave(obj)
     {
         return new Promise(resolve => {
-            $.post( BASE_AJAX_URL+"reservation/saveReservation", obj ,function(res ) {
+            
+            // Route to approval controller for shop ID 9808 normal controller for all others
+            let controllerUrl = obj.shop_id == 9808 ?
+                BASE_AJAX_URL+"reservationApproval/saveReservation" :
+                BASE_AJAX_URL+"reservation/saveReservation";
+
+            $.post( controllerUrl, obj ,function(res ) {
+                //console.log("Raw server response:", res);
                 resolve(res);
-            }, "json")
+            }, "text")
         })
     }
 
@@ -359,6 +394,14 @@ export default class MainApproval extends Base  {
     async hasStrengthsSet() {
         return new Promise(resolve => {
             $.post( APPR_AJAX_URL+"hasStrengthsSet", {shopid:shop} ,function(res ) {
+                resolve(res);
+            }, "json")
+        })
+    }
+
+    async getStockApprovalStatus() {
+        return new Promise(resolve => {
+            $.post( APPR_AJAX_URL+"getStockApprovalStatus", {shopid:shop} ,function(res ) {
                 resolve(res);
             }, "json")
         })
@@ -567,6 +610,10 @@ export default class MainApproval extends Base  {
                 <td>Alle varenumre er reserveret </td>
                 <td id="itemNrStatus">${hasReservation}</td>
             </tr>            
+            <tr>
+                <td>Over reservering </td>
+                <td id="stockApprovalStatus">${this.data.stockApprovalStatus || 'Ikke relevant'}</td>
+            </tr>            
             </tbody>
         </table>`;
         $("#vgshop_approval").html(html);
@@ -588,20 +635,11 @@ export default class MainApproval extends Base  {
             <th>Antal reserverede</th>
             <th>Reservation Forslag</th>
             <th>Reservation Ændring </th>
-            <th>Registeres i NAV</th>
-            <th>Lager Overvåges</th>
-            <th>Autopilot <button id="supportAutopilotBtn">?</button></th>
-      
             <th>Tilgængelige gaver</th>
         </tr>
     </thead>
     <tbody>`+ this.data.presents.map(function(obj){
             let deactivate = obj.present_total_is_active == 0 ? "<div style='color:red;'>De-aktiveret</div>":"";
-            let skipNavision = obj.skip_navision == 1 ? "" : "checked";
-            let shipMonitoring = obj.ship_monitoring == 1 ? "" : "checked";
-            console.log("helejljsdk"+obj.autotopilot);
-
-            let autotopilot = obj.autotopilot == 1 ? "checked" : "";
 
 
             return `
@@ -621,12 +659,6 @@ export default class MainApproval extends Base  {
                     value="${obj.reserved_quantity}"
                 />
             </td>
-            <td><input type="checkbox" id="skipNavision_${obj.present_id}" ${skipNavision} ></td>
-            <td><input type="checkbox" id="shipMonitoring_${obj.present_id}" ${shipMonitoring} ></td>
-            <td><input type="checkbox" id="autotopilot_${obj.present_id}" ${autotopilot} ></td>
-            
-            
-      
             <td id="item_stock_status_${obj.present_model_id}" >></td>
        </tr>
           

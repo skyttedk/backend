@@ -107,6 +107,7 @@ class router
             "ptimage",
             "registrer",
             "reservation",
+            "reservationapproval",
             "shop2",
             "shopboard",
             "shoppresentrules",

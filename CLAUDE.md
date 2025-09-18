@@ -10,6 +10,21 @@ This is a PHP-based web application without package managers. No build commands 
 - Use a local PHP server or web server (Apache/Nginx) pointing to the project root
 - Ensure PHP extensions are available: MySQL, cURL, GD, mbstring
 
+
+## Task Workflow Instructions
+
+You are working in a project where each task is organized in a folder .tasks/taskno/ with 3 files:
+
+- Requirements.md → contains the user requirements  . (read this for context)
+- Solution.md → contains the technical solution       (read this solution description made by our developer)
+- Summary.md → must be written last                   (when done update this)
+
+Your role:  
+Both Requirements.md and Solution.md should exists before starting working, you must always produce the content for Summary.md.  
+Summary.md should be a short, precise summary of the changes and the solution, written in an easy-to-read bullet point format.  
+
+You must only return the text that belongs in Summary.md (no extra explanations, no code blocks).  
+
 **Testing:**
 - No automated test framework is configured
 - Test manually through web interface
