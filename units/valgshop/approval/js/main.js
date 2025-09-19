@@ -39,10 +39,8 @@ export default class MainApproval extends Base  {
         this.data.hasValidItemNr =  hasValidItemNr.data;
         this.data.hasDeativatedItems =  hasDeativatedItems.data;
 
-        // Three-state logic for stock approval status (same for all shops)
-        if (stockApprovalStatus.data === "ikke_relevant") {
-            this.data.stockApprovalStatus = 'Ikke relevant';
-        } else if (stockApprovalStatus.data === "godkendt") {
+        // Two-state logic for stock approval status
+        if (stockApprovalStatus.data === "godkendt") {
             this.data.stockApprovalStatus = 'Godkendt';
         } else {
             this.data.stockApprovalStatus = 'Ikke godkendt';
