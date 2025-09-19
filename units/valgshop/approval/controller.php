@@ -132,16 +132,19 @@ class Controller extends UnitController
     public function getStockApprovalStatus(){
         $shopID = $_POST["shopid"];
 
-        // Check if there are any approval records for this shop
-        $approval_records = \PresentReservationQtyApproval::find_by_sql("
-            SELECT COUNT(*) as count FROM present_reservation_qty_approval
+        // Check shop_metadata.stock_qty_approved to determine status
+        $shop_metadata = \ShopMetadata::find_by_sql("
+            SELECT stock_qty_approved FROM shop_metadata
             WHERE shop_id = " . intval($shopID)
         );
 
-        $has_approval_records = !empty($approval_records) && $approval_records[0]->count > 0;
+        // If shop_metadata doesn't exist or stock_qty_approved = 1, then it's approved
+        if (empty($shop_metadata)) {
+            $result = "godkendt";
+        } else {
+            $result = ($shop_metadata[0]->stock_qty_approved == 1) ? "godkendt" : "ikke_godkendt";
+        }
 
-        // Two states: if approval entries exist = "ikke_godkendt", if no entries = "godkendt"
-        $result = $has_approval_records ? "ikke_godkendt" : "godkendt";
         echo json_encode(array("status" => 1, "data" => $result));
     }
     public function getStockStatus_odl(){

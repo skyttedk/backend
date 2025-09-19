@@ -124,7 +124,7 @@ class reservationApprovalController Extends baseController {
         $log = new SystemLog();
         $log->controller = 'reservationApprovalController';
         $log->action = 'validateReservationForApproval';
-        $log->data = "Stock calculation: nav_stock=$nav_stock, current_qty=$current_qty, new_qty=$new_qty, stock_after_reservation=$stock_after_reservation";
+        $log->data = "Stock calculation: nav_stock=$nav_stock, current_qty=$current_qty, new_qty=$new_qty, stock_after_reservation=$stock_after_reservation, requires_approval=" . ($stock_after_reservation < 0 ? 'yes' : 'no');
         $log->save();
 
         if ($stock_after_reservation < 0) {
@@ -204,9 +204,6 @@ class reservationApprovalController Extends baseController {
 
         if (!empty($existing_approval)) {
             // Update existing approval record
-            $approval = $existing_approval[0];
-            $group_token = $approval->group_token;
-
             $sql = "UPDATE present_reservation_qty_approval
                     SET nav_stock = " . intval($item['nav_stock']) . ",
                         requested_qty = " . intval($item['requested_qty']) . "
@@ -220,12 +217,7 @@ class reservationApprovalController Extends baseController {
             $log->data = "Updated existing approval record for shop_id: " . $shop_id . ", itemno: " . $itemno . ", new qty: " . $item['requested_qty'];
             $log->save();
 
-            // Email will be sent at the end with all items for this group
-
         } else {
-            // Create new approval record
-            $group_token = $this->generateUUID();
-
             // Get shop metadata for salesperson code
             $shop_metadata = ShopMetadata::find_by_sql("
                 SELECT salesperson_code FROM shop_metadata
@@ -233,38 +225,30 @@ class reservationApprovalController Extends baseController {
             );
             $salesperson_code = $shop_metadata ? $shop_metadata[0]->salesperson_code : null;
 
-            // Debug log to check salesperson_code
-            $log_debug = new SystemLog();
-            $log_debug->controller = 'reservationApprovalController';
-            $log_debug->action = 'createApprovalRequest';
-            $log_debug->data = "Debug: shop_id=$shop_id, shop_metadata_found=" . (count($shop_metadata) > 0 ? 'yes' : 'no') . ", salesperson_code=" . ($salesperson_code ?? 'null');
-            $log_debug->save();
-
             $shop = Shop::find($shop_id);
             $language_id = $shop->localisation ?? 1;
 
-            // Create new approval entry
-            PresentReservationQtyApproval::create_approval_request(
-                $group_token,
-                $shop_id,
-                $salesperson_code,
-                $language_id,
-                $validation_result['items']
-            );
+            // Create new approval entry for this specific item
+            $sql = "INSERT INTO present_reservation_qty_approval
+                    (group_token, shop_id, salesperson_code, language_id, itemno, nav_stock, requested_qty, is_external, approved, email_sent, created_at)
+                    VALUES ('', " . intval($shop_id) . ", " .
+                    ($salesperson_code ? "'" . $salesperson_code . "'" : "NULL") . ", " .
+                    intval($language_id) . ", '" . $itemno . "', " . intval($item['nav_stock']) . ", " .
+                    intval($item['requested_qty']) . ", " . intval($item['is_external']) . ", 0, 0, NOW())";
+
+            Dbsqli::SetSql2($sql);
 
             $log = new SystemLog();
             $log->controller = 'reservationApprovalController';
             $log->action = 'createApprovalRequest';
             $log->data = "Created new approval record for shop_id: " . $shop_id . ", itemno: " . $itemno . ", qty: " . $item['requested_qty'];
             $log->save();
-
-            // Email will be sent at the end with all items for this group
         }
 
         // Mark that we need to send an email, but delay it to allow batching
         $this->scheduleApprovalEmail($shop_id);
 
-        return $group_token;
+        return $shop_id; // Return shop_id instead of group_token
     }
 
     private function scheduleApprovalEmail($shop_id) {
@@ -296,7 +280,6 @@ class reservationApprovalController Extends baseController {
             return; // No approval records to send
         }
 
-        $group_token = $approval_records[0]->group_token;
         $items = [];
 
         foreach ($approval_records as $record) {
@@ -307,10 +290,10 @@ class reservationApprovalController Extends baseController {
             ];
         }
 
-        $this->sendApprovalEmail($group_token, $shop_id, $items);
+        $this->sendApprovalEmail($shop_id, $items);
     }
 
-    private function sendApprovalEmail($group_token, $shop_id, $items) {
+    private function sendApprovalEmail($shop_id, $items) {
         $shop = Shop::find($shop_id);
 
         // Get salesperson information
@@ -345,7 +328,7 @@ class reservationApprovalController Extends baseController {
         $body .= "<p><strong>Sælger:</strong> " . $salesperson_info . "</p>";
         $body .= "<table border='1' cellpadding='5' cellspacing='0'>";
         $body .= "<tr><th>Varenummer</th><th>Aktuelt NAV-lager</th><th>Ønsket reserveret antal</th></tr>";
-        
+
         foreach ($items as $item) {
             $body .= "<tr>";
             $body .= "<td>" . $item['itemno'] . "</td>";
@@ -353,8 +336,12 @@ class reservationApprovalController Extends baseController {
             $body .= "<td>" . $item['requested_qty'] . "</td>";
             $body .= "</tr>";
         }
-        
+
         $body .= "</table>";
+        $body .= "<br><br>";
+        $body .= "<p>Klik på nedenstående link for at gennemse og godkende reservationen:</p>";
+        $body .= "<a href='" . GFConfig::BACKEND_URL . "index.php?rt=reservationApproval/review&shop_id=" . $shop_id . "'>";
+        $body .= "Gennemse reservation</a>";
         $body .= "</body></html>";
         
         $mail_data = [
@@ -382,6 +369,169 @@ class reservationApprovalController Extends baseController {
             mt_rand(0, 0x3fff) | 0x8000,
             mt_rand(0, 0xffff), mt_rand(0, 0xffff), mt_rand(0, 0xffff)
         );
+    }
+
+    public function review() {
+        try {
+            // Get shop_id from GET parameters
+            $shop_id = $_GET['shop_id'] ?? null;
+
+            if (!$shop_id) {
+                throw new Exception("Missing required shop_id parameter");
+            }
+
+            // Get all approval records for this shop
+            $approval_records = PresentReservationQtyApproval::find_by_sql("
+                SELECT * FROM present_reservation_qty_approval
+                WHERE shop_id = " . intval($shop_id) . "
+                ORDER BY itemno ASC
+            ");
+
+            if (empty($approval_records)) {
+                throw new Exception("No approval records found for shop " . $shop_id);
+            }
+
+            // Check if already approved by looking at shop_metadata.stock_qty_approved
+            $shop_metadata = ShopMetadata::find_by_sql("
+                SELECT stock_qty_approved FROM shop_metadata
+                WHERE shop_id = " . intval($shop_id)
+            );
+            $already_approved = !empty($shop_metadata) && $shop_metadata[0]->stock_qty_approved == 1;
+
+            $this->showApprovalReview($shop_id, $approval_records, $already_approved);
+
+        } catch (Exception $e) {
+            echo "<html><body><h3>Fejl</h3><p>Der opstod en fejl: " . $e->getMessage() . "</p></body></html>";
+        }
+    }
+
+    public function approve() {
+        try {
+            // Get shop_id from POST parameters
+            $shop_id = $_POST['shop_id'] ?? null;
+
+            if (!$shop_id) {
+                throw new Exception("Missing required shop_id parameter");
+            }
+
+            // Get all approval records for this shop
+            $approval_records = PresentReservationQtyApproval::find_by_sql("
+                SELECT * FROM present_reservation_qty_approval
+                WHERE shop_id = " . intval($shop_id)
+            );
+
+            if (empty($approval_records)) {
+                throw new Exception("No approval records found for shop " . $shop_id);
+            }
+
+            // Update shop_metadata.stock_qty_approved to 1
+            $this->updateShopApprovalStatus($shop_id, 1);
+
+            // Update all approval records to approved
+            $sql = "UPDATE present_reservation_qty_approval
+                    SET approved = 1, approved_at = NOW()
+                    WHERE shop_id = " . intval($shop_id);
+            Dbsqli::SetSql2($sql);
+
+            // Log the approval
+            $log = new SystemLog();
+            $log->controller = 'reservationApprovalController';
+            $log->action = 'approve';
+            $log->data = "Approved reservations for shop_id: " . $shop_id;
+            $log->save();
+
+            // Show success message
+            $this->showApprovalConfirmation($shop_id, count($approval_records));
+
+        } catch (Exception $e) {
+            echo "<html><body><h3>Fejl</h3><p>Der opstod en fejl: " . $e->getMessage() . "</p></body></html>";
+        }
+    }
+
+    private function showApprovalReview($shop_id, $approval_records, $already_approved) {
+        // Get shop information
+        $shop = Shop::find($shop_id);
+        $shop_name = $shop ? $shop->name : "Shop #" . $shop_id;
+
+        // Get current language for shop
+        $language_id = $shop->localisation ?? 1;
+
+        echo "<html><head><title>Gennemse Reservation</title>";
+        echo "<style>
+            body { font-family: Arial, sans-serif; margin: 20px; }
+            table { border-collapse: collapse; width: 100%; margin: 20px 0; }
+            th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            .status-ok { color: green; font-weight: bold; }
+            .status-warning { color: orange; font-weight: bold; }
+            .status-error { color: red; font-weight: bold; }
+            .approve-btn { background-color: #4CAF50; color: white; padding: 10px 20px; border: none; cursor: pointer; font-size: 16px; }
+            .approved { background-color: #d4edda; color: #155724; padding: 10px; border: 1px solid #c3e6cb; margin: 10px 0; }
+        </style></head><body>";
+
+        echo "<h2>Gennemse Reservation - " . $shop_name . "</h2>";
+
+        if ($already_approved) {
+            echo "<div class='approved'>✓ Denne reservation er allerede godkendt</div>";
+        }
+
+        // Debug information
+        echo "<p><small>Debug: Antal records fundet: " . count($approval_records) . "</small></p>";
+
+        echo "<table>";
+        echo "<tr><th>Varenummer</th><th>Ønsket Antal</th><th>Oprindeligt Lager</th><th>Aktuelt Lager</th><th>Status</th></tr>";
+
+        foreach ($approval_records as $record) {
+            // Get current stock for this item
+            $current_stock = $this->getCurrentNavStock($record->itemno, $language_id);
+
+            // Determine status
+            $status_class = "";
+            $status_text = "";
+
+            if ($current_stock >= $record->requested_qty) {
+                $status_class = "status-ok";
+                $status_text = "OK - Nok lager";
+            } elseif ($current_stock > 0) {
+                $status_class = "status-warning";
+                $status_text = "Advarsel - Begrænset lager";
+            } else {
+                $status_class = "status-error";
+                $status_text = "Fejl - Intet lager";
+            }
+
+            echo "<tr>";
+            echo "<td>" . $record->itemno . "</td>";
+            echo "<td>" . $record->requested_qty . "</td>";
+            echo "<td>" . $record->nav_stock . "</td>";
+            echo "<td>" . $current_stock . "</td>";
+            echo "<td class='" . $status_class . "'>" . $status_text . "</td>";
+            echo "</tr>";
+        }
+
+        echo "</table>";
+
+        if (!$already_approved) {
+            echo "<form method='POST' action='index.php?rt=reservationApproval/approve'>";
+            echo "<input type='hidden' name='shop_id' value='" . $shop_id . "'>";
+            echo "<p><button type='submit' class='approve-btn' onclick='return confirm(\"Er du sikker på at du vil godkende denne reservation?\")'>Godkend Reservation</button></p>";
+            echo "</form>";
+        }
+
+        echo "</body></html>";
+    }
+
+    private function showApprovalConfirmation($shop_id, $item_count) {
+        // Get shop information
+        $shop = Shop::find($shop_id);
+        $shop_name = $shop ? $shop->name : "Shop #" . $shop_id;
+
+        echo "<html><head><title>Reservation Godkendelse</title></head><body>";
+        echo "<h3>Reservation er blevet godkendt</h3>";
+        echo "<p><strong>Shop:</strong> " . $shop_name . "</p>";
+        echo "<p><strong>Antal varer godkendt:</strong> " . $item_count . "</p>";
+        echo "<p>Reservationerne er nu godkendt og kan bruges.</p>";
+        echo "</body></html>";
     }
 
 
