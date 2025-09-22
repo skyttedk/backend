@@ -70,6 +70,8 @@ var feltDeff = {
         html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
         html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
         html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
+        html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
+        html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
         html+= "<td width=200 align=center><textarea style=\"width:90%; height:90%\" class=\"feltTextArea\"></textarea></td>"
         html+= "<td width=10 align=center><img class=\"icon\" src=\"views/media/icon/1373253296_delete_64.png\"  onclick=\"feltDeff.deleteItem('"+_feltIndex+"')\" height=\"25\" width=\"25\" /></td>"
         html+= "<td width=10 align=center><img class=\"icon\" src=\"views/media/icon/move.png\"  width=\"25\" /></td>"
@@ -151,6 +153,8 @@ var feltDeff = {
             dataToLoad[i].is_locked == 1 ?  html+= htmlCheck : html+= htmlNotCheck
             dataToLoad[i].is_mandatory == 1 ?  html+= htmlCheck : html+= htmlNotCheck
             dataToLoad[i].is_visible == 1 ?  html+= htmlCheck : html+= htmlNotCheck
+            dataToLoad[i].is_searchable == 1 ?  html+= htmlCheck : html+= htmlNotCheck
+            dataToLoad[i].is_visible_on_search == 1 ?  html+= htmlCheck : html+= htmlNotCheck
             var feltTextArea = (dataToLoad[i].list_data == null ? "" : dataToLoad[i].list_data);
             html+= "<td width=200 align=center><textarea style=\"width:90%; height:90%\" class=\"feltTextArea\">"+feltTextArea+"</textarea></td>"
             html+= "<td width=10 align=center><a href=\"javascript:onclick=feltDeff.deleteStaticItem('"+dataToLoad[i].id+"') \" ><img class=\"icon\" src=\"views/media/icon/1373253296_delete_64.png\" height=\"25\" width=\"25\" /></a></td>"
@@ -181,7 +185,7 @@ var feltDeff = {
             $(".safeLayer").show();
             var saveData = [];
             var sortIndex = 0;
-            var checkBoxList = ["is_username","is_password","is_email","is_name","is_locked","is_mandatory","is_visible"];
+            var checkBoxList = ["is_username","is_password","is_email","is_name","is_locked","is_mandatory","is_visible","is_searchable","is_visible_on_search"];
 
             $('#feltDeffContainer').children('li').each(function () {
                 var temp = {};

@@ -71,9 +71,16 @@ class Controller extends AppController
             $qrUser = intval($_POST["app_username"]);
              $token =  $_POST["token"];
 
+           // Only search on attributes where is_searchable = 1
            $result =   \Dbsqli::getSql2("SELECT  `order`.*, present_model.model_name, present_model.model_no,present_model.model_present_no,present_model.media_path,present_model.fullalias FROM `order`
                         inner JOIN present_model on `order`.present_model_id = present_model.model_id and present_model.language_id = 1
-                        WHERE shopuser_id in ( SELECT `shopuser_id` FROM  `user_attribute` WHERE `attribute_value` like ('%".strtolower($searchTxt)."%')   and shop_id = ".$shop_id." ) and `shop_is_gift_certificate` = 0  and shop_id = ".$shop_id." order by id DESC");
+                        WHERE shopuser_id in (
+                            SELECT `shopuser_id` FROM  `user_attribute` ua
+                            INNER JOIN shop_attribute sa ON ua.attribute_id = sa.id
+                            WHERE ua.`attribute_value` like ('%".strtolower($searchTxt)."%')
+                            AND sa.is_searchable = 1
+                            AND ua.shop_id = ".$shop_id."
+                        ) and `shop_is_gift_certificate` = 0  and shop_id = ".$shop_id." order by id DESC");
 
            if($this->isOpen($token) == false){
                 echo "<div>VIGTIGT! virksomheden har ikke aktiveret gaveudlevering eller du mangler rettigheder</div>";
@@ -91,6 +98,20 @@ class Controller extends AppController
             $mediaPath =  "https://system.gavefabrikken.dk/gavefabrikken_backend/views/media/type/".$mediaArr[$lastElement];
             $html.="<tr><td>Navn</td><td>".$ele["user_name"]."</td></tr>";
             $html.="<tr><td>Email</td><td>".$ele["user_email"]."</td></tr>";
+
+            // Get user attributes that are visible on search
+            $userAttributes = \Dbsqli::getSql2("SELECT ua.attribute_value, sa.name
+                FROM user_attribute ua
+                INNER JOIN shop_attribute sa ON ua.attribute_id = sa.id
+                WHERE ua.shopuser_id = ".$ele["shopuser_id"]."
+                AND sa.is_visible_on_search = 1
+                AND sa.shop_id = ".$ele["shop_id"]."
+                ORDER BY sa.index ASC");
+
+            foreach($userAttributes as $attr) {
+                $html.="<tr><td>".$attr['name']."</td><td>".$attr['attribute_value']."</td></tr>";
+            }
+
             $html.="<tr><td></td><td><img width=100 src='".$mediaPath."'  /></td></tr>";
             $html.="<tr><td>Gave</td><td>".$ele["model_name"]."-".$ele["model_no"]."</td></tr>";
             $html.="<tr><td>Gave alias</td><td>".$ele["fullalias"]."</td></tr>";
@@ -219,8 +240,22 @@ class Controller extends AppController
             <tr> <td>Gave</td><td>".$order[0]->model_name." - ".$order[0]->model_no."</td></tr>
             <td> alias</td><td>".$order[0]->fullalias."</td></tr>
             <tr> <td>Navn</td><td>".$order[0]->user_name."</td></tr>
-            <tr> <td>Email</td><td>".$order[0]->user_email."</td></tr>
-            </table>
+            <tr> <td>Email</td><td>".$order[0]->user_email."</td></tr>";
+
+            // Get user attributes that are visible on search
+            $userAttributes = \Dbsqli::getSql2("SELECT ua.attribute_value, sa.name
+                FROM user_attribute ua
+                INNER JOIN shop_attribute sa ON ua.attribute_id = sa.id
+                WHERE ua.shopuser_id = (SELECT shopuser_id FROM `order` WHERE order_no = ".$orderID." AND shop_id = ".$shopID." LIMIT 1)
+                AND sa.is_visible_on_search = 1
+                AND sa.shop_id = ".$shopID."
+                ORDER BY sa.index ASC");
+
+            foreach($userAttributes as $attr) {
+                $html.= "<tr> <td>".$attr['name'].":</td><td>".$attr['attribute_value']."</td></tr>";
+            }
+
+            $html.= "</table>
             <br>
             <textarea id='note' rows='4' style='width: 90%;'>".$noteToTextarea."</textarea>
             ";

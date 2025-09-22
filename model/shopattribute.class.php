@@ -15,6 +15,8 @@
 //   (   ) is_locked                     tinyint(1)          YES
 //   (   ) is_mandatory                  tinyint(1)          YES
 //   (   ) is_visible                    tinyint(1)          YES
+//   (   ) is_searchable                 tinyint(1)          YES
+//   (   ) is_visible_on_search          tinyint(1)          YES
 //   (   ) is_list                       tinyint(1)          YES
 //   (   ) is_delivery                   tinyint(4)          YES
 //   (   ) list_data                     text                YES

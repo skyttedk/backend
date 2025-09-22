@@ -547,6 +547,8 @@ textarea {
              <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">L&aring;st</div>
              <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Udfyldes</div>
              <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Vis</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Søgbar</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Vis ved søgning</div>
              <div class="sidebyside rotate" style="width: 300px; text-align: center; margin-left: 30px;  ">Liste</div>
             </div>
 
