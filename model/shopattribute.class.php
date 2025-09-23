@@ -43,10 +43,29 @@ class ShopAttribute extends BaseModel
     function onBeforeCreate()
     {
         $this->validateFields();
-        // Set default values for new fields
 
-        $this->is_searchable = 1;
-        $this->is_visible_on_search = 1;
+        // Set default values based on field type
+        if ($this->is_password == 1) {
+            // Password fields: not searchable, not visible on search
+            $this->is_searchable = 0;
+            $this->is_visible_on_search = 0;
+        } else if ($this->is_username == 1) {
+            // Username fields: searchable but not visible on search
+            $this->is_searchable = 1;
+            $this->is_visible_on_search = 0;
+        } else if ($this->is_name == 1) {
+            // Name fields: searchable and visible on search
+            $this->is_searchable = 1;
+            $this->is_visible_on_search = 1;
+        } else if ($this->is_email == 1) {
+            // Email fields: searchable and visible on search
+            $this->is_searchable = 1;
+            $this->is_visible_on_search = 1;
+        } else {
+            // Default for other fields: searchable and visible on search
+            $this->is_searchable = 1;
+            $this->is_visible_on_search = 1;
+        }
     }
     function onAfterCreate() {}
 
