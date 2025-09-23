@@ -96,9 +96,6 @@ class Controller extends AppController
             $mediaArr = explode("/", $ele["media_path"]);
             $lastElement = sizeof($mediaArr) == 1 ? 0 : (sizeof($mediaArr)-1);
             $mediaPath =  "https://system.gavefabrikken.dk/gavefabrikken_backend/views/media/type/".$mediaArr[$lastElement];
-            $html.="<tr><td>Navn</td><td>".$ele["user_name"]."</td></tr>";
-            $html.="<tr><td>Email</td><td>".$ele["user_email"]."</td></tr>";
-
             // Get user attributes that are visible on search
             $userAttributes = \Dbsqli::getSql2("SELECT ua.attribute_value, sa.name
                 FROM user_attribute ua
@@ -238,9 +235,7 @@ class Controller extends AppController
             <table>
             <tr> <td>Ordrenr.:</td><td>".$order[0]->order_no."</td></tr>
             <tr> <td>Gave</td><td>".$order[0]->model_name." - ".$order[0]->model_no."</td></tr>
-            <td> alias</td><td>".$order[0]->fullalias."</td></tr>
-            <tr> <td>Navn</td><td>".$order[0]->user_name."</td></tr>
-            <tr> <td>Email</td><td>".$order[0]->user_email."</td></tr>";
+            <tr><td> alias</td><td>".$order[0]->fullalias."</td></tr>";
 
             // Get user attributes that are visible on search
             $userAttributes = \Dbsqli::getSql2("SELECT ua.attribute_value, sa.name

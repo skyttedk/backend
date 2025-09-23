@@ -16,7 +16,7 @@ var feltDeff = {
         })
         let responce = await feltDeff.addBudgetToShopuser(targetAttID)
         alert("Brugerne er blevet opdateret med deres budget")
-        console.log(responce);
+        
 
 
 
@@ -70,8 +70,8 @@ var feltDeff = {
         html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
         html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
         html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
-        html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
-        html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" ></td>"
+        html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" checked ></td>"
+        html+= "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" checked ></td>"
         html+= "<td width=200 align=center><textarea style=\"width:90%; height:90%\" class=\"feltTextArea\"></textarea></td>"
         html+= "<td width=10 align=center><img class=\"icon\" src=\"views/media/icon/1373253296_delete_64.png\"  onclick=\"feltDeff.deleteItem('"+_feltIndex+"')\" height=\"25\" width=\"25\" /></td>"
         html+= "<td width=10 align=center><img class=\"icon\" src=\"views/media/icon/move.png\"  width=\"25\" /></td>"
@@ -139,6 +139,7 @@ var feltDeff = {
 
 
     loaditem : function(dataToLoad){
+        
 
         var htmlCheck = "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\" checked ></td>" ;
         var htmlNotCheck =  "<td width=25 align=center><input  type=\"checkbox\" class=\"felt\"  ></td>";
@@ -153,8 +154,8 @@ var feltDeff = {
             dataToLoad[i].is_locked == 1 ?  html+= htmlCheck : html+= htmlNotCheck
             dataToLoad[i].is_mandatory == 1 ?  html+= htmlCheck : html+= htmlNotCheck
             dataToLoad[i].is_visible == 1 ?  html+= htmlCheck : html+= htmlNotCheck
-            dataToLoad[i].is_searchable == 1 ?  html+= htmlCheck : html+= htmlNotCheck
-            dataToLoad[i].is_visible_on_search == 1 ?  html+= htmlCheck : html+= htmlNotCheck
+            if(dataToLoad[i].is_searchable == 1 || typeof dataToLoad[i].is_searchable === 'undefined') { html+= htmlCheck; } else { html+= htmlNotCheck; }
+            if(dataToLoad[i].is_visible_on_search == 1 || typeof dataToLoad[i].is_visible_on_search === 'undefined') { html+= htmlCheck; } else { html+= htmlNotCheck; }
             var feltTextArea = (dataToLoad[i].list_data == null ? "" : dataToLoad[i].list_data);
             html+= "<td width=200 align=center><textarea style=\"width:90%; height:90%\" class=\"feltTextArea\">"+feltTextArea+"</textarea></td>"
             html+= "<td width=10 align=center><a href=\"javascript:onclick=feltDeff.deleteStaticItem('"+dataToLoad[i].id+"') \" ><img class=\"icon\" src=\"views/media/icon/1373253296_delete_64.png\" height=\"25\" width=\"25\" /></a></td>"
@@ -266,7 +267,7 @@ var feltDeff = {
     saveControlResponce : function(responce)
     {
         _feltControllIndex++;
-        console.log(responce)
+        
         feltDeff.saveControl();
     },
     showLangFields : function(lang){

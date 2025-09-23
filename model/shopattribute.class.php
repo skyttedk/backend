@@ -22,7 +22,8 @@
 //   (   ) list_data                     text                YES
 //   (   ) languages                     text                YES
 //***************************************************************
-class ShopAttribute extends BaseModel {
+class ShopAttribute extends BaseModel
+{
     static $table_name  = "shop_attribute";
     static $primary_key = "id";
 
@@ -38,68 +39,76 @@ class ShopAttribute extends BaseModel {
 
     // Trigger functions
     function onBeforeSave() {}
-    function onAfterSave()  {}
-    function onBeforeCreate() {
+    function onAfterSave() {}
+    function onBeforeCreate()
+    {
+        $this->validateFields();
+        // Set default values for new fields
+
+        $this->is_searchable = 1;
+        $this->is_visible_on_search = 1;
+    }
+    function onAfterCreate() {}
+
+    function onBeforeUpdate()
+    {
         $this->validateFields();
     }
-    function onAfterCreate()  {}
 
-    function onBeforeUpdate() {
-        $this->validateFields();
-    }
-
-    function onAfterUpdate()  {}
+    function onAfterUpdate() {}
     function onBeforeDestroy() {}
-    function onAfterDestroy()  {
+    function onAfterDestroy()
+    {
 
         //17-04-2017
-       //Slet alle bruger attributter
-       UserAttribute::table()->delete(array('attribute_id' => $this->id));
-
+        //Slet alle bruger attributter
+        UserAttribute::table()->delete(array('attribute_id' => $this->id));
     }
-    function validateFields() {
-      	testRequired($this,'shop_id');
-        testRequired($this,'name');
-        testRequired($this,'data_type');
+    function validateFields()
+    {
+        testRequired($this, 'shop_id');
+        testRequired($this, 'name');
+        testRequired($this, 'data_type');
 
         //Check parent records exists here
         Shop::find($this->shop_id);
-        testMaxLength($this,'name',50);
+        testMaxLength($this, 'name', 50);
         $this->name = trimgf($this->name);
     }
-//---------------------------------------------------------------------------------------
-// Static CRUD Methods
-//---------------------------------------------------------------------------------------
+    //---------------------------------------------------------------------------------------
+    // Static CRUD Methods
+    //---------------------------------------------------------------------------------------
 
-    static public function createShopAttribute($data) {
+    static public function createShopAttribute($data)
+    {
         $shopattribute = new ShopAttribute($data);
         $shopattribute->save();
-        return($shopattribute);
+        return ($shopattribute);
     }
 
-    static public function readShopAttribute($id) {
+    static public function readShopAttribute($id)
+    {
         $shopattribute = ShopAttribute::find($id);
-        return($shopattribute);
+        return ($shopattribute);
     }
 
-    static public function updateShopAttribute($data) {
+    static public function updateShopAttribute($data)
+    {
         $shopattribute = ShopAttribute::find($data['id']);
         $shopattribute->update_attributes($data);
         $shopattribute->save();
-        return($shopattribute);
+        return ($shopattribute);
     }
 
-    static public function deleteShopAttribute($id,$realDelete=true) {
+    static public function deleteShopAttribute($id, $realDelete = true)
+    {
 
-        if($realDelete) {
+        if ($realDelete) {
             $shopattribute = ShopAttribute::find($id);
-    		$shopattribute->delete();
-          } else {  //Soft delete
+            $shopattribute->delete();
+        } else {  //Soft delete
             $shopattribute->deleted = 1;
             $shopattribute->save();
-          }
+        }
     }
-
 }
-
-?>

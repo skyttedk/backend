@@ -1,30 +1,24 @@
-# Summary - GF2025-81: Felt-definitioner søgbare flags + QR-scanner tilpasninger
+## GF2025-81: Felt-definitioner - SÃ¸gbar og Vis ved sÃ¸gning felter
 
-## Implementerede ændringer
+### Implementerede Ã¦ndringer:
 
-" **Database model opdateret**: Tilføjet to nye boolean felter til `ShopAttribute` modellen:
-  - `is_searchable` (Søgbar)
-  - `is_visible_on_search` (Vis ved søgning)
+â€¢ **Database**: TilfÃ¸jet to nye boolean kolonner til `shop_attribute` tabellen:
+  - `is_searchable` (SÃ¸gbar) - placeret efter `is_visible`
+  - `is_visible_on_search` (Vis ved sÃ¸gning) - placeret efter `is_searchable`
 
-" **Admin interface forbedret**: Udvidet felt-definitioner formularen i shop administrationen:
-  - To nye checkboxes placeret efter "Vis" checkbox
-  - JavaScript validering og håndtering tilføjet
+â€¢ **Model**: Opdateret `ShopAttribute` model til at hÃ¥ndtere de nye felter
 
-" **QR-scanner funktionalitet opdateret**:
-  - Filtrering af søgbare felter baseret på `is_searchable` flag
-  - Begrænsning af visning til kun felter med `is_visible_on_search = true`
-  - Opdateret `getOrder` endpoint til at respektere nye flags
+â€¢ **Backend controller**: Udvidet shop controller til at gemme og hente de nye feltvÃ¦rdier
 
-## Påvirkede filer
+â€¢ **Frontend - Shop view**: TilfÃ¸jet header labels for "SÃ¸gbar" og "Vis ved sÃ¸gning" i `views/shop_view.php` (linjer 550-551)
 
-" `model/shopattribute.class.php` - Tilføjet nye model felter
-" `views/shop_view.php` - Udvidet admin formular med nye checkboxes
-" `views/js/feltDeff.js` - JavaScript håndtering af nye felter
-" `app/qrscanner/index/controller.php` - QR-scanner logik opdateret
+â€¢ **JavaScript**:
+  - Opdateret `feltDeff.js` til at hÃ¥ndtere de nye felter i `loaditem()` og `saveItem()` funktionerne
+  - **Fixet kritisk fejl**: `addNew()` funktionen manglede to checkboxes - tilfÃ¸jet for at matche de 9 felter i systemet
 
-## Funktionalitet
+â€¢ **QR-scanner**: Implementeret filtreringslogik sÃ¥:
+  - Kun felter med `is_searchable = 1` kan sÃ¸ges pÃ¥
+  - Kun felter med `is_visible_on_search = 1` vises i sÃ¸geresultater
 
-" Administratorer kan nu kontrollere hvilke felter der er søgbare i QR-scanneren
-" Administratorer kan styre hvilke felter der vises ved gaveudlevering
-" QR-scanneren respekterer de nye indstillinger for både søgning og visning
-" Ingen breaking changes - alle eksisterende felter beholder deres funktion
+### Status:
+âœ… Komplet implementering af felt-definitioner med de nye boolean optioner placeret korrekt efter "Vis" feltet som specificeret.

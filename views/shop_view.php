@@ -534,22 +534,22 @@ textarea {
         </ul>
         <div id="tabsFd-1" >
 
-            <button style="margin-top: -20px;" onclick="feltDeff.handleBudgetToShopuser()">Update shopuser budget</button>
+            <button style="margin-top: -30px;" onclick="feltDeff.handleBudgetToShopuser()">Update shopuser budget</button>
             <br> <br>
           <div id="feltdefWarnMessage" style="max-width: 940px; display: none; padding: 10px; font-size: 1.2em; margin-bottom: 40px; background: rgba(200,100,100,0.5);"></div>
 
             <div style="width:910;  height:40px; text-align: left;">
-             <div class="sidebyside rotate" style="width: 170px; text-align: center; ">Felt navn</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center;margin-left: 18px;  ">Login</div>
-             <div class="sidebyside rotate" style="width: 30px;text-align: center;margin-left: 15px;  ">Kode</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Email</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center;margin-left: 10px;  ">Navn</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">L&aring;st</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Udfyldes</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Vis</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Søgbar</div>
-             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 15px; ">Vis ved søgning</div>
-             <div class="sidebyside rotate" style="width: 300px; text-align: center; margin-left: 30px;  ">Liste</div>
+             <div class="sidebyside rotate" style="width: 170px; text-align: center; margin-top: -10px; ">Felt navn</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 0px; margin-top: -10px; ">Login</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 10px; margin-top: -10px; ">Kode</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 10px; margin-top: -10px; ">Email</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 12px; margin-top: -10px; ">Navn</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 17px; margin-top: -10px; ">L&aring;st</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 17px; margin-top: -10px; ">Udfyldes</div>
+             <div class="sidebyside rotate" style="width: 30px; text-align: center; margin-left: 17px; margin-top: -10px; ">Vis</div>
+             <div class="sidebyside rotate" style="width: 35px; text-align: center; margin-left: 12px; margin-top: -10px; ">Søgbar</div>
+             <div class="sidebyside rotate" style="width: 50px; text-align: center; margin-left: 10px; margin-top: -10px; ">Vis ved søgning</div>
+             <div class="sidebyside rotate" style="width: 280px; text-align: center; margin-left: 20px;  ">Liste</div>
             </div>
 
                 <ul id="feltDeffContainer"></ul>
