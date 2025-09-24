@@ -248,11 +248,9 @@ export default class MainApproval extends Base  {
     doSave(obj)
     {
         return new Promise(resolve => {
-            
-            // Route to approval controller for shop ID 9808 normal controller for all others
-            let controllerUrl = obj.shop_id == 9808 ?
-                BASE_AJAX_URL+"reservationApproval/saveReservation" :
-                BASE_AJAX_URL+"reservation/saveReservation";
+
+            // Use approval controller for all shops
+            let controllerUrl = BASE_AJAX_URL+"reservationApproval/saveReservation";
 
             $.post( controllerUrl, obj ,function(res ) {
                 //console.log("Raw server response:", res);
@@ -269,12 +267,16 @@ export default class MainApproval extends Base  {
                 if(!self.calculateAndCheckMaxReservations()){
                     alert("Du prøver at reservere for mange, sæt antal ned")
                 } else {
-                    let r = confirm("Øndsker du at opdaterer resevertionerne");
-                    if(r) self.save();
+                    // Check if this will create an over-reservation that requires approval
+                    if(self.willCreateOverReservation()) {
+                        let confirmMessage = "Du er ved at over reservere. Der vil blive dannet en anmodning om godkendelse Vil du fortsætte?";
+                        let r = confirm(confirmMessage);
+                        if(r) self.save();
+                    } else {
+                        let r = confirm("Ønsker du at opdatere resevertionerne");
+                        if(r) self.save();
+                    }
                 }
-
-
-
             }
         );
         $("#approvalFinalBtn").unbind("click").click(
@@ -316,6 +318,65 @@ export default class MainApproval extends Base  {
         return res;
 
 
+    }
+
+    willCreateOverReservation(){
+        // Check if any reservation changes would create negative stock for external items
+        let willOverReserve = false;
+        let self = this;
+
+        console.log("Checking for over-reservation...");
+
+        $('.newsuggestion').each(function() {
+            let newValue = parseInt($(this).val()) || 0;
+            let presentId = $(this).attr("present_id");
+            let modelId = $(this).attr("model_id");
+
+            console.log(`Checking item ${modelId}: newValue=${newValue}`);
+
+            // Find the corresponding present data
+            let presentData = null;
+            for(let present of self.data.presents) {
+                if(present.present_model_id == modelId) {
+                    presentData = present;
+                    break;
+                }
+            }
+
+            if(presentData) {
+                let currentReservation = parseInt(presentData.reserved_quantity) || 0;
+                let stockElement = $("#item_stock_status_" + modelId);
+                let availableStockText = stockElement.text().trim();
+                let availableStock = parseInt(availableStockText) || 0;
+
+                console.log(`Item ${modelId}: current=${currentReservation}, new=${newValue}, available=${availableStock}, stockText="${availableStockText}"`);
+
+                // Only check if new value is greater than current (increasing reservation)
+                if(newValue > currentReservation) {
+                    let increase = newValue - currentReservation;
+                    let stockAfterChange = availableStock - increase;
+
+                    console.log(`Item ${modelId}: increase=${increase}, stockAfterChange=${stockAfterChange}`);
+
+                    // Check if this is an external item
+                    let itemStatusElement = $("#item_status_" + modelId);
+                    let itemStatusHTML = itemStatusElement.html() || "";
+                    let isExternal = itemStatusHTML.toLowerCase().includes("ekstern");
+
+                    console.log(`Item ${modelId}: isExternal=${isExternal}, itemStatusHTML="${itemStatusHTML}"`);
+
+                    // Trigger for any over-reservation that makes stock negative (not just external items)
+                    if(stockAfterChange < 0) {
+                        console.log(`Over-reservation detected for item ${modelId} (external: ${isExternal})`);
+                        willOverReserve = true;
+                        return false; // Break out of each loop
+                    }
+                }
+            }
+        });
+
+        console.log(`willCreateOverReservation result: ${willOverReserve}`);
+        return willOverReserve;
     }
 
     approval()
@@ -584,6 +645,10 @@ export default class MainApproval extends Base  {
         let hasValidItemNr = this.data.hasValidItemNr == 0 ? "Ikke godkendt":"Godkendt";
         let hasReservation = this.hasReservation() == 0 ? "Ikke godkendt":"Godkendt";
         let hasDeativated = this.data.hasDeativatedItems == 0 ? "Ikke godkendt":"Godkendt";
+
+        // Only add red styling for "Over reservering" when "Ikke godkendt"
+        let stockApprovalClass = this.data.stockApprovalStatus === 'Ikke godkendt' ? 'style="color: red;"' : '';
+
         let html =` <table class="table table-bordered w-100">
             <thead>
             <tr>
@@ -603,15 +668,15 @@ export default class MainApproval extends Base  {
             <tr>
                 <td>Ingen varer er deaktiveret</td>
                 <td id="strengthsStatus">${hasDeativated}</td>
-            </tr>            
+            </tr>
             <tr>
                 <td>Alle varenumre er reserveret </td>
                 <td id="itemNrStatus">${hasReservation}</td>
-            </tr>            
+            </tr>
             <tr>
                 <td>Over reservering </td>
-                <td id="stockApprovalStatus">${this.data.stockApprovalStatus || 'Ikke relevant'}</td>
-            </tr>            
+                <td id="stockApprovalStatus" ${stockApprovalClass}>${this.data.stockApprovalStatus || 'Ikke relevant'}</td>
+            </tr>
             </tbody>
         </table>`;
         $("#vgshop_approval").html(html);

@@ -7,7 +7,7 @@ Implementation completed for GF2025-82: Reservation system improvements with col
 ### Task 1: Column Removal
 - **Removed three columns** from reservation table in `units/valgshop/approval/js/main.js`:
   - "Registreres i NAV" (skip_navision)
-  - "Lager overv�ges" (ship_monitoring) 
+  - "Lager overv�ges" (ship_monitoring)
   - "Autopilot" (autotopilot)
 - **Updated table headers** and row cells to remove the unwanted columns
 - **Cleaned up JavaScript** to remove unused checkbox handling and data submission
@@ -37,6 +37,21 @@ Implementation completed for GF2025-82: Reservation system improvements with col
   - Integrated with existing shop status checking system
   - Added `getStockApprovalStatus()` method in approval controller
   - Status updates automatically when approval requests are created
+
+### Task 4: Additional UI Customizations
+- **Added red styling** for "Ikke Godkendt" status in the "Over reservering" row only:
+  - Modified `initGUI()` method to apply red color styling specifically to "Over reservering" when status is "Ikke godkendt"
+  - Focused visual feedback to highlight over-reservation approval issues
+
+- **Added confirmation dialog** for over-reservation scenarios:
+  - Modified "Opdaterer reservation ændringer" button behavior
+  - Enhanced `willCreateOverReservation()` method with improved debugging and logic:
+    - Now correctly detects reservation increases for external items
+    - Added console logging for debugging over-reservation detection
+    - Improved stock calculation logic to only trigger on reservation increases
+    - Better detection of external items based on status HTML content
+  - Shows specific confirmation message: "Du er ved at over reservere. Der vil blive dannet en anmodning om godkendelse. Vil du fortsætte?"
+  - Provides clear warning before creating over-reservations that require approval
 
 ## Key Features
 - **Production safety**: Frontend routing ensures no impact on production shops (shop ID 9808 routes to approval controller, all others to normal controller)
