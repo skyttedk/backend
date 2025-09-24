@@ -248,9 +248,11 @@ export default class MainApproval extends Base  {
     doSave(obj)
     {
         return new Promise(resolve => {
-
-            // Use approval controller for all shops
-            let controllerUrl = BASE_AJAX_URL+"reservationApproval/saveReservation";
+            
+            // Route to approval controller for shop ID 9808 normal controller for all others
+            let controllerUrl = obj.shop_id == 9808 ?
+                BASE_AJAX_URL+"reservationApproval/saveReservation" :
+                BASE_AJAX_URL+"reservation/saveReservation";
 
             $.post( controllerUrl, obj ,function(res ) {
                 //console.log("Raw server response:", res);
