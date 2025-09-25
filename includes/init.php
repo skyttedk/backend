@@ -3,6 +3,9 @@
 include __SITE_PATH . '/includes/config.php';
 include __SITE_PATH . '/../vendor/autoload.php';
 
+// Set timezone to Europe/Copenhagen for consistent datetime operations
+date_default_timezone_set('Europe/Copenhagen');
+
 include __SITE_PATH . '/lib/' . 'ActiveRecord.php';
 include __SITE_PATH . '/lib/' . 'BaseModel.php';
 include __SITE_PATH . '/lib/' . 'Profile.php';

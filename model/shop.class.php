@@ -14,7 +14,9 @@
 //   (   ) demo_password                 varchar(45)         YES
 //   (   ) demo_user_id                  int(11)             YES
 //   (   ) start_date                    date                YES
+//   (   ) start_time                    time                YES
 //   (MUL) end_date                      date                YES
+//   (   ) end_time                      time                YES
 //   (   ) expire_warning_date           date                YES
 //   (   ) image_path                    varchar(1024)       YES
 //   (   ) logo_enabled                  tinyint(1)          YES
@@ -336,6 +338,15 @@ class Shop extends BaseModel {
                 throw new exception('Ugyldig datoformat i start dato');
             }
         }
+
+        // Handle start_time field
+        if(isset($shopData['start_time'])) {
+            if($shopData['start_time'] == "stop" || $shopData['start_time'] == "###" || $shopData['start_time'] == "") {
+                $shopData['start_time'] = null;
+            } else if (!preg_match("/\d{2}:\d{2}(:\d{2})?/", $shopData['start_time'])) {
+                throw new exception('Ugyldig tidsformat i start tid');
+            }
+        }
     }
     if($shopData['end_date']=="stop"){
         unset($shopData['end_date']);
@@ -346,6 +357,15 @@ class Shop extends BaseModel {
         if($shopData['end_date']) {
             if (!preg_match("/\d{4}\-\d{2}-\d{2}/", $shopData['end_date'])) {
                 throw new exception('Ugyldig datoformat i slut dato');
+            }
+        }
+
+        // Handle end_time field
+        if(isset($shopData['end_time'])) {
+            if($shopData['end_time'] == "stop" || $shopData['end_time'] == "###" || $shopData['end_time'] == "") {
+                $shopData['end_time'] = null;
+            } else if (!preg_match("/\d{2}:\d{2}(:\d{2})?/", $shopData['end_time'])) {
+                throw new exception('Ugyldig tidsformat i slut tid');
             }
         }
     }
@@ -699,6 +719,7 @@ class Shop extends BaseModel {
     }
     return($result);
    }
+
 }
    function crypto_rand_secure($min, $max)
 {

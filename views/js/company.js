@@ -385,7 +385,9 @@ var company = {
             shop['language_settings']    =    '{"lang_dk":'+language_enabled['lang_dk']+',"lang_no":'+language_enabled['lang_no']+',"lang_eng":'+language_enabled['lang_eng']+',"lang_se":'+language_enabled['lang_se']+',"lang_de":'+language_enabled['lang_de']+'}'
 
             shop['start_date']          = "###";
+            shop['start_time']          = "";     // Always include time fields, default to empty string
             shop['end_date']            = "###";
+            shop['end_time']            = "";     // Always include time fields, default to empty string
 
 
 
@@ -394,11 +396,16 @@ var company = {
                 res = str.split("-");
                 shop['start_date'] =  res[2]+"-"+res[1]+"-"+res[0];
             }
+            if($("#shopFromTime").val() != ""){
+                shop['start_time'] = $("#shopFromTime").val() + ":00"; // Add seconds
+            }
             if($("#shopTo2").val() != "" ){
                 var str = $("#shopTo2").val();
                 res = str.split("-");
                 shop['end_date'] =  res[2]+"-"+res[1]+"-"+res[0];
-
+            }
+            if($("#shopToTime").val() != ""){
+                shop['end_time'] = $("#shopToTime").val() + ":59"; // Add seconds, default end of minute
             }
              shop['shipment_date'] = "###";
             if($("#showDeleveryDateOnReceipt").length > 0 && $("#showDeleveryDateOnReceipt").val() != "" ){
@@ -805,11 +812,21 @@ var company = {
                     res = str.split("-");
                     $("#shopFrom2").val(res[2]+"-"+res[1]+"-"+res[0]);
                 }
+                if( responce.data.shop[0].start_time  != null){
+                    var timeStr = responce.data.shop[0].start_time;
+                    // Remove seconds from HH:mm:ss -> HH:mm for time input
+                    $("#shopFromTime").val(timeStr.substring(0, 5));
+                }
 
                 if(responce.data.shop[0].end_date != null){
                     var str = responce.data.shop[0].end_date;
                     res = str.split("-");
                     $("#shopTo2").val(res[2]+"-"+res[1]+"-"+res[0]);
+                }
+                if(responce.data.shop[0].end_time != null){
+                    var timeStr = responce.data.shop[0].end_time;
+                    // Remove seconds from HH:mm:ss -> HH:mm for time input
+                    $("#shopToTime").val(timeStr.substring(0, 5));
                 }
                 if(responce.data.shop[0].shipment_date != null){
                     var str = responce.data.shop[0].shipment_date;

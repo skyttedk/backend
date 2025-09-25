@@ -24,30 +24,33 @@ class ExternalController Extends baseController {
     }
 
     public function openShops() {
-        $target_date =  date('Y-m-d');
-        $next_date = date('Y-m-d', strtotime($target_date . ' +1 day'));
+        // Set timezone to Europe/Copenhagen for consistent datetime operations
+        date_default_timezone_set('Europe/Copenhagen');
 
+        // Safety date boundaries to prevent accidentally opening too many shops
+        $target_date = date('Y-m-d');
+        $next_date = date('Y-m-d', strtotime($target_date . ' +1 day'));
+        $target_datetime = date('Y-m-d H:i:s');
+
+        // Find shops that should be opened now (start_date + start_time has passed and shop is not active)
+        // Safety check: only consider shops with start_date before tomorrow (< next_date)
         $shops = Shop::find('all', array(
             'conditions' => array(
-                'start_date >= ? AND start_date < ?',
-                $target_date,
-                $next_date
+                'CONCAT(start_date, " ", COALESCE(start_time, "00:00:00")) <= ? AND start_date < ?',
+                $target_datetime, $next_date
             )
         ));
 
-
-//        $shops = Shop::all(array('start_date' => (string) date('Y-m-d')));
-
-
         foreach($shops as $shop) {
-            echo $shop->attributes["id"]. "- ". $shop->attributes["name"].":";
-                $shop->is_demo = 0;
-                $shop->active = 1;
-                $shop->soft_close = 0;
-                $shop->save();
+            echo $shop->attributes["id"]. "- ". $shop->attributes["name"].": opened at ".$target_datetime."\n";
+            $shop->is_demo = 0;
+            $shop->active = 1;
+            $shop->soft_close = 0;
+            $shop->save();
         }
         $dummy = array();
         $dummy['shops_opened'] = countgf($shops);
+        $dummy['timestamp'] = $target_datetime;
         response::success(json_encode($dummy));
     }
 

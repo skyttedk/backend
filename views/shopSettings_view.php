@@ -55,7 +55,6 @@
 
 
         <fieldset><legend><b>Periode</b></legend>
-
             <div style="width:800px;float:left;padding:2px;  text-align: left;">
             <table width=800 border=0>
             <tr>
@@ -64,10 +63,35 @@
 
 
             <tr>
-             <td><label for="shopFrom2">Start dato</label>
-            <input type="text"  style="width:100px" id="shopFrom2" name="from2"  />
-            <label   for="shopTo2">Slut dato</label>
-            <input type="text"  style="width:100px" id="shopTo2" name="to2"  />
+             <td>
+                <div style="display: flex; gap: 20px; align-items: flex-start;">
+                    <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f9f9f9;">
+                        <h4 style="margin: 0 0 10px 0; color: #333;">Start Periode</h4>
+                        <div style="margin-bottom: 8px;">
+                            <label for="shopFrom2" style="display: inline-block; width: 60px; font-weight: bold;">Dato:</label>
+                            <input type="text" style="width:100px" id="shopFrom2" name="from2" />
+                        </div>
+                        <div>
+                            <label for="shopFromTime" style="display: inline-block; width: 60px; font-weight: bold;">Tid:</label>
+                            <input type="text" style="width:80px" id="shopFromTime" name="fromTime" />
+                            <br><small style="color: #666;">Shop åbnes automatisk på dette tidspunkt.</small>
+                        </div>
+                    </div>
+
+                    <div style="border: 1px solid #ccc; padding: 15px; border-radius: 5px; background-color: #f9f9f9;">
+                        <h4 style="margin: 0 0 10px 0; color: #333;">Slut Periode</h4>
+                        <div style="margin-bottom: 8px;">
+                            <label for="shopTo2" style="display: inline-block; width: 60px; font-weight: bold;">Dato:</label>
+                            <input type="text" style="width:100px" id="shopTo2" name="to2" />
+                        </div>
+                        <div>
+                            <label for="shopToTime" style="display: inline-block; width: 60px; font-weight: bold;">Tid:</label>
+                            <input type="text" style="width:80px" id="shopToTime" name="toTime" />
+                            <br><small style="color: #666;">Shop lukker IKKE automatisk på dette tidspunkt.</small>
+                        </div>
+                    </div>
+                </div>
+                <br><small style="color: #666;">Tidspunkt i Europa/København timezone. Format: HH:MM (f.eks. 08:30). Hvis tiden ikke udfyldes, bruges 00:00 for start og 23:59 for slut.</small>
              </td>
 
              <td><textarea cols="30" rows="3" id="periodeMail"></textarea></td>
