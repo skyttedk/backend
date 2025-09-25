@@ -1,0 +1,64 @@
+.pt-admin{
+    text-align: left;
+
+
+
+    height: 500px;
+    width: 97%;
+  display:flex;
+}
+
+.pt-admin .left{
+  width: 50%;
+
+  display: inline-block;
+
+}
+.pt-admin .right{
+  width: 50%;
+  display: inline-block;
+
+}
+.pt-admin fieldset{
+    padding:5px;
+}
+.pt-admin .img-container  {
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-top:1px solid black;
+    padding:10px;
+    margin-top:10px;
+
+}
+.img-container-small{
+    height: 100px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    border-top:1px solid black;
+    padding:10px;
+    margin-top:10px;
+
+}
+
+.pt-admin .salesman tr {
+    outline: thin solid;
+}
+.pt-admin .salesman .selected{
+    background-color: #CCC11C;
+}
+.pt-admin .layout tr {
+    outline: thin solid;
+}
+.pt-admin .layout .selected{
+    background-color: #CCC11C;
+}
+.pt-admin legend{
+  font-weight: bold;
+}
+
+progress{
+  display: none
+}

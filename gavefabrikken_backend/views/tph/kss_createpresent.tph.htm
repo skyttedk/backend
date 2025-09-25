@@ -1,0 +1,22 @@
+<h5>Opret Presents</h5>
+
+<div id="present">
+  <label>Navn</label><input type="text" name="name"/><br>
+  <label>Internt navn</label><input type="text" name="internal_name"/><br>
+  <input type="button" onclick="createPresent();" value="Opret" name="Opret"/>
+</div>
+
+<script>
+
+
+function createPresent() {
+  submitForm("present","present/Create",onPresentCreated);
+}
+
+function onPresentCreated($present) {
+   alert('Present shop with id '+present.id);
+}
+
+</script>
+
+

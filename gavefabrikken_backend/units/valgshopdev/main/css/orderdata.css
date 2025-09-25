@@ -1,0 +1,92 @@
+/* Accordion styling for orderdata form */
+
+/* Header styling - changed to a more neutral color */
+.orderdata-accordion .accordion-button {
+    background-color: #6c757d; /* Changed from #0d6efd to a more neutral gray */
+    color: white;
+    font-weight: bold;
+    border: 1px solid #5a6268;
+}
+
+.orderdata-accordion .accordion-button:not(.collapsed) {
+    background-color: #5a6268; /* Darker gray when expanded */
+    color: white;
+    border-bottom: none;
+}
+
+.orderdata-accordion .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
+}
+
+/* Change color of the dropdown arrow */
+.orderdata-accordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.orderdata-accordion .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* Content styling */
+.orderdata-accordion .accordion-body {
+    background-color: #f8f9fa; /* Lighter gray background */
+    border-left: 1px solid #5a6268;
+    border-right: 1px solid #5a6268;
+    border-bottom: 1px solid #5a6268;
+    padding: 20px;
+}
+
+/* Adding more spacing between accordion items */
+.orderdata-accordion .accordion-item {
+    margin-bottom: 10px;
+}
+
+/* Form field styling improvements */
+.orderdata-accordion .form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.25);
+}
+
+.orderdata-accordion .form-group {
+    margin-bottom: 1rem;
+}
+
+/* Save and Approve Order buttons styling */
+.save_button {
+    background-color: #28a745 !important; /* Green background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order_approval {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Status indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.dot.gray { background-color: #adb5bd; }
+.dot.green { background-color: #28a745; }
+.dot.yellow { background-color: #ffc107; }
+.dot.red { background-color: #dc3545; }
+
+/* General button styling */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}

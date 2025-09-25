@@ -1,0 +1,148 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="MessType" fixed="OUTBOUNDORDER"/>
+				<xs:element type="xs:date" name="CreationDate" minOccurs="0"/>
+				<xs:element type="xs:time" name="CreationTime" minOccurs="0"/>
+				<xs:element name="Orders">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Order" maxOccurs="unbounded" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="OrderHeader">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="OrderNo"/>
+													<xs:element type="xs:string" name="Action" minOccurs="0"/>
+													<xs:element type="xs:string" name="OrderType" minOccurs="0"/>
+													<xs:element type="xs:byte" name="OrderPrio" minOccurs="0"/>
+													<xs:element type="xs:string" name="SellingCompany" minOccurs="0"/>
+													<xs:element type="xs:date" name="DeliveryDate" minOccurs="0"/>
+													<xs:element name="DeliveryTime" minOccurs="0">
+														<xs:simpleType>
+															<xs:restriction base="xs:string">
+																<xs:pattern value="[0-2][0-9]:[0-5][0-9]"/>
+															</xs:restriction>
+														</xs:simpleType>
+													</xs:element>
+													<xs:element type="xs:date" name="ShipmentDate" minOccurs="0"/>
+													<xs:element name="Addresses">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element name="Address" maxOccurs="unbounded" minOccurs="1">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element type="xs:string" name="Qual" minOccurs="0"/>
+																			<xs:element type="xs:string" name="ID"/>
+																			<xs:element type="xs:string" name="Name"/>
+																			<xs:element type="xs:string" name="Address1"/>
+																			<xs:element type="xs:string" name="Address2" minOccurs="0"/>
+																			<xs:element type="xs:string" name="Address3" minOccurs="0"/>
+																			<xs:element type="xs:string" name="PostalNo"/>
+																			<xs:element type="xs:string" name="City"/>
+																			<xs:element type="xs:string" name="Province" minOccurs="0"/>
+																			<xs:element type="xs:string" name="CountryCode"/>
+																			<xs:element type="xs:string" name="Phone" minOccurs="0"/>
+																			<xs:element type="xs:string" name="SMS" minOccurs="0"/>
+																			<xs:element type="xs:string" name="eMail" minOccurs="0"/>
+																			<xs:element type="xs:string" name="EntryCode" minOccurs="0"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element type="xs:string" name="OurRef" minOccurs="0"/>
+													<xs:element type="xs:string" name="CustomerRef" minOccurs="0"/>
+													<xs:element type="xs:string" name="CustomerOrderNo" minOccurs="0"/>
+													<xs:element type="xs:string" name="DeliveryMethod" minOccurs="0"/>
+													<xs:element type="xs:string" name="DeliveryMethodTxt" minOccurs="0"/>
+													<xs:element name="AdditionalServices" minOccurs="0">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string" name="AdditionalService" maxOccurs="7"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element type="xs:string" name="ServicePoint" minOccurs="0"/>
+													<xs:element type="xs:string" name="Route" minOccurs="0"/>
+													<xs:element type="xs:string" name="DeliveryTerms" minOccurs="0"/>
+													<xs:element type="xs:string" name="DeliveryTermsTxt" minOccurs="0"/>
+													<xs:element type="xs:string" name="PaymentMethod" minOccurs="0"/>
+													<xs:element type="xs:string" name="PaymentMethodTxt" minOccurs="0"/>
+													<xs:element type="xs:string" name="PaymentTerms" minOccurs="0"/>
+													<xs:element type="xs:string" name="PaymentTermsTxt" minOccurs="0"/>
+													<xs:element type="xs:string" name="PalletRegNo" minOccurs="0"/>
+													<xs:element type="xs:string" name="CustomerGAN" minOccurs="0"/>
+													<xs:element type="xs:string" name="PayerGAN" minOccurs="0"/>
+													<xs:element type="xs:string" name="FreightPayer" minOccurs="0"/>
+													<xs:element type="xs:string" name="DeliveryInstruction1" minOccurs="0"/>
+													<xs:element type="xs:string" name="DeliveryInstruction2" minOccurs="0"/>
+													<xs:element type="xs:string" name="PhoneNoAdv" minOccurs="0"/>
+													<xs:element type="xs:string" name="SSCCScan" minOccurs="0"/>
+													<xs:element type="xs:byte" name="PartlyDelivery" minOccurs="0"/>
+													<xs:element type="xs:decimal" name="FreightCost" minOccurs="0"/>
+													<xs:element type="xs:decimal" name="FreightVAT" minOccurs="0"/>
+													<xs:element type="xs:decimal" name="AdmCost" minOccurs="0"/>
+													<xs:element type="xs:decimal" name="AdmVAT" minOccurs="0"/>
+													<xs:element type="xs:decimal" name="TotalVAT" minOccurs="0"/>
+													<xs:element type="xs:decimal" name="TotalAmount" minOccurs="0"/>
+													<xs:element type="xs:string" name="Currency" minOccurs="0"/>
+													<xs:element type="xs:decimal" name="TotalCOD" minOccurs="0"/>
+													<xs:element type="xs:string" name="InvoiceNo" minOccurs="0"/>
+													<xs:element type="xs:string" name="OCRNo" minOccurs="0"/>
+													<xs:element type="xs:string" name="PaymentAccountType" minOccurs="0"/>
+													<xs:element type="xs:string" name="PaymentAccount" minOccurs="0"/>
+													<xs:element type="xs:string" name="PaymentBIC" minOccurs="0"/>
+													<xs:element type="xs:string" name="CustomCurrency" minOccurs="0"/>
+													<xs:element type="xs:string" name="WarehouseInfo" minOccurs="0"/>
+													<xs:element type="xs:string" name="BookingInfo" minOccurs="0"/>
+													<xs:element type="xs:string" name="CustomerInfo" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OrderLines">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OrderLine" maxOccurs="unbounded" minOccurs="1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string" name="Action" minOccurs="0"/>
+																<xs:element type="xs:string" name="LineID" minOccurs="0"/>
+																<xs:element type="xs:string" name="RowType" minOccurs="0"/>
+																<xs:element type="xs:string" name="StructID" minOccurs="0"/>
+																<xs:element type="xs:string" name="ItemNo"/>
+																<xs:element type="xs:string" name="BatchNo" minOccurs="0"/>
+																<xs:element type="xs:decimal" name="OrderQty"/>
+																<xs:element type="xs:decimal" name="DeliverQty" minOccurs="0"/>
+																<xs:element type="xs:decimal" name="SalesQty" minOccurs="0"/>
+																<xs:element type="xs:string" name="SalesUnit" minOccurs="0"/>
+																<xs:element type="xs:string" name="CustomerItemNo" minOccurs="0"/>
+																<xs:element type="xs:string" name="CustomerItemDesc" minOccurs="0"/>
+																<xs:element type="xs:string" name="Warehouse" minOccurs="0"/>
+																<xs:element type="xs:int" name="RemainingTime" minOccurs="0"/>
+																<xs:element type="xs:byte" name="PartlyDelivery" minOccurs="0"/>
+																<xs:element type="xs:decimal" name="Price" minOccurs="0"/>
+																<xs:element type="xs:decimal" name="VAT" minOccurs="0"/>
+																<xs:element type="xs:decimal" name="Discount" minOccurs="0"/>
+																<xs:element type="xs:decimal" name="NetAmount" minOccurs="0"/>
+																<xs:element type="xs:decimal" name="CustomPrice" minOccurs="0"/>
+																<xs:element type="xs:string" name="LineText" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

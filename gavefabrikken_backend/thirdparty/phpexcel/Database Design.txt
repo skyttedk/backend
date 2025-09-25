@@ -1,0 +1,537 @@
+
+Opsæt nummer serie pr. shop.. giver det ikke mening nåt der er tale om valgshops...
+gavekortshops... hmmm tjaah. de kan vel bare alle bruge samme nummerserie.
+
+
+Present Logik
+
+   skal vi kunne tilføje en vare til present list hvis
+     varen er slette
+     varren er inaktive
+
+    skal vi kunne slette/deaktivere en vare hvis
+    den indgår i present list på en aktiv vare
+
+    må vi redigere    
+      Kritiske efelter
+
+      present_list
+      present_no (item no)
+        
+    Hvis der ligger ordre på en en vare
+
+
+
+felt_receipt_sendt, skal tilføjet oprdre historik tabellen.
+  ( ikke ordre tabellen, idet vi i pricippet kan når at slet
+   ---- hmm ellers også skal vi opdatere begge ordre tabeller med receipte sent
+  
+
+i systemtabellen oprettes defineres ordrenummerserie
+vi skal et eller andet sted definere vores gavbekort numre.
+
+
+shop-- skal vi ikke 
+Opret ordre tabellen                      - ok (manger receipt sent)
+                                          - skal vi ikke have et ordrenummer, som trækkes fra nummerserie. - igang
+Opret ordre attribute tabellen             -ok 
+    
+Opret Ordre_history_Tabellen
+Opret ORdre_history_attribute_tabellen
+Oprette item_entry tabellen << vores vareposter
+
+    Opret en linje pr. varenr.  i vareposttabel
+    Opret en linje pr gavenr i ordretabellen
+
+Present_no skal ændre til varchar  (20)
+  på presenttabel og ordretabel
+
+Tilføjet pick_group på companytabel
+  ( Hust at opdater model, og overføre CVR til plukgruppe)
+  // Lav evt function til at opdatere plukgrupper med når man plukker
+
+
+på present tabel skal variant_list omdøbes til model_list
+
+
+
+på shop  
+----------------------------------------------------------
+
+
+   system                     -ok  model only
+   system_user                -ok  model,controller  
+   system_log                 -ok  model only
+   translation                -ok, model only  <<< bed ikke helt med denne endnu
+
+   company                    -ok, model only
+   company_shop               -ok  model only
+
+   shop                      - ok model, controller
+   shop_user                 - ok model only
+   shop_present              - ok model only
+   shop_descriptions
+   shop_attribute            - ok model only
+
+   user_attribute             - ok model only
+
+   present                   -ok model, controller                  
+   present_description       -ok model only
+   present_media             -ok model only
+
+   gift_certificate           laves senere
+   language                  -ok model,-- mangler controller          
+
+   order                  laves senere
+   order-history           laves senere    
+   order-attributes       laves senere   kal inde holde en kopi af attributter som order blev lavet med)
+
+
+
+   media                    - ok, model , controller
+   invetory                 - laves senere
+   pointshop                - laves senere
+
+
+
+------------------------------------------------------------------------------------------------------
+  order 
+
+  order_history
+  order_history_attribute
+
+------------------------------------------------------------------------------------------------------
+    - id   		int
+    - order_no          (receiptno) trækketr fra nummerserie
+
+    [shop]
+    - shop_id           int
+    - gavekort          bool  
+    - valgshop	        bool	
+
+    [company]   - plukgruppe
+    - company_id       int
+    - company_name     varchar
+    - company_cvr      varchar
+    - company_pick_ghroup
+
+
+    -[user]
+    - user_id           int
+    - username          varchar(1024)    (attribute value hvor User_username = true)
+    - name              varchar(1024)    (attribute value hvor User_name = true)
+    - email             varchar(1024)    (attribute value hvor User_EMAIL = true)
+
+     [present]
+    - present_id                  int
+    - present_no                  varchar(10)
+    - present_name                varchar(100)
+    - present_internal_name       varchar(100)
+    - present_model_id            int   
+    - present_model_description   varchar(100)
+    - present_vendor_name         varchar(50)
+    - present_copy_of             int  
+    - present_shop_id             int
+
+
+
+
+    [gift_certificate]  - kun relevant for gavekort shops
+
+    - gift_certificate_no    (= username , hvis der er gavekort shop)
+    - value                  (kommer enten fra gavekortet eller shoppen)
+    - week_no                int
+    - start_date             int
+    - end_date               int
+
+
+    [additional]
+    - timestamp
+
+
+//Der skal laves en order_attribute tabel
+------------------------------------------------------------------------------------------------------
+order_attribute
+------------------------------------------------------------------------------------------------------
+
+     - id 		int (pk)
+     - user_id 		int (foreign user)
+     - order_id 	int (foreign user)
+     - attribute_id     int (foerign attribute)
+     - attribute value  varchar(1024)
+
+------------------------------------------------------------------------------------------------------
+system
+------------------------------------------------------------------------------------------------------
+
+  id  int;
+  order_nos_id;
+  present_nos_id;
+  gift_certificate_id;
+  
+
+ ------------------------------------------------------------------------------------------------------
+  system_user
+------------------------------------------------------------------------------------------------------
+     - id        	int (pk)
+     - Name   	        varchar(50)
+     - username         varchar(50)
+     - password         varchar(50)
+     - active           tinyint(1)
+     - admin		tinyint(1)
+
+    - to add later:
+
+     -allow_view_company  	bool
+     -allow_insert_company	bool
+     -allow_update_company	bool
+     -allow_delete_company	bool
+
+     -allow_view_presents	bool
+     -allow_insert_presents	bool
+     -allow_update_presents	bool
+     -allow_delete_presents	bool
+
+     -allow_view_shop		bool
+     -allow_insert_shop		bool
+     -allow_update_shop		bool
+     -allow_delete_shop		bool
+
+     -allow_view_user		bool
+     -allow_insert_user		bool
+     -allow_update_user		bool
+     -allow_delete_user		bool
+
+     -allow_view_system_user	bool
+     -allow_insert_system_user	bool
+     -allow_update_system_user	bool
+     -allow_delete_system_user	bool
+
+     -allow_view_gift_certificate	bool
+     -allow_insert_gift_certificate	bool
+     -allow_update_gift_certificate	bool
+     -allow_delete_gift_certificate	bool
+
+------------------------------------------------------------------------------------------------------
+translation
+------------------------------------------------------------------------------------------------------
+	id 		int pk
+	language_id	int
+	text		varvhar(100)
+	translation	varvhar(100)
+
+index på name
+	metoder CreateTranslation();
+
+------------------------------------------------------------------------------------------------------
+company
+------------------------------------------------------------------------------------------------------
+
+	- id	int
+	- name
+	- phone
+	- website
+	- language
+	- cvr
+	- link  ( hmmm linked skal vel opver på shoppen)
+	- username  ??  skal vel over på shop  er vel kun ti lvalgshops
+	- password   ??  skal vel over på shop  er vel kun til valgshops
+	- footer :
+	- logo
+	- ship_to_attention
+	- ship_to_address
+	- ship_to_address_2
+	- ship_to_postal_code
+	- ship_to_city	
+	- ship_to_country
+	- contact_name	
+	- contact_phone	
+	- contact_email	
+	- active
+
+        
+  ------------------------------------------------------------------------------------------------------
+   shop 
+
+------------------------------------------------------------------------------------------------------
+
+    - id   		int
+    - navn    		varvhar(50)    eks. julen 2016
+    - is_gift_certificate       bool  
+    - is_company	        bool
+    - demo 	                bool
+
+
+    - image_path varchar (1024)
+    - start_Date  date
+    - end_Date	date
+    - logo_enabled bool
+    - zoom_enabled  bool
+    - language_endabled bool
+
+
+   
+     N.B
+     1. valgshop og gavekort kan ikke begge være markeret.
+     2. hvis demo er markeret, gemmes ordre ikke
+
+
+------------------------------------------------------------------------------------------------------
+shop_present
+------------------------------------------------------------------------------------------------------
+    int int ok
+    shop_id   int
+    present_id  int
+
+
+index på shop_id
+index på present_id
+uniq index på shop_id,present_id
+
+------------------------------------------------------------------------------------------------------
+   shop_attribute
+------------------------------------------------------------------------------------------------------
+   id           int pk
+   shop_id      int
+   index        int
+   name         varchar(100)        // caption hentes fra tabel
+   data_type                        //  0 = text, 1 = integer, 2 = decimal, 3 = boolean , 4 = option/isList
+   is_username 	tinyint(1)
+   is_password 	tinyint(1)
+   is_email	tinyint(1)
+   is_name	tinyint(1)
+   is_locked	tinyint(1)
+   is_mandatory	tinyint(1)
+   is_visible	tinyint(1)
+   is_list      tinyint(1)
+
+   Unikke indexes, da der kun må være et unikt username,password attribute shop.
+   shop_id,is_username
+   shop_id,is_password
+   shop_id,is_name
+   shop_id,is_email
+
+  
+------------------------------------------------------------------------------------------------------
+   shop_attributes_options (hmmmmmm er dette ikke ogsp en json i felt)
+------------------------------------------------------------------------------------------------------
+     - id
+     - shop_attribute_id
+     - name  //caption findes i translation tabel
+     - index
+     - value
+
+
+------------------------------------------------------------------------------------------------------
+  shop_description
+------------------------------------------------------------------------------------------------------
+
+present_description
+
+    . id                     int (pk)
+    . shop_id                int 
+    . language_id            int             
+    . description	     varchar(2048)
+
+------------------------------------------------------------------------------------------------------
+company_shop
+------------------------------------------------------------------------------------------------------
+	- id 		int  (PK)
+	- company_id	int  (foreign company)
+	- shop_id	int  (foreign shop)
+
+	Indexes:
+
+         1. company_id
+	 2. shop_id 
+         3. copmany_id,Shop_id (unique)
+
+
+------------------------------------------------------------------------------------------------------
+language
+------------------------------------------------------------------------------------------------------
+	- id		int
+	- language_code	vharchar(2)
+	- name		varchar(50)
+
+------------------------------------------------------------------------------------------------------
+  frontend_log
+------------------------------------------------------------------------------------------------------
+   - id               int
+   - user_id   	      int
+   - controller       varchar(100)
+   - action           varchar(100)
+   - data             varchar(2048)
+   - timestamp        datetime
+
+------------------------------------------------------------------------------------------------------
+  backend_log
+------------------------------------------------------------------------------------------------------
+   - id               int
+   - system_user_id   int
+   - controller       varchar(100)
+   - action           varchar(100)
+   - data             varchar(2048)
+   - timestamp        datetime
+
+
+
+
+------------------------------------------------------------------------------------------------------
+  present
+------------------------------------------------------------------------------------------------------
+
+present  -- Alle gaver skal have et varenr.
+
+    - id                           int (pk)
+    - name                         varchar(100)
+    - internal_name                varchar(100)
+    - present_no                   varchar(10) (Unique)
+    - vendor_name                  varchar(50)
+    - medie_url                    varchar(1024)  // hmm bruges kun intern måske
+    - logo (url)                   varchar(1024)  // hmm evt. en picture med en property 
+    - properties [json string ]    varchar(1024)  // hmm hmmm tjoooh
+    - copy of: id                  int
+    - created_datetime             datetime
+    - modified_datetime            datetime
+    - created_by                   int
+    - active                       tinyint(1)
+    - deleted                      tinyint(1)
+    - show_in_list                 tinyint(1)
+    - shop id:                     int             (local master, hvis den oprettes direkte på en shop, skal den kun vises for denne shop)
+
+    indexes
+       deleted,active
+       deleted,present_no
+
+------------------------------------------------------------------------------------------------------
+  present_description
+------------------------------------------------------------------------------------------------------
+
+present_description
+
+    . id                        int (pk)
+    . present_id                int 
+    . language_id               int             
+    . overskrift                varchar(100)
+    . lang beskrivelse          varchar(2048)
+    . kort beskriveles          varchar(2048)
+
+  indexex 
+
+    present_id,language_id  unique
+
+
+------------------------------------------------------------------------------------------------------
+  present_media
+------------------------------------------------------------------------------------------------------
+
+    . id                         int (pk)
+    - present_id                 int NN
+    - media id                   int
+    - index                      int              -- placerings rækkefølge
+ 
+    index
+    present_id,index
+
+------------------------------------------------------------------------------------------------------
+  present_variant       (findes denne overhovedt,, lægger vi ikke det bare i som JSON i varchar   
+------------------------------------------------------------------------------------------------------
+    - id                         int (pk)
+    - present_id                 int 
+    - name 	                 varchar(100) //caption findes i translation tabel
+ 
+------------------------------------------------------------------------------------------------------
+  user 
+------------------------------------------------------------------------------------------------------
+
+     - id			int	
+     - shop_id			int
+     - company_id		
+
+//		user->shop->company_id
+//			hmm 
+//     - company_id  		int (bare et oplysningsfelt)
+//     - language_id  		int (foreign til language_code)
+
+------------------------------------------------------------------------------------------------------
+  user_attribute  ( svarer til gammel employee attribute tabel)
+------------------------------------------------------------------------------------------------------
+
+     - id 		int (pk)
+     - user_id 		int (foreign user)
+     - attribute_id     int (foerign attribute)
+     - attribute value  varchar(1024)
+
+     ---- Hjælpe felter
+
+  -  shop_id
+  -  is_username
+  -  is_password
+
+   skal være unik pr.
+
+   shop_id,is_username,attribute_value
+   skal sikre at samme login er unikt per shop
+
+  Når vi opretter en bruger,,, så skal vi oprette user_attributes med det samme.
+  Ellers kan vi jo ikke sikre om brugernavn er unikt...
+  Så alle attributter skal tilføjes med default værdier.
+
+
+  Hvis vi ændrer i attributter, efter at vi kan oprettet brugere ???
+  1. Opret, Vi kan godt oprettet eksisterende user attributes
+  2. Ret.  Der er mange ting der kan gå galt her.
+  3. Slet. Vi kan godt slette eksisterende user attributes
+
+   Det ville være rart hvis vi kunne gennemtvinge den logik, at man ikke lnbdre
+   på attributter hvis der er tilknytte brugere.
+   
+
+             
+------------------------------------------------------------------------------------------------------
+  gift_certificate
+------------------------------------------------------------------------------------------------------
+
+     - id (pk)
+     - type ???  njaej... vi har jo shhop type tabelen nu
+     - certificate_no    varchar(50)
+     - password          varchar(50)
+     - value             decimal
+     - start_date        date
+     - end_date          date 
+     - week no           int
+     - shop_id           int    <- den shop som gavekort skal gå ind i
+     - active            bool
+
+      . man skal kunne oprettete en user på baggrund af en gavekort
+      - devs der oprettes user med attributes mm
+      - user tilknyttes en shop, 
+
+
+
+
+
+
+------------------------------------------------------------------------------------------------------
+  Order_history (entry)
+------------------------------------------------------------------------------------------------------
+   - kopi af ordre table
+     Der må flere ordre pr user_id  -    
+
+
+------------------------------------------------------------------------------------------------------
+media
+------------------------------------------------------------------------------------------------------
+   id               int, (pk)
+   type             int            1 = image,2=logo,3=video
+   Caption          varchar(100)
+   Path             varchar(1024)
+   Description      varchar(1024)   
+   Width            int
+   Height           int
+   Active           int
+
+Fulltext search omdex på description,caption,path
+
+

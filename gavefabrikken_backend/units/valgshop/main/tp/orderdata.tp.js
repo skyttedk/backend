@@ -1,0 +1,1585 @@
+export default class TpOrderData {
+    static demo() {
+        return `
+            asdfasd
+        `;
+    }
+
+    static UIinsertPersonCode(data) {
+        let html = '<option value="-1">Vælg</option>'
+        data.data.forEach(function(ele) {
+            html += `<option value='${ele.attributes.salespersoncode}'>${ele.attributes.salespersoncode}</option>`;
+        });
+        return html;
+    }
+
+    static mainTemplate() {
+        return `
+                 <button style="float: right;margin:10px; background-color: chartreuse;" type="button" class="save_button">Gem</button>
+            <button style="float: right;margin:10px;" type="button" class="order_approval">Godkend Ordredata</button>
+            <h3 style="color: blue" id="order_approval_state"></h3>
+            <form id="orderDataForm" style="max-width: 700px;">
+                        <!-- add other fields -->
+                        <div class="accordion orderdata-accordion" id="orderFormAccordion">
+
+                        <!-- Generelt Section -->
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="heading-generelt">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-generelt" aria-expanded="false" aria-controls="collapse-generelt">
+                                    Generelt
+                                </button>
+                            </h4>
+                            <div id="collapse-generelt" class="accordion-collapse collapse" aria-labelledby="heading-generelt" data-bs-parent="#orderFormAccordion">
+                                <div class="accordion-body">
+                                    <div class="form-group">
+                                        <label for="order_type">Ordretype</label>
+                                        <select class="form-control mandatory" id="order_type">
+                                             <option value="valgshop">Valgshop</option>
+                                            <option value="papirvalg">Papirvalg</option>
+                                        </select>
+                                    </div><br>
+
+                                    <div style="">
+                                    <div class="form-group">
+                                        <label for="salesperson_code">Virksomhed navn</label>
+                                        <input type="text" class="form-control" id="name" disabled>
+                                        </input>
+                                    </div><br>
+                                    <div class="form-group">
+                                        <label for="cvr">CVR.</label>
+                                        <input type="number" class="form-control" id="cvr">
+                                        </input>
+                                    </div><br>
+
+
+                                    <div class="form-group">
+                                        <label for="ship_to_address">Adresse</label>
+                                        <input type="text" class="form-control" id="ship_to_address">
+                                        </input>
+                                    </div><br>
+
+                                    <div class="form-group">
+                                        <label for="ship_to_address_2">Adresse 2</label>
+                                        <input type="text" class="form-control" id="ship_to_address_2">
+                                        </input>
+                                    </div><br>
+
+                                    <div class="form-group">
+                                        <label for="ship_to_postal_code">Postnr.</label>
+                                        <input type="number" class="form-control" id="ship_to_postal_code">
+                                        </input>
+                                    </div><br>
+
+                                    <div class="form-group">
+                                        <label for="ship_to_city">By</label>
+                                        <input type="text" class="form-control" id="ship_to_city">
+                                        </input>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="contact_name">Kontaktperson</label>
+                                        <input type="text" class="form-control" id="contact_name" disabled>
+                                        </input>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="contact_email">Kontaktperson-mail</label>
+                                        <input type="text" class="form-control" id="contact_email" disabled>
+                                        </input>
+                                    </div>
+                                       <br>
+                                    <div class="form-group">
+                                        <label for="contact_phone">Kontaktperson-tlf.</label>
+                                        <input type="text" class="form-control" id="contact_phone" disabled>
+                                        </input>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fakturainfo Section -->
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="heading-fakturainfo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-fakturainfo" aria-expanded="false" aria-controls="collapse-fakturainfo">
+                                    Fakturainfo
+                                </button>
+                            </h4>
+                            <div id="collapse-fakturainfo" class="accordion-collapse collapse" aria-labelledby="heading-fakturainfo" data-bs-parent="#orderFormAccordion">
+                                <div class="accordion-body">
+                                    <div class="form-group">
+                                        <label for="salesperson_code">Kundenr i navision</label>
+                                        <input type="text" class="form-control" id="nav_debitor_no">
+                                        </input>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label for="bill_to_email">Faktura-mail</label>
+                                        <input type="text" class="form-control" id="bill_to_email">
+                                        </input>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label for="salesperson_code">Sælgerkode i Navision</label>
+                                        <select class="form-control required-field" id="salesperson_code">
+                                        </select>
+                                    </div>
+
+
+                              <br>
+                                      <div class="form-group">
+                                        <label for="has_contract">Forudbetaling</label>
+                                        <select class="form-control" id="prepayment">
+                                            <option value="1">Ja</option>
+                                            <option value="0">Nej</option>
+                                        </select>
+                                    </div>
+                                  <br>
+                                <!-- Fakturagebyr -->
+                                <div class="form-group">
+                                    <label for="invoice_fee">Fakturagebyr</label>
+                                    <select class="form-control" id="invoice_fee">
+                                        <option value="0">Nej</option>
+                                        <option value="1">Ja</option>
+                                    </select>
+                                    
+                                    <div id="invoice_fee_value_group" style="display: none; margin-top: 10px;">
+                                        <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="invoice_fee_value">Indtast beløb</label>
+                                                    <input type="number" class="form-control" id="invoice_fee_value">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                <!-- Multiple Budgets -->
+                                <div class="form-group">
+                                    <label for="multiple_budgets_toggle">Flere budgetter i samme shop</label>
+                                    <select class="form-control" id="multiple_budgets_toggle">
+                                        <option value="0">Nej</option>
+                                        <option value="1">Ja</option>
+                                    </select>
+                                    
+                                    <!-- Single budget - vises når "Nej" er valgt -->
+                                    <div id="single_budget_field" style="display: block; margin-top: 10px;">
+                                        <div class="form-group">
+                                            <label for="budget">Budget ekskl. moms (Fremgår på gaver)</label>
+                                            <input type="number" class="form-control" id="budget" step="0.01">
+                                            <br>
+                                            <label for="flex_budget">Afkryds hvis der benytte variable budget</label>
+                                            <input class="form-check-input" type="checkbox" value="" id="flex_budget" style="transform: scale(2);margin: 10px;">
+                                        </div>
+                                    </div>
+
+                                    <!-- Multiple budgets - vises når "Ja" er valgt -->
+                                    <div id="multiple_budgets_field" style="display: none; margin-top: 10px;">
+                                        <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <div id="budgets_list">
+                                                        <!-- Budgetter vil blive tilføjet her dynamisk -->
+                                                    </div>
+                                                    <div class="mt-2">
+                                                        <div class="input-group">
+                                                            <input type="number" class="form-control" id="new_budget_amount" placeholder="Indtast budget beløb..." step="0.01">
+                                                            <div class="input-group-append">
+                                                                <button class="btn btn-success" type="button" id="add_budget_btn">
+                                                                    <i class="fa fa-plus"></i> Tilføj
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br>
+
+                                    <div class="form-group">
+                                        <label for="user_count">Antal medarbejdere</label>
+                                        <input type="number" class="form-control" id="user_count">
+                                    </div>
+                                     <br>
+                                    <div class="form-group">
+                                         <label for="present_count">Antal gavevalg (Inkl. undervalg og donationer)</label>
+                                        <input type="number" class="form-control" id="present_count">
+                                    </div>
+                                     <br>
+
+
+                                    <!-- Anja har bedt mig at genne feltet d. 11/6 -->
+                                    <!-- Udenlandsk kunde -->
+                                    <div class="form-group" style="display: none">
+                                        <label for="is_foreign">Udenlandsk kunde</label>
+                                        <select class="form-control is_foreign" id="is_foreign">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="group_is_foreign" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="foreign_names">Indtast land(e)</label>
+                                                        <input type="text" class="form-control" id="foreign_names">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                     <br>
+                                     <br>
+                                      <label for="payment_terms">Betalingsbetingelser</label>
+                                    <div class="form-group" >
+
+
+                                        <select class="form-control" id="payment_terms_proposed" style="max-width: 200px; font-size: 12px;">
+                                            <option  value="0">Betalingsbetingelser forslag</option>
+                                            <option value="1">8 dage netto</option>
+                                            <option value="2">10 dage netto</option>
+                                            <option value="3">14 dage netto</option>
+                                            <option value="4">30 dage netto</option>
+                                            <option value="5">60 dage netto</option>
+                                       </select>
+
+                                        <textarea class="form-control" id="payment_terms" placeholder="Vælg betalingsbetingelser i dropdown eller skriv dem her"></textarea>
+
+                                    </div>
+                                     <br>
+                                    <div class="form-group">
+                                          <label for="requisition_no">Kundens reference</label><span> (PO eller lignende)</span>
+                                        <input type="text" class="form-control" id="requisition_no"></input>
+
+                                    </div>
+                                     <br>
+                                      <div class="form-group">
+                                        <label for="has_contract">Kontrakt/samhandelsaftale</label>
+                                        <select class="form-control" id="has_contract">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+
+                                        </select>
+                                    </div>
+                                     <br>
+                                    <!-- Særlige krav til fakturering -->
+                                    <div class="form-group">
+                                        <label for="payment_special">Særlige krav til fakturering</label>
+                                        <select class="form-control" id="payment_special">
+                                           <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="payment_special_note_group" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="payment_special_note">Beskriv særlige krav</label>
+                                                        <textarea class="form-control" id="payment_special_note" rows="3" placeholder="Indtast særlige krav til fakturering her..."></textarea>
+                                                    </div>
+
+                                                    <div class="form-group mt-3">
+                                                        <label>Vedhæft dokumenter</label>
+                                                        <div id="payment_special_documents"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                             <br>
+
+                                <!-- Kontantrabat -->
+                                <div class="form-group">
+                                    <label for="discount_option">Kontantrabat</label>
+                                    <select class="form-control" id="discount_option">
+                                        <option value="0">Nej</option>
+                                        <option value="1">Ja</option>
+                                    </select>
+                                    
+                                    <div id="discount_value_group" style="display: none; margin-top: 10px;">
+                                        <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="discount_value">Indtast rabat i %</label>
+                                                    <input type="number" class="form-control" id="discount_value">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                      <br>
+
+
+                                    <div class="form-group">
+                                        <label for="valgshop_fee">Valgshop gebyr</label>
+                                        <input type="number" class="form-control required-field" id="valgshop_fee">
+                                    </div>
+                                    <br>
+                                     <div class="form-group">
+                                        <label for="environment_fee">Miljøgebyr</label>
+                                        <select class="form-control" id="environment_fee">
+                                              <option value="1">Ja</option>
+                                            <option value="0">Nej</option>
+                                        </select>
+                                    </div>
+
+                       <!-- Vigtigt information til økonomi -->
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="economy_info">Vigtigt information til økonomi</label>
+                                        <select class="form-control" id="economy_info">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="economy_info_note_group" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="economy_info_note">Skriv information til økonomi</label>
+                                                        <textarea class="form-control" id="economy_info_note" rows="3" placeholder="Indtast vigtig information til økonomi her..."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                  <!-- Vigtigt information til ordre -->
+                                    <div class="form-group">
+                                        <label for="order_info">Vigtigt information til ordre</label>
+                                        <select class="form-control" id="order_info">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="order_info_note_group" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="order_info_note">Skriv information til ordre</label>
+                                                        <textarea class="form-control" id="order_info_note" rows="3" placeholder="Indtast vigtig information til ordre her..."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    <!-- Levering og fragt Section -->
+<div class="accordion-item">
+    <h4 class="accordion-header" id="heading-levering">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-levering" aria-expanded="false" aria-controls="collapse-levering">
+            Levering og fragt
+        </button>
+    </h4>
+    <div id="collapse-levering" class="accordion-collapse collapse" aria-labelledby="heading-levering" data-bs-parent="#orderFormAccordion">
+        <div class="accordion-body">
+         <!-- Leveringstype valg -->
+<div class="form-group">
+    <label for="delivery_type">Leveringstype</label>
+    <select class="form-control" id="delivery_type">
+        <option value="fast">Fast leveringsdato</option>
+        <option value="fleksibel" >Fleksibel levering</option>
+    </select>
+</div>
+<br/>
+
+
+<!-- Fast leveringsdato -->
+<div class="form-group" id="fast_delivery_group">
+    <label for="delivery_date">Fast leveringsdato</label>
+    <div class="description">
+        <p><span class="dot gray"></span> Denne dato er ledig, Ingen shops registeret endnu. </p>
+        <p><span class="dot green"></span> Denne dato er ledig, flere shop er registeret. </p>
+        <p><span class="dot yellow"></span> Denne dato er ledig, dog tæt på max antal.</p>
+        <p><span class="dot red"></span> Hvis du vælger denne dato skal den godkendes af Susanne. Hvis du gemmer med denne dato vil der blive sendt en godkendelsesmail til Susanne.</p>
+        <hr>
+        <input type="date" class="form-control" id="delivery_date" placeholder="Vælg dato">
+        <div id="delivery_dateInfo" class="mt-2"></div>
+    </div>
+</div>
+
+<!-- Fleksibel levering -->
+<div class="form-group" id="flex_delivery_group">
+    <label for="flex_delivery_date">Fleksibel levering</label>
+    <div class="row">
+        <div class="col-6">
+            <b>Første dag</b>
+            <input type="date" class="form-control" id="flex_start_delivery_date" placeholder="Vælg første dag">
+
+        </div>
+        <div class="col-6">
+            <b>Sidste dag</b>
+            <input type="date" class="form-control" id="flex_end_delivery_date" placeholder="Vælg sidste dag">
+        </div>
+    </div>
+</div>
+<br/>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <label for="early_delivery">Må support kontakte kunden hvis gaverne er klar før tid</label>
+                            <select class="form-control" id="early_delivery">
+                                <option value="0">Nej</option>
+                                <option value="1">Ja</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+
+            <div class="form-group">
+                <label for="handover_date">Udlevering af gaver ved kunden</label>
+                <input type="date" class="form-control" id="handover_date">
+            </div>
+            <br/>
+            
+            <!-- Flere leveringsadresser -->
+            <div class="form-group">
+                <label for="multiple_deliveries">Flere leveringsadresser</label>
+                <select class="form-control" id="multiple_deliveries">
+                    <option value="0">Nej</option>
+                    <option value="1">Ja</option>
+                </select>
+                
+                <!-- Details card direkte under dropdown -->
+                <div id="multiple_deliveries_details" style="display: none; margin-top: 10px;">
+                    <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                        <div class="card-body">
+                            <!-- Liste af eksisterende adresser -->
+                            <div id="delivery_addresses_list">
+                                <!-- Adresser vil blive tilføjet her dynamisk -->
+                            </div>
+
+                            <!-- Tilføj ny adresse -->
+                            <div class="row mt-3">
+                                <div class="col-7">
+                                    <textarea class="form-control" id="new_delivery_address" rows="4" placeholder="Indtast leveringsadresse...
+Navn/beskrivelse
+Vej og nummer
+Postnr og by"></textarea>
+                                </div>
+                                <div class="col-3">
+                                    <input type="date" class="form-control" id="new_delivery_date">
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-success btn-sm" type="button" id="add_delivery_address_btn">
+                                        <i class="fa fa-plus"></i> Tilføj
+                                    </button>
+                                </div>
+                            </div>
+                            <small class="text-muted mt-2 d-block">
+                                <i class="fa fa-info-circle"></i> Tilføj navn/beskrivelse af leveringsadresse og ønsket leveringsdato
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br/>
+
+            <!-- Privatlevering -->
+            <div class="form-group">
+                <label for="private_delivery">Privatlevering</label>
+                <select class="form-control" id="private_delivery">
+                    <option value="0">Nej</option>
+                    <option value="1">Ja</option>
+                </select>
+                
+                <div id="private_delivery_price_group" style="display: none; margin-top: 10px;">
+                    <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="private_delivery_price">Pris pr. gave</label>
+                                <input type="number" class="form-control" id="privatedelivery_price" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label>Retur type:</label>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="privateReturType" checked value="none">
+                                    <label class="form-check-label" for="returGF">
+                                        Ej taget stilling
+                                    </label>
+                                </div>
+
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="privateReturType" value="gf">
+                                    <label class="form-check-label" for="returGF">
+                                        Retur til GF
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" id="privateReturVirksomhed" name="privateReturType" value="virksomhed" >
+                                    <label class="form-check-label" for="returVirksomhed">
+                                        Retur til virksomheden
+                                    </label>
+                                </div>
+                                <button id="privateReturVirksomhedAdress" class="btn-secondary mt-2">Lev. adresse</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br/>
+
+            <!-- Udenlandslevering -->
+            <div class="form-group">
+                <label for="foreign_delivery">Udenlandslevering</label>
+                <select class="form-control" id="foreign_delivery" name="foreign_delivery">
+                    <option value="0">Nej</option>
+                    <option value="1">Ja</option>
+                    <option value="2">Delvis</option>
+                </select>
+                
+                <div id="foreign_countries" style="display: none; margin-top: 10px;">
+                    <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                        <div class="card-body">
+                            <div class="row align-items-center mb-2">
+                                <div class="col-3">
+                                    <label class="mb-0"><input type="checkbox" name="norge"> Norge</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" class="form-control foreign_dev_dates" id="foreign_norge_date">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-2">
+                                <div class="col-3">
+                                    <label class="mb-0"><input type="checkbox" name="sverige"> Sverige</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" class="form-control foreign_dev_dates" id="foreign_sverige_date">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-2">
+                                <div class="col-3">
+                                    <label class="mb-0"><input type="checkbox" name="tyskland"> Tyskland</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" class="form-control foreign_dev_dates" id="foreign_tyskland_date">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-2">
+                                <div class="col-3">
+                                    <label class="mb-0"><input type="checkbox" name="england"> England</label>
+                                </div>
+                                <div class="col-9">
+                                    <input type="date" class="form-control foreign_dev_dates" id="foreign_england_date">
+                                </div>
+                            </div>
+
+                            <div class="row align-items-center mb-2">
+                                <div class="col-3">
+                                    <label class="mb-0"><input type="checkbox" class="foreign_countries-freetext-toggle" name="eu"> EU - Fritekst</label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" name="eu_freetext" class="form-control foreign_countries-freetext-toggle" >
+                                </div>
+                                <div class="col-4">
+                                    <input type="date" class="form-control foreign_dev_dates" id="foreign_eu_date">
+                                </div>
+                            </div>
+                            <div class="row align-items-center mb-2">
+                                <div class="col-3">
+                                    <label class="mb-0"><input type="checkbox" class="foreign_countries-freetext-toggle" name="amerika"> Amerika - Fritekst</label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" name="amerika_freetext" class="form-control foreign_countries-freetext-toggle" >
+                                </div>
+                                <div class="col-4">
+                                    <input type="date" class="form-control foreign_dev_dates" id="foreign_amerika_date">
+                                </div>
+                            </div>
+                            <div class="row align-items-center mb-2">
+                                <div class="col-3">
+                                    <label class="mb-0"><input type="checkbox" class="foreign_countries-freetext-toggle" name="andre"> Andre - Fritekst</label>
+                                </div>
+                                <div class="col-5">
+                                    <input type="text" name="andre_freetext" class="form-control foreign_countries-freetext-toggle" >
+                                </div>
+                                <div class="col-4">
+                                    <input type="date" class="form-control foreign_dev_dates" id="foreign_andre_date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- DOT flyttet hertil -->
+            <div class="form-group">
+                <label for="dot_use">Ønskes DOT</label>
+                <select class="form-control" id="dot_use">
+                    <option value="0">Nej</option>
+                    <option value="1">Ja</option>
+                </select>
+                
+                <div id="dot_fields" style="display: none; margin-top: 10px;">
+                    <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="dot_amount">Antal adresser med DOT</label>
+                                <input type="number" class="form-control" id="dot_amount">
+                            </div>
+                            <div class="form-group">
+                                <label for="dot_price">Pris for dot levering (pr levering)</label>
+                                <input type="number" class="form-control" id="dot_price" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="dot_note">Note til dot levering</label>
+                                <textarea class="form-control" id="dot_note"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- Opbæring flyttet hertil -->
+            <div class="form-group">
+                <label for="carryup_use">Ønskes opbæring</label>
+                <select class="form-control" id="carryup_use">
+                    <option value="0">Nej</option>
+                    <option value="1">Ja</option>
+                </select>
+                
+                <div id="carryup_fields" style="display: none; margin-top: 10px;">
+                    <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="carryup_amount">Antal adresser med opbæring</label>
+                                <input type="number" class="form-control" id="carryup_amount">
+                            </div>
+                            <div class="form-group">
+                                <label for="carryup_price">Pris for opbæring (pr levering)</label>
+                                <input type="number" class="form-control" id="carryup_price" step="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="carryup_note">Note til opbæring</label>
+                                <textarea class="form-control" id="carryup_note"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <!-- Leveringsbetingelser -->
+            <div class="form-group">
+                <label for="deliveryprice_option">Leveringsbetingelser</label>
+                <select class="form-control" id="deliveryprice_option" >
+                    <option value="0">Skal udfyldes</option>
+                    <option value="1">Fastpris</option>
+                    <option value="2">Ab lager</option>
+                    <option value="3">Frit leveret</option>
+                </select>
+                
+                <div id="deliveryprice_amount_group" style="display: none; margin-top: 10px;">
+                    <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="deliveryprice_amount">Indtast værdi</label>
+                                <input type="number" class="form-control" id="deliveryprice_amount">
+                            </div>
+                            <div class="form-group">
+                                <label for="deliveryprice_note">Note/beskrivelse til fast pris</label>
+                                <textarea class="form-control" id="deliveryprice_note"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="form-group">
+                <label for="delivery_note_internal">Vigtigt intern fragtnote</label>
+                <textarea class="form-control" id="delivery_note_internal"></textarea>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="delivery_note_external">Vigtigt ekstern fragtnote (til fragtmand / ordrebekræftelse)</label>
+                <textarea class="form-control" id="delivery_note_external"></textarea>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+                        <!-- Gaver Section -->
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="heading-gaver">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-gaver" aria-expanded="false" aria-controls="collapse-gaver">
+                                    Gaver
+                                </button>
+                            </h4>
+                            <div id="collapse-gaver" class="accordion-collapse collapse" aria-labelledby="heading-gaver" data-bs-parent="#orderFormAccordion">
+                                <div class="accordion-body">
+                                
+                                <!-- Plant et træ -->
+                                <div class="form-group">
+                                    <label for="plant_tree">Plant et træ</label>
+                                    <select class="form-control" id="plant_tree">
+                                        <option value="0">Nej</option>
+                                        <option value="1">Ja</option>
+                                    </select>
+                                    
+                                    <div id="plant_tree_price_group" style="display: none; margin-top: 10px;">
+                                        <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                            <div class="card-body">
+                                                <div class="form-group">
+                                                    <label for="plant_tree_price">Pris pr. træ</label>
+                                                    <input type="number" class="form-control" id="plant_tree_price" step="0.01">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                    <br>
+                                    
+                                     <!-- Julekort -->
+                                     <div class="form-group">
+                                        <label for="present_papercard">Julekort</label>
+                                        <select class="form-control" id="present_papercard">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="present_papercard_price_group" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="present_papercard_price">Aftalt pris på julekort</label>
+                                                        <input type="number" class="form-control" id="present_papercard_price" step="0.01">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    
+                                    <!-- Brug indpakning -->
+                                    <div class="form-group">
+                                        <label for="present_wrap">Brug indpakning</label>
+                                        <select class="form-control" id="present_wrap">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="present_wrap_price_group" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="present_wrap_price">Pris pr. gave</label>
+                                                        <input type="number" class="form-control" id="present_wrap_price" step="0.01">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    
+                                      <!-- Brug autogave -->
+                                      <div class="form-group">
+                                        <label for="autogave_use">Brug autogave</label>
+                                        <select class="form-control" id="autogave_use">
+                                            <option value="-1">Ikke taget stilling</option>
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="autogave_fields" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="autogave_itemno">Autoagave varenr</label>
+                                                        <input type="text" class="form-control" id="autogave_itemno">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   <br>
+                                   
+                                   <!-- Navnelabels -->
+                                   <div class="form-group">
+                                        <label for="present_nametag">Navnelabels</label>
+                                        <select class="form-control" id="present_nametag">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="present_nametag_price_group" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="present_nametag_price">Pris pr. gave</label>
+                                                        <input type="number" class="form-control" id="present_nametag_price" step="0.01">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                   <br>
+                                   
+                          <!-- Vigtig information til pakning -->
+                          <div class="form-group">
+                            <label for="handling_special">Vigtig information til pakning</label>
+                            <select class="form-control" id="handling_special">
+                                <option value="0">Nej</option>
+                                <option value="1">Ja</option>
+                            </select>
+                            
+                            <div id="group_handling_special" style="display: none; margin-top: 10px;">
+                                <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="handling_notes">Note om special håndtering / særlig pak</label>
+                                            <textarea class="form-control" id="handling_notes" rows="3"></textarea>
+                                        </div>
+
+                                        <div class="form-group mt-3">
+                                            <label>Vedhæft dokumenter</label>
+                                            <div id="handling_special_documents"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                                   <br>
+
+                                   <!-- Udlån Section flyttet hertil -->
+                                   <hr style="margin: 30px 0; border-top: 2px solid #dee2e6;">
+
+                                   <h5 style="color: #6c757d; margin-bottom: 20px;">
+                                       <i class="fa fa-handshake-o"></i> Udlån (Dette bør undgås)
+                                   </h5>
+
+                                    <div class="form-group">
+                                        <label for="loan_use">Udlån</label>
+                                        <select class="form-control" id="loan_use">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="loan_fields" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="loan_deliverydate">Udlån, dato for levering ved kunden</label>
+                                                        <input type="date" class="form-control" id="loan_deliverydate">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="loan_pickupdate">Udlån, dato for afhentning</label>
+                                                        <input type="date" class="form-control" id="loan_pickupdate">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="loan_notes">Udlåns noter</label>
+                                                        <textarea class="form-control" id="loan_notes" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NY Valgshop Section (flytter deadlines og specifikationer hertil) -->
+                        <div class="accordion-item">
+                            <h4 class="accordion-header" id="heading-valgshop">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-valgshop" aria-expanded="false" aria-controls="collapse-valgshop">
+                                    Valgshop
+                                </button>
+                            </h4>
+                            <div id="collapse-valgshop" class="accordion-collapse collapse" aria-labelledby="heading-valgshop" data-bs-parent="#orderFormAccordion">
+                                <div class="accordion-body">
+
+                                    <!-- Vigtige deadlines indhold -->
+                                    <h5 style="color: #6c757d; margin-bottom: 20px; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">
+                                        <i class="fa fa-calendar"></i> Vigtige deadlines
+                                    </h5>
+
+                                    <div class="form-group">
+                                        <label for="">Shop åben og luk </label>
+                                        <div class="description">
+
+                                            <p><span class="dot gray"></span> Denne dato er ledig, Ingen shops registeret endnu. </p>
+                                            <p><span class="dot green"></span> Denne dato er ledig, flere shop er registeret. </p>
+                                            <p><span class="dot yellow"></span> Denne dato er ledig, dog tæt på max antal.</p>
+                                            <p><span class="dot red"></span> Hvis du vælger denne dato skal den godkendes af Susanne. Hvis du gemmer med denne dato vil der blive sendt en godkendelsesmail til Susanne.</p>
+                                        <hr>
+                                            <div class="form-group">
+
+                                                <div class="row">
+                                                    <div class="col-6"><b>Åben</b></div>
+                                                    <div class="col-6"><b>Luk</b></div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        <input type="text" readonly class="form-control" id="orderOpenCloseChopStartDate" placeholder="Vælg dato">
+                                                        <div id="orderOpenCloseChopStartDateInfo" class="mt-2"></div>
+
+                                                    </div>
+                                                    <div class="col-6">
+                                                        <input type="text" readonly class="form-control" id="orderOpenCloseChopEndDate" placeholder="Vælg dato">
+                                                        <div id="orderOpenCloseChopEndDateInfo" class="mt-2" blace></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div id="orderOpenCloseChopEventInfo" class="mt-3"></div>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label for="deadline_testshop">Deadline testshop</label>
+                                        <input type="date" class="form-control" id="deadline_testshop">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="deadline_changes">Deadline rettelser</label>
+                                        <input type="date" class="form-control" id="deadline_changes">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="deadline_customerdata">Deadline materiale fra kunde</label>
+                                        <input type="date" class="form-control" id="deadline_customerdata">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="deadline_listconfirm">Deadline godkendelse af fordelingslister</label>
+                                        <input type="date" class="form-control" id="deadline_listconfirm">
+                                    </div>
+                                    <br>
+                                    
+                                    <!-- Brug reminders -->
+                                    <div class="form-group">
+                                        <label for="reminder_use">Brug reminders</label>
+                                        <select class="form-control" id="reminder_use">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="group_reminder_use" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group" >
+                                                        <label for="reminder_date">Dato for reminders</label>
+                                                        <input type="date" class="form-control" id="reminder_date">
+                                                    </div>
+                                                    <br>
+                                                    <div class="form-group" >
+                                                        <label for="reminder_note">Reminder noter</label>
+                                                        <textarea class="form-control" id="reminder_note" rows="3"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br><br>
+
+                                    <!-- Specifikationer indhold -->
+                                    <h5 style="color: #6c757d; margin-bottom: 20px; border-bottom: 2px solid #dee2e6; padding-bottom: 10px;">
+                                        <i class="fa fa-cogs"></i> Specifikationer
+                                    </h5>
+
+                                    <div class="form-group">
+                                        <label for="login_background">Design på Login-side</label>
+                                        <select class="form-control" id="login_background">
+                                            <option value="0">GaveFabrikkens Standard</option>
+                                            <option value="7">Christmas Ornament</option>
+                                            <option value="8">Gift under the tree</option>
+                                            <option value="9">Santa</option>
+                                            <option value="10">Snow crystals</option>
+                                            <option value="11">Snowy landscape</option>
+                                        </select>
+                                    </div>
+                                    <br>
+
+                                    <div class="form-group">
+                                        <label for="user_username">Log på med (brugernavn)</label>
+                                        <input type="text" class="form-control" id="user_username">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="user_username_note">Brugernavn bemærkning</label>
+                                        <textarea class="form-control" id="user_username_note" rows="3"></textarea>
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="user_password">Log på med (adgangskode)</label>
+                                        <input type="text" class="form-control" id="user_password">
+                                    </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="user_password_note">Adgangskode bemærkning</label>
+                                        <textarea class="form-control" id="user_password_note" rows="3"></textarea>
+                                    </div>
+                                    <br>
+
+
+                                      <!-- OPDATERET: Leveringsdato på kvittering med special tekst toggle -->
+                                    <div class="form-group">
+                                        <label for="deliverydate_receipt_toggle">Special tekst på kvitteringen</label>
+                                        <select class="form-control" id="deliverydate_receipt_toggle">
+                                            <option value="1">Ja (vis dato)</option>
+                                            <option value="0">Nej (vis tekst)</option>
+                                        </select>
+                                        
+                                        <!-- Datofelt - vises når "Ja" er valgt -->
+                                        <div class="form-group" id="deliverydate_receipt_date_field" style="display: block; margin-top: 10px;">
+                                            <label for="deliverydate_receipt">Leveringsdato på kvittering</label>
+                                            <input type="date" class="form-control" id="deliverydate_receipt">
+                                        </div>
+
+                                        <!-- Tekstfelt - vises når "Nej" er valgt -->
+                                        <div id="deliverydate_receipt_text_field" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group">
+                                                        <label for="deliverydate_receipt_custom_text">Indtast special tekst til kvittering</label>
+                                                        <textarea class="form-control" id="deliverydate_receipt_custom_text" rows="3" placeholder="Skriv den tekst der skal vises på kvitteringen i stedet for leveringsdato..."></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                        <br>
+
+                                    <div class="form-group">
+                                        <label for="gaveklubben_link">Mulighed for link til Gaveklubben.dk</label>
+                                        <select class="form-control" id="gaveklubben_link">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                    </div>
+                                    <br>
+                                    
+                                    <!-- Sprognavne -->
+                                    <div class="form-group">
+                                        <label for="language">Sprognavne</label>
+                                        <select class="form-control" id="language">
+                                            <option value="0">Nej</option>
+                                            <option value="1">Ja</option>
+                                        </select>
+                                        
+                                        <div id="group_language" style="display: none; margin-top: 10px;">
+                                            <div class="card border-left-primary" style="border-left: 3px solid #007bff;">
+                                                <div class="card-body">
+                                                    <div class="form-group" id="language_names_list">
+                                                        <label for="">Skriv sprog</label><br>
+                                                        <label><input type="checkbox" name="norge"> Norge</label><br>
+                                                        <label><input type="checkbox" name="sverige"> Sverige</label><br>
+                                                        <label><input type="checkbox" name="tyskland"> Tyskland</label><br>
+                                                        <label><input type="checkbox" name="england"> England</label><br>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="otheragreements_note"> Vigtig information til support</label>
+                                        <textarea class="form-control" id="otheragreements_note" rows="3"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div><!-- End of accordion -->
+
+                    <input type="hidden" id="shop_id">
+                    <input type="hidden" id="id">
+
+                </form>
+                <br>
+                <button style="float: right;margin:10px; background-color: chartreuse;" type="button" class="save_button">Gem</button>
+                <br><br><br>
+
+                <div class="modal fade" id="addressModal" tabindex="-1" role="dialog" aria-labelledby="addressModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="addressModalLabel">Indtast Adresse og Kontaktinformation</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form id="addressForm">
+                                    <div class="form-group">
+                                        <label for="street">Vej og nummer</label>
+                                        <input type="text" class="form-control" id="street" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="street">Adresse2</label>
+                                        <input type="text" class="form-control" id="street2" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="postalCode">Postnummer</label>
+                                        <input type="text" class="form-control" id="postalCode" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="city">By</label>
+                                        <input type="text" class="form-control" id="city" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="country">Land</label>
+                                        <input type="text" class="form-control" id="country" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactPerson">Kontaktperson</label>
+                                        <input type="text" class="form-control" id="contactPerson" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactPhone">Kontaktperson telefon</label>
+                                        <input type="tel" class="form-control" id="contactPhone" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="contactEmail">Kontaktperson email</label>
+                                        <input type="email" class="form-control" id="contactEmail" >
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Luk</button>
+                                <button type="button" class="btn btn-primary" id="saveAddress">Gem</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CSS is loaded from external file orderdata.css -->
+
+                <!-- Simpel accordion script med forbedret scrolling -->
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Fang alle accordion knapper
+                    const accordionButtons = document.querySelectorAll('.orderdata-accordion .accordion-button');
+
+                    // Tilføj click event listener til hver knap
+                    accordionButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            // Få collapse target
+                            const targetId = this.getAttribute('data-bs-target');
+                            const targetCollapse = document.querySelector(targetId);
+
+                            // Hvis denne accordion bliver åbnet (knappen har 'collapsed' class)
+                            if (this.classList.contains('collapsed')) {
+                                // Luk alle andre accordions
+                                document.querySelectorAll('.orderdata-accordion .accordion-collapse.show').forEach(accordion => {
+                                    if (accordion.id !== targetId.replace('#', '')) {
+                                        // Håndter Bootstrap collapse hvis tilgængelig
+                                        if (typeof bootstrap !== 'undefined') {
+                                            const bsCollapse = bootstrap.Collapse.getInstance(accordion);
+                                            if (bsCollapse) bsCollapse.hide();
+                                        } else {
+                                            // Fallback manuel lukning
+                                            accordion.classList.remove('show');
+                                            const accordionButton = document.querySelector('[data-bs-target="#' + accordion.id + '"]');
+                                            if (accordionButton) {
+                                                accordionButton.classList.add('collapsed');
+                                                accordionButton.setAttribute('aria-expanded', 'false');
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        });
+                    });
+
+                    // Lyt efter Bootstrap's show.bs.collapse event
+                    // Dette udløses, når accordion-indholdet begynder at åbne
+                    if (typeof $ !== 'undefined') {
+                        // jQuery version
+                        $(document).on('shown.bs.collapse', '.accordion-collapse', function() {
+                            const accordionHeader = $(this).prev('.accordion-header');
+                            if (accordionHeader.length) {
+                                $('html, body').animate({
+                                    scrollTop: accordionHeader.offset().top - 15
+                                }, 300);
+                            }
+                        });
+                    } else {
+                        // Ren JavaScript version med MutationObserver
+                        // Dette observerer DOM-ændringer for at fange, når accordions åbnes
+                        const observer = new MutationObserver((mutations) => {
+                            mutations.forEach(mutation => {
+                                if (mutation.type === 'attributes' &&
+                                    mutation.attributeName === 'class' &&
+                                    mutation.target.classList.contains('accordion-collapse')) {
+
+                                    // Når en accordion får 'show' class (åbnes)
+                                    if (mutation.target.classList.contains('show')) {
+                                        // Find headeren for denne accordion
+                                        const headerId = mutation.target.getAttribute('aria-labelledby');
+                                        const header = document.getElementById(headerId);
+
+                                        if (header) {
+                                            // Vent lidt for at sikre, at animation er startet
+                                            setTimeout(() => {
+                                                // Scroll til headeren med en lille offset
+                                                const yOffset = -15;
+                                                const y = header.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+                                                window.scrollTo({
+                                                    top: y,
+                                                    behavior: 'smooth'
+                                                });
+                                            }, 50);
+                                        }
+                                    }
+                                }
+                            });
+                        });
+
+                        // Start observering af alle accordion-elementer
+                        document.querySelectorAll('.accordion-collapse').forEach(collapse => {
+                            observer.observe(collapse, { attributes: true });
+                        });
+                    }
+
+                    // En fallback metode der også fungerer - lytter direkte til Bootstrap's collapse event
+                    // Hvis andre metoder ikke virker, så bør denne fungere
+                    const bsCollapsibles = document.querySelectorAll('.orderdata-accordion .accordion-collapse');
+                    bsCollapsibles.forEach(collapse => {
+                        collapse.addEventListener('shown.bs.collapse', function() {
+                            const header = document.querySelector('[aria-controls="' + this.id + '"]');
+                            if (header) {
+                                const headerTop = header.getBoundingClientRect().top + window.pageYOffset - 15;
+                                window.scrollTo({
+                                    top: headerTop,
+                                    behavior: 'smooth'
+                                });
+                            }
+                        });
+                    });
+
+                    // Initialiser betingede felter
+                    initConditionalFields();
+                });
+
+                // Funktion til at håndtere betingede felter
+                function initConditionalFields() {
+                    // Fakturagebyr toggle
+                    const invoiceFeeSelect = document.getElementById('invoice_fee');
+                    const invoiceFeeValueGroup = document.getElementById('invoice_fee_value_group');
+
+                    if (invoiceFeeSelect && invoiceFeeValueGroup) {
+                        invoiceFeeSelect.addEventListener('change', function() {
+                            invoiceFeeValueGroup.style.display = this.value === '1' ? 'block' : 'none';
+                        });
+
+                        // Sæt initial tilstand
+                        invoiceFeeValueGroup.style.display = invoiceFeeSelect.value === '1' ? 'block' : 'none';
+                    }
+
+                    // Rabat mulighed toggle
+                    const discountOption = document.getElementById('discount_option');
+                    const discountValueGroup = document.getElementById('discount_value_group');
+
+                    if (discountOption && discountValueGroup) {
+                        discountOption.addEventListener('change', function() {
+                            discountValueGroup.style.display = this.value === '1' ? 'block' : 'none';
+                        });
+
+                        // Sæt initial tilstand
+                        discountValueGroup.style.display = discountOption.value === '1' ? 'block' : 'none';
+                    }
+
+                    // Udenlandslevering toggle
+                    const foreignDelivery = document.getElementById('foreign_delivery');
+                    const foreignCountries = document.getElementById('foreign_countries');
+
+                    if (foreignDelivery && foreignCountries) {
+                        foreignDelivery.addEventListener('change', function() {
+                            foreignCountries.style.display = this.value !== '0' ? 'block' : 'none';
+                        });
+
+                        // Sæt initial tilstand
+                        foreignCountries.style.display = foreignDelivery.value !== '0' ? 'block' : 'none';
+                    }
+
+                    // Håndter delivery type toggle
+                    const deliveryType = document.getElementById('delivery_type');
+                    const fastDeliveryGroup = document.getElementById('fast_delivery_group');
+                    const flexDeliveryGroup = document.getElementById('flex_delivery_group');
+
+                    if (deliveryType && fastDeliveryGroup && flexDeliveryGroup) {
+                        deliveryType.addEventListener('change', function() {
+                            if (this.value === 'fast') {
+                                fastDeliveryGroup.style.display = 'block';
+                                flexDeliveryGroup.style.display = 'none';
+                            } else {
+                                fastDeliveryGroup.style.display = 'none';
+                                flexDeliveryGroup.style.display = 'block';
+                            }
+                        });
+
+                        // Sæt initial tilstand baseret på selected option
+                        if (deliveryType.value === 'fast') {
+                            fastDeliveryGroup.style.display = 'block';
+                            flexDeliveryGroup.style.display = 'none';
+                        } else {
+                            fastDeliveryGroup.style.display = 'none';
+                            flexDeliveryGroup.style.display = 'block';
+                        }
+                    }
+
+                    // Privatlevering toggle
+                    const privateDelivery = document.getElementById('private_delivery');
+                    const privateDeliveryPriceGroup = document.getElementById('private_delivery_price_group');
+
+                    if (privateDelivery && privateDeliveryPriceGroup) {
+                        privateDelivery.addEventListener('change', function() {
+                            privateDeliveryPriceGroup.style.display = this.value === '1' ? 'block' : 'none';
+                        });
+
+                        // Sæt initial tilstand
+                        privateDeliveryPriceGroup.style.display = privateDelivery.value === '1' ? 'block' : 'none';
+                    }
+
+                    // Initialiser alle andre toggle felter (generisk tilgang)
+                    const toggleFields = [
+                        { select: 'dot_use', target: 'dot_fields' },
+                        { select: 'carryup_use', target: 'carryup_fields' },
+                        { select: 'autogave_use', target: 'autogave_fields', value: '1' },
+                        { select: 'loan_use', target: 'loan_fields' },
+                        { select: 'is_foreign', target: 'group_is_foreign' },
+                        { select: 'language', target: 'group_language' },
+                        { select: 'handling_special', target: 'group_handling_special' },
+                        { select: 'present_papercard', target: 'present_papercard_price_group' },
+                        { select: 'present_wrap', target: 'present_wrap_price_group' },
+                        { select: 'present_nametag', target: 'present_nametag_price_group' },
+                        { select: 'deliveryprice_option', target: 'deliveryprice_amount_group', value: '1' },
+                        { select: 'payment_special', target: 'payment_special_note_group' },
+                        { select: 'plant_tree', target: 'plant_tree_price_group' },
+                        { select: 'economy_info', target: 'economy_info_note_group' },
+                        { select: 'order_info', target: 'order_info_note_group' },
+                        { select: 'multiple_deliveries', target: 'multiple_deliveries_details' }
+                    ];
+
+                    toggleFields.forEach(field => {
+                        const selectElement = document.getElementById(field.select);
+                        const targetElement = document.getElementById(field.target);
+
+                        if (selectElement && targetElement) {
+                            selectElement.addEventListener('change', function() {
+                                const compareValue = field.value || '1';
+                                targetElement.style.display = this.value === compareValue ? 'block' : 'none';
+                            });
+
+                            // Sæt initial tilstand
+                            const compareValue = field.value || '1';
+                            targetElement.style.display = selectElement.value === compareValue ? 'block' : 'none';
+                        }
+                    });
+
+                    // Håndter reminder toggle
+                    const reminderUse = document.getElementById('reminder_use');
+                    const reminderGroup = document.getElementById('group_reminder_use');
+
+                    if (reminderUse && reminderGroup) {
+                        reminderUse.addEventListener('change', function() {
+                            reminderGroup.style.display = this.value === '1' ? 'block' : 'none';
+                        });
+
+                        // Sæt initial tilstand
+                        reminderGroup.style.display = reminderUse.value === '1' ? 'block' : 'none';
+                    }
+
+                    // Betalingsbetingelser dropdown
+                    const paymentTermsProposed = document.getElementById('payment_terms_proposed');
+                    const paymentTerms = document.getElementById('payment_terms');
+
+                    if (paymentTermsProposed && paymentTerms) {
+                        paymentTermsProposed.addEventListener('change', function() {
+                            if (this.value !== '0') {
+                                const selectedOption = this.options[this.selectedIndex].text;
+                                paymentTerms.value = selectedOption;
+                            }
+                        });
+                    }
+
+                    // Leveringsdato kvittering toggle
+                    const deliverydateReceiptToggle = document.getElementById('deliverydate_receipt_toggle');
+                    const deliverydateReceiptDateField = document.getElementById('deliverydate_receipt_date_field');
+                    const deliverydateReceiptTextField = document.getElementById('deliverydate_receipt_text_field');
+
+                    if (deliverydateReceiptToggle && deliverydateReceiptDateField && deliverydateReceiptTextField) {
+                        deliverydateReceiptToggle.addEventListener('change', function() {
+                            if (this.value === '1') {
+                                // Vis dato, skjul tekst
+                                deliverydateReceiptDateField.style.display = 'block';
+                                deliverydateReceiptTextField.style.display = 'none';
+                                // Ryd tekstfelt når dato vælges
+                                document.getElementById('deliverydate_receipt_custom_text').value = '';
+                            } else {
+                                // Vis tekst, skjul dato
+                                deliverydateReceiptDateField.style.display = 'none';
+                                deliverydateReceiptTextField.style.display = 'block';
+                                // Ryd datofelt når tekst vælges
+                                document.getElementById('deliverydate_receipt').value = '';
+                            }
+                        });
+
+                        // Sæt initial tilstand
+                        if (deliverydateReceiptToggle.value === '1') {
+                            deliverydateReceiptDateField.style.display = 'block';
+                            deliverydateReceiptTextField.style.display = 'none';
+                        } else {
+                            deliverydateReceiptDateField.style.display = 'none';
+                            deliverydateReceiptTextField.style.display = 'block';
+                        }
+                    }
+
+                    // Flere budgetter toggle
+                    const multipleBudgetsToggle = document.getElementById('multiple_budgets_toggle');
+                    const singleBudgetField = document.getElementById('single_budget_field');
+                    const multipleBudgetsField = document.getElementById('multiple_budgets_field');
+
+                    if (multipleBudgetsToggle && singleBudgetField && multipleBudgetsField) {
+                        multipleBudgetsToggle.addEventListener('change', function() {
+                            if (this.value === '1') {
+                                // Vis multiple budgets, skjul single budget
+                                singleBudgetField.style.display = 'none';
+                                multipleBudgetsField.style.display = 'block';
+                                // Ryd single budget felt
+                                document.getElementById('budget').value = '';
+                                document.getElementById('flex_budget').checked = false;
+                            } else {
+                                // Vis single budget, skjul multiple budgets
+                                singleBudgetField.style.display = 'block';
+                                multipleBudgetsField.style.display = 'none';
+                                // Ryd multiple budgets
+                                document.getElementById('budgets_list').innerHTML = '';
+                                document.getElementById('new_budget_amount').value = '';
+                            }
+                        });
+
+                        // Sæt initial tilstand
+                        if (multipleBudgetsToggle.value === '1') {
+                            singleBudgetField.style.display = 'none';
+                            multipleBudgetsField.style.display = 'block';
+                        } else {
+                            singleBudgetField.style.display = 'block';
+                            multipleBudgetsField.style.display = 'none';
+                        }
+                    }
+                }
+
+                // Event listeners for gem-knapper når dokumentet er indlæst
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Gem-knap funktionalitet
+                    const saveButtons = document.querySelectorAll('.save_button');
+
+                    saveButtons.forEach(button => {
+                        button.addEventListener('click', function() {
+                            // Valider formular
+                            const form = document.getElementById('orderDataForm');
+                            const requiredFields = form.querySelectorAll('.required-field');
+                            let isValid = true;
+
+                            requiredFields.forEach(field => {
+                                if (!field.value) {
+                                    field.classList.add('is-invalid');
+                                    isValid = false;
+                                } else {
+                                    field.classList.remove('is-invalid');
+                                }
+                            });
+
+                            if (isValid) {
+                                // Her ville du normalt indsamle formulardata og gemme det
+                                // Dette er en placeholder for den faktiske gem-funktionalitet
+                                alert('Formular gemt med succes!');
+                            } else {
+                                alert('Udfyld venligst alle påkrævede felter.');
+                            }
+                        });
+                    });
+
+                    // Håndter retur til virksomhed adresse knap
+                    const returVirksomhedAdressBtn = document.getElementById('privateReturVirksomhedAdress');
+                    if (returVirksomhedAdressBtn) {
+                        returVirksomhedAdressBtn.addEventListener('click', function() {
+                            // Vis addressemodal
+                            if (typeof bootstrap !== 'undefined') {
+                                const addressModal = new bootstrap.Modal(document.getElementById('addressModal'));
+                                addressModal.show();
+                            } else {
+                                // Fallback hvis bootstrap ikke er tilgængeligt
+                                document.getElementById('addressModal').style.display = 'block';
+                            }
+                        });
+                    }
+
+                    // Gem adresseknap
+                    const saveAddressBtn = document.getElementById('saveAddress');
+                    if (saveAddressBtn) {
+                        saveAddressBtn.addEventListener('click', function() {
+                            // Validér addresseformular
+                            const addressForm = document.getElementById('addressForm');
+                            const required = addressForm.querySelectorAll('[required]');
+                            let addressValid = true;
+
+                            required.forEach(field => {
+                                if (!field.value) {
+                                    field.classList.add('is-invalid');
+                                    addressValid = false;
+                                } else {
+                                    field.classList.remove('is-invalid');
+                                }
+                            });
+
+                            if (addressValid) {
+                                // Luk modal
+                                if (typeof bootstrap !== 'undefined') {
+                                    const addressModal = bootstrap.Modal.getInstance(document.getElementById('addressModal'));
+                                    if (addressModal) {
+                                        addressModal.hide();
+                                    }
+                                } else {
+                                    // Fallback hvis bootstrap ikke er tilgængeligt
+                                    document.getElementById('addressModal').style.display = 'none';
+                                }
+
+                                // Her ville du gemme adressedata
+                                alert('Adresse gemt!');
+                            } else {
+                                alert('Udfyld venligst alle påkrævede felter.');
+                            }
+                        });
+                    }
+                });
+                </script>
+                `;
+    }
+}

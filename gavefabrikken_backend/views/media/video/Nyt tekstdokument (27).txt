@@ -1,0 +1,705 @@
+
+<?php
+
+  include_once("functions.inc.php");
+  session_start();
+  $infoTxt = "";
+  $compani = "";
+  $actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+  $pieces = explode("/", $actual_link);
+  $compani = $pieces[(sizeof($pieces)-1)];
+
+  if($compani == ""){
+    $compani =  $pieces[(sizeof($pieces)-2)];
+  }
+  if($compani == "ramboell"){
+        $infoTxt = "<div class=\"dk\"><p><strong>Julen 2013</strong></p><p>Velkommen til Ramb&oslash;lls julegaveshop 2013</p><p>Med efter&aring;rets komme venter julen lige rundt om hj&oslash;rnet &ndash; og dermed tiden for &aring;rets julegave til dig fra Ramb&oslash;ll. Julegaven er Ramb&oslash;lls tak til dig for den indsats, du har ydet i 2013.</p><p>Vi har i &aring;r fundet frem til seks gavemuligheder. N&aring;r du har studeret gavemulighederne, kan du vælge, hvilken gave du &oslash;nsker dig.</p><p>Du kan v&aelig;lge din julegave frem til og med onsdag den 23. oktober. Hvis ikke du har valgt da, v&aelig;lger vi ”Lethermann multi tool kniven”.</p><p>Kunne du t&aelig;nke dig at supplere din julegave? Fra den 2. januar, har du mulighed for at bestille de eksklusive produkter fra vores julegaveshop til fordelagtige priser.</p><br /><p>Med venlig hilsen Julegaveudvalget</p><br><br></div><div class=\"en\"><p><strong>Christmas 2013</strong></p><p>Welcome to Ramboll&rsquo;s Christmas Gift Shop 2013.</p><p>While we are enjoying the autumn season, Christmas is just around the corner, and it is now time to choose this year&rsquo;s Christmas gift. The Christmas gift is an appreciation of your efforts during 2013.</p><p>This year, we have selected six gifts for you to choose from. Once you have studied the gift choices, you can select the gift you would like.</p><p>The gift shop will close on Friday, 23<sup>rd</sup> of October 2013 at midnight. If you have not chosen your gift before this time, we will assume that you have chosen ”Lethermann multi tool kniven”.</p><p>Would you like to add to your gift choice? From 2<sup>nd</sup> of January 2014, you have the opportunity of ordering the exclusive products from our Christmas Gift Shop at favorable prices.</p><p>We wish you a Merry Christmas and a Happy New Year!</p><p>The Christmas Committee.</p></div>";
+  }
+  if($compani == "julegavekort")
+  {
+        $infoTxt ="<p style=\"text-align: center;\"><b>Velkommen til Julegavekortet.</b></p><br>
+        <p>P&aring; de n&aelig;ste sider kan du frit v&aelig;lge, den gave du &oslash;nsker dig.</p>
+        <p>Du har mulighed for at foretage dit valg frem til den dato, som er angivet p&aring; gavekortet.</p>
+        <p>Hvis du ikke foretager et valg, tildeles du automatisk Årets jule&aelig;ske.</p>
+        <p>Benyt koderne, som er angivet p&aring; gavekortet til at logge ind herunder.</p>
+        <p>Ved sp&oslash;rgsm&aring;l kontakt support p&aring; tlf. 70267878 (hverdage 10-12)</p>
+        <p style=\"text-align: center;\">God forn&oslash;jelse!</p><br>";
+  }
+   if($compani == "shell")
+  {
+    $infoTxt = "<div style=\"margin-top:-10px;\"><div class=\"dk\"><p style=\"text-align: center;\"><strong><em>Velkommen til Shells Julewebshop 2013</em></strong></p>
+<p><em>S&aring; er der g&aring;et endnu et &aring;r, og hvilket &aring;r! Vi har bl.a. fejret vores 100 &aring;rs f&oslash;dselsdag p&aring; forskellig vis med arrangementer og gaver. Og det er nu blevet gavetid igen. Du kan igen i &aring;r v&aelig;re med til at bestemme, hvilken gave du gerne vil have, idet du kan v&aelig;lge mellem 5 gaver fra webshoppen.<br /></em><em>Shoppen er &aring;ben fra og med torsdag den 24. oktober til og med fredag den 1. november 2013. N&aring;r du har valgt din gave, modtager du en kvittering, som du skal gemme. Den skal nemlig bruges for at f&aring; gaven udleveret.<br /></em><em>Hvis du af &eacute;n eller anden &aring;rsag ikke har n&aring;et at v&aelig;lge en gave, inden shoppen lukker, vil du modtage &aring;rets julekasse &ndash; Julestemning og traditioner.<br /></em><em>Gaverne bliver udleveret i Mikado House og p&aring; Raffinaderiet i uge 50 &ndash; den 11., 12. og 13. december (n&aelig;rmere besked p&aring; intranettet).<br /></em><em>Hvis du har problemer/sp&oslash;rgsm&aring;l til din bestilling, kan du altid kontakte Birgit Lorentsen (Mikado House), og Lone Br&oslash;db&aelig;k (Raffinaderiet).</em></p>
+<p style=\"text-align: center;\"><strong><em>Rigtig god forn&oslash;jelse</em></strong><strong>!</strong></p>
+<p style=\"text-align: center;\"><strong><em>Ben Ring</em></strong></p></div>
+<div class=\"en\">
+<p style=\"text-align: center;\"><strong><em>Welcome to Shell&rsquo;s Christmas </em><em>Webshop</em><em> 2013</em></strong></p>
+<p style=\"text-align: left;\"><em>Yet another year has gone by, and what a year! Among others, we celebrated our centenary year in many different ways with presents and by hosting various events. And it has become time for yet another present - our Christmas present. Like last year you have a voice, you can choose the gift you like the best from the five gifts in our webshop.<br /></em><em>The webshop is open from Thursday 24 October through Friday 1 November (both days included). Upon choosing your gift you will receive a receipt. Please hold on to that receipt, and bring it when the gifts are handed out.<br /></em><em>If you for some reason do not choose a gift, within the deadline you will receive this year’s Christmas box -&nbsp;</em><em>Julestemning og traditioner.<br /></em><em>All gifts will be handed out in Mikado House and at the Refinery in week 50 &ndash; on 11<sup>th</sup>, 12<sup>th</sup> and 13<sup>th</sup> December (more info on the Intranet).<br /></em><em>Should you have any questions or problems with the webshop, please feel free to email Birgit Lorentsen (Mikado House) or Lone Br&oslash;db&aelig;k (Refinery)</em><em>.</em></p>
+<p style=\"text-align: center;\"><strong><em>Enjoy</em></strong><strong>!</strong></p>
+<p style=\"text-align: center;\"><strong><em>Ben Ring</em></strong></p></div>
+
+</div>
+</div>
+";
+  }
+
+  if($compani == "dana")
+  {
+    $infoTxt = " <br /><div style=\"width:400px; margin-left:30px;\"><p><strong>Det er snart JUL !</strong></p>
+<p>Derfor siger vi: Velkommen til &aring;rets valg af julegaver.</p>
+<p>Igen i &aring;r f&aring;r vi hver is&aelig;r mulighed for at v&aelig;lge vores egen personlige julegave fra Dana.</p>
+<p>Vi g&aring;r i gang allerede nu, s&aring; gaverne kan uddeles til julefrokosten.</p>
+<p>Jeg h&aring;ber, at I alle mellem disse l&aelig;kre forslag kan finde en gave.</p>
+<p>V&aelig;r OBS p&aring;, at tre af gavevalgene f&oslash;rst kan leveres i starten af december og alts&aring; ikke til julefrokosten d. 22. november &ndash; men de skal nok n&aring; frem inden jul.</p>
+<br />
+<p>God forn&oslash;jelse!</p>
+
+<p>Keith</p></div><br /><br /> ";
+  }
+  if($compani == "rambollconsult"){
+        $infoTxt = "<p><strong>Julen 2013</strong></p>
+<p>Velkommen til Ramb&oslash;lls julegaveshop 2013</p>
+<p>&nbsp;</p>
+<p>Julen st&aring;r n&aelig;sten for d&oslash;ren&hellip;. men tiden er allerede kommet til at v&aelig;lge &aring;rets julegave. Julegaven er Ramb&oslash;ll Management Consultings tak til dig for den indsats, du har ydet i 2013.</p>
+<p>&nbsp;</p>
+<p>Vi har i &aring;r fundet frem til tre gavemuligheder, du kan v&aelig;lge imellem. Du kan v&aelig;lge din julegave til og med <strong>mandag den 28. oktober</strong>. <br /> <br /> Hvis ikke du har valgt inden denne dato, f&aring;r du automatisk gave: CINEMAXX – BIOGRAF FOR 2 PERS. N&aring;r du v&aelig;lger gave og skal skrive din mailadresse &ndash; s&aring; skal du benytte den mailadresse som er tilsendt fra julegaveshoppen.<br /> <br />  Med venlig hilsen <br /> Julegaveudvalget</p><br />";
+  }
+  if($compani == "unicon"){
+     $infoTxt = "<br><br><br><br><br><br><br>";
+
+  }
+   if($compani == "mediq"){
+     $infoTxt = "<p >K&aelig;re medarbejder i Mediq.</p>
+<p style=\"margin-top:10px;\">Julen n&aelig;rmer sig med hastige skridt og dagene flyver af sted &ndash; b&aring;de p&aring; arbejdet og derhjemme.<br />Det er blevet tid til at v&aelig;lge &aring;rets julegave fra Mediq.</p>
+<p style=\"margin-top:10px;\">P&aring; vegne af ledelsen i Mediq &oslash;nskes du en rigtig gl&aelig;delig jul og et lykkebringende nyt&aring;r. Vi vil gerne samtidig benytte lejligheden til at sige dig tak for din indsats i 2013. &Aring;ret har endnu engang budt p&aring; mange store forandringer &ndash; ikke mindst i form af mange nye ledere i Mediq. Vi vil gerne sige jer alle tak for, at I har taget imod b&aring;de forandringer, udfordringer og mange nye kolleger med et &aring;bent sind og en stor loyalitet over for vores f&aelig;lles mission.</p>
+<p style=\"margin-top:10px;\">I ledelsen ser vi meget frem til et sp&aelig;ndende nyt &aring;r, hvor vi sammen g&aring;r nye udfordringer i m&oslash;de.</p>
+<p style=\"margin-top:10px;\">De bedste hilsner og varme &oslash;nsker for det nye &aring;r.</p>
+<p>Jan Kolbye</p><br /> ";
+
+  }
+   if($compani == "danskretur"){
+    $infoTxt = "<p>K&aelig;re Alle</p>
+<p style=\"margin-top:10px;\">For mange er julen en s&aelig;rlig tid, hvor der julehygges, og man bruger tid sammen med venner og familie.</p>
+<p style=\"margin-top:10px;\">Julen er ogs&aring; tiden, hvor vi sender tanker og hilsner og spreder gl&aelig;de. Det vil vi ogs&aring; meget gerne g&oslash;re med denne julegave. Vi h&aring;ber, at du f&aring;r gl&aelig;de af den gave, som du har valgt.</p>
+<p style=\"margin-top:10px;\">Med julegaven vil vi gerne sige tak for jeres indsats og engagement i &aring;rets l&oslash;b &ndash; uden det havde vi ikke n&aring;et s&aring; mange og s&aring; positive resultater b&aring;de i vores daglige drift, i udviklingen af virksomheden og i testen af Pantstationerne.</p>
+<p style=\"margin-top:10px;\">Vi &oslash;nsker jer en rigtig gl&aelig;delig jul og et godt nyt&aring;r.</p>
+<p style=\"margin-top:10px;\">De bedste julehilsner</p>
+<p>Direktionen</p><br /> ";
+   }
+    if($compani == "origio"){
+    $infoTxt = "
+    <div class=dk>
+<p style=\"margin-top:10px;\"><strong>Julen 2013</strong></p>
+<p style=\"margin-top:10px;\">Velkommen til ORIGIO&rsquo;s &rsquo;julegaveshop&rsquo; 2013.</p>
+<p style=\"margin-top:10px;\">Du kan frit v&aelig;lge imellem 10 gavemuligheder og bedes finde<br />din foretrukne julegave senest <strong>mandag den 4. november</strong>,<br />hvorefter julegaveshoppen lukker.<br />Gaven udlevereres til dig i forbindelse med den planlagte<br />julehygge den 19. december.</p>
+<p>Du &oslash;nskes et godt gavevalg!</p>
+<p style=\"margin-top:10px;\">Med venlig hilsen&nbsp;<br /> Julegaveudvalget</p>
+</div>
+      <div class=en>
+<p style=\"margin-top:10px;\"><strong>Christmas 2013</strong></p>
+<p style=\"margin-top:10px;\">Welcome to ORIGIO&rsquo;s &lsquo;Christmas Shop&rsquo; 2013.</p>
+<p style=\"margin-top:10px;\">You are free to choose one gift among 10 options and asked to do so no later than <strong>Monday November 4</strong>.<br />The gift will be handed over to you during the &lsquo;Christmas-get-together&rsquo; meeting on December 19.</p>
+<p style=\"margin-top:10px;\">Happy Christmas shopping! </p>
+<p>Best regards<br /> &lsquo;The Christmas Committee&rsquo;</p>
+</div><br /><br /><br />
+     ";
+   }
+    if($compani == "hk"){
+    $infoTxt = "
+    <p style=\"margin-top:10px;\"><strong>Julen 2013</strong></p>
+    <p style=\"margin-top:10px;\">Velkommen til HK&rsquo;s julegaveshop.</p>
+    <p style=\"margin-top:10px;\">Med efter&aring;rets komme venter julen lige rundt om hj&oslash;rnet &ndash; og dermed tiden for &aring;rets julegave til dig fra HK.</p>
+    <p style=\"margin-top:10px;\">I &aring;r har vi fundet fem gaver, som du kan v&aelig;lge imellem. Du ser dem i den vandrette bj&aelig;lke ovenfor.<br />N&aring;r du har studeret gaverne, kan du under \"v&aelig;lg en gave\" markere, hvilken en du &oslash;nsker dig.<br />Du skal benytte din mailadresse, n&aring;r du logger ind. Hvis det driller s&aring; pr&oslash;v med din gamle mailadresse.</p>
+    <p style=\"margin-top:10px;\">Du kan v&aelig;lge din julegave<strong> til og med 15. november</strong>, hvorefter julegaveshoppen lukker.<br />Hvis du ikke n&aring;r at v&aelig;lge gaven inden da, vil du f&aring; Nicolas Vah&eacute; gave&aelig;sken.</p>
+    <p style=\"margin-top:10px;\">Gaverne bliver leveret i uge 51.</p><p>Vi h&aring;ber, du bliver glad for din julegave.</p>
+    <p style=\"margin-top:10px;\">Julegaveudvalget</p><br />";
+
+    }
+       if($compani == "solar"){
+    $infoTxt = "
+        <br><div>
+<div>K&aelig;re kolleger!</div>
+<div>&nbsp;</div>
+<div>S&aring; er det tid til at v&aelig;lge &aring;rets julegave.</div>
+<div>&nbsp;</div>
+<div>I &aring;r v&aelig;lger du selv din julegave, og den&nbsp;</div>
+<div>udleveres p&aring; dit arbejdssted.</div>
+<div>&nbsp;</div>
+<div>Du og din familie &oslash;nskes en rigtig gl&aelig;delig jul.</div>
+<div>&nbsp;</div>
+<div>Mange julehilsner</div>
+<div>Jens Andersen</div>
+</div><br><br>";
+
+    }
+
+if($compani == "dpf"){
+    $infoTxt = "<br>
+    <p>Julen 2013</p>
+    <p style=\"margin-top:10px;\">Velkommen til Dansk Psykolog Forenings julegaveshop 2013.</p>
+    <p style=\"margin-top:10px;\">I shoppen kan du v&aelig;lge den gave, som du &oslash;nsker dig allermest.<br />Der er 4 forskellige gaver at v&aelig;lge imellem, s&aring; vi h&aring;ber, der er noget, som falder i din smag.</p>
+    <p style=\"margin-top:10px;\">God forn&oslash;jelse med shoppen og med den gave, som du v&aelig;lger.<br />Husk shoppen lukker den 31. oktober 2013,</p>
+    <p style=\"margin-top:10px;\">Vi &oslash;nsker dig en gl&aelig;delig jul og et godt nyt&aring;r!</p><br><br><br>";
+}
+if($compani == "ftf"){
+    $infoTxt = "
+    <p>K&aelig;re alle sammen</p>
+    <p style=\"margin-top:10px;\">Igen i &aring;r har du mulighed for at f&aring; indflydelse p&aring;, hvilken julegave du modtager fra FTF-A.</p>
+    <p style=\"margin-top:10px;\">I vores julegave shop finder du 8 forskellige gaver, du kan v&aelig;lge imellem, og vi h&aring;ber, at du finder noget,der falder i din smag.</p>
+    <p style=\"margin-top:10px;\">Rigtig god forn&oslash;jelse med gavevalget.</p>
+    <p style=\"margin-top:10px;\"><strong>FTF-A<br /></strong><strong>Michael Darmer<br /></strong><strong>Adm. direkt&oslash;r</strong></p><br> <br> <br> ";
+}
+if($compani == "aab"){
+    $infoTxt = "
+    <p><span style=\"color: black; font-family: 'Bookman Old Style'; font-size: 18pt;\">&ldquo;</span><span style=\"color: black; font-family: 'Bookman Old Style'; font-size: 13.5pt;\">Succes er at f&aring; det, man &oslash;nsker sig. Lykke er at elske det man f&aring;r.</span><span style=\"color: black; font-family: 'Bookman Old Style'; font-size: 18pt;\">&rdquo;</span></p>
+    <p><span style=\"color: black; font-family: 'Bookman Old Style'; font-size: 13.5pt;\">God forn&oslash;jelse med dette &aring;rs julegaveshop.</span></p>
+    <p><span style=\"color: black; font-family: 'Bookman Old Style'; font-size: 13.5pt;\">&nbsp;</span></p>
+    <p><span style=\"color: black; font-family: 'Bookman Old Style'; font-size: 13.5pt;\">Venlig hilsen</span></p>
+    <p><span style=\"color: black; font-family: 'Bookman Old Style'; font-size: 13.5pt;\">Christian H&oslash;gsbro</span></p><br> <br><br> <br>";
+}
+if($compani == "aig"){
+    $infoTxt = " <br>
+    <p><em>Det er snart jul og vi byder hermed velkommen til &aring;rets julegaveshop. </em></p>
+    <p>&nbsp;</p>
+    <p><em>Julemanden vil gerne p&aring; forh&aring;nd vide hvad du &oslash;nsker dig; s&aring; klik ind p&aring; siden og v&aelig;lg din gave. Rigtig god forn&oslash;jelse med udv&aelig;lgelsen. </em></p>
+    <p><em>&nbsp;</em></p>
+    <p><em>Husk at shoppen lukker den 08/11-2013</em></p>
+    <p>&nbsp;</p>
+    <p><em>Julemanden har igen i &aring;r overladt uddelingen af gaven til AIG, og du vil modtage din gave i ugen op til jul.</em></p>
+    <p><em>&nbsp;</em></p>
+    <p><em>Vi &oslash;nsker en dejlig julem&aring;ned og en sk&oslash;n juleferie</em></p><br><br>";
+}
+if($compani == "aig-student"){
+    $infoTxt = " <br>
+    <p><em>Det er snart jul og vi byder hermed velkommen til &aring;rets julegaveshop. </em></p>
+    <p>&nbsp;</p>
+    <p><em>Julemanden vil gerne p&aring; forh&aring;nd vide hvad du &oslash;nsker dig; s&aring; klik ind p&aring; siden og v&aelig;lg din gave. Rigtig god forn&oslash;jelse med udv&aelig;lgelsen. </em></p>
+    <p><em>&nbsp;</em></p>
+    <p><em>Husk at shoppen lukker den 08/11-2013</em></p>
+    <p>&nbsp;</p>
+    <p><em>Julemanden har igen i &aring;r overladt uddelingen af gaven til AIG, og du vil modtage din gave i ugen op til jul.</em></p>
+    <p><em>&nbsp;</em></p>
+    <p><em>Vi &oslash;nsker en dejlig julem&aring;ned og en sk&oslash;n juleferie</em></p><br><br>";
+}
+if($compani == "3b"){
+    $infoTxt = "
+    <p >Julen 2013</p>
+    <p style=\"margin-top:10px;\">K&aelig;re medarbejder i 3B</p>
+    <p style=\"margin-top:10px;\">Det er altid dejligt at kunne gl&aelig;de andre med en gave. Is&aelig;r til jul. 3B har udvalgt nogle forskellige julegaver, som du kan v&aelig;lge imellem. Vi h&aring;ber du selv bliver glad for gaven, og at nogen benytter sig af muligheden for at gl&aelig;de andre.</p>
+    <p style=\"margin-top:10px;\">Du kan f.eks. v&aelig;lge den traditionelle gave med (eller uden) vin, chokolade og knas, som du kan dele med dine n&aelig;rmeste. Du kan tage rejsetasken med p&aring; gode oplevelser med familien eller dr&oslash;mme dig v&aelig;k i l&aelig;kkert senget&oslash;j.</p>
+    <p style=\"margin-top:10px;\">M&aring;ske har du det bedst med at hj&aelig;lpe andre. I s&aring; fald kan du donere din gave til operation julegaveregn, som giver julegaver til anbragte b&oslash;rn p&aring; b&oslash;rnehjem og i d&oslash;gninstitutioner.</p><br><br>";
+
+}
+if($compani == "dansk"){
+    $infoTxt = "
+    <p style=\"margin-top:10px;\">Julen 2013</p>
+    <p style=\"margin-top:10px;\">Velkommen til Dansk Erhvervs julegaveshop 2013.</p>
+    <p style=\"margin-top:10px;\">I shoppen kan du v&aelig;lge den gave, som du &oslash;nsker dig allermest. Der er 6 forskellige gaver at v&aelig;lge imellem, s&aring; vi h&aring;ber, der er noget, som falder i din smag.</p>
+    <p style=\"margin-top:10px;\">God forn&oslash;jelse med shoppen og med den gave, som du v&aelig;lger. Shoppen lukker den 19. november, og hvis du ikke har valgt din gave inden da, vil du modtage gaven &rdquo;bobler med et sving&rdquo;, som med fordel kan anvendes til nyt&aring;r.</p>
+    <p style=\"margin-top:10px;\">Vi &oslash;nsker dig en gl&aelig;delig jul og et godt nyt&aring;r!</p>
+    <p style=\"margin-top:10px;\">Hilsen&nbsp;</p>
+    <p style=\"margin-top:10px;\">Direktionen</p><br><br>";
+}
+if($compani == "stila"){
+    $infoTxt = " <br>
+    <p><strong>Velkommen til Stilas julegavevalg 2013.</strong></p>
+    <p>Du skal bruge dit l&oslash;nnr. b&aring;de som brugernavn og adgangskode.</p>
+    <p>God forn&oslash;jelse!&nbsp;</p><br><br><br><br><br><br>";
+}
+if($compani == "sosuranders"){
+    $infoTxt = " <br>
+    <p>S&aring; n&aelig;rmer den s&oslash;de juletid sig, og det er derfor ved at v&aelig;re tid til den &aring;rlige julegaveuddeling.</p>
+    <p style=\"margin-top:10px;\">For at julemanden har de bedst mulige vilk&aring;r for gavetildelingen, bedes du derfor her logge ind med dine initialer som brugernavn og de f&oslash;rste seks cifre af dit cpr.-nummer som adgangskode.</p>
+    <p style=\"margin-top:10px;\">Rigtig god &oslash;nskelyst og gl&aelig;delig jul, selvom der er l&aelig;nge, l&aelig;nge til.</p><br><br><br><br>";
+}
+if($compani == "metro"){
+    $infoTxt = "
+    <p><strong>K&aelig;re medarbejder</strong></p>
+    <p style=\"margin-top:10px;\">Juletiden byder p&aring; mange gode oplevelser i Metro Service, ud over det sociale er der ogs&aring; &aring;rets julegave.</p>
+    <p style=\"margin-top:10px;\">Jeg h&aring;ber, at du mellem de fem fine bud kan finde netop det, du &oslash;nsker dig i &aring;r.</p>
+    <p style=\"margin-top:10px;\">Tak for endnu et godt &aring;r sammen &ndash; gl&aelig;der mig til 2014.</p>
+    <p style=\"margin-top:10px;\">Mange venlige hilsner Claudio Cassarino</p><br><br><br>";
+}
+if($compani == "era"){
+    $infoTxt = "<br>
+    <p><strong>K&aelig;re ERA Frontl&oslash;bere</strong></p>
+    <p style=\"margin-top:10px;\">Hos ERA BILER &oslash;nsker vi at yde fuldendte kundeoplevelser, der er tilpasset den enkelte kunde.</p>
+    <p style=\"margin-top:10px;\">Alle er nemlig unikke &ndash; og vores &oslash;nsker er forskellige.</p>
+    <p style=\"margin-top:10px;\">Det g&aelig;lder selvf&oslash;lgelig ogs&aring; Jer, og derfor skal I selv v&aelig;lge Jeres egen ERA julegave.</p>
+    <p style=\"margin-top:10px;\">Med &oslash;nsket om en fantastisk jul og godt nyt&aring;r &ndash; og mange tak for indsatsen.</p>
+    <p style=\"margin-top:10px;\">Jacob Johannessen</p><br><br>";
+}
+if($compani == "hilton"){
+    $infoTxt = "
+     <p style=\"text-align: center;\"><strong>Dear all,</strong></p>
+<p style=\"text-align: center;\">&nbsp;</p>
+<p style=\"text-align: center;\">Welcome to this year&rsquo;s Team Member Christmas present shop.</p>
+<p style=\"text-align: center;\">There are 4 options for you to choose from. Deadline for submitting your choice is 15 November 2013.</p>
+<p style=\"text-align: center;\">The Christmas presents will be distributed amongst you at this year&rsquo;s last Team Member Forum, where we will have a small celebration afterwards. This will take place on 20 December 2013 in the afternoon.</p>
+<p style=\"text-align: center;\">In case you are not able to attend, deadline for Christmas present pick-up is 14 January 2014 in HR.</p>
+
+<p style=\"text-align: center; margin-top:10px;\">We hope you will enjoy the options we have chosen for you.</p>
+
+<p style=\"text-align: center; margin-top:10px;\"><strong>Happy Christmas present-shopping!</strong></p>
+<p style=\"text-align: center;\"><strong>Seasonal Greetings</strong></p>
+<p style=\"text-align: center;\"><strong>Hilton Copenhagen Airport</strong></p><br><br>";
+}
+
+if($compani == "tropez"){
+    $infoTxt = "
+ <p ><strong>K&aelig;re alle.</strong></p>
+<p >Vi er i konstant udvikling p&aring; alle omr&aring;der, og derfor finder vi at tiden er inde til at kombinere den traditionelle jul med den digitale virkelighed vi befinder os i.</p>
+<p style=\"margin-top:10px;\">S&aring; velkommen til dit valg af &aring;rets julegave fra Saint Tropez - god forn&oslash;jelse.</p>
+  <br>
+
+<p><span ><strong>Dear all,</strong></span><span ></span><span lang=\"EN-US\">
+<p>We are continuously developing in all areas, and therefore we find that this is the right time for combining the traditional Christmas with the digital world we live in.</span><span lang=\"EN-US\"></p> <p style=\"margin-top:10px;\"></span><span >Welcome to your selection of this year's Christmas present from Saint Tropez - enjoy.</span><span >&nbsp;</span></p>
+<strong>
+<p style=\"margin-top:10px;\">Hilsen / best regards,
+ <br />Hans-Peter</p>
+ </strong>
+ <br>
+";
+}
+if($compani == "medical"){
+    $infoTxt = " <br>
+<p><strong>Velkommen til &aring;rets julegavevalg!</strong></p>
+<p>&nbsp;</p>
+<p>Du logger p&aring; med din e-mail-adresse i b&aring;de Brugernavn og Adgangskode.</p>
+<p>Gavevalget slutter den 11.11.13.</p>
+<p>&nbsp;</p>
+<p><strong>God forn&oslash;jelse!</strong></p><br><br><br>";
+}
+if($compani == "axcess"){
+    $infoTxt = "
+<p style=\"text-align: center; margin-top:20px;\"><strong>K&aelig;re medarbejder i Axcess&nbsp;</strong></p>
+<p style=\"text-align: center; margin-top:15px;\">Julen n&aelig;rmer sig med hastige skridt, og traditionen tro er der dermed en lille gave til dig og familien fra Axcess.&nbsp;</p>
+<p style=\"text-align: center; margin-top:10px;\">Vi har i &aring;r udvalgt lidt eksklusive gaver, du kan v&aelig;lge imellem samt et par enkelte oplevelsesgaver. Vi h&aring;ber gaverne falder i din smag:-)</p>
+<p style=\"text-align: center; margin-top:10px;\">&nbsp;2013 har indtil nu v&aelig;ret et rigtig travlt &aring;r, hvor vi blandt andet har vundet Moderniseringsstyrelsen aftalen samt drift af &Aring;rhus Kommune. Vi h&aring;ber, der vil komme mange flere nye store aftaler til Axcess til n&aelig;ste &aring;r.</p>
+<p style=\"text-align: center; margin-top:10px;\">Jeg vil gerne sige tusind tak for samarbejdet i &aring;r. Jeg gl&aelig;der mig til samarbejdet til n&aelig;ste &aring;r.</p>
+<p style=\"text-align: center; margin-top:10px;\">&nbsp;Du og din familie &oslash;nskes en gl&aelig;delig jul og et godt nyt&aring;r.</p>
+
+<p style=\"text-align: center; margin-top:10px;\"><strong>Med venlig hilsen</strong><br />Axcess A/S</p>
+<p style=\"text-align: center; margin-top:10px;\">&nbsp;Stig Abilds&oslash;</p><br />";
+}
+if($compani == "dbi"){
+    $infoTxt = "
+";
+}
+if($compani == "holboell"){
+    $infoTxt = "<br />
+    <p style=\"margin-top:10px;\"><strong>Velkommen til valg af julegave.</strong></p>
+    <p style=\"margin-top:10px;\">Du logger p&aring; med brugernavn og adgangskode, der findes p&aring; dit gavekort.</p>
+    <p style=\"margin-top:10px;\">God forn&oslash;jelse!</p><br /><br />  <br />
+
+
+";
+}
+if($compani == "valora"){
+    $infoTxt = "
+<p>K&aelig;re Kollega,</p>
+<p style=\"margin-top:10px;\">Inden vi skriver december, er det en forn&oslash;jelse at kunne byde velkommen til Valora Trades Juleshop, hvor du har mulighed for at v&aelig;lge din egen julegave &ndash; i h&aring;bet om, at vi samtidig kan sige: &rdquo;Hvad du &oslash;nsker skal du f&aring;&rdquo;</p>
+<p style=\"margin-top:10px;\">Shoppen er &aring;ben mellem den 6. og 15. november 2013, hvor du frit kan v&aelig;lge &ndash; eller &aelig;ndre dit valg af gave.</p>
+<p style=\"margin-top:10px;\">Tager du intet valg, vil du automatisk bilve tildelt en gave.</p>
+<p style=\"margin-top:10px;\">Rigtig god forn&oslash;jelse!</p>
+<p style=\"margin-top:10px;\">De Bedste Hilsner<br />Thomas Pavstrup</p><br>
+
+";
+}
+if($compani == "dsr"){
+    $infoTxt = "<br /><br />  <br /> <br /><br />
+
+";
+}
+if($compani == "lejerbo"){
+    $infoTxt = "<br /><br />  <br /> <br /><br />  <br />      <br />
+";
+}
+if($compani == "lubricadors"){
+    $infoTxt = "
+    <br>    <br>
+<p><strong>Julen er gavernes tid</strong></p>
+<p style=\"margin-top:10px;\">Og i &aring;r har vi valgt, at du selv kan v&aelig;lge den gave, som du gerne vil have &ndash; fra dette katalog.</p>
+<p style=\"margin-top:10px;\">Samtidig vil vi benytte lejligheden til at &oslash;nske dig og din familie en rigtig gl&aelig;delig jul og et godt og lykkebringende nyt&aring;r.</p>
+<p>&nbsp;</p>
+<p>Rasmus Hans Jensen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Hans Peter Jensen</p>
+<p>Christian Hans Jensen</p>
+ <br>    <br>   <br>
+";
+}
+if($compani == "atradius"){
+    $infoTxt = "
+     <br><p ><em>Julen 2013, </em></p>
+<p>&nbsp;</p>
+<p><em>Du og din familie &oslash;nskes en rigtig gl&aelig;delig jul og et godt nyt&aring;r.</em></p>
+<p><em>Samtidig vil vi gerne benytte lejligheden til at takke for en god indsats i 2013. </em></p>
+<p><em>Det blev igen et &aring;r med mange og kr&aelig;vende udfordringer, men med et fantastisk sammenhold og samarbejde blev resultaterne alligevel tilfredsstillende.</em></p>
+<p><em>Vi ser frem til et fortsat godt samarbejde i det kommende &aring;r.</em></p>
+<p><em>&nbsp;</em></p>
+<p style=\"text-align: center;\"><em>Med venlig hilsen</em></p>    <br>
+<p style=\"text-align: center; \"><em>&nbsp;</em><em>J&oslash;rgen Lund Lavesen&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Erik Skovgaard Nielsen&nbsp;&nbsp;&nbsp;&nbsp; </em></p>
+ <br>    <br>
+";
+}
+
+if($compani == "sc"){
+    $infoTxt = "
+    <p>K&aelig;re alle</p>
+    <p style=\"margin-top:10px;\">Mange tusind tak til jer der g&oslash;r vores kunder glade, til jer der k&aelig;mper for at f&aring; endnu flere af dem ind i butikken og endelig til jer, der sikrer, at vi kan bruge mest mulig tid derude, hvor vi kan g&oslash;re en forskel.</p>
+    <p style=\"margin-top:10px;\">Med den positive udvikling jeg har set for hele forretningen i dette efter&aring;r, s&aring; gl&aelig;der jeg mig til at tage fat sammen med&nbsp;jer i 2014 og g&oslash;re &aring;ret til det bedste nogensinde.</p>
+    <p style=\"margin-top:10px;\">God jul til jer og jeres familier.</p>
+    <p style=\"margin-top:10px;\">Holger&nbsp;&nbsp;</p> <br>
+";
+}
+
+if($compani == "fdm"){
+    $infoTxt = "
+    <br>
+    <p style=\"margin-top:10px;\"><em>Julen n&aelig;rmer sig med hastige skridt, og det er derfor tid til, at du kan v&aelig;lge din julegave. </em></p>
+    <p style=\"margin-top:10px;\"><em>Selvom julen er overraskelsernes tid, vil vi alligevel afsl&oslash;re, hvad gaverne best&aring;r af.</em></p>
+    <p style=\"margin-top:10px;\"><em>Du f&aring;r her 6 valgmuligheder, og vi h&aring;ber, du finder noget, der falder i din smag.</em></p>
+    <p style=\"margin-top:10px;\"><em>Rigtig god forn&oslash;jelse med gavevalget.</em></p>
+    <p style=\"margin-top:10px;\"><strong><em>FDM</em></strong></p> <br>  <br>
+";
+}
+
+if($compani == "experian"){
+    $infoTxt = "
+
+     <div class=\"dk\">
+    <p><strong>Julen 2013 - Jul med traditioner</strong></p>
+<p>Stjernerne t&aelig;ndes p&aring; himlen som de g&oslash;r hele &aring;ret, men s&aelig;rligt i julen er der tid til at nyde stjernernes vandring over himlen og mindes de oplevelser som &aring;ret har budt p&aring;.</p>
+<p>N&aring;r julefreden s&aelig;nker sig over det ganske land f&aring;r vi lidt mere tid til familien og de hyggelige stunder. I &aring;r har vi netop valgt at tage udgangspunkt i de gode oplevelser med l&aelig;kkert design og traditioner i &aring;rets juelgaver.</p>
+<p>Inden den 20.11.13 skal du have valgt din gave. V&aelig;lger du ikke en gave, vil du automatisk f&aring; de smukke kopper fra Royal Copenhagen</p>
+<p>Gaverne bliver udleveret i ugen op til jul.</p>
+<p>Har du sp&oslash;rgsm&aring;l vedr&oslash;rende julegaven, er du velkommen til at kontakte Heidi p&aring; <a href=\"mailto:Heidi.Fabricius.Olsen@experian.com\">Heidi.Fabricius.Olsen@experian.com</a></p>
+<p>De bedste hilsner<br />Julegavekomiteen</p>
+<p>&nbsp;</p>  </div>
+ <div class=\"en\">
+  <p><strong>Julen 2013 - Christmas with traditions </strong></p>
+ <p>Stars are lighting up the sky as they do all year round, but specially during Christmas we get the time to enjoy their wandering across the sky and remember the experiences the year has offered.&nbsp;</p>
+<p>When the Christmas spirit is spreading throughout the country, we get more time to spend with our family and experience the good times. This year we have taken a starting point in the good experiences with nice design and traditions for this year&acute;s Christmas gifts.&nbsp;</p>
+<p>You need to choose your gift before the 20.11.13 If you do not choose a gift you will automatically get the beautiful cup from Royal Copenhagen.&nbsp;</p>
+<p>The gifts will be handed out in the week commencing the 16<sup>th</sup> of December 2013.</p>
+<p>If you should have any questions regarding your gift, you are always welcome to contact Heidi by <a href=\"mailto:Heidi.Fabricius.Olsen@experian.com\">Heidi.Fabricius.Olsen@experian.com</a></p>
+<p>Kind regards<br />The Christmas Gift Comity</p>
+ </div>
+";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login Gavevalg</title>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+   <script src="http://www.gavefabrikken.dk/gave/test.js"></script>
+
+<script>
+
+
+
+$(this).keydown(function(event) {
+            if ( event.which == 13 ) {
+
+                doLogin()
+            }
+        });
+
+
+function ChangeLang(lang)
+{
+    constLang = lang;
+    if(lang=="en"){
+        $(".dk").hide();
+        $(".en").show();
+        $("#dkFlag").css("height","50px");
+        $("#enFlag").css("height","60px");
+        $("#userTxt").html("User name");
+        $("#pwTxt").html("Password");
+        $("#reset").val("RESET");
+
+    }
+    if(lang=="dk"){
+        $(".en").hide();
+        $(".dk").show();
+        $("#dkFlag").css("height","60px");
+        $("#enFlag").css("height","50px");
+        $("#userTxt").html("Brugernavn");
+        $("#pwTxt").html("Adgangskode");
+        $("#reset").html("NULSTIL");
+
+    }
+}
+
+
+
+function reset()
+{
+  $("#username").val("");
+  $("#pw").val("");
+}
+function doLogin()
+{
+
+      url = $(location).attr('href')
+      if(url.slice(-1) == "/"){
+        url = url.slice(0,url.length-1);
+      }
+      urlArr =  url.split('/');
+      ID = urlArr[urlArr.length-1]
+
+      brugerID = $("#username").val();
+      if(ID == "julegavekort"){
+            /*
+            if(alternateLogin($("#username").val(),$("#pw").val()))
+            {
+              alert($("#username").val())
+            }
+            */
+            if(alternateLogin(brugerID,$("#pw").val())){
+              brugerID = brugerID+"_2";
+            }
+
+      }
+
+
+
+
+
+      if($("#username").val() != "" && $("#pw").val() != "" ){
+
+           var jqxhr = $.post("../../gave/login.php?CompanyLink="+ID, { username: brugerID, password: $("#pw").val(),CompanyId :ID } , function(data) {
+               switch(data)
+               {
+                    case "login":
+                        if(ID == "julegavekort"){
+                             var tjek = $.post("../../gave/checkgavelogin.php", { username: brugerID, password: $("#pw").val() } ,
+                                function(returData) {
+                                if(returData == "1"){
+                                   window.location.replace("../../gave/giftList.php?CompanyLink="+ID);
+                                }
+                                else{
+                                  alert("Perioden for gavevalg er afsluttet.")
+                                }
+                            })
+
+                        }
+                        else{
+                            window.location.replace("../../gave/giftList.php?CompanyLink="+ID);
+                        }
+
+                    break;
+                    case "harvalgt":
+                       alert("Perioden for gavevalg er afsluttet.")
+                    break;
+                     default:
+                        alert("Brugernavn eller adgangskode er forkert")
+              }
+            })
+      }
+      else{
+            alert("Brugernavn eller adgangskode er forkert")
+      }
+}
+</script>
+    <style type="text/css">
+body,html{
+    height: 99%;
+    width: 100%;
+    padding:0px;
+    margin: 0px;
+    font-family:Verdana, Geneva, sans-serif;
+    background-image:url('../../gave/images/background2.jpg');
+    background-repeat:no-repeat;
+
+}
+p{
+    margin:4px;
+    padding: 0px;
+
+}
+
+#kugle{
+    margin:0px auto 0px  auto;
+    width: 604px;
+    height: 700px;
+    background-image:url('../../gave/images/kugle2.png');
+    background-repeat:no-repeat;
+    background-size: cover;
+}
+#loginContainer {
+  margin:0px auto 0px  auto;
+  height: 700px;
+  width:500px;
+  color:#6D6E71;
+
+}
+#loginContainer input[type="text"]{
+   padding:0px;
+   margin:0px;
+   height: 25px;
+   border-color: #D1D2D3;
+   border-style: solid;
+   background-color: transparent;
+}
+#loginContainer input[type="password"]{
+   padding:0px;
+   margin:0px;
+   height: 25px;
+   border-color: #D1D2D3;
+   border-style: solid;
+   background-color: transparent;
+}
+#loginContainer input[type="button"]{
+  background-color: #606060;
+  width: 80px;
+  height: 25px;
+  color:white;
+  vertical-align: middle;
+  font-size: 14px;
+  padding:0px;
+   margin:0px;
+}
+.en{
+  display: none;
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="kugle">
+    <div id="loginContainer">
+          <center>
+
+
+      <table width="100%" border=0  height="50">
+        <tr id="multilang">
+             <td  align="right">
+
+                    <?php if($compani == "ramboell" || $compani == "shell"  || $compani == "origio" || $compani == "experian" ){ ?>
+                        <img id="dkFlag" height="60" src="../../gave/images/Danmark-Denmark-icon.png" onclick="ChangeLang('dk')" style="cursor: pointer;" alt="Dansk" /> <img height="50" id="enFlag" src="../../gave/images/UK-icon.png" onclick="ChangeLang('en')" style="cursor: pointer;" alt="English" />
+                    <?php } ?>
+                </td>
+        </tr>
+        </table>
+         <?php
+            $html =  "<div style=\"height: 75px;\"></div>";
+            if($compani == "unicon" ){
+               $html =  "<div style=\"height: 140px;\"></div>";
+            }
+            if($compani == "experian" ){
+               $html =  "<div style=\"height: 45px;\"></div>";
+            }
+            echo $html;
+         ?>
+
+
+        <table  width="450" border="0" style="margin-left: auto;margin-right:auto;" >
+        <tr >
+            <td align="center" height="60"> <?php if (getCompanyPictureId(COMPANYID)!="") {?>
+                  		<img src="getpic.php?id=<?=getCompanyPictureId(COMPANYID);?>" />
+				  <?php } ?></td>
+
+        </tr>
+        <?php if($compani == "ramboell" ||
+                 $compani == "julegavekort" ||
+                 $compani == "shell" ||
+                 $compani == "dana" ||
+                 $compani == "rambollconsult" ||
+                 $compani == "unicon" ||
+                 $compani == "mediq" ||
+                 $compani == "danskretur" ||
+                 $compani == "origio" ||
+                 $compani == "solar" ||
+                 $compani == "dpf" ||
+                 $compani == "hk"  ||
+                 $compani == "aab"  ||
+                 $compani == "aig"  ||
+                 $compani == "aig-student"  ||
+                 $compani == "3b"  ||
+                 $compani == "dansk"  ||
+                 $compani == "stila"  ||
+                 $compani == "sosuranders"  ||
+                 $compani == "metro"  ||
+                 $compani == "era"  ||
+                 $compani == "hilton"  ||
+                 $compani == "tropez"  ||
+                 $compani == "medical"  ||
+                 $compani == "axcess"  ||
+                 $compani == "dbi"  ||
+                 $compani == "holboell"  ||
+                 $compani == "valora"  ||
+                 $compani == "dsr"  ||
+                 $compani == "lejerbo"  ||
+                 $compani == "lubricadors"  ||
+                 $compani == "atradius"  ||
+                 $compani == "sc"  ||
+                 $compani == "fdm"  ||
+                 $compani == "experian"  ||
+                 $compani == "ftf"
+
+
+                   ){ ?>
+        <tr >
+         <td valign="top">
+           <?php if($compani == "shell" || $compani == "hilton" || $compani == "tropez" || $compani == "experian"){ ?>
+               <div  style="font-size: 13px; color:black; text-align: left; margin-top:5px;">
+           <?php
+            } else {
+          ?>
+              <div style="font-size: 0.85em; color:black; text-align: left; margin-top:5px;">
+          <?php
+             };
+          ?>
+
+
+         <?php
+            echo $infoTxt;
+          ?>
+            </div>
+         </td>
+        </tr>
+         <?php
+            }
+          ?>
+        </table>
+
+
+        <table  width="300" border="0" style="margin-left: auto;margin-right:auto; margin-top: -10px;" >
+        <tr >
+            <td id="userTxt">Brugernavn</td>
+            <td id="pwTxt">Adgangskode</td>
+        </tr>
+        <tr >
+            <td><input id="username" type="text" size="auto"  /></td>
+            <td><input id="pw" type="password" size="auto" /></td>
+        </tr>
+        <tr>
+            <td align="right"><input id="reset" onclick="reset()"  type="button" value="NULSTIL" /></td>
+            <td align="left"><input onclick="doLogin()" type="button" value="LOGIN" /></td>
+        </tr>
+    </table>
+        <center>
+
+    </div>
+
+</div>
+</body>
+</html>

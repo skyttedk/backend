@@ -1,0 +1,92 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="MessType" fixed="ITEMUPDATE"/>
+				<xs:element type="xs:date" name="CreationDate" minOccurs="0"/>
+				<xs:element type="xs:time" name="CreationTime" minOccurs="0"/>
+				<xs:element name="Items">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Item" maxOccurs="unbounded" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="ItemNo"/>
+										<xs:element type="xs:string" name="Description"/>
+										<xs:element type="xs:string" name="Description2" minOccurs="0"/>
+										<xs:element type="xs:string" name="Unit" minOccurs="0"/>
+										<xs:element type="xs:string" name="EAN" minOccurs="0"/>
+										<xs:element type="xs:string" name="ProdVariant" minOccurs="0"/>
+										<xs:element type="xs:string" name="ItemGrp" minOccurs="0"/>
+										<xs:element type="xs:string" name="ItemType" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="NetWeight" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="GrossWeight" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="TareWeight" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="Volume" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="NetVolume" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="AlcoholPC" minOccurs="0"/>
+										<xs:element type="xs:int" name="UnitsPerPackage" minOccurs="0"/>
+										<xs:element type="xs:int" name="UnitsPerCase" minOccurs="0"/>
+										<xs:element type="xs:int" name="UnitsPerPallet" minOccurs="0"/>
+										<xs:element type="xs:int" name="Quarantine" minOccurs="0"/>
+										<xs:element type="xs:int" name="Durability" minOccurs="0"/>
+										<xs:element type="xs:int" name="BlockBeforeExpire" minOccurs="0"/>
+										<xs:element type="xs:byte" name="ReqBatchOrder" minOccurs="0"/>
+										<xs:element type="xs:byte" name="ReqBatch" minOccurs="0"/>
+										<xs:element type="xs:byte" name="ReqExpDate" minOccurs="0"/>
+										<xs:element type="xs:byte" name="HotTransp" minOccurs="0"/>
+										<xs:element type="xs:byte" name="SnrScan" minOccurs="0"/>
+										<xs:element type="xs:byte" name="FIFO" minOccurs="0"/>
+										<xs:element type="xs:string" name="CustStatNo" minOccurs="0"/>
+										<xs:element type="xs:string" name="Origin" minOccurs="0"/>
+										<xs:element type="xs:string" name="TaxClass" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="Price" minOccurs="0"/>
+										<xs:element type="xs:string" name="Currency" minOccurs="0"/>
+										<xs:element type="xs:string" name="Color" minOccurs="0"/>
+										<xs:element type="xs:string" name="Size" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="Length" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="Width" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="Height" minOccurs="0"/>
+										<xs:element type="xs:string" name="Brand" minOccurs="0"/>
+										<xs:element type="xs:string" name="Model" minOccurs="0"/>
+										<xs:element name="EANCodes" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="EANCode" maxOccurs="unbounded">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string" name="EAN"/>
+																<xs:element type="xs:string" name="ProdVariant" minOccurs="0"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="DangerousGoods" maxOccurs="unbounded" minOccurs="0">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="UnNo" minOccurs="0"/>
+													<xs:element type="xs:string" name="AdrClass" minOccurs="0"/>
+													<xs:element type="xs:string" name="PackGrp" minOccurs="0"/>
+													<xs:element type="xs:string" name="TunnelCode" minOccurs="0"/>
+													<xs:element type="xs:byte" name="MarinPol" minOccurs="0"/>
+													<xs:element type="xs:byte" name="LQ" minOccurs="0"/>
+													<xs:element type="xs:string" name="PackType" minOccurs="0"/>
+													<xs:element type="xs:string" name="TranspDescrS1" minOccurs="0"/>
+													<xs:element type="xs:string" name="TranspDescrS2" minOccurs="0"/>
+													<xs:element type="xs:string" name="TranspDescrE1" minOccurs="0"/>
+													<xs:element type="xs:string" name="TranspDescrE2" minOccurs="0"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

@@ -1,0 +1,148 @@
+.border-left-primary {
+    border-left: 4px solid #4e73df !important;
+}
+
+.border-left-success {
+    border-left: 4px solid #1cc88a !important;
+}
+
+.border-left-info {
+    border-left: 4px solid #36b9cc !important;
+}
+
+.border-left-warning {
+    border-left: 4px solid #f6c23e !important;
+}
+
+.text-xs {
+    font-size: .7rem;
+}
+
+.text-gray-800 {
+    color: #5a5c69 !important;
+}
+
+.font-weight-bold {
+    font-weight: 700 !important;
+}
+
+.card {
+    box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15) !important;
+}
+
+.card-header {
+    background-color: #f8f9fc;
+    border-bottom: 1px solid #e3e6f0;
+}
+
+canvas {
+    max-height: 300px;
+}
+
+#dataTable tbody tr:hover {
+    background-color: rgba(0, 123, 255, 0.05);
+}
+
+#dataTable td.text-end,
+#dataTable th.text-end {
+    text-align: right !important;
+}
+
+#dataTable th.sortable {
+    cursor: pointer;
+    user-select: none;
+}
+
+#dataTable th.sortable:hover {
+    background-color: rgba(0, 123, 255, 0.1);
+}
+
+#dataTable th.sortable.sort-asc:after {
+    content: " ↑";
+    color: #007bff;
+    font-weight: bold;
+}
+
+#dataTable th.sortable.sort-desc:after {
+    content: " ↓";
+    color: #007bff;
+    font-weight: bold;
+}
+
+#loadDataBtn.btn-warning {
+    background-color: #f6c23e;
+    border-color: #f6c23e;
+}
+
+#loadDataBtn.btn-warning:hover {
+    background-color: #f4b619;
+    border-color: #f4b619;
+}
+
+.modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Yearly comparison specific styling */
+#yearlyComparisonChart {
+    max-height: 400px;
+}
+
+.yearly-totals-card {
+    transition: transform 0.2s ease-in-out;
+}
+
+.yearly-totals-card:hover {
+    transform: translateY(-2px);
+}
+
+#yearlyComparisonConceptFilter {
+    min-width: 200px;
+}
+
+#yearlyComparisonCountryFilter {
+    min-width: 130px;
+}
+
+/* Loading button state for yearly comparison */
+#loadYearlyComparisonBtn.loading {
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+#loadYearlyComparisonBtn.loading i {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+    .card-header h6 {
+        font-size: 0.9rem;
+    }
+    
+    canvas {
+        max-height: 250px;
+    }
+    
+    #yearlyComparisonChart {
+        max-height: 300px;
+    }
+    
+    .card-header .btn-group {
+        flex-wrap: wrap;
+    }
+    
+    #yearlyComparisonConceptFilter {
+        min-width: 150px;
+        margin-top: 5px;
+    }
+    
+    #yearlyComparisonCountryFilter {
+        min-width: 120px;
+        margin-top: 5px;
+    }
+}

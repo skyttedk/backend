@@ -1,0 +1,54 @@
+.vs-sidenav {
+  height: 99%;
+  width: 250px;
+  position: fixed;
+  z-index: 1;
+  top: 40;
+  left: 0;
+  background-color: #f8f9fa;
+  padding-top: 10px;
+  margin-top:-10px;
+
+
+
+}
+
+.vs-sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.vs-sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.vs-main {
+  font-size: 11px;
+  margin-left: 260px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+#vs-search{
+  width: 90%;
+  margin-left:10px;
+
+  margin-bottom:10px;
+  padding:5px;
+  font-size: 14px;
+
+}
+#vs-search-list{
+    width: 245px;
+    padding:5px;
+    color: black !important;
+    font-size: 12px;
+    height: calc(100vh - 180px);
+    background-color: #f8f9fa;
+    overflow-y: auto;
+}
+
+
+
+

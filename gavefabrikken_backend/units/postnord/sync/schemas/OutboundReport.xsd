@@ -1,0 +1,120 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="MessType" fixed="OUTBOUNDREPORT"/>
+				<xs:element type="xs:string" name="PartnerID"/>
+				<xs:element type="xs:date" name="CreationDate"/>
+				<xs:element type="xs:time" name="CreationTime"/>
+				<xs:element name="Orders">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Order" maxOccurs="unbounded" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="OrderHeader">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="OrderNo"/>
+													<xs:element type="xs:string" name="OrderType"/>
+													<xs:element type="xs:date" name="ShipmentDate"/>
+													<xs:element type="xs:time" name="ShipmentTime"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="Shipments">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="Shipment" maxOccurs="unbounded" minOccurs="1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string" name="DeliveryMethod"/>
+																<xs:element type="xs:string" name="ShipmentNo"/>
+																<xs:element name="Packages">
+																	<xs:complexType>
+																		<xs:sequence>
+																			<xs:element type="xs:string" name="PackageNo" maxOccurs="unbounded" minOccurs="1"/>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="OrderLines">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="OrderLine" maxOccurs="unbounded" minOccurs="1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string" name="RowType"/>
+																<xs:element type="xs:string" name="LineID"/>
+																<xs:element type="xs:string" name="ItemNo"/>
+																<xs:element type="xs:decimal" name="DeliverQty"/>
+																<xs:element type="xs:decimal" name="RemainQty"/>
+																<xs:element type="xs:string" name="Unit" minOccurs="0"/>
+																<xs:element name="Batches" maxOccurs="unbounded" minOccurs="0">
+																	<xs:complexType mixed="true">
+																		<xs:sequence>
+																			<xs:element name="Batch" maxOccurs="unbounded" minOccurs="1">
+																				<xs:complexType>
+																					<xs:sequence>
+																						<xs:element type="xs:string" name="BatchNo"/>
+																						<xs:element name="ExpDate" nillable="true" minOccurs="0">
+																							<xs:simpleType>
+																								<xs:list itemType="xs:date"/>
+																							</xs:simpleType>
+																						</xs:element>
+																						<xs:element type="xs:decimal" name="BatchQty"/>
+																						<xs:element type="xs:string" name="Warehouse" minOccurs="0"/>
+																						<xs:element name="SSCCs" minOccurs="0">
+																							<xs:complexType mixed="true">
+																								<xs:sequence>
+																									<xs:element name="SSCC" maxOccurs="unbounded" minOccurs="1">
+																										<xs:complexType>
+																											<xs:sequence>
+																												<xs:element type="xs:string" name="SSCCNo"/>
+																												<xs:element type="xs:decimal" name="SSCCQty"/>
+																											</xs:sequence>
+																										</xs:complexType>
+																									</xs:element>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																						<xs:element name="Serials" minOccurs="0">
+																							<xs:complexType mixed="true">
+																								<xs:sequence>
+																									<xs:element name="Serial" maxOccurs="unbounded" minOccurs="1">
+																										<xs:complexType>
+																											<xs:sequence>
+																												<xs:element type="xs:string" name="SerialNo"/>
+																											</xs:sequence>
+																										</xs:complexType>
+																									</xs:element>
+																								</xs:sequence>
+																							</xs:complexType>
+																						</xs:element>
+																					</xs:sequence>
+																				</xs:complexType>
+																			</xs:element>
+																		</xs:sequence>
+																	</xs:complexType>
+																</xs:element>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

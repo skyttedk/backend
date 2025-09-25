@@ -1,0 +1,143 @@
+<head>
+<style>
+    body { font-size: 80.00%; }
+    label, input { display:block; }
+    input.text { margin-bottom:12px; width:95%; padding: .4em; }
+    fieldset { padding:0; border:0; margin-top:25px; }
+    h1 { font-size: 1.2em; margin: .6em 0; }
+    div#users-contain { width: 350px; margin: 20px 0; }
+    div#users-contain table { margin: 1em 0; border-collapse: collapse; width: 100%; }
+    div#users-contain table td, div#users-contain table th { border: 1px solid #eee; padding: .6em 10px; text-align: left; }
+    .ui-dialog .ui-state-error { padding: .3em; }
+    .validateTips { border: 1px solid transparent; padding: 0.3em; }
+  </style>
+
+  <script>
+      var dialog, form;
+  $(function() {
+
+
+    function addUser() {
+        createShop();
+
+    }
+
+    dialog = $( "#dialog-form" ).dialog({
+      autoOpen: false,
+      height: 600,
+      width: 350,
+      modal: true,
+      buttons: {
+        "Opret": addUser,
+        "Annuller": function() {
+          dialog.dialog( "close" );
+        }
+      },
+      close: function() {
+
+      }
+    });
+
+    form = dialog.find( "form" ).on( "submit", function( event ) {
+      event.preventDefault();
+      addUser();
+    });
+
+
+  });
+  </script>
+
+</head>
+
+
+<h5>Valgshops</h5>
+
+<table>
+    <tr>
+       <th>Navn</th>
+       <th>CVR</th>
+       <th>Website</th>
+       <th>Kontakt</th>
+       <th>Telefon</th>
+       <th>Email</th>
+    </tr>
+
+    {{#each shops}}
+        {{#each company}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{cvr}}</td>
+                <th>{{Website}}</th>
+                <td>{{contact_name}}</td>
+                <td>{{contact_phone}}</td>
+                <td>{{contact_email}}</td>
+            </tr>
+
+        {{/each}}
+    {{/each}}
+</table>
+
+<br><br>
+
+
+
+<div id="dialog-form" title="Opret valgshop">
+  <div id="shop">
+    <fieldset>
+      <label for="name">Navn</label>
+      <input type="text" name="name" class="text ui-widget-content ui-corner-all">
+
+
+      <label for="cvr">CVR</label>
+      <input type="text" name="cvr" value="" class="text ui-widget-content ui-corner-all">
+
+      <label for="website">Website</label>
+      <input type="text" name="website" value="" class="text ui-widget-content ui-corner-all">
+
+      <label for="contact_name">Kontakt navn</label>
+      <input type="text" name="contact_name" value="" class="text ui-widget-content ui-corner-all">
+
+      <label for="contact_phone">Kontakt telefon</label>
+      <input type="text" name="contact_phone" value="" class="text ui-widget-content ui-corner-all">
+
+      <label for="contact_email">Kontakt Email</label>
+      <input type="text" name="contact_email" value="" class="text ui-widget-content ui-corner-all">
+
+
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+
+    </fieldset>
+  </div>
+</div>
+
+
+
+
+
+<div >
+        <!--
+     <table>
+    <tr><td>Navn</td><td><input type="text" name="name"/></td></tr>
+    <tr><td>Telefon</td><td><input type="text" name="phone"/></td></tr>
+    <tr><td>Website</td><td><input type="text" name="website"/></td></tr>
+    <tr><td>cvr</td><td><input type="text" name="cvr"/></td></tr>
+    <tr><td>Kontakt navn</td><td><input type="text" name="contact_name"/></td></tr>
+    <tr><td>Kontakt telefon</td><td><input type="text" name="contact_phone"/></td></tr>
+    <tr><td>Kontakt Email</td><td><input type="text" name="contact_email"/></td></tr>
+    <table>
+             -->
+    <input id="#create_company" type="button"  onclick ="dialog.dialog('open');" value="Opret" name="Opret"/>
+</div>
+
+<script>
+
+function createShop() {
+  submitForm("shop","shop/createValgShop",reloadPage);
+}
+function reloadPage() {
+    $(':input').val('');
+    dialog.dialog("close");
+    companyShop.show();
+}
+
+</script>

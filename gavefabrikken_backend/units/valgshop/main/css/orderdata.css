@@ -1,0 +1,802 @@
+/* ========================================
+   ORDERDATA FORM - COMPLETE CSS
+   ======================================== */
+/* Tilføj denne CSS styling til din CSS fil */
+
+.budget-item {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6 !important;
+    transition: all 0.2s ease;
+}
+
+.budget-item:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd !important;
+}
+
+.budget-item .remove-budget-btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
+.budget-item .remove-budget-btn:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+#budgets_list {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+#budgets_list:empty:before {
+    content: "Ingen budgetter tilføjet endnu...";
+    color: #6c757d;
+    font-style: italic;
+    display: block;
+    text-align: center;
+    padding: 20px;
+    border: 1px dashed #dee2e6;
+    border-radius: 4px;
+    background-color: #f8f9fa;
+}
+/* Accordion styling for orderdata form */
+
+/* Header styling - changed to a more neutral color */
+.orderdata-accordion .accordion-button {
+    background-color: #6c757d; /* Changed from #0d6efd to a more neutral gray */
+    color: white;
+    font-weight: bold;
+    border: 1px solid #5a6268;
+}
+
+.orderdata-accordion .accordion-button:not(.collapsed) {
+    background-color: #5a6268; /* Darker gray when expanded */
+    color: white;
+    border-bottom: none;
+}
+
+.orderdata-accordion .accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.5);
+}
+
+/* Change color of the dropdown arrow */
+.orderdata-accordion .accordion-button::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.orderdata-accordion .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23ffffff'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+/* Content styling */
+.orderdata-accordion .accordion-body {
+    background-color: #f8f9fa; /* Lighter gray background */
+    border-left: 1px solid #5a6268;
+    border-right: 1px solid #5a6268;
+    border-bottom: 1px solid #5a6268;
+    padding: 20px;
+}
+
+/* Adding more spacing between accordion items */
+.orderdata-accordion .accordion-item {
+    margin-bottom: 10px;
+}
+
+/* Form field styling improvements */
+.orderdata-accordion .form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(108, 117, 125, 0.25);
+}
+
+.orderdata-accordion .form-group {
+    margin-bottom: 1rem;
+}
+
+/* Save and Approve Order buttons styling */
+.save_button {
+    background-color: #28a745 !important; /* Green background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.order_approval {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/* Status indicators */
+.dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.dot.gray { background-color: #adb5bd; }
+.dot.green { background-color: #28a745; }
+.dot.yellow { background-color: #ffc107; }
+.dot.red { background-color: #dc3545; }
+
+/* General button styling */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+/* Disabled budget option styling */
+.disabled-budget-option {
+    opacity: 0.6;
+    position: relative;
+}
+
+.disabled-budget-option input {
+    background-color: #f8f9fa !important;
+    cursor: not-allowed !important;
+}
+
+.disabled-budget-option label {
+    color: #6c757d !important;
+    cursor: not-allowed !important;
+}
+
+.disabled-budget-option::after {
+    content: ' (Deaktiveret)';
+    font-size: 11px;
+    color: #6c757d;
+    font-style: italic;
+}
+
+/* Specific styling for checkbox when disabled */
+.disabled-budget-option input[type="checkbox"] {
+    opacity: 0.5;
+}
+
+/* Hover effect to indicate field is disabled */
+.disabled-budget-option:hover::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(108, 117, 125, 0.1);
+    pointer-events: none;
+    border-radius: 4px;
+}
+
+/* ========================================
+   CVR SEARCH FUNCTIONALITY - COMPLETE CSS
+   ======================================== */
+
+/* Toggle button styling */
+#toggle-company-search {
+    font-size: 14px;
+    padding: 5px 15px;
+}
+
+.btn-outline-info {
+    color: #17a2b8;
+    border-color: #17a2b8;
+    background-color: transparent;
+}
+
+.btn-outline-info:hover {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+/* Search section styling */
+#company-search-section {
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+#company-search-container {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    border: none;
+}
+
+#company-search-container label {
+    font-weight: bold;
+    color: #495057;
+    margin-bottom: 10px;
+}
+
+/* Input group styling */
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+}
+
+.input-group-append {
+    margin-left: -1px;
+    display: flex;
+}
+
+#company-search-input {
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+}
+
+#company-clear-btn {
+    border-left: none;
+    border-right: none;
+    background-color: #6c757d;
+    border-color: #6c757d;
+    min-width: 40px;
+    color: white;
+}
+
+#company-clear-btn:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+#company-search-btn {
+    border-radius: 0 4px 4px 0;
+    min-width: 100px;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+    color: white;
+}
+
+#company-search-btn:hover {
+    background-color: #138496;
+    border-color: #117a8b;
+}
+
+#company-search-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Close button in header */
+#close-company-search {
+    padding: 2px 8px;
+    font-size: 12px;
+    background-color: white;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+#close-company-search:hover {
+    background-color: #f8f9fa;
+}
+
+/* Search results container */
+#search-results {
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+    box-shadow: none;
+}
+
+#search-results-list {
+    padding: 0;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ced4da;
+    background: white;
+    border-radius: 4px;
+}
+
+/* Custom scrollbar styling */
+#search-results-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+#search-results-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+#search-results-list::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+#search-results-list::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Result items styling */
+.search-result-item {
+    display: block;
+    border-bottom: 1px solid #e9ecef;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    position: relative;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.result-main-content {
+    display: flex;
+    align-items: flex-start;
+    padding: 10px;
+    position: relative;
+}
+
+.search-result-item:hover .result-main-content {
+    background-color: #f8f9fa;
+}
+
+.search-result-item.selected .result-main-content {
+    background-color: #e3f2fd;
+    border-left: 3px solid #17a2b8;
+    margin-left: -3px;
+}
+
+/* Type badges */
+.result-type-badge {
+    width: 40px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 3px;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.result-type-badge.cvr {
+    background-color: #007bff;
+    color: white;
+}
+
+.result-type-badge.navision {
+    background-color: #28a745;
+    color: white;
+}
+
+/* Result content */
+.result-content {
+    flex: 1;
+    min-width: 0;
+    padding-right: 10px;
+}
+
+.result-name {
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.result-details {
+    font-size: 12px;
+    color: #6c757d;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.result-details span {
+    white-space: nowrap;
+}
+
+.result-cvr,
+.result-customer-no {
+    font-weight: 500;
+    color: #495057;
+}
+
+.result-salesperson {
+    color: #17a2b8;
+    font-weight: 500;
+}
+
+.result-address {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Toggle details button */
+.toggle-details {
+    margin-left: auto;
+    color: #17a2b8;
+    text-decoration: none;
+    white-space: nowrap;
+    padding: 2px 8px;
+    font-size: 13px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.toggle-details:hover {
+    color: #138496;
+    text-decoration: none;
+}
+
+/* Expanded details section */
+.result-expanded-details {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-top: 1px solid #e9ecef;
+    display: none;
+}
+
+.result-expanded-details table {
+    margin-bottom: 10px;
+    background: white;
+    font-size: 13px;
+    width: 100%;
+}
+
+.result-expanded-details table td {
+    padding: 5px 10px;
+    vertical-align: top;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.result-expanded-details table tr:last-child td {
+    border-bottom: none;
+}
+
+.result-expanded-details table td:first-child {
+    background-color: #f8f9fa;
+    font-weight: 500;
+    width: 40%;
+}
+
+.result-expanded-details h6 {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color: #495057;
+    font-size: 14px;
+}
+
+/* Production units styling */
+.production-units {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 5px;
+    border: 1px solid #e9ecef;
+}
+
+.unit-item {
+    padding: 8px;
+    border-bottom: 1px solid #e9ecef;
+    font-size: 13px;
+}
+
+.unit-item:last-child {
+    border-bottom: none;
+}
+
+/* Badge styling */
+.badge {
+    display: inline-block;
+    padding: 0.25em 0.4em;
+    font-size: 75%;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+
+.badge-primary {
+    color: #fff;
+    background-color: #007bff;
+}
+
+/* Other elements */
+#apply-company-data {
+    width: 100%;
+    margin-top: 10px;
+}
+
+#search-results-info {
+    font-style: italic;
+    margin-top: 5px;
+    color: #6c757d;
+    font-size: 13px;
+}
+
+/* Alert styling */
+.alert {
+    border-radius: 4px;
+    padding: 12px 20px;
+    margin-top: 10px;
+    animation: slideIn 0.3s ease-out;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-info {
+    background-color: #d1ecf1;
+    border-color: #bee5eb;
+    color: #0c5460;
+}
+
+/* Animations */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Utility classes */
+.d-block {
+    display: block !important;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.float-right {
+    float: right !important;
+}
+
+.mt-2 {
+    margin-top: 0.5rem !important;
+}
+
+.mt-3 {
+    margin-top: 1rem !important;
+}
+
+.mb-2 {
+    margin-bottom: 0.5rem !important;
+}
+
+.small {
+    font-size: 80%;
+    font-weight: 400;
+}
+
+.text-danger {
+    color: #dc3545 !important;
+}
+
+/* Table styling if Bootstrap is not loaded */
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+    border-collapse: collapse;
+}
+
+.table-sm td {
+    padding: 0.3rem;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+/* Button base styling if Bootstrap is not loaded */
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 0.25rem;
+    transition: all 0.15s ease-in-out;
+    cursor: pointer;
+}
+
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-radius: 0.2rem;
+}
+
+.btn-link {
+    font-weight: 400;
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #17a2b8;
+    border-color: #17a2b8;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #6c757d;
+    border-color: #6c757d;
+}
+
+.btn-block {
+    display: block;
+    width: 100%;
+}
+
+/* Form control base styling if Bootstrap is not loaded */
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* Document Manager Styles */
+.document-manager {
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+}
+
+.document-manager .upload-section {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+}
+
+.document-manager .documents-list {
+    padding-top: 1rem;
+}
+
+.document-manager .list-group-item {
+    transition: background-color 0.2s;
+}
+
+.document-manager .list-group-item:hover {
+    background-color: #f1f3f5;
+}
+
+.doc-file-input {
+    font-size: 0.875rem;
+}
+
+.doc-upload-btn,
+.doc-download-btn,
+.doc-delete-btn {
+    font-size: 0.875rem;
+}
+
+/* Delivery type default visibility */
+/* Ensures flexible delivery is shown by default */
+#fast_delivery_group {
+    display: none;
+}
+
+#flex_delivery_group {
+    display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #company-search-container {
+        padding: 10px;
+    }
+
+    .input-group {
+        flex-direction: column;
+    }
+
+    #company-search-input,
+    #company-clear-btn,
+    #company-search-btn {
+        border-radius: 4px;
+        width: 100%;
+    }
+
+    #company-search-input {
+        border-right: 1px solid #ced4da;
+        margin-bottom: 10px;
+    }
+
+    #company-clear-btn,
+    #company-search-btn {
+        margin-bottom: 5px;
+    }
+
+    .result-type-badge {
+        width: 35px;
+        height: 20px;
+        font-size: 10px;
+    }
+
+    .result-details {
+        flex-direction: column;
+        gap: 2px;
+        font-size: 11px;
+    }
+
+    .result-name {
+        font-size: 13px;
+    }
+
+    .toggle-details {
+        font-size: 12px;
+        padding: 2px 6px;
+    }
+
+    .result-expanded-details {
+        padding: 10px;
+    }
+
+    .result-expanded-details table {
+        font-size: 12px;
+    }
+
+    .result-expanded-details table td {
+        padding: 4px 8px;
+    }
+}

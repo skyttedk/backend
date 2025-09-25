@@ -1,0 +1,16 @@
+           {{#each employees}}
+            <div class="itemTemplateWrapper">
+                {{! This is a handlebars comment and it is totally ignored }}
+                <div>{{name}}</div>
+                <div>{{title}}</div>
+                <div>{{email}}</div>
+                <div>{{phone}}</div>
+                {{#if fulltime}}
+                    <div>På lager</div>
+                {{else}}
+                    <div>Ej på lager</div>
+                {{/if}}
+
+            </div>
+
+			{{/each}}

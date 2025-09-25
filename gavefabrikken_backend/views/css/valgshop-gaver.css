@@ -1,0 +1,296 @@
+#vsg-main{
+     width: 64%;
+    float: left;
+    font-size: 13px;
+
+}
+#vsg-content-data{
+  text-align: center;
+  height: 100%;
+  padding-bottom:20px;
+  display: none;
+}
+
+#vsg-main-menu{
+   height: 70px;
+
+   width: 100%;
+
+
+
+}
+#vsg-content{
+   width: 100%;
+    padding: 0px;
+   margin:0px;
+
+  overflow: scroll;
+}
+#vsg-leftpanel{
+
+   width: 35%;
+   float: right;
+}
+#vsg-present-info{
+   position:absolute;
+   top:0;
+   right:0;
+   height: 300px;
+   width: 100px;
+   background-color: #CC0000;
+}
+#vsg-lasyload{
+    position:relative;
+    bottom:40px;
+    right:20px;
+    float: right;
+
+}
+.vsg table {
+		border:1px solid #C0C0C0;
+		border-collapse:collapse;
+		padding:5px;
+        font-size: 0.8em;
+	}
+.vsg th {
+		border:1px solid #C0C0C0;
+		padding:5px;
+		background:#F0F0F0;
+	}
+.vsg td {
+		border:1px solid #C0C0C0;
+		padding:5px;
+    }
+.vsg tr:nth-child(even) {background-color: white;}
+
+#vsg-leftpanel-menu{
+    padding-left:5px;
+    padding-top: 5px;
+
+
+   background-color: #DDDDDD;
+
+    margin-top: -20;
+
+}
+#vsg-inShopPresent-tab{
+    font-size: 12px;
+}
+#vsg-leftpanel-content{
+
+    overflow-y: auto;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8px;
+    margin: 4px 2px;
+    cursor: pointer;
+     -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+.mouse{
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: black; /*  */
+    color: white;
+}
+.button1 {background-color: #4CAF50;} /* Green */
+.button2 {background-color: #008CBA;} /* Blue */
+.button3 {background-color: #f44336;} /* Red */
+.button4 {background-color: #e7e7e7; color: black;} /* Gray */
+.button5 {background-color: #555555;} /* Black */
+
+
+#vsgEditBox{
+        position:absolute;
+        float:left;
+        overflow: hidden;
+        background: white;
+        width: 97%;
+        height: 100%;
+        margin-top:-60px;
+        display:none;
+}
+#vsgEditBoxHead{
+
+        height: 50px;
+        border: 1px solid #a29415;
+}
+#vsgEditBoxHead h3{
+    float: left;
+
+}
+.copyshop-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+}
+.copyshop-modal-content {
+    background-color: #f0f0f0;
+    margin: 15% auto;
+    padding: 20px;
+    border: 2px solid #4a4a4a;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.copyshop-close {
+    color: #4a4a4a;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.copyshop-close:hover {
+    color: #000;
+}
+.copyshop-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.copyshop-button:hover {
+    background-color: #45a049;
+}
+.present-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+.present-table th,
+.present-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.present-table th {
+    background-color: #f4f4f4;
+}
+
+.present-table tr:hover {
+    background-color: #f5f5f5;
+}
+
+.pc-custom-radio {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.pc-custom-radio input[type="radio"] {
+    display: none;
+}
+
+.pc-custom-radio label {
+    position: relative;
+    padding-left: 35px;
+    cursor: pointer;
+    font-size: 16px;
+    user-select: none;
+}
+
+.pc-custom-radio label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.pc-custom-radio input[type="radio"]:checked + label:before {
+    border-color: #2196F3;
+}
+
+.pc-custom-radio input[type="radio"]:checked + label:after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: 6px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #2196F3;
+    transition: all 0.2s ease;
+}
+.present-table tbody tr {
+    cursor: move;
+    transition: background-color 0.2s ease;
+}
+
+.present-table tbody tr:hover {
+    background-color: #f5f5f5;
+}
+
+.present-table tbody tr.ui-sortable-helper {
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.present-table tbody tr td:first-child {
+    cursor: move;
+}
+
+/* Keep images and buttons clickable */
+.present-table .mouse {
+    cursor: pointer;
+}
+.pc-action-icon {
+    cursor: pointer !important;
+}
+.custom_img_radio_v2_img{
+    width: 60%;
+}
+
+/* Center the exclamation icon like other icons - using highly specific selectors to override inline styles */
+table.gavevalg button.complaintBtn[data-id] {
+    border: none !important;
+    background: none !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+    margin-left: 5px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    vertical-align: middle !important;
+    width: 23px !important;
+    height: 23px !important;
+}
+
+table.gavevalg button.complaintBtn[data-id] i.bi-exclamation-lg {
+    font-size: 16px !important;
+    vertical-align: middle !important;
+    line-height: 1 !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: auto !important;
+    height: auto !important;
+}
