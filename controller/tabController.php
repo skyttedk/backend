@@ -102,8 +102,13 @@ class tabController Extends baseController {
           $returnHtml.='<input type="radio" id="radio69" name="radio" ><label for="radio69" onclick="bizType.trail(\'showMyPage\')">Min side</label>';
           
           // Only show Reklamationer menu for user ID 340
-          
+
               $returnHtml.='<input type="radio" id="radio11" name="radio" ><label for="radio11" onclick="bizType.trail(\'presentComplaint\')">Reklamationer</label>';
+
+          // Only show Brugerliste menu for user ID 340
+          if($data["systemuser_id"] == 340) {
+              $returnHtml.='<input type="radio" id="radio12" name="radio" ><label for="radio12" onclick="bizType.trail(\'user_list\')">Brugerliste</label>';
+          }
           
           if($searchbarVisible){
             echo $returnHtml.='<script>mainTabControlResponse("show")</script>';
