@@ -5,296 +5,193 @@ use GFBiz\units\UnitController;
 
 class Controller extends UnitController
 {
-    // Upload directory for images
-    private $uploadDir;
-
-    // Base URL for accessing uploaded images (for display)
-    private $imageBaseUrl = 'https://presentation.gavefabrikken.dk/presentation/workers/';
-
     public function __construct()
     {
         parent::__construct(__FILE__);
-
-        $this->uploadDir =  $_SERVER["DOCUMENT_ROOT"].'/presentation/workers/';
-
-        // Create upload directory if it doesn't exist
-        if (!file_exists($this->uploadDir)) {
-            mkdir($this->uploadDir, 0755, true);
-        }
     }
 
     /**
-     * Get all sale profiles
+     * Get all system users
      */
     public function getAll()
     {
-        $lang = isset($_POST["lang"]) ? intval($_POST["lang"]) : 1;
-        $sql = "SELECT * FROM presentation_sale_profile WHERE lang = " . $lang;
-        $profiles = \Dbsqli::getSql2($sql);
-        echo json_encode(array("status" => 1, "data" => $profiles));
+        $sql = "SELECT id, name, username, userlevel, active, deleted, last_login FROM system_user WHERE deleted = 0";
+        $users = \Dbsqli::getSql2($sql);
+        echo json_encode(array("status" => 1, "data" => $users));
     }
 
     /**
-     * Get a single sale profile by ID
+     * Get a single system user by ID
      */
     public function getOne()
     {
         $id = isset($_POST["id"]) ? intval($_POST["id"]) : 0;
         if ($id <= 0) {
-            echo json_encode(array("status" => 0, "message" => "Invalid profile ID"));
+            echo json_encode(array("status" => 0, "message" => "Invalid user ID"));
             return;
         }
 
-        $sql = "SELECT * FROM presentation_sale_profile WHERE id = " . $id;
-        $profile = \Dbsqli::getSql2($sql);
+        $sql = "SELECT id, name, username, userlevel, active, deleted, last_login FROM system_user WHERE id = " . $id;
+        $user = \Dbsqli::getSql2($sql);
 
-        if (count($profile) > 0) {
-            echo json_encode(array("status" => 1, "data" => $profile[0]));
+        if (count($user) > 0) {
+            echo json_encode(array("status" => 1, "data" => $user[0]));
         } else {
-            echo json_encode(array("status" => 0, "message" => "Profile not found"));
+            echo json_encode(array("status" => 0, "message" => "User not found"));
         }
     }
 
     /**
-     * Create a new sale profile
+     * Create a new system user
      */
     public function create()
     {
         // Validate input data
         $name = isset($_POST["name"]) ? trim($_POST["name"]) : "";
-        $title = isset($_POST["title"]) ? trim($_POST["title"]) : "";
-        $tel = isset($_POST["tel"]) ? trim($_POST["tel"]) : "";
-        $mail = isset($_POST["mail"]) ? trim($_POST["mail"]) : "";
-        $lang = isset($_POST["lang"]) ? intval($_POST["lang"]) : 1;
+        $username = isset($_POST["username"]) ? trim($_POST["username"]) : "";
+        $password = isset($_POST["password"]) ? trim($_POST["password"]) : "";
+        $userlevel = isset($_POST["userlevel"]) ? intval($_POST["userlevel"]) : 1;
+        $active = isset($_POST["active"]) ? intval($_POST["active"]) : 1;
 
-        if (empty($name) || empty($mail)) {
-            echo json_encode(array("status" => 0, "message" => "Name and email are required"));
+        if (empty($username)) {
+            echo json_encode(array("status" => 0, "message" => "Username is required"));
             return;
         }
 
-        // Handle image upload
-        $imgFileName = "";
-        if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPLOAD_ERR_OK) {
-            $result = $this->handleImageUpload($_FILES['profile_image'], $name);
-            if ($result === false) {
-                echo json_encode(array("status" => 0, "message" => "Failed to upload image"));
-                return;
+        if (empty($password)) {
+            echo json_encode(array("status" => 0, "message" => "Password is required"));
+            return;
+        }
+
+        // Check if username already exists
+        $checkSql = "SELECT id FROM system_user WHERE username = '" . $this->escapeString($username) . "' AND deleted = 0";
+        $existing = \Dbsqli::getSql2($checkSql);
+        if (count($existing) > 0) {
+            echo json_encode(array("status" => 0, "message" => "Username already exists"));
+            return;
+        }
+
+        // Use SystemUser model to create user (handles password hashing)
+        try {
+            $userData = array(
+                'name' => $name,
+                'username' => $username,
+                'password' => $password,
+                'userlevel' => $userlevel,
+                'active' => $active,
+                'deleted' => 0
+            );
+
+            $user = SystemUser::createSystemUser($userData);
+
+            if ($user && $user->id) {
+                echo json_encode(array("status" => 1, "message" => "User created successfully", "id" => $user->id));
+            } else {
+                echo json_encode(array("status" => 0, "message" => "Failed to create user"));
             }
-            $imgFileName = $result; // Just the filename
-
-            // For debugging
-            error_log("Final image filename for DB: " . $imgFileName);
-        }
-
-        // Insert new profile
-        $sql = "INSERT INTO presentation_sale_profile (name, title, tel, mail, img, lang) 
-                VALUES ('" . $this->escapeString($name) . "', 
-                        '" . $this->escapeString($title) . "', 
-                        '" . $this->escapeString($tel) . "', 
-                        '" . $this->escapeString($mail) . "', 
-                        '" . $this->escapeString($imgFileName) . "', 
-                        " . $lang . ")";
-
-        $result = \Dbsqli::setSql2($sql);
-
-        // Try to get last insert ID
-        $id = 0;
-        $checkSql = "SELECT id FROM presentation_sale_profile 
-                   WHERE name='" . $this->escapeString($name) . "' 
-                   AND mail='" . $this->escapeString($mail) . "' 
-                   ORDER BY id DESC LIMIT 1";
-        $idResult = \Dbsqli::getSql2($checkSql);
-        if (!empty($idResult) && isset($idResult[0]['id'])) {
-            $id = $idResult[0]['id'];
-        }
-
-        if ($result) {
-            echo json_encode(array("status" => 1, "message" => "Profile created successfully", "id" => $id));
-        } else {
-            echo json_encode(array("status" => 0, "message" => "Failed to create profile"));
+        } catch (Exception $e) {
+            echo json_encode(array("status" => 0, "message" => "Error creating user: " . $e->getMessage()));
         }
     }
 
     /**
-     * Update an existing sale profile
+     * Update an existing system user
      */
     public function update()
     {
         $id = isset($_POST["id"]) ? intval($_POST["id"]) : 0;
         if ($id <= 0) {
-            echo json_encode(array("status" => 0, "message" => "Invalid profile ID"));
+            echo json_encode(array("status" => 0, "message" => "Invalid user ID"));
             return;
         }
 
-        // Get existing profile to check for image
-        $sql = "SELECT * FROM presentation_sale_profile WHERE id = " . $id;
-        $existingProfile = \Dbsqli::getSql2($sql);
+        // Check if user exists
+        $sql = "SELECT * FROM system_user WHERE id = " . $id . " AND deleted = 0";
+        $existingUser = \Dbsqli::getSql2($sql);
 
-        if (count($existingProfile) === 0) {
-            echo json_encode(array("status" => 0, "message" => "Profile not found"));
+        if (count($existingUser) === 0) {
+            echo json_encode(array("status" => 0, "message" => "User not found"));
             return;
         }
-
-        $existingImgFileName = $existingProfile[0]['img'];
-        $existingName = $existingProfile[0]['name'];
 
         // Validate input data
         $name = isset($_POST["name"]) ? trim($_POST["name"]) : "";
-        $title = isset($_POST["title"]) ? trim($_POST["title"]) : "";
-        $tel = isset($_POST["tel"]) ? trim($_POST["tel"]) : "";
-        $mail = isset($_POST["mail"]) ? trim($_POST["mail"]) : "";
-        $lang = isset($_POST["lang"]) ? intval($_POST["lang"]) : 1;
+        $username = isset($_POST["username"]) ? trim($_POST["username"]) : "";
+        $password = isset($_POST["password"]) ? trim($_POST["password"]) : "";
+        $userlevel = isset($_POST["userlevel"]) ? intval($_POST["userlevel"]) : 1;
+        $active = isset($_POST["active"]) ? intval($_POST["active"]) : 1;
 
-        if (empty($name) || empty($mail)) {
-            echo json_encode(array("status" => 0, "message" => "Name and email are required"));
+        if (empty($username)) {
+            echo json_encode(array("status" => 0, "message" => "Username is required"));
             return;
         }
 
-        // Handle image upload (if provided)
-        $imgFileName = $existingImgFileName;
-        if (isset($_FILES['profile_image']) && $_FILES['profile_image']['error'] === UPLOAD_ERR_OK) {
-            $newImgFileName = $this->handleImageUpload($_FILES['profile_image'], $name);
-            if ($newImgFileName === false) {
-                echo json_encode(array("status" => 0, "message" => "Failed to upload new image"));
-                return;
-            }
-
-            // If we have a new image, delete the old one
-            if (!empty($existingImgFileName)) {
-                $this->deleteImageFile($existingImgFileName);
-            }
-
-            $imgFileName = $newImgFileName;
+        // Check if username already exists for another user
+        $checkSql = "SELECT id FROM system_user WHERE username = '" . $this->escapeString($username) . "' AND id != " . $id . " AND deleted = 0";
+        $existing = \Dbsqli::getSql2($checkSql);
+        if (count($existing) > 0) {
+            echo json_encode(array("status" => 0, "message" => "Username already exists"));
+            return;
         }
 
-        // Update profile
-        $sql = "UPDATE presentation_sale_profile SET 
-                name = '" . $this->escapeString($name) . "', 
-                title = '" . $this->escapeString($title) . "', 
-                tel = '" . $this->escapeString($tel) . "', 
-                mail = '" . $this->escapeString($mail) . "', 
-                img = '" . $this->escapeString($imgFileName) . "', 
-                lang = " . $lang . " 
-                WHERE id = " . $id;
+        // Use SystemUser model to update user
+        try {
+            $userData = array(
+                'id' => $id,
+                'name' => $name,
+                'username' => $username,
+                'userlevel' => $userlevel,
+                'active' => $active
+            );
 
-        $result = \Dbsqli::setSql2($sql);
+            // Only update password if provided
+            if (!empty($password)) {
+                $userData['password'] = $password;
+            }
 
-        if ($result) {
-            echo json_encode(array("status" => 1, "message" => "Profile updated successfully"));
-        } else {
-            echo json_encode(array("status" => 0, "message" => "Failed to update profile"));
+            $user = SystemUser::updateSystemUser($userData);
+
+            if ($user) {
+                echo json_encode(array("status" => 1, "message" => "User updated successfully"));
+            } else {
+                echo json_encode(array("status" => 0, "message" => "Failed to update user"));
+            }
+        } catch (Exception $e) {
+            echo json_encode(array("status" => 0, "message" => "Error updating user: " . $e->getMessage()));
         }
     }
 
     /**
-     * Delete a sale profile
+     * Delete a system user (soft delete)
      */
     public function delete()
     {
         $id = isset($_POST["id"]) ? intval($_POST["id"]) : 0;
         if ($id <= 0) {
-            echo json_encode(array("status" => 0, "message" => "Invalid profile ID"));
+            echo json_encode(array("status" => 0, "message" => "Invalid user ID"));
             return;
         }
 
-        // Get image path before deleting
-        $sql = "SELECT img FROM presentation_sale_profile WHERE id = " . $id;
-        $profile = \Dbsqli::getSql2($sql);
+        // Check if user exists
+        $sql = "SELECT id FROM system_user WHERE id = " . $id . " AND deleted = 0";
+        $user = \Dbsqli::getSql2($sql);
 
-        if (count($profile) > 0 && !empty($profile[0]['img'])) {
-            $imgFileName = $profile[0]['img'];
-            $this->deleteImageFile($imgFileName);
+        if (count($user) === 0) {
+            echo json_encode(array("status" => 0, "message" => "User not found"));
+            return;
         }
 
-        // Delete the profile
-        $sql = "DELETE FROM presentation_sale_profile WHERE id = " . $id;
+        // Soft delete the user
+        $sql = "UPDATE system_user SET deleted = 1 WHERE id = " . $id;
         $result = \Dbsqli::setSql2($sql);
 
         if ($result) {
-            echo json_encode(array("status" => 1, "message" => "Profile deleted successfully"));
+            echo json_encode(array("status" => 1, "message" => "User deleted successfully"));
         } else {
-            echo json_encode(array("status" => 0, "message" => "Failed to delete profile"));
+            echo json_encode(array("status" => 0, "message" => "Failed to delete user"));
         }
     }
 
-    /**
-     * Handle image upload and return a very short filename
-     */
-    private function handleImageUpload($file, $name = '')
-    {
-        // Check file type
-        $allowedTypes = ['image/jpeg', 'image/png', 'image/gif'];
-
-        if (!in_array($file['type'], $allowedTypes)) {
-            return false;
-        }
-
-        // Get file extension
-        $extension = pathinfo($file['name'], PATHINFO_EXTENSION);
-        if (empty($extension)) {
-            $extension = 'jpg';
-        }
-
-        // Generate a very short filename (max 20 chars)
-        // Use initials from name + timestamp
-        $initials = $this->getInitials($name);
-        $fileName = $initials . time() . '.' . $extension;
-
-        // Make sure the filename is not too long
-        if (strlen($fileName) > 20) {
-            $fileName = substr($fileName, 0, 16) . '.' . $extension;
-        }
-
-        // For debugging
-        error_log("Generated filename: " . $fileName);
-
-        $targetPath = $this->uploadDir . $fileName;
-
-        // Move uploaded file
-        if (move_uploaded_file($file['tmp_name'], $targetPath)) {
-            return $fileName; // Just the short filename
-        }
-
-        return false;
-    }
-
-    /**
-     * Extract initials from a name
-     */
-    private function getInitials($name)
-    {
-        $words = preg_split('/\s+/', $name);
-        $initials = '';
-
-        foreach ($words as $word) {
-            if (!empty($word[0])) {
-                $initials .= strtoupper($word[0]);
-            }
-        }
-
-        // Limit to 3 characters
-        return substr($initials, 0, 3);
-    }
-
-    /**
-     * Delete an image file by its filename
-     */
-    private function deleteImageFile($imgFileName)
-    {
-        if (empty($imgFileName)) {
-            return false;
-        }
-
-        $filePath = $this->uploadDir . $imgFileName;
-
-        // Check if file exists and delete it
-        if (file_exists($filePath)) {
-            @unlink($filePath);
-            return true;
-        }
-
-        return false;
-    }
 
     /**
      * Escape string for SQL query
