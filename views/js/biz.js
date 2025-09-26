@@ -73,6 +73,15 @@ var bizType = {
             };
             $("#PresentComplaintApp").height($(window).height()-80)
         }
+        if(action == "user_list"){
+            $("#frontMenu").hide();
+            var htmlContent='<iframe id="UserListApp" width="100%" height="700" src="/gavefabrikken_backend/index.php?rt=unit/apps/user_list&token=asdf43sdha4f34o&systemuser_id='+_sysId+'&ram='+Math.floor(Math.random() * 10000)+'"></iframe>';
+            $("#content").html(htmlContent);
+            window.onresize = function(event) {
+                $("#UserListApp").height($(window).height()-80)
+            };
+            $("#UserListApp").height($(window).height()-80)
+        }
 
 
         $("#trailContainer").html(html)

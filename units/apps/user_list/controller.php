@@ -1,6 +1,6 @@
 <?php
 
-namespace GFUnit\apps\sale_profile;
+namespace GFUnit\apps\user_list;
 use GFBiz\units\UnitController;
 
 class Controller extends UnitController
