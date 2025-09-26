@@ -15,7 +15,7 @@ class Controller extends UnitController
      */
     public function getAll()
     {
-        $sql = "SELECT id, name, username, userlevel, active, deleted, last_login FROM system_user WHERE deleted = 0";
+        $sql = "SELECT id, name, username, userlevel, active, deleted, last_login, salespersoncode FROM system_user WHERE deleted = 0";
         $users = \Dbsqli::getSql2($sql);
         echo json_encode(array("status" => 1, "data" => $users));
     }
@@ -31,7 +31,7 @@ class Controller extends UnitController
             return;
         }
 
-        $sql = "SELECT id, name, username, userlevel, active, deleted, last_login FROM system_user WHERE id = " . $id;
+        $sql = "SELECT id, name, username, userlevel, active, deleted, last_login, salespersoncode FROM system_user WHERE id = " . $id;
         $user = \Dbsqli::getSql2($sql);
 
         if (count($user) > 0) {
@@ -52,6 +52,7 @@ class Controller extends UnitController
         $password = isset($_POST["password"]) ? trim($_POST["password"]) : "";
         $userlevel = isset($_POST["userlevel"]) ? intval($_POST["userlevel"]) : 1;
         $active = isset($_POST["active"]) ? intval($_POST["active"]) : 1;
+        $salespersoncode = isset($_POST["salespersoncode"]) ? trim($_POST["salespersoncode"]) : "";
 
         if (empty($username)) {
             echo json_encode(array("status" => 0, "message" => "Username is required"));
@@ -79,7 +80,8 @@ class Controller extends UnitController
                 'password' => $password,
                 'userlevel' => $userlevel,
                 'active' => $active,
-                'deleted' => 0
+                'deleted' => 0,
+                'salespersoncode' => $salespersoncode
             );
 
             $user = SystemUser::createSystemUser($userData);
@@ -120,6 +122,7 @@ class Controller extends UnitController
         $password = isset($_POST["password"]) ? trim($_POST["password"]) : "";
         $userlevel = isset($_POST["userlevel"]) ? intval($_POST["userlevel"]) : 1;
         $active = isset($_POST["active"]) ? intval($_POST["active"]) : 1;
+        $salespersoncode = isset($_POST["salespersoncode"]) ? trim($_POST["salespersoncode"]) : "";
 
         if (empty($username)) {
             echo json_encode(array("status" => 0, "message" => "Username is required"));
@@ -141,7 +144,8 @@ class Controller extends UnitController
                 'name' => $name,
                 'username' => $username,
                 'userlevel' => $userlevel,
-                'active' => $active
+                'active' => $active,
+                'salespersoncode' => $salespersoncode
             );
 
             // Only update password if provided
