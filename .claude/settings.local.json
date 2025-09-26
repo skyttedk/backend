@@ -6,7 +6,9 @@
       "Bash(php:*)",
       "Bash(mkdir:*)",
       "Bash(cp:*)",
-      "Read(//f/Projekter/**)"
+      "Read(//f/Projekter/**)",
+      "Bash(cat:*)",
+      "Bash(git commit:*)"
     ],
     "deny": [],
     "ask": []
