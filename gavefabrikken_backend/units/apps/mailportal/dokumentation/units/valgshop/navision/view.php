@@ -1,0 +1,1 @@
+No view in this controller!

@@ -1,0 +1,33 @@
+.cardshop #companylist-search{
+   width: 97%;
+   margin: -15px 3px 0px 3px;
+   padding: 5px;
+}
+.cardshop#companylist{
+   color:  black !important;
+   font-size: 12px;
+   height: calc(100vh - 86px);
+   overflow-y: scroll;
+ 
+}
+.companylist-element{
+   margin-top:2px;
+   border: 1px #b2b7c0 solid;
+   border-top: 2px #9ea2aa solid;
+   padding-left: 5px;
+ background-color: #dfdede !important;
+}
+.companylist-element:hover{
+   background-color: #514D4D !important;
+   color:white;
+   cursor: pointer;
+
+}
+.companylist-child{
+   background-color: #fcfcfc !important;
+ padding-left: 30px;
+}
+.companylist-selected{
+   background-color: #514D4D !important;
+   color:white;
+}

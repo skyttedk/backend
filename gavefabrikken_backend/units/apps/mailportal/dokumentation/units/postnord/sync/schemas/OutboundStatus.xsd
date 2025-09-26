@@ -1,0 +1,32 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="MessType" fixed="OUTBOUNDSTATUS"/>
+				<xs:element type="xs:string" name="PartnerID"/>
+				<xs:element type="xs:date" name="CreationDate"/>
+				<xs:element type="xs:time" name="CreationTime"/>
+				<xs:element name="Orders">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Order" maxOccurs="unbounded" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="OrderHeader">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element type="xs:string" name="OrderNo"/>
+													<xs:element type="xs:string" name="OrderStatus"/>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

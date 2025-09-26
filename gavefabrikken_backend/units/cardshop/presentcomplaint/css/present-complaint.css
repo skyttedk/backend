@@ -1,0 +1,235 @@
+/* Present Complaint Module Styles */
+
+.present-complaint-header {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.present-complaint-content {
+    background: white;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    min-height: 400px;
+}
+
+.search-controls input[type="text"] {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.search-controls input[type="text"]:focus {
+    border-color: #007bff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.filter-controls .view-filter {
+    border: 1px solid #6c757d;
+    color: #6c757d;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+.filter-controls .view-filter.active {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.filter-controls .view-filter:hover:not(.active) {
+    background-color: #f8f9fa;
+    border-color: #495057;
+}
+
+.shop-group {
+    margin: 20px 0 10px 0;
+}
+
+.shop-group:first-child {
+    margin-top: 10px;
+}
+
+.complaint-item {
+    transition: all 0.2s ease-in-out;
+    border-left: 3px solid #e0e0e0;
+}
+
+.complaint-item:hover {
+    transform: translateX(2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-left-color: #007bff;
+}
+
+.complaint-item .edit-complaint-btn {
+    transition: all 0.2s ease;
+    opacity: 0.7;
+}
+
+.complaint-item:hover .edit-complaint-btn {
+    opacity: 1;
+}
+
+.edit-complaint-btn:hover {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+/* Status indicator styling */
+#status-indicator {
+    padding: 5px 10px;
+    background: #e9ecef;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #495057;
+    border-left: 3px solid #007bff;
+}
+
+/* Loading indicator */
+#loading-indicator {
+    padding: 40px;
+    text-align: center;
+}
+
+#loading-indicator .fa-spinner {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+/* Modal styling for complaint details */
+.complaint-detail-modal .row {
+    margin-bottom: 10px;
+}
+
+.complaint-detail-modal h5 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .search-controls > div {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    .search-controls input[type="text"] {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+    
+    .filter-controls > div {
+        flex-direction: column;
+        gap: 5px;
+    }
+    
+    .filter-controls .view-filter {
+        width: 100%;
+    }
+    
+    .complaint-item {
+        margin: 8px 0;
+        padding: 10px;
+    }
+    
+    .complaint-item > div > div {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Button group styling */
+.btn-group-sm .btn {
+    font-size: 12px;
+    padding: 4px 8px;
+}
+
+/* Custom scrollbar for complaints list */
+#complaints-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+#complaints-list::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+#complaints-list::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+#complaints-list::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* Animation for smooth transitions */
+.complaint-item {
+    animation: fadeInUp 0.3s ease-out;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Print styles */
+@media print {
+    .search-controls,
+    .filter-controls,
+    .edit-complaint-btn {
+        display: none;
+    }
+    
+    .complaint-item {
+        break-inside: avoid;
+        border: 1px solid #ccc;
+        margin-bottom: 10px;
+    }
+    
+    .shop-group {
+        break-after: avoid;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .complaint-item {
+        border: 2px solid #000;
+    }
+    
+    .complaint-item:hover {
+        background-color: #ffff00;
+        color: #000;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .complaint-item,
+    .edit-complaint-btn,
+    .view-filter {
+        transition: none;
+    }
+    
+    .complaint-item {
+        animation: none;
+    }
+    
+    .complaint-item:hover {
+        transform: none;
+    }
+}

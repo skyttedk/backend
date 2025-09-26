@@ -1,0 +1,49 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" attributeFormDefault="unqualified" elementFormDefault="qualified">
+	<xs:element name="Message">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element type="xs:string" name="MessType" fixed="STOCKBALANCEREPORT"/>
+				<xs:element type="xs:string" name="PartnerID"/>
+				<xs:element type="xs:date" name="CreationDate"/>
+				<xs:element type="xs:time" name="CreationTime"/>
+				<xs:element name="Items">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Item" maxOccurs="unbounded" minOccurs="1">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element type="xs:string" name="ItemNo"/>
+										<xs:element type="xs:string" name="Warehouse" minOccurs="0"/>
+										<xs:element type="xs:decimal" name="ItemQty"/>
+										<xs:element type="xs:decimal" name="ReservedQty"/>
+										<xs:element type="xs:decimal" name="BlockedQty"/>
+										<xs:element name="Batches" minOccurs="0">
+											<xs:complexType mixed="true">
+												<xs:sequence>
+													<xs:element name="Batch" maxOccurs="unbounded" minOccurs="1">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element type="xs:string" name="BatchNo"/>
+																<xs:element name="ExpDate" nillable="true" minOccurs="0">
+																	<xs:simpleType>
+																		<xs:list itemType="xs:date"/>
+																	</xs:simpleType>
+																</xs:element>
+																<xs:element type="xs:decimal" name="BatchQty"/>
+																<xs:element type="xs:string" name="Status"/>
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

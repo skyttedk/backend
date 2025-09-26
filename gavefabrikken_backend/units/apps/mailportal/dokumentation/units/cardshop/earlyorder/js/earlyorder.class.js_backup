@@ -1,0 +1,326 @@
+
+import Base from '../../main/js/base.js';
+import tpEarlyorder from '../tp/tap.earlyorder.tp.js';
+import tpCompanyForm from '../../companyform/tp/companyForm.tp.js';
+import companyform from '../../companyform/js/companyForm.class.js';
+import tpOrderform from '../../orderform/tp/orderform.tp.js';
+
+
+export default class Earlyorder extends Base {
+    constructor(companyID) {
+        super();
+        this.companyID = companyID;
+        this.earlyorderData = {};
+        this.earlyPresentData = {};
+        this.childData = {};
+        this.activeCompanyorderList = [];
+        this.run();
+        $(".tab-earlyorders").html("<div>SYSTEMT ARBEJDER</div>");
+    }
+    async run(){
+        this.setTabAction()
+        await this.Data();
+        this.BuildForm();
+
+    }
+    SetEvents(){
+        alert("even")
+        let self = this;
+        $(".updateEarlyordersAdress").unbind("click").click(
+
+            async function(){
+               let result = await self.CreateUpdate(
+                    $(this).parent().parent().attr("id"),
+                    $(this).parent().parent().attr("companyorderid")
+                )
+                if(result.status == 1){
+                    $(this).removeClass("btn-primary ").addClass("btn-success").html("Er opdateret")
+                }
+
+            }
+        )
+        $(".removeEarlyorder").unbind("click").click(
+
+            function(){
+                self.Remove(
+                    $(this).parent().parent().attr("id"),
+                    $(this).parent().parent().attr("companyorderid")
+                );
+                new Earlyorder(self.companyID);
+            }
+        )
+        $("#sendEarlyorder-btn").unbind("click").click(
+
+            function(){
+                console.log(self.activeCompanyorderList)
+            }
+        )
+
+
+
+
+        $(".tab-earlyorders").show();
+    }
+
+    setTabAction(){
+        $("#cardshop-tabs-action").html('<button id="newEarlyorder-btn" type="button" class="btn btn-outline-secondary">Vis sendte (ikke aktiv)</button> <button id="newEarlyorder-btn" type="button" class="btn btn-outline-primary">Opret ny earlyorder</button> <button id="sendEarlyorder-btn" type="button" class="btn btn-outline-danger">SEND ALLE EARLYORDER</button> ');
+        $("#cardshop-tabs-action").show();
+    }
+
+    async Data() {
+        return new Promise(async resolve => {
+            this.earlyorderData = await super.post("cardshop/earlyorder/company/"+this.companyID);
+            this.earlyPresentData = await super.post("cardshop/orderform/getEarlyPresent");
+            this.childData = await super.post("cardshop/companylist/childs/"+this.companyID);
+            resolve();
+        });
+    }
+
+    async BuildForm(){
+        let self = this;
+        $(".tab-earlyorders").html("");
+
+       for (let i in this.earlyorderData.shipmentlist){
+                let groupId = await this.AdditionalDeleveryAdressEarlyorders(this.earlyorderData.shipmentlist[i]);
+                //await this.insetDataIntoForm(this.earlyorderData.shipmentlist[i],groupId)
+            if(parseInt(this.earlyorderData.shipmentlist[i].shipment_state) > 0) {
+                return;
+            }
+            this.activeCompanyorderList  = [...this.activeCompanyorderList ,data.companyorder_id];
+            await this.insetOrderDataIntoForm(this.earlyorderData.shipmentlist[i],groupId)
+       };
+       window.setTimeout( () => this.SetEvents(), 500);
+
+    }
+
+
+async insetOrderDataIntoForm(data,groupId) {
+    let self = this;
+    console.log(data)
+    // return if shipment_state bigger than 0 has been shipt
+    return new Promise(async resolve => {
+      $('.row.earlyOrder.'+groupId).each(async function(i, obj) {
+            if(i==0){
+                if(data.itemno != ""){
+                    $(obj).find(".earlyOrderPresentAmount."+groupId).val(data.quantity)
+                    let exist = await self.earlyPresentExist(data.itemno);
+                    if(exist){
+                        $(obj).find("select").val(data.itemno)
+                    } else {
+                        $(obj).find("select").hide();
+                        $(obj).find(".CustomItemnrSwitch").attr('checked', true)
+                        $(obj).find(".earlyOrderCustomItemnr").show().val(data.itemno);
+                    }
+                }
+            }
+            if(i==1){
+                if(data.itemno2 != ""){
+                    $(obj).find(".earlyOrderPresentAmount."+groupId).val(data.quantity2)
+                    let exist = await self.earlyPresentExist(data.itemno2);
+                    if(exist){
+                        $(obj).find("select").val(data.itemno2)
+                    } else {
+                        $(obj).find("select").hide();
+                        $(obj).find(".CustomItemnrSwitch").attr('checked', true)
+                        $(obj).find(".earlyOrderCustomItemnr").show().val(data.itemno2) ;
+                    }
+                }
+            }
+            if(i==2){
+                if(data.itemno3 != ""){
+                    $(obj).find(".earlyOrderPresentAmount."+groupId).val(data.quantity3)
+                    let exist = await self.earlyPresentExist(data.itemno3);
+                    if(exist){
+                        $(obj).find("select").val(data.itemno3)
+                    } else {
+                        $(obj).find("select").hide();
+                        $(obj).find(".CustomItemnrSwitch").attr('checked', true)
+                        $(obj).find(".earlyOrderCustomItemnr").show().val(data.itemno3) ;
+                    }
+                }
+            }
+            if(i==3){
+                if(data.itemno4 != ""){
+                    $(obj).find(".earlyOrderPresentAmount."+groupId).val(data.quantity4)
+                    let exist = await self.earlyPresentExist(data.itemno4);
+                    if(exist){
+                        $(obj).find("select").val(data.itemno4)
+                    } else {
+                        $(obj).find("select").hide();
+                        $(obj).find(".CustomItemnrSwitch").attr('checked', true)
+                        $(obj).find(".earlyOrderCustomItemnr").show().val(data.itemno4);
+                    }
+                }
+            }
+      })
+      await this.delay();
+      resolve();
+    });
+}
+
+earlyPresentExist(itemno){
+    return new Promise(async resolve => {
+        let exist =  await super.post("cardshop/orderform/earlyPresentExist",{itemno:itemno});
+
+        let result = exist.result.length > 0 ? true:false;
+        resolve(result);
+    })
+}
+
+
+async insetDataIntoForm(data,groupId) {
+    let self = this;
+    return new Promise(async resolve => {
+      // adresse
+      $("."+groupId+"#ship_to_company").val(data.shipto_name);
+      $("."+groupId+"#ship_to_address").val(data.shipto_address);
+      $("."+groupId+"#ship_to_address_2").val(data.shipto_address2);
+      $("."+groupId+"#ship_to_postal_code").val(data.shipto_postcode);
+      $("."+groupId+"#ship_to_city").val(data.shipto_city);
+      $("."+groupId+"#language_code").val(data.shipto_country);
+      // contakt person
+      $( "."+groupId+".AdditionalOrderFormContact").val(data.shipto_contact);
+      $( "."+groupId+".AdditionalOrderFormEmail").val(data.shipto_email);
+      $( "."+groupId+".AdditionalOrderFormMobile").val(data.shipto_phone);
+      data.gls_shipment == 1 ? $( "."+groupId+".AdditionalOrderFormGLS").attr('checked', true) : "";
+
+      resolve();
+    });
+}
+
+ async AdditionalDeleveryAdressEarlyorders(data){
+        return new Promise(async resolve => {
+        let self = this;
+        let token = this.Token();
+        let earlyList = "";
+        let earlyPresentData = await super.post("cardshop/orderform/getEarlyPresent");
+
+        let adressHtml = tpEarlyorder.shippingForm(token,data)+tpEarlyorder.earlyOrderContact(token,data);
+
+        let childDropdown = tpOrderform.childList(this.childData.result,token);
+        for(let i=0;i<4;i++){
+            earlyList+= tpOrderform.earlyOrderPresent(earlyPresentData.result,token);
+        }
+
+        let html = "<div id='"+token+"' companyorderid = '"+data.id+"' class='newAdditionalDeleveryAdress'><div style='width:100%; height:50px;'> <button  type='button' class='btn btn-danger removeEarlyorder'>Remove</button><button style='float:right' type='button' class='btn btn-primary updateEarlyordersAdress'>Opdatere</button></div><hr><div class='itemError "+token+"'></div>"+earlyList+"<hr><br>"+childDropdown+"<br>"+adressHtml+"<hr></div>";
+        $(".tab-earlyorders").append(html)
+         resolve(token);
+       });
+    }
+
+
+    async CreateUpdate(data,companyorderID=""){
+           return new Promise(async resolve => {
+        let elementID = data;
+        let self = this;
+        let earlyItems = [];
+        let earlyItemCounter = 1;
+        let earlyData = {};
+        let earlyOrders = [];
+
+
+            earlyData = {};
+            earlyItems = [];
+            earlyItemCounter = 1;
+
+            $( ".earlyOrder."+elementID ).each(function() {
+                // get all orders
+                if($(this).find(".CustomItemnrSwitch").is(":checked")){
+                    if( $(this).find(".earlyOrderCustomItemnr").val() != ""  ){
+                        let itemnr = $(this).find(".earlyOrderCustomItemnr").val();
+                        if($(this).find(".earlyOrderPresentAmount").val() > 0  ){
+                             if(earlyItemCounter == 1){
+                                earlyItems.push("'itemno':'"+itemnr+"'")
+                                earlyItems.push("'quantity':'"+$(this).find(".earlyOrderPresentAmount").val()+"'")
+                              } else {
+                                let itemno = "'itemno"+earlyItemCounter+"'";
+                                let quantity = "'quantity"+earlyItemCounter+"'";
+                                earlyItems.push(itemno+":'"+itemnr+"'")
+                                earlyItems.push(quantity+":'"+$(this).find(".earlyOrderPresentAmount").val()+"'")
+                             }
+
+                        }
+                    }
+                } else {
+                    if( $(this).find("select").val() != ""  ){
+                        let itemnr = $(this).find("select").val();
+                        if($(this).find(".earlyOrderPresentAmount").val() > 0  ){
+                             if(earlyItemCounter == 1){
+                                earlyItems.push("'itemno':'"+itemnr+"'")
+                                earlyItems.push("'quantity':'"+$(this).find(".earlyOrderPresentAmount").val()+"'")
+                              } else {
+                                let itemno = "'itemno"+earlyItemCounter+"'";
+                                let quantity = "'quantity"+earlyItemCounter+"'";
+                                earlyItems.push(itemno+":'"+itemnr+"'")
+                                earlyItems.push(quantity+":'"+$(this).find(".earlyOrderPresentAmount").val()+"'")
+                             }
+                        }
+                    }
+                }
+                earlyItemCounter++;
+
+            })
+            // remove red error background
+            $( "."+elementID).removeClass("earlyOrderFormError");
+            $( "."+elementID+".itemError").html("");
+            // array to obj
+            let earlyDataString = "{"+earlyItems.join(',')+"}";
+            earlyData = JSON.parse(earlyDataString.replace(/'/g, '"'))
+            // set order adress
+
+
+            earlyData.shipto_name       = $( "."+elementID+".ship_to_company").val();
+            earlyData.shipto_address    = $( "."+elementID+".ship_to_address").val();
+            earlyData.shipto_address2   = $( "."+elementID+".ship_to_address_2").val();
+            earlyData.shipto_postcode   = $( "."+elementID+".ship_to_postal_code").val();
+            earlyData.shipto_city       = $( "."+elementID+".ship_to_city").val();
+            earlyData.shipto_country    = $( "."+elementID+".language_code").val();
+            earlyData.shipto_contact    = $( "."+elementID+".AdditionalOrderFormContact").val();
+            earlyData.shipto_email      = $( "."+elementID+".AdditionalOrderFormEmail").val();
+            earlyData.shipto_phone      = $( "."+elementID+".AdditionalOrderFormMobile").val();
+            earlyData.gls_shipment      = $( "."+elementID+".AdditionalOrderFormGLS").is(":checked") ? 1:0
+            earlyData.companyorder_id   = this.companyID
+            earlyData.shipment_type     = "earlyorder";
+           // error handling
+           if(  earlyItems.length == 0) $( "."+elementID+".itemError").html("<label class='earlyOrderFormError' style='color:white'>Valg af gaver mangler</label>");
+           if(  !!!earlyData.shipto_name ) $( "."+elementID+".ship_to_company").addClass("earlyOrderFormError")
+           if(  !!!earlyData.shipto_address ) $( "."+elementID+".ship_to_address").addClass("earlyOrderFormError")
+           if(  !!!earlyData.shipto_postcode ) $( "."+elementID+".ship_to_postal_code").addClass("earlyOrderFormError")
+           if(  !!!earlyData.shipto_city ) $( "."+elementID+".ship_to_city").addClass("earlyOrderFormError")
+           if(  !!!earlyData.shipto_contact ) $( "."+elementID+".AdditionalOrderFormContact").addClass("earlyOrderFormError")
+           if(  !!!earlyData.shipto_email ) $( "."+elementID+".AdditionalOrderFormEmail").addClass("earlyOrderFormError")
+           if(  !!!earlyData.shipto_phone ) $( "."+elementID+".AdditionalOrderFormMobile").addClass("earlyOrderFormError")
+
+           // if error end process
+           if( $( "."+elementID).find(".earlyOrderFormError").length > 0 )  return;
+
+           // send update
+           let result = await super.post("cardshop/earlyorder/update/"+companyorderID,{shipmentdata:earlyData});
+                     resolve(result);
+           })
+
+    }
+
+    async Remove(data,companyorderID=""){
+        if(confirm("Du sletter nu en early order")){
+            let result = await super.post("cardshop/earlyorder/delete/"+companyorderID);
+        }
+
+    }
+    delay(){
+        return new Promise(resolve => {
+            setTimeout(function() {
+              resolve();
+            }, 50)
+        })
+    }
+
+    Rand(){
+        return Math.random().toString(36).substr(2);
+    }
+    Token(){
+       return this.Rand() + this.Rand();
+    }
+
+
+}

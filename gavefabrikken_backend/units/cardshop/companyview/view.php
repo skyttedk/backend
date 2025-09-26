@@ -1,0 +1,1 @@
+New view for companyview

@@ -1,0 +1,16 @@
+# Allow direct access to CSS and JS files
+RewriteEngine On
+
+# Allow access to CSS files
+RewriteRule ^css/(.*)$ css/$1 [L]
+
+# Allow access to JS files
+RewriteRule ^js/(.*)$ js/$1 [L]
+
+# Allow access to other static files
+RewriteRule \.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot)$ - [L]
+
+# Default PHP handling
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . controller.php [L]

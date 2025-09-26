@@ -1,0 +1,1013 @@
+/* Custom CSS for MailPortal */
+
+/* Global Styles */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Navigation */
+.navbar-brand {
+    font-weight: bold;
+}
+
+.nav-link {
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+}
+
+/* Statistics Cards */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card.bg-primary { background: linear-gradient(135deg, #007bff, #0056b3) !important; }
+.card.bg-success { background: linear-gradient(135deg, #28a745, #1e7e34) !important; }
+.card.bg-warning { background: linear-gradient(135deg, #ffc107, #e0a800) !important; }
+.card.bg-danger { background: linear-gradient(135deg, #dc3545, #c82333) !important; }
+
+/* Tab Content - Hide inactive main navigation tabs */
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Ensure Bootstrap tab panes within modals work correctly */
+.modal .tab-content {
+    display: block !important;
+}
+
+.modal .tab-content .tab-pane {
+    display: none;
+}
+
+.modal .tab-content .tab-pane.active {
+    display: block;
+}
+
+/* Ensure Bootstrap tab panes work correctly */
+.tab-content .tab-pane {
+    display: none;
+}
+
+.tab-content .tab-pane.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Tables */
+.table {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.table thead th {
+    border: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+}
+
+.table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.table tbody tr:hover {
+    background-color: #f1f3f4;
+    transform: scale(1.01);
+}
+
+.table tbody td {
+    border-top: 1px solid #f1f3f4;
+    vertical-align: middle;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-1px);
+}
+
+.btn-group-sm .btn {
+    border-radius: 5px;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-success:hover,
+.btn-outline-info:hover,
+.btn-outline-danger:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Badges */
+.badge {
+    font-size: 0.75em;
+    padding: 0.5em 0.75em;
+    border-radius: 6px;
+    font-weight: 500;
+}
+
+/* Forms */
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+}
+
+/* Modals */
+.modal-content {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    border-bottom: 1px solid #f1f3f4;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-footer {
+    border-top: 1px solid #f1f3f4;
+    border-radius: 0 0 15px 15px;
+}
+
+/* Template List */
+.list-group-item {
+    border: 1px solid #f1f3f4;
+    transition: all 0.2s ease;
+}
+
+.list-group-item:hover {
+    background-color: #f8f9fa;
+    transform: translateX(3px);
+}
+
+.list-group-item.active {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+.list-group-item-secondary {
+    background-color: #6c757d;
+    color: white;
+    font-weight: 600;
+}
+
+/* Template Editor */
+#templateEditor {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#templatePlaceholder {
+    background: white;
+    border-radius: 10px;
+    padding: 60px 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+#templateBody {
+    font-family: 'Courier New', monospace;
+    font-size: 0.9em;
+}
+
+/* Progress Bars */
+.progress {
+    border-radius: 10px;
+    overflow: hidden;
+    height: 20px;
+}
+
+.progress-bar {
+    transition: width 0.6s ease;
+}
+
+/* Loading Spinner */
+#loadingSpinner {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Checkboxes */
+input[type="checkbox"] {
+    transform: scale(1.2);
+    margin-right: 0.5rem;
+}
+
+/* Email Preview */
+#emailPreviewModal .modal-dialog {
+    max-width: 700px;
+}
+
+#previewBody {
+    font-family: Georgia, serif;
+    line-height: 1.6;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+/* Live Preview Frame Fixes */
+#emailPreviewFrame {
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+    overflow: auto !important;
+}
+
+/* Ensure iframe content wraps properly */
+#emailPreviewFrame body {
+    word-wrap: break-word !important;
+    overflow-wrap: break-word !important;
+    white-space: normal !important;
+    max-width: 100% !important;
+}
+
+/* Fix for long text in preview */
+.preview-content {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    max-width: 100%;
+    padding: 10px;
+    font-family: Arial, sans-serif;
+    line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container-fluid {
+        padding-left: 8px !important;
+        padding-right: 8px !important;
+    }
+    
+    .card-body {
+        padding: 10px;
+    }
+    
+    .btn-group .btn {
+        padding: 0.25rem 0.4rem;
+        font-size: 0.75rem;
+    }
+    
+    .table-responsive {
+        font-size: 0.85em;
+    }
+    
+    /* Sticky headers for scrollable tables */
+    .table-responsive .table thead th {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        background-color: var(--bs-light);
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .modal-dialog {
+        margin: 5px;
+        max-width: calc(100vw - 10px);
+    }
+    
+    .col-md-4, .col-md-6, .col-md-8 {
+        margin-bottom: 15px;
+    }
+    
+    /* Optimize template cards for mobile */
+    .template-card .card-body {
+        padding: 1rem;
+    }
+    
+    /* Make tables more compact on mobile */
+    .table td {
+        padding: 0.5rem 0.25rem;
+    }
+    
+    /* Smaller navigation text on mobile */
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container-fluid {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+    }
+    
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .btn-group .btn {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.3rem;
+    }
+    
+    /* Stack template selection cards */
+    .col-md-6 {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    
+    /* Full width modals on very small screens */
+    .modal-dialog {
+        margin: 0;
+        max-width: 100vw;
+        height: 100vh;
+    }
+    
+    .modal-content {
+        height: 100vh;
+        border-radius: 0;
+    }
+}
+
+/* Custom Animations */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.card-body h3 {
+    animation: pulse 2s infinite;
+}
+
+/* Status Indicators */
+.status-sent {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.status-pending {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.status-error {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+/* Template Variables Helper */
+.form-text {
+    background-color: #e7f3ff;
+    padding: 8px 12px;
+    border-radius: 5px;
+    margin-top: 5px;
+    border-left: 3px solid #007bff;
+}
+
+/* Action Buttons Spacing */
+.d-flex.gap-2 > * {
+    margin-right: 0.5rem;
+}
+
+.d-flex.gap-2 > *:last-child {
+    margin-right: 0;
+}
+
+/* Custom Utilities */
+.text-shadow {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.border-radius-lg {
+    border-radius: 15px !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+/* Enhanced Template Table Styles */
+.template-row {
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+}
+
+.template-row:hover {
+    background-color: #f8f9fa;
+    border-left-color: #007bff;
+    transform: translateX(2px);
+}
+
+.template-row .btn-group .btn {
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.template-row:hover .btn-group .btn {
+    opacity: 1;
+}
+
+/* Table styling improvements */
+#templatesTable thead th {
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    letter-spacing: 0.5px;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+#templatesTable tbody td {
+    vertical-align: middle;
+    padding: 12px;
+}
+
+/* Search and filter bar styling */
+.input-group-text {
+    background-color: #f8f9fa;
+    border-color: #ced4da;
+}
+
+.btn-group .btn.active {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+/* Badge styling for templates */
+.badge.bg-success {
+    background-color: #198754 !important;
+}
+
+.badge.bg-warning {
+    background-color: #fd7e14 !important;
+    color: white;
+}
+
+.badge.bg-secondary {
+    background-color: #6c757d !important;
+}
+
+/* Enhanced preview modes */
+#emailPreviewFrame {
+    transition: width 0.3s ease;
+    border-radius: 8px;
+}
+
+.btn-group .btn {
+    border-radius: 0;
+}
+
+.btn-group .btn:first-child {
+    border-radius: 6px 0 0 6px;
+}
+
+.btn-group .btn:last-child {
+    border-radius: 0 6px 6px 0;
+}
+
+/* Email Preview Container Styling */
+.preview-container {
+    background: #f8f9fa !important;
+    padding: 20px !important;
+    text-align: center !important;
+}
+
+.email-preview-wrapper {
+    display: inline-block;
+    background: white;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Desktop view - default 600px */
+.preview-desktop .email-preview-wrapper {
+    width: 600px;
+    max-width: 600px;
+}
+
+.preview-desktop #emailPreviewFrame {
+    width: 600px !important;
+    height: 500px;
+}
+
+/* Mobile preview simulation */
+.preview-mobile .email-preview-wrapper {
+    width: 375px;
+    max-width: 375px;
+    border: 2px solid #dee2e6;
+    border-radius: 12px;
+}
+
+.preview-mobile #emailPreviewFrame {
+    width: 375px !important;
+    height: 500px;
+}
+
+/* Placeholder dropdown styling */
+.placeholder-dropdown {
+    min-width: 250px;
+    max-width: 300px;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    background: white;
+    position: fixed !important;
+}
+
+.placeholder-dropdown .dropdown-header {
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #dee2e6;
+    color: #495057;
+    font-weight: 600;
+    padding: 8px 16px;
+    margin-bottom: 0;
+    border-radius: 8px 8px 0 0;
+}
+
+.placeholder-dropdown .dropdown-item {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f1f3f4;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #495057;
+    cursor: pointer;
+}
+
+.placeholder-dropdown .dropdown-item:hover {
+    background-color: #e7f3ff;
+    transform: translateX(3px);
+    color: #0066cc;
+}
+
+.placeholder-dropdown .dropdown-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 8px 8px;
+}
+
+.placeholder-dropdown .dropdown-item code {
+    background-color: #e9ecef;
+    color: #0066cc;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: 600;
+    margin-right: 8px;
+    font-size: 0.85em;
+    min-width: 80px;
+    text-align: center;
+}
+
+.placeholder-dropdown .dropdown-item:hover code {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Template count badge */
+#templateCount {
+    font-size: 0.75em;
+    min-width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Enhanced tab styling */
+.nav-tabs .nav-link {
+    border-radius: 8px 8px 0 0;
+    border: none;
+    background-color: #f8f9fa;
+    color: #6c757d;
+    margin-right: 2px;
+    transition: all 0.2s ease;
+}
+
+.nav-tabs .nav-link.active {
+    background-color: white;
+    color: #495057;
+    border-bottom: 2px solid #007bff;
+}
+
+.nav-tabs .nav-link:hover {
+    background-color: #e9ecef;
+}
+
+/* Editor improvements */
+.ck-editor__editable {
+    border-radius: 8px;
+    min-height: 300px;
+}
+
+/* Language Accordion Styling */
+#languageAccordion .accordion-button {
+    background-color: #f8f9fa;
+    border: none;
+    border-radius: 8px;
+    margin-bottom: 2px;
+    transition: all 0.2s ease;
+}
+
+#languageAccordion .accordion-button:not(.collapsed) {
+    background-color: #007bff;
+    color: white;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+#languageAccordion .accordion-button:hover {
+    background-color: #e9ecef;
+}
+
+#languageAccordion .accordion-button:not(.collapsed):hover {
+    background-color: #0056b3;
+}
+
+#languageAccordion .accordion-body {
+    background-color: #f8f9fa;
+    border-radius: 0 0 8px 8px;
+}
+
+#languageAccordion .accordion-item {
+    border: none;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Template name badges styling */
+.badge.badge-sm {
+    font-size: 0.7rem;
+    padding: 0.25em 0.5em;
+}
+
+/* Full-screen modal styling - CRITICAL FIX FOR FOOTER VISIBILITY */
+#templateEditorModal .modal-fullscreen {
+    width: 100vw;
+    max-width: none;
+    height: 100vh;
+    margin: 0;
+}
+
+#templateEditorModal .modal-fullscreen .modal-content {
+    height: 100vh;
+    border: 0;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#templateEditorModal .modal-body {
+    padding: 1.5rem;
+    overflow-y: auto;
+    flex: 1;
+    min-height: 0;
+}
+
+#templateEditorModal .modal-header {
+    border-bottom: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    flex-shrink: 0;
+}
+
+#templateEditorModal .modal-footer {
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
+    flex-shrink: 0;
+}
+
+/* CRITICAL FIX: Force Summernote to not overlay footer */
+#templateEditorModal .note-editor {
+    position: relative !important;
+    height: auto !important;
+    max-height: none !important;
+    z-index: 1 !important;
+    margin-bottom: 30px !important;
+}
+
+#templateEditorModal .note-editing-area {
+    position: relative !important;
+    height: auto !important;
+}
+
+#templateEditorModal .note-editable {
+    position: relative !important;
+    height: 400px !important;
+    max-height: 400px !important;
+    overflow-y: auto !important;
+}
+
+/* Ensure all Summernote elements stay within their containers */
+#templateEditorModal .note-editor,
+#templateEditorModal .note-editor *,
+#templateEditorModal .note-editing-area,
+#templateEditorModal .note-editing-area * {
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+/* Force normal document flow for Summernote in modal */
+#templateEditorModal .note-statusbar {
+    position: relative !important;
+}
+
+/* Sending Manager Specific Styles */
+.template-card {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.template-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+.template-card.selected {
+    border-color: #007bff;
+    background-color: #e7f3ff;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 123, 255, 0.2);
+}
+
+.template-card .card-body {
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.template-languages .badge {
+    margin: 2px;
+    font-size: 0.7rem;
+}
+
+.sending-step {
+    min-height: 400px;
+}
+
+.recipient-selector {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.progress-bar-animated {
+    animation: progress-bar-stripes 1s linear infinite;
+}
+
+@keyframes progress-bar-stripes {
+    from { background-position: 1rem 0; }
+    to { background-position: 0 0; }
+}
+
+.sticky-top {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+/* Status badges */
+.badge.bg-warning {
+    color: #000 !important;
+}
+
+/* Modal step navigation */
+.sending-step h6 {
+    color: #007bff;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Progress card styling */
+#sendingProgressCard {
+    border-left: 4px solid #007bff;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+#sendingProgressCard .card-header {
+    background-color: rgba(0, 123, 255, 0.1);
+    border-bottom: 1px solid rgba(0, 123, 255, 0.2);
+}
+
+/* Recipient table improvements */
+.recipient-checkbox {
+    transform: scale(1.3);
+    margin-right: 0.5rem;
+}
+
+/* Enhanced navigation */
+#sendingesTab.active,
+#contactsTab.active,
+#templatesTab.active {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+/* Card hover effects for sendings */
+.card.mb-4:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Table search and sorting - Light theme optimized */
+.sortable-header {
+    user-select: none;
+    transition: background-color 0.2s ease;
+    position: relative;
+    background-color: #f8f9fa;
+    border-bottom: 2px solid #dee2e6;
+}
+
+/* Light theme headers - subtle hover effect */
+.table-light .sortable-header:hover,
+.sortable-header:hover {
+    background-color: #e9ecef !important;
+}
+
+.sort-icon {
+    opacity: 0.5;
+    margin-left: 5px;
+    transition: all 0.2s ease;
+}
+
+.sortable-header:hover .sort-icon {
+    opacity: 1;
+}
+
+/* Active sort indicators */
+.sortable-header.sort-asc .sort-icon,
+.sortable-header.sort-desc .sort-icon {
+    opacity: 1;
+    color: #0d6efd;
+}
+
+/* Light theme active sort background - subtle blue tint */
+.table-light .sortable-header.sort-asc,
+.table-light .sortable-header.sort-desc,
+.sortable-header.sort-asc,
+.sortable-header.sort-desc {
+    background-color: #e7f1ff !important;
+    border-bottom: 2px solid #0d6efd;
+}
+
+/* Global table styling - Light theme by default */
+.table {
+    background-color: white;
+}
+
+.table thead th {
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: normal;
+}
+
+.table-light th {
+    background-color: #f8f9fa !important;
+    color: #495057 !important;
+    border-bottom: 2px solid #dee2e6;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f8f9fa;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Sortable header cursor and visual feedback */
+.sortable-header {
+    cursor: pointer !important;
+}
+
+.sortable-header:active {
+    transform: scale(0.98);
+}
+
+/* Search input styling */
+#contactSearchInput {
+    border-right: none;
+}
+
+#clearSearchBtn {
+    border-left: none;
+    background-color: white;
+}
+
+/* Fix Summernote dropdowns in template editor modal */
+/* Ensure Summernote dropdowns appear above modal and are functional */
+#templateEditorModal .note-editor .dropdown-menu,
+#templateEditorModal .note-editor .note-dropdown-menu,
+#templateEditorModal .note-editor .btn-group .dropdown-menu {
+    z-index: 2100 !important;
+    position: absolute !important;
+    background: white !important;
+    border: 1px solid #ccc !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+    max-height: 200px !important;
+    overflow-y: auto !important;
+    /* Let Bootstrap/Summernote control visibility naturally */
+}
+
+/* Ensure dropdowns are visible when shown */
+#templateEditorModal .note-editor .btn-group.show .dropdown-menu,
+#templateEditorModal .note-editor .dropdown.show .dropdown-menu,
+#templateEditorModal .note-editor .note-toolbar .btn-group.show .dropdown-menu,
+#templateEditorModal .note-editor .note-toolbar .dropdown.show .dropdown-menu {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+/* Override any modal CSS that might interfere with dropdowns - but preserve footer visibility */
+#templateEditorModal .modal-dialog {
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    max-height: calc(100vh - 3.5rem) !important;
+}
+
+#templateEditorModal .modal-content {
+    overflow: visible !important;
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+}
+
+#templateEditorModal .modal-body {
+    overflow-y: auto !important;
+    overflow-x: visible !important;
+    flex: 1 !important;
+}
+
+/* Ensure modal footer stays visible */
+#templateEditorModal .modal-footer {
+    flex-shrink: 0 !important;
+    overflow: visible !important;
+}
+
+#templateEditorModal .note-editor .note-popover .popover {
+    z-index: 2100 !important;
+}
+
+#templateEditorModal .note-editor .note-toolbar {
+    z-index: 1060 !important;
+}
+
+/* Modal backdrop adjustment */
+.modal-backdrop {
+    z-index: 1040 !important;
+}
+
+.modal {
+    z-index: 1050 !important;
+}
